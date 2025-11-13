@@ -13,6 +13,7 @@ using HotelManagement.DTO;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
 using ApplicationSettings;
+using HotelManagement.DAO;
 
 namespace HotelManagement.GUI
 {
@@ -207,7 +208,7 @@ namespace HotelManagement.GUI
         private void FormThemNhanVien_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemNhanVien;
-           
+
         }
         private void CTTextBoxNhapHoTen__TextChanged(object sender, EventArgs e)
         {
@@ -254,7 +255,7 @@ namespace HotelManagement.GUI
         {
             
             string HoTen = CTTextBoxNhapHoTen.Texts;
-            string ChucVu = CTTextBoxNhapChucVu.Texts;
+            string ChucVu = cbChucVu.SelectedItem?.ToString() ?? "";
             string Luong = CTTextBoxLuong.Texts;
             string SDT = ctTextBoxSDT.Texts;
             string CCCD = CTTextBoxNhapCCCD.Texts;

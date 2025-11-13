@@ -31,6 +31,31 @@ namespace HotelManagement.BUS
         }
         public void UpdateOrInsert(NhanVien nhanVien)
         {
+
+            int age = DateTime.Now.Year - nhanVien.NgaySinh.Year;
+            if (nhanVien.NgaySinh > DateTime.Now.AddYears(-age))
+            {
+                age--; // Điều chỉnh nếu chưa tới ngày sinh trong năm nay
+            }
+            // Check tuổi < 18
+            if (age < 18)
+            {
+                throw new Exception("Nhân viên phải từ 18 tuổi trở lên.");
+            }
+
+            // Insert data vô db
+            int age = DateTime.Now.Year - nhanVien.NgaySinh.Year;
+            if (nhanVien.NgaySinh > DateTime.Now.AddYears(-age))
+            {
+                age--; // Điều chỉnh nếu chưa tới ngày sinh trong năm nay
+            }
+            // Check tuổi < 18
+            if (age < 18)
+            {
+                throw new Exception("Nhân viên phải từ 18 tuổi trở lên.");
+            }
+
+            // Insert data vô db
             NhanVienDAO.Instance.UpdateOrInsert(nhanVien);
         }
         public void RemoveNhanVien(NhanVien nhanVien)
