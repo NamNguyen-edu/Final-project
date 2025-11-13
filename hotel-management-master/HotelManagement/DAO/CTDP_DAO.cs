@@ -171,6 +171,18 @@ namespace HotelManagement.DAO
                 }
                 return "CTDP" + max.ToString();      
         }
+        public bool HasFutureBookingForRoom(string maPhong, DateTime now)
+        {
+            using (var db = new HotelDTO())
+            {
+                return db.CTDPs.Any(p =>
+                     p.DaXoa == false
+                && p.MaPH == maPhong
+                && p.TrangThai == "Đã đặt"
+                && now < p.CheckOut
+                );
+            }
+        }
 
     }
 }

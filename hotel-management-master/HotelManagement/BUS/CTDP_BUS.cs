@@ -51,6 +51,10 @@ namespace HotelManagement.BUS
         public void RemoveCTDP(CTDP cTDP)
         {
             CTDP_DAO.Instance.RemoveCTDP(cTDP);
-        }    
+        }
+        public bool HasFutureBookingForRoom(string maPhong, DateTime now)
+        {
+            return CTDP_DAO.Instance.HasFutureBookingForRoom(maPhong, now);
+        }
     }
 }
