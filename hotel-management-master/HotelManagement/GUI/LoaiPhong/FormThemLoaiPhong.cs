@@ -1,4 +1,5 @@
-﻿using HotelManagement.CTControls;
+﻿using HotelManagement.BUS;
+using HotelManagement.CTControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -212,6 +213,12 @@ namespace HotelManagement.GUI
             string SoNguoi = ctTextBoxSoNguoi.Texts;
             string GiaNgay = ctTextBoxGiaNgay.Texts;
             string GiaGio = ctTextBoxGiaGio.Texts;
+            if (!LoaiPhongBUS.Instance.IsValidGia(decimal.Parse(GiaNgay), decimal.Parse(GiaGio), out string error))
+            {
+                CTMessageBox.Show(error, "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (TenLP == "" || SoGiuong == "" || SoNguoi == "" || GiaNgay == "" || GiaGio == "")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin loại phòng.", "Thông báo",

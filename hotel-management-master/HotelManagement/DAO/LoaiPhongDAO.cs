@@ -42,13 +42,31 @@ namespace HotelManagement.DAO
 
                 db.LoaiPhongs.Remove(loaiPhong);
                 db.SaveChanges();
-            
+
         }
         public List<LoaiPhong> getLoaiPhongWithName(string TenLP)
         {
 
-                return db.LoaiPhongs.Where(p => p.TenLPH.Contains(TenLP)).ToList();
-            
+            return db.LoaiPhongs.Where(p => p.TenLPH.Contains(TenLP)).ToList();
+
+        }
+        public bool IsValidGia(decimal giaNgay, decimal giaGio, out string error)
+        {
+            error = "";
+
+            if (giaNgay < 50000 || giaGio < 50000)
+            {
+                error = "Giá ngày và giá giờ phải lớn hơn hoặc bằng 50.000.";
+                return false;
+            }
+
+            if (giaNgay <= giaGio)
+            {
+                error = "Giá ngày phải lớn hơn giá giờ.";
+                return false;
+            }
+
+            return true;
         }
     }
 }
