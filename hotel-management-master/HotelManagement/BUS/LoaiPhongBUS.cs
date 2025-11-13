@@ -37,5 +37,9 @@ namespace HotelManagement.BUS
         {
             return LoaiPhongDAO.Instance.getLoaiPhongWithName(TenLP);
         }
+        public bool IsValidGia(decimal giaNgay, decimal giaGio, out string error)
+        {
+            return LoaiPhongDAO.Instance.IsValidGia(giaNgay, giaGio, out error);
+        }
     }
 }
