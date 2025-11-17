@@ -39,7 +39,7 @@ namespace HotelManagement
                 LoadFormForNhanVien();
             else if (this.LoaiTK == 2)
                 LoadFormQuanLy();
-            customDesign();
+            //customDesign();
         }
         private void LoadFormForNhanVien()
         {
