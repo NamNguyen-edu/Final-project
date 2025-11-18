@@ -768,10 +768,10 @@ namespace HotelManagement.GUI
         {
             try
             {
-                string smtpHost = "smtp.gmail.com"; // placeholder
+                string smtpHost = "smtp.gmail.com"; 
                 int smtpPort = 587;
                 string smtpUser = "ngynam05@gmail.com";
-                string smtpPass = "lmyarytfnihtcqps";
+                string smtpPass = "pass"; // Sử dụng app password
 
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(smtpUser, "Hotel Management System");
