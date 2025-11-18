@@ -230,8 +230,6 @@ namespace HotelManagement.GUI
 
         }
 
-
-
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;

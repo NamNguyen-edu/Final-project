@@ -228,7 +228,6 @@ namespace HotelManagement.GUI
                 string DonDep = comboBoxDonDep.Texts;
                 string LoaiPhong = comboBoxLoaiPhong.Texts;
                 string GhiChu = ctTextBoxGhiChu.Texts;
-                int flag1 = 0;
 
                 if (TinhTrang == "Tình trạng phòng" || DonDep == "Tình trạng dọn dẹp" || LoaiPhong == "Loại phòng" || MaPH == "")
                 {
