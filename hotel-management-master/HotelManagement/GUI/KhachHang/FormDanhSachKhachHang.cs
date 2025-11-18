@@ -181,7 +181,7 @@ namespace HotelManagement.GUI
                     }
                     finally { formBackground.Dispose(); }
                 }
-                if (x == 8)
+                if (x == 9)
                 {
                     if(taiKhoan.CapDoQuyen==1)
                     {
