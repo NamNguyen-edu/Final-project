@@ -95,7 +95,7 @@ namespace HotelManagement.GUI
                 grid.Rows.Clear();
                 foreach (Phong phong in this.phongs)
                 {
-                    grid.Rows.Add(new object[] { PH, phong.MaPH, phong.TTPH, phong.TTDD, phong.LoaiPhong.TenLPH, edit, delete });
+                    grid.Rows.Add(new object[] { PH, phong.MaPH, phong.Tang, phong.TTPH, phong.TTDD, phong.LoaiPhong.TenLPH, edit, delete });
                 }    
             }
             catch(Exception ex) 
@@ -153,7 +153,7 @@ namespace HotelManagement.GUI
             if (y >= 0)
             {
                 // If click Update button 
-                if (x == 5)
+                if (x == 6)
                 {
                     if (taiKhoan.CapDoQuyen == 1)
                     {
@@ -184,7 +184,7 @@ namespace HotelManagement.GUI
                         formBackground.Dispose(); 
                     }
                 }
-                if (x == 6)
+                if (x == 7)
                 {
 
                     // If click delete button
@@ -228,13 +228,13 @@ namespace HotelManagement.GUI
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
-            int[] arrX = { 1, 2, 3, 4 };
+            int[] arrX = { 1, 2, 3, 4, 5};
             bool isExists = false;
 
             if (Array.IndexOf(arrX, x) != -1)
                 isExists = true;
 
-            if (y >= 0 && x == 5 || y >= 0 && x == 6 || y == -1 && isExists)
+            if (y >= 0 && x == 6 || y >= 0 && x == 7 || y == -1 && isExists)
                 grid.Cursor = Cursors.Hand;
             else
                 grid.Cursor = Cursors.Default;

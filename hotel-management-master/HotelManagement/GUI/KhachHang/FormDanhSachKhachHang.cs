@@ -88,7 +88,7 @@ namespace HotelManagement.GUI
                 grid.Rows.Clear();
                 foreach (KhachHang khachHang in khachHangs)
                 {
-                    grid.Rows.Add(this.KH, khachHang.MaKH, khachHang.TenKH, khachHang.CCCD_Passport, khachHang.SDT, khachHang.QuocTich, khachHang.GioiTinh, edit, delete);
+                    grid.Rows.Add(this.KH, khachHang.MaKH, khachHang.TenKH, khachHang.CCCD_Passport, khachHang.SDT, khachHang.QuocTich, khachHang.GioiTinh, khachHang.Email, edit, delete);
                 }    
             }
             catch(Exception ex) 

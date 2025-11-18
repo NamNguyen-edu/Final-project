@@ -250,10 +250,10 @@ namespace HotelManagement.GUI
                 this.formDanhSachDichVu.LoadALLDV();
                 this.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CTMessageBox.Show(ex.Message, "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

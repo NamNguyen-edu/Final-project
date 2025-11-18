@@ -210,60 +210,35 @@ namespace HotelManagement.GUI
         private void FormThemPhong_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemPhong;
+            comboBoxTang.Items.Clear();
+            comboBoxTang.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
         }
 
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-
-            
-            string MaPH = ctTextBoxMaPH.Texts;
-            string TinhTrang = comboBoxTinhTrangPhong.Texts;
-            string DonDep = comboBoxDonDep.Texts;
-            string LoaiPhong = comboBoxLoaiPhong.Texts;
-            string GhiChu = ctTextBoxGhiChu.Texts;
-            int flag1 = 0;
-            
-            if (TinhTrang == "Tình trạng phòng" || DonDep == "Tình trạng dọn dẹp" || LoaiPhong == "Loại phòng" || MaPH == "")
-            {
-                CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin phòng.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             try
             {
-                if (ctTextBoxMaPH.Texts.Length != 4 && !ctTextBoxMaPH.Texts.StartsWith("P"))
+                if (!int.TryParse(comboBoxTang.SelectedItem?.ToString(), out int tang))
                 {
-                    CTMessageBox.Show("Mã phòng sai cú pháp\r\n Vui lòng nhập theo cú pháp P+ tầng + mã phòng VD: P100", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    flag1 = 1;
+                    CTMessageBox.Show("Vui lòng chọn tầng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-                int flag = 0;
-                for (int i = 1; i <= 5; i++)
-                {
+                string MaPH = PhongBUS.Instance.GenerateNextRoomCode(tang);
+                string TinhTrang = comboBoxTinhTrangPhong.Texts;
+                string DonDep = comboBoxDonDep.Texts;
+                string LoaiPhong = comboBoxLoaiPhong.Texts;
+                string GhiChu = ctTextBoxGhiChu.Texts;
+                int flag1 = 0;
 
-                    if (int.Parse(ctTextBoxMaPH.Texts[1]+"") == i)
-                    {
-                        flag = 1;
-                        break;
-                    }
-                }
-                if (flag == 0)
+                if (TinhTrang == "Tình trạng phòng" || DonDep == "Tình trạng dọn dẹp" || LoaiPhong == "Loại phòng" || MaPH == "")
                 {
-                    CTMessageBox.Show("Số tầng tối đa trong khách sạn chỉ là 5", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    flag1 = 1;
-                     return;
-                }
-                List<Phong> phongs = PhongBUS.Instance.GetAllPhong();
-                Phong phong = phongs.Where(p => p.MaPH == MaPH).SingleOrDefault();
-                if (phong!=null)
-                {
-                    string Maph1 = phongs.Where(p => p.MaPH.StartsWith("P" + MaPH[1])).LastOrDefault().MaPH;
-                    CTMessageBox.Show("Đã tồn tại phòng này trên tầng \r\n Phòng tối đa trong tầng là: " + Maph1, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    flag1 = 1;
+                    CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin phòng.", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 Phong phong1 = new Phong();
-                phong1.MaPH= MaPH;
+                phong1.MaPH = MaPH;
+                phong1.Tang = tang;
                 phong1.DaXoa = false;
                 phong1.GhiChu = GhiChu;
                 if (DonDep == "Đã dọn dẹp")
@@ -283,21 +258,15 @@ namespace HotelManagement.GUI
                 else
                     phong1.MaLPH = "VIP02";
                 PhongBUS.Instance.UpdateOrAdd(phong1);
+
+                CTMessageBox.Show($"Thêm phòng {MaPH} (tầng {tang}) thành công.", "Thông báo",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                flag1 = 1;
-            }
-            finally
-            {
-                if (flag1 == 0)
-                {
-                    CTMessageBox.Show("Thêm thông tin thành công.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
+                CTMessageBox.Show("Đã xảy ra lỗi khi thêm phòng:\n" + ex.Message,
+                                  "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
