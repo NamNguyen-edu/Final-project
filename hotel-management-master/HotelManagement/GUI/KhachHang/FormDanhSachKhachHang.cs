@@ -160,7 +160,7 @@ namespace HotelManagement.GUI
             if (y >= 0)
             {
                 // If click Update button 
-                if (x == 7)
+                if (x == 8)
                 {
                     FormBackground formBackground = new FormBackground(formMain);
                     try

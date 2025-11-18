@@ -618,7 +618,7 @@ namespace HotelManagement.GUI
                     {
                         SendBookingEmail(khachHang, phieuThue, listPhongDaDat); // Gọi hàm gửi mail
 
-                        CTMessageBox.Show("Đặt phòng thành công.", "Thông báo",
+                        CTMessageBox.Show("Đặt phòng thành công\n Vui lòng kiểm tra email.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     this.Close();
