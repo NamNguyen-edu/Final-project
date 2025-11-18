@@ -43,7 +43,7 @@ namespace HotelManagement.BUS
                 throw new Exception("Nhân viên phải từ 18 tuổi trở lên.");
             }
 
-            // Insert data vô db
+            // Insert data vô db5
             NhanVienDAO.Instance.UpdateOrInsert(nhanVien);
         }
         public void RemoveNhanVien(NhanVien nhanVien)

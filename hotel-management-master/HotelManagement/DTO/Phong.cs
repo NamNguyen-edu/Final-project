@@ -33,7 +33,7 @@ namespace HotelManagement.DTO
         [StringLength(5)]
         public string MaLPH { get; set; }
 
-
+        public int Tang { get; set; }
         public bool? DaXoa { get; set; }
         public virtual LoaiPhong LoaiPhong { get; set; }
 

@@ -41,5 +41,9 @@ namespace HotelManagement.BUS
         {
             PhongDAO.Instance.RemovePhong(maPH);
         }
+        public string GenerateNextRoomCode(int tang)
+        {
+           return PhongDAO.Instance.GenerateNextRoomCode(tang);
+        }
     }
 }
