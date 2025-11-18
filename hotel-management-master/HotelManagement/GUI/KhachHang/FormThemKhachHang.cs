@@ -217,7 +217,7 @@ namespace HotelManagement.GUI
 
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-            if (this.ctTextBoxName.Texts != "" && this.ctTextBoxQuocTich.Texts != "" && this.ctTextBoxCMND.Texts != "" && this.comboBoxGioiTinh.Texts != "  Giới tính")
+            if (this.ctTextBoxName.Texts != "" && this.ctTextBoxQuocTich.Texts != "" && this.ctTextBoxCMND.Texts != "" && this.ctTextBoxEmail.Texts != "" && this.comboBoxGioiTinh.Texts != "  Giới tính")
             {
                 if (ctTextBoxCMND.Texts.Length != 12 && ctTextBoxCMND.Texts.Length != 7 )
                 {
@@ -229,6 +229,12 @@ namespace HotelManagement.GUI
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (!ctTextBoxEmail.Texts.Contains("@") || !ctTextBoxEmail.Texts.Contains("."))
+                {
+                    CTMessageBox.Show("Email không hợp lệ!", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
@@ -250,6 +256,7 @@ namespace HotelManagement.GUI
                     khachHang1.QuocTich = this.ctTextBoxQuocTich.Texts;
                     khachHang1.CCCD_Passport = this.ctTextBoxCMND.Texts;
                     khachHang1.SDT = this.ctTextBoxSDT.Texts;
+                    khachHang1.Email = this.ctTextBoxEmail.Texts;
                     khachHang1.GioiTinh = this.comboBoxGioiTinh.Texts.Trim(' ');
                     KhachHangBUS.Instance.UpdateOrAdd(khachHang1);
 

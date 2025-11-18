@@ -44,6 +44,7 @@ namespace HotelManagement.GUI
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ctPanel1 = new CTPanel.CTPanel();
@@ -115,6 +116,7 @@ namespace HotelManagement.GUI
             this.Column5,
             this.Column6,
             this.Column7,
+            this.ColumnEmail,
             this.Column8,
             this.Column9});
             this.grid.Cursor = System.Windows.Forms.Cursors.Default;
@@ -203,6 +205,14 @@ namespace HotelManagement.GUI
             this.Column7.HeaderText = "Giới tính";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            // 
+            // ColumnEmail
+            // 
+            this.ColumnEmail.FillWeight = 200F;
+            this.ColumnEmail.HeaderText = "Email";
+            this.ColumnEmail.Name = "ColumnEmail";
+            this.ColumnEmail.ReadOnly = true;
+            this.ColumnEmail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // Column8
             // 
@@ -338,7 +348,9 @@ namespace HotelManagement.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
         private System.Windows.Forms.DataGridViewImageColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn Column9;
+        
     }
 }

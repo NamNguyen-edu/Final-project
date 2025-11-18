@@ -38,7 +38,9 @@ namespace HotelManagement.DTO
         [Required]
         [StringLength(3)]
         public string GioiTinh { get; set; }
-
+        [Required]
+        [StringLength(100)]
+        public string Email { get; set; }
         public bool? DaXoa { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
