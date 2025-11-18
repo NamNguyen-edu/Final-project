@@ -33,6 +33,7 @@
             this.CTButtonThoat = new HotelManagement.CTControls.CTButton();
             this.CTButtonCapNhat = new HotelManagement.CTControls.CTButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ctTextBoxEmail = new HotelManagement.CTControls.CTTextBox();
             this.comboBoxGioiTinh = new HotelManagement.CTControls.CTComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -43,7 +44,7 @@
             this.ctTextBoxSDT = new HotelManagement.CTControls.CTTextBox();
             this.ctTextBoxCMND = new HotelManagement.CTControls.CTTextBox();
             this.ctTextBoxName = new HotelManagement.CTControls.CTTextBox();
-            this.ctTextBoxEmail = new HotelManagement.CTControls.CTTextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.PanelBackground.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -51,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // labelThemKhachHang
@@ -122,6 +124,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.ctTextBoxEmail);
             this.panel1.Controls.Add(this.comboBoxGioiTinh);
             this.panel1.Controls.Add(this.pictureBox5);
@@ -137,6 +140,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(431, 497);
             this.panel1.TabIndex = 0;
+            // 
+            // ctTextBoxEmail
+            // 
+            this.ctTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ctTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxEmail.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
+            this.ctTextBoxEmail.BorderRadius = 0;
+            this.ctTextBoxEmail.BorderSize = 2;
+            this.ctTextBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTextBoxEmail.IsFocused = false;
+            this.ctTextBoxEmail.Location = new System.Drawing.Point(106, 287);
+            this.ctTextBoxEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.ctTextBoxEmail.Multiline = false;
+            this.ctTextBoxEmail.Name = "ctTextBoxEmail";
+            this.ctTextBoxEmail.Padding = new System.Windows.Forms.Padding(7);
+            this.ctTextBoxEmail.PasswordChar = false;
+            this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.ctTextBoxEmail.PlaceholderText = "Nhập Email";
+            this.ctTextBoxEmail.ReadOnly = false;
+            this.ctTextBoxEmail.Size = new System.Drawing.Size(250, 40);
+            this.ctTextBoxEmail.TabIndex = 7;
+            this.ctTextBoxEmail.Texts = "";
+            this.ctTextBoxEmail.UnderlineedStyle = true;
             // 
             // comboBoxGioiTinh
             // 
@@ -300,28 +326,14 @@
             this.ctTextBoxName.UnderlineedStyle = true;
             this.ctTextBoxName._TextChanged += new System.EventHandler(this.ctTextBoxName__TextChanged);
             // 
-            // ctTextBoxEmail
+            // pictureBox6
             // 
-            this.ctTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.ctTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
-            this.ctTextBoxEmail.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
-            this.ctTextBoxEmail.BorderRadius = 0;
-            this.ctTextBoxEmail.BorderSize = 2;
-            this.ctTextBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctTextBoxEmail.IsFocused = false;
-            this.ctTextBoxEmail.Location = new System.Drawing.Point(106, 287);
-            this.ctTextBoxEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.ctTextBoxEmail.Multiline = false;
-            this.ctTextBoxEmail.Name = "ctTextBoxEmail";
-            this.ctTextBoxEmail.Padding = new System.Windows.Forms.Padding(7);
-            this.ctTextBoxEmail.PasswordChar = false;
-            this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.ctTextBoxEmail.PlaceholderText = "Nhập Email";
-            this.ctTextBoxEmail.ReadOnly = false;
-            this.ctTextBoxEmail.Size = new System.Drawing.Size(250, 40);
-            this.ctTextBoxEmail.TabIndex = 7;
-            this.ctTextBoxEmail.Texts = "";
-            this.ctTextBoxEmail.UnderlineedStyle = true;
+            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
+            this.pictureBox6.Location = new System.Drawing.Point(69, 297);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.TabIndex = 8;
+            this.pictureBox6.TabStop = false;
             // 
             // FormThemKhachHang
             // 
@@ -350,6 +362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,5 +385,6 @@
         private CTControls.CTButton CTButtonCapNhat;
         private CTControls.CTComboBox comboBoxGioiTinh;
         private CTControls.CTTextBox ctTextBoxEmail;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

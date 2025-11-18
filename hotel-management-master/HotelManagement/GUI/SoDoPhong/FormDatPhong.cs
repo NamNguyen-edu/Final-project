@@ -592,7 +592,7 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (CTTextBoxNhapSDT.Texts.Length <10)
+                if (CTTextBoxNhapSDT.Texts.Length >10)
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -600,11 +600,23 @@ namespace HotelManagement.GUI
                 }
                 try
                 {
+                   
                     CreateKH();
                     CreatePhieuThue();
                     CreateCTDP();
                     CreateHoaDon();
-                    SendBookingEmail(khachHang, phieuThue, listPhongDaDat);
+                    bool emailSent = SendBookingEmail(khachHang, phieuThue, listPhongDaDat);
+
+                    if (!emailSent)
+                    {
+                        CTMessageBox.Show("Không thể gửi email xác nhận.\nVui lòng thử lại.",
+                            "Lỗi gửi email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Email thành công → Thông báo
+                    CTMessageBox.Show("Gửi email thành công!", "Thông báo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     flag = 1;
                 }
                 catch (Exception ex)
@@ -764,7 +776,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-        private void SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
+        private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
         {
             try
             {
@@ -803,129 +815,128 @@ namespace HotelManagement.GUI
 
                 string bangPhong = sb.ToString();
 
-                // =========================== TEMPLATE EMAIL ==============================
                 string htmlBody = $@"
-<!DOCTYPE html>
-<html lang='vi'>
-<head>
-    <meta charset='UTF-8'>
-    <title>Xác nhận đặt phòng</title>
-</head>
+                <!DOCTYPE html>
+                <html lang='vi'>
+                <head>
+                    <meta charset='UTF-8'>
+                    <title>Xác nhận đặt phòng</title>
+                </head>
 
-<body style='font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;'>
+                <body style='font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;'>
 
-    <table width='100%' cellpadding='0' cellspacing='0'>
-        <tr>
-            <td style='padding: 20px 0;'>
+                    <table width='100%' cellpadding='0' cellspacing='0'>
+                        <tr>
+                            <td style='padding: 20px 0;'>
 
-                <table width='600' cellpadding='0' cellspacing='0' 
-                    style='margin: 0 auto; background: #ffffff; 
-                    border: 1px solid #ddd; border-radius: 10px; overflow: hidden;'>
+                                <table width='600' cellpadding='0' cellspacing='0' 
+                                    style='margin: 0 auto; background: #ffffff; 
+                                    border: 1px solid #ddd; border-radius: 10px; overflow: hidden;'>
 
-                    <!-- Header -->
-                    <tr>
-                        <td style='background-color: #f9f4f0; padding: 25px; text-align: center; border-bottom: 1px solid #e0c9b6;'>
-                            <h1 style='margin: 0; color: #6b4f4f; font-size: 24px;'>Hotel Management</h1>
-                        </td>
-                    </tr>
+                                    <!-- Header -->
+                                    <tr>
+                                        <td style='background-color: #f9f4f0; padding: 25px; text-align: center; border-bottom: 1px solid #e0c9b6;'>
+                                            <h1 style='margin: 0; color: #6b4f4f; font-size: 24px;'>Hotel Management</h1>
+                                        </td>
+                                    </tr>
 
-                    <!-- Content -->
-                    <tr>
-                        <td style='padding: 30px 40px; color: #333;'>
+                                    <!-- Content -->
+                                    <tr>
+                                        <td style='padding: 30px 40px; color: #333;'>
 
-                            <h2 style='color: #6b4f4f; font-size: 22px; margin-top: 0;'>Xác nhận đặt phòng thành công!</h2>
+                                            <h2 style='color: #6b4f4f; font-size: 22px; margin-top: 0;'>Xác nhận đặt phòng thành công!</h2>
 
-                            <p>Chào <strong>{kh.TenKH}</strong>,</p>
-                            <p>Cảm ơn bạn đã đặt phòng tại hệ thống của chúng tôi. Vui lòng kiểm tra thông tin dưới đây:</p>
+                                            <p>Chào <strong>{kh.TenKH}</strong>,</p>
+                                            <p>Cảm ơn bạn đã đặt phòng tại hệ thống của chúng tôi. Vui lòng kiểm tra thông tin dưới đây:</p>
 
-                            <!-- Thông tin chung -->
-                            <table width='100%' style='border-collapse: collapse; margin-top: 20px;'>
-                                <tr style='border-bottom: 1px solid #eee;'>
-                                    <td style='padding: 12px 0; font-weight: bold;'>Mã phiếu thuê:</td>
-                                    <td style='padding: 12px 0; text-align: right;'>{phieuThue.MaPT}</td>
-                                </tr>
-                                <tr style='border-bottom: 1px solid #eee;'>
-                                    <td style='padding: 12px 0; font-weight: bold;'>Ngày đặt:</td>
-                                    <td style='padding: 12px 0; text-align: right;'>{phieuThue.NgPT:dd/MM/yyyy HH:mm}</td>
-                                </tr>
-                            </table>
+                                            <!-- Thông tin chung -->
+                                            <table width='100%' style='border-collapse: collapse; margin-top: 20px;'>
+                                                <tr style='border-bottom: 1px solid #eee;'>
+                                                    <td style='padding: 12px 0; font-weight: bold;'>Mã phiếu thuê:</td>
+                                                    <td style='padding: 12px 0; text-align: right;'>{phieuThue.MaPT}</td>
+                                                </tr>
+                                                <tr style='border-bottom: 1px solid #eee;'>
+                                                    <td style='padding: 12px 0; font-weight: bold;'>Ngày đặt:</td>
+                                                    <td style='padding: 12px 0; text-align: right;'>{phieuThue.NgPT:dd/MM/yyyy HH:mm}</td>
+                                                </tr>
+                                            </table>
 
-                            <!-- Thông tin phòng -->
-                            <h3 style='color: #6b4f4f; font-size: 18px; margin-top: 30px;'>Danh sách phòng đã đặt</h3>
+                                            <!-- Thông tin phòng -->
+                                            <h3 style='color: #6b4f4f; font-size: 18px; margin-top: 30px;'>Danh sách phòng đã đặt</h3>
 
-                            <table width='100%' cellpadding='0' cellspacing='0' 
-                                style='border-collapse: collapse; margin-top: 10px;'>
+                                            <table width='100%' cellpadding='0' cellspacing='0' 
+                                                style='border-collapse: collapse; margin-top: 10px;'>
                                 
-                                <tr style='background: #f0f0f0; border-bottom:1px solid #ddd;'>
-                                    <th style='padding:10px; text-align:left;'>Phòng</th>
-                                    <th style='padding:10px; text-align:left;'>Loại phòng</th>
-                                    <th style='padding:10px; text-align:left;'>Check-in</th>
-                                    <th style='padding:10px; text-align:left;'>Check-out</th>
-                                </tr>
+                                                <tr style='background: #f0f0f0; border-bottom:1px solid #ddd;'>
+                                                    <th style='padding:10px; text-align:left;'>Phòng</th>
+                                                    <th style='padding:10px; text-align:left;'>Loại phòng</th>
+                                                    <th style='padding:10px; text-align:left;'>Check-in</th>
+                                                    <th style='padding:10px; text-align:left;'>Check-out</th>
+                                                </tr>
 
-                                {bangPhong}
-                            </table>
+                                                {bangPhong}
+                                            </table>
 
-                            <!-- Thông tin khách hàng -->
-                            <h3 style='color: #6b4f4f; font-size: 18px; margin-top: 30px;'>Thông tin khách hàng</h3>
+                                            <!-- Thông tin khách hàng -->
+                                            <h3 style='color: #6b4f4f; font-size: 18px; margin-top: 30px;'>Thông tin khách hàng</h3>
 
-                            <table width='100%' style='border-collapse: collapse;'>
-                                <tr style='border-bottom: 1px solid #eee;'>
-                                    <td style='padding: 12px 0; font-weight: bold;'>Họ và tên:</td>
-                                    <td style='padding: 12px 0; text-align: right;'>{kh.TenKH}</td>
-                                </tr>
-                                <tr style='border-bottom: 1px solid #eee;'>
-                                    <td style='padding: 12px 0; font-weight: bold;'>Email:</td>
-                                    <td style='padding: 12px 0; text-align: right;'>{kh.Email}</td>
-                                </tr>
-                                <tr style='border-bottom: 1px solid #eee;'>
-                                    <td style='padding: 12px 0; font-weight: bold;'>Số điện thoại:</td>
-                                    <td style='padding: 12px 0; text-align: right;'>{kh.SDT}</td>
-                                </tr>
-                                <tr style='border-bottom: 1px solid #eee;'>
-                                    <td style='padding: 12px 0; font-weight: bold;'>Giới tính:</td>
-                                    <td style='padding: 12px 0; text-align: right;'>{kh.GioiTinh}</td>
-                                </tr>
-                                <tr>
-                                    <td style='padding: 12px 0; font-weight: bold;'>Quốc tịch:</td>
-                                    <td style='padding: 12px 0; text-align: right;'>{kh.QuocTich}</td>
-                                </tr>
-                            </table>
+                                            <table width='100%' style='border-collapse: collapse;'>
+                                                <tr style='border-bottom: 1px solid #eee;'>
+                                                    <td style='padding: 12px 0; font-weight: bold;'>Họ và tên:</td>
+                                                    <td style='padding: 12px 0; text-align: right;'>{kh.TenKH}</td>
+                                                </tr>
+                                                <tr style='border-bottom: 1px solid #eee;'>
+                                                    <td style='padding: 12px 0; font-weight: bold;'>Email:</td>
+                                                    <td style='padding: 12px 0; text-align: right;'>{kh.Email}</td>
+                                                </tr>
+                                                <tr style='border-bottom: 1px solid #eee;'>
+                                                    <td style='padding: 12px 0; font-weight: bold;'>Số điện thoại:</td>
+                                                    <td style='padding: 12px 0; text-align: right;'>{kh.SDT}</td>
+                                                </tr>
+                                                <tr style='border-bottom: 1px solid #eee;'>
+                                                    <td style='padding: 12px 0; font-weight: bold;'>Giới tính:</td>
+                                                    <td style='padding: 12px 0; text-align: right;'>{kh.GioiTinh}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style='padding: 12px 0; font-weight: bold;'>Quốc tịch:</td>
+                                                    <td style='padding: 12px 0; text-align: right;'>{kh.QuocTich}</td>
+                                                </tr>
+                                            </table>
 
-                            <p style='margin-top: 25px;'>Nếu bạn cần hỗ trợ, xin vui lòng phản hồi email này.</p>
-                            <p>Trân trọng,<br><b>Hotel Management</b></p>
+                                            <p style='margin-top: 25px;'>Nếu bạn cần hỗ trợ, xin vui lòng phản hồi email này.</p>
+                                            <p>Trân trọng,<br><b>Hotel Management</b></p>
 
-                        </td>
-                    </tr>
+                                        </td>
+                                    </tr>
 
-                    <!-- Footer -->
-                    <tr>
-                        <td style='padding: 20px; text-align: center; background: #f9f9f9; color: #888; font-size: 12px;'>
-                            © 2025 Hotel Management – All rights reserved.
-                        </td>
-                    </tr>
+                                    <!-- Footer -->
+                                    <tr>
+                                        <td style='padding: 20px; text-align: center; background: #f9f9f9; color: #888; font-size: 12px;'>
+                                            © 2025 Hotel Management – All rights reserved.
+                                        </td>
+                                    </tr>
 
-                </table>
-            </td>
-        </tr>
-    </table>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
 
-</body>
-</html>
-";
-
+                </body>
+                </html>
+                ";
                 mail.Body = htmlBody;
 
-                // =================== SMTP SEND ===================
                 SmtpClient smtp = new SmtpClient(smtpHost, smtpPort);
                 smtp.Credentials = new NetworkCredential(smtpUser, smtpPass);
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Không thể gửi email xác nhận:\n" + ex.Message,
                                 "Lỗi gửi email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }
