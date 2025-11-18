@@ -163,7 +163,7 @@ namespace HotelManagement.GUI
                         break;
 
                     case 4:
-                        formToOpen = new FormMainCUS(taiKhoan);  // KHÁCH HÀNG
+                        formToOpen = new FormMain(taiKhoan);  // KHÁCH HÀNG
                         break;
 
                     default:

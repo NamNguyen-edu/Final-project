@@ -1,4 +1,4 @@
-namespace HotelManagement.DTO
+﻿namespace HotelManagement.DTO
 {
     using System;
     using System.Collections.Generic;
@@ -40,7 +40,7 @@ namespace HotelManagement.DTO
         public string GioiTinh { get; set; }
         [Required]
         [StringLength(100)]
-        public string Email { get; set; }
+        public string Email { get; set; } //Khai báo biến Email
         public bool? DaXoa { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
