@@ -1,20 +1,21 @@
-﻿using HotelManagement.CTControls;
+﻿using ApplicationSettings;
+using HotelManagement.BUS;
+using HotelManagement.CTControls;
+using HotelManagement.DAO;
+using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HotelManagement.BUS;
-using HotelManagement.DTO;
-using ApplicationSettings;
-using HotelManagement.DAO;
-using System.Runtime.CompilerServices;
 
 namespace HotelManagement.GUI
 {
@@ -44,7 +45,7 @@ namespace HotelManagement.GUI
             InitializeComponent();
             phieuThue.MaPT = PhieuThueBUS.Instance.GetMaPTNext();
         }
-        public FormDatPhong(TaiKhoan taiKhoan,PhieuThue phieuThue = null)
+        public FormDatPhong(TaiKhoan taiKhoan, PhieuThue phieuThue = null)
         {
             this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.None;
@@ -275,7 +276,7 @@ namespace HotelManagement.GUI
                 setLoadComboBox();
                 LoadTenKH();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -284,7 +285,7 @@ namespace HotelManagement.GUI
         {
             try
             {
-                if(this.phieuThue!=null)
+                if (this.phieuThue != null)
                 {
                     caseForm = 1;
                     CTTextBoxNhapSDT.RemovePlaceholder();
@@ -295,11 +296,11 @@ namespace HotelManagement.GUI
                     this.CTTextBoxNhapCCCD.Texts = khachHang.CCCD_Passport;
                     this.CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
                     this.CTTextBoxNhapSDT.Texts = khachHang.SDT;
-                    this.ComboBoxGioiTinh.Texts ="  "+ khachHang.GioiTinh;
+                    this.ComboBoxGioiTinh.Texts = "  " + khachHang.GioiTinh;
                     this.CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -314,9 +315,9 @@ namespace HotelManagement.GUI
                 foreach (Phong phong in phongs)
                 {
                     gridPhongTrong.Rows.Add(new object[] { phong.MaPH, phong.LoaiPhong.TenLPH, this.Add });
-                }    
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -327,15 +328,15 @@ namespace HotelManagement.GUI
             try
             {
                 gridPhongDaChon.Rows.Clear();
-                if(this.listPhongDaDat!=null)
+                if (this.listPhongDaDat != null)
                 {
-                    foreach(CTDP room in listPhongDaDat)
+                    foreach (CTDP room in listPhongDaDat)
                     {
                         gridPhongDaChon.Rows.Add(room.MaPH, room.SoNguoi, room.CheckIn.ToString("dd/MM/yyyy HH:mm:ss"), room.CheckOut.ToString("dd/MM/yyyy HH:mm:ss"), this.Del);
-                    }    
-                }    
+                    }
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -379,9 +380,9 @@ namespace HotelManagement.GUI
                     else
                     {
                         CTMessageBox.Show("Thời gian bắt đầu không được sau thời gian kết thúc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }    
+                    }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -413,7 +414,7 @@ namespace HotelManagement.GUI
                     i++;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -447,9 +448,9 @@ namespace HotelManagement.GUI
                         CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    finally{}
+                    finally { }
                 }
-            }         
+            }
         }
         #endregion
 
@@ -570,12 +571,12 @@ namespace HotelManagement.GUI
         private void CTButtonDatTruoc_Click(object sender, EventArgs e)
         {
             int flag = 0;
-            if(listPhongDaDat.Count==0)
+            if (listPhongDaDat.Count == 0)
             {
                 CTMessageBox.Show("Chưa thêm thông tin đặt phòng", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
-            }    
+            }
             if (this.CTTextBoxNhapCCCD.Texts != "" && this.CTTextBoxNhapDiaChi.Texts != "" && this.CTTextBoxNhapHoTen.Texts != "" && this.ComboBoxGioiTinh.Texts != "  Giới tính")
             {
                 if (CTTextBoxNhapCCCD.Texts.Length != 12 && CTTextBoxNhapCCCD.Texts.Length != 7)
@@ -584,7 +585,7 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (CTTextBoxNhapSDT.Texts.Length != 10)
+                if (CTTextBoxNhapSDT.Texts.Length != 9)
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -606,8 +607,8 @@ namespace HotelManagement.GUI
                 finally
                 {
                     if (flag == 1)
-                    CTMessageBox.Show("Đặt phòng thành công.", "Thông báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CTMessageBox.Show("Đặt phòng thành công.", "Thông báo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }
@@ -640,9 +641,9 @@ namespace HotelManagement.GUI
                     KhachHangBUS.Instance.UpdateOrAdd(khachHang);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);    
+                MessageBox.Show(ex.Message);
             }
         }
         private void CreatePhieuThue()
@@ -659,7 +660,7 @@ namespace HotelManagement.GUI
                     phieuThue.NgPT = DateTime.Now;
                     PhieuThueBUS.Instance.AddOrUpdatePhieuThue(phieuThue);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -670,7 +671,7 @@ namespace HotelManagement.GUI
         {
             try
             {
-                foreach(CTDP ctdp in listPhongDaDat)
+                foreach (CTDP ctdp in listPhongDaDat)
                 {
                     ctdp.MaPT = phieuThue.MaPT;
                     ctdp.TrangThai = "Đã đặt";
@@ -678,7 +679,7 @@ namespace HotelManagement.GUI
                     CTDP_BUS.Instance.UpdateOrAddCTDP(ctdp);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -698,6 +699,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
+
 
         private void CTTextBoxNhapCCCD__TextChanged(object sender, EventArgs e)
         {
@@ -721,6 +723,13 @@ namespace HotelManagement.GUI
                     CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
                     ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
                     CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
+                    //khóa k cho đổi thông tin
+                    CTTextBoxNhapCCCD.Enabled = false;
+                    CTTextBoxNhapHoTen.Enabled = false;
+                    CTTextBoxNhapSDT.Enabled = false;
+                    CTTextBoxNhapDiaChi.Enabled = false;
+                    ComboBoxGioiTinh.Enabled = false;
+
                     ComboBoxGioiTinh.Focus();
                     flagHoTen = 1;
                 }
@@ -730,7 +739,7 @@ namespace HotelManagement.GUI
         private void CTTextBoxNhapSDT__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxOnlyNumber = sender as TextBox;
-            textBoxOnlyNumber.MaxLength = 10;
+            textBoxOnlyNumber.MaxLength = 9;
             textBoxOnlyNumber.KeyPress += TextBoxOnlyNumber_KeyPress;
         }
 
