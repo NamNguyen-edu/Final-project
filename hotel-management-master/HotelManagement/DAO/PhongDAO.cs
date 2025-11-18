@@ -21,30 +21,30 @@ namespace HotelManagement.DAO
         public List<Phong> GetAllPhongs()
         {
 
-                return db.Phongs.Where(p => p.DaXoa == false).ToList();
-            
-        }    
+            return db.Phongs.Where(p => p.DaXoa == false).ToList();
+
+        }
         public Phong FindPhong(string MaPh)
         {
 
-                return db.Phongs.Find(MaPh);
-            
+            return db.Phongs.Find(MaPh);
+
         }
         public List<Phong> FindPhongWithMaPH(string MaPh)
         {
 
-                return db.Phongs.Where(p => p.MaPH.Contains(MaPh) && p.DaXoa == false).ToList();
-            
+            return db.Phongs.Where(p => p.MaPH.Contains(MaPh) && p.DaXoa == false).ToList();
+
         }
 
         public void UpdateOrAdd(Phong phong)
         {
 
-                phong.LoaiPhong = db.LoaiPhongs.Find(phong.MaLPH);
-                phong.DaXoa = false;
-                db.Phongs.AddOrUpdate(phong);
-                db.SaveChanges();
-            
+            phong.LoaiPhong = db.LoaiPhongs.Find(phong.MaLPH);
+            phong.DaXoa = false;
+            db.Phongs.AddOrUpdate(phong);
+            db.SaveChanges();
+
         }
         public void RemovePhong(string maPH)
         {
@@ -56,55 +56,76 @@ namespace HotelManagement.DAO
         public List<Phong> FindPhongTrong(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
 
-                List<CTDP> cTDPs = CTDP_DAO.Instance.getCTDPonTime(Checkin, Checkout, DSPhongThem).Where(p=>p.TrangThai!= "Đã hủy" || p.TrangThai!="Đã xong").ToList();
-                //List<Phong> PhongKhongTrong = new List<Phong>();
-                var MaPh = cTDPs.Select(p => p.Phong.MaPH).ToList();
-                List<Phong> phongs = db.Phongs.Where(p=>p.DaXoa==false).ToList();
-                List<Phong> phongtrong = new List<Phong>();
-                for (int i = 0; i < phongs.Count; i++)
+            List<CTDP> cTDPs = CTDP_DAO.Instance.getCTDPonTime(Checkin, Checkout, DSPhongThem).Where(p => p.TrangThai != "Đã hủy" || p.TrangThai != "Đã xong").ToList();
+            //List<Phong> PhongKhongTrong = new List<Phong>();
+            var MaPh = cTDPs.Select(p => p.Phong.MaPH).ToList();
+            List<Phong> phongs = db.Phongs.Where(p => p.DaXoa == false).ToList();
+            List<Phong> phongtrong = new List<Phong>();
+            for (int i = 0; i < phongs.Count; i++)
+            {
+                int flag = 0;
+                foreach (CTDP cTDP in cTDPs)
                 {
-                    int flag = 0;
-                    foreach (CTDP cTDP in cTDPs)
-                    {
-                        if (phongs[i].MaPH == cTDP.MaPH)
-                            flag = 1;
-                    }
-                    if (flag == 0)
-                    {
-                        phongtrong.Add(phongs[i]);
-                    }
+                    if (phongs[i].MaPH == cTDP.MaPH)
+                        flag = 1;
                 }
-                return phongtrong;
-            
+                if (flag == 0)
+                {
+                    phongtrong.Add(phongs[i]);
+                }
+            }
+            return phongtrong;
+
         }
         public bool FindPhongTrong(CTDP room)
         {
 
-                List<CTDP> cTDPs = CTDP_DAO.Instance.getCTDPonTime(room.CheckIn, room.CheckOut, null);
-                //List<Phong> PhongKhongTrong = new List<Phong>();
-                var MaPh = cTDPs.Select(p => p.Phong.MaPH).ToList();
-                List<Phong> phongs = db.Phongs.Where(p=>p.TTDD!="Đang sửa chữa").ToList();
-                List<Phong> phongtrong = new List<Phong>();
-                for (int i = 0; i < phongs.Count; i++)
+            List<CTDP> cTDPs = CTDP_DAO.Instance.getCTDPonTime(room.CheckIn, room.CheckOut, null);
+            //List<Phong> PhongKhongTrong = new List<Phong>();
+            var MaPh = cTDPs.Select(p => p.Phong.MaPH).ToList();
+            List<Phong> phongs = db.Phongs.Where(p => p.TTDD != "Đang sửa chữa").ToList();
+            List<Phong> phongtrong = new List<Phong>();
+            for (int i = 0; i < phongs.Count; i++)
+            {
+                int flag = 0;
+                foreach (CTDP cTDP in cTDPs)
                 {
-                    int flag = 0;
-                    foreach (CTDP cTDP in cTDPs)
-                    {
-                        if (phongs[i].MaPH == cTDP.MaPH)
-                            flag = 1;
-                    }
-                    if (flag == 0)
-                    {
-                        phongtrong.Add(phongs[i]);
-                    }
+                    if (phongs[i].MaPH == cTDP.MaPH)
+                        flag = 1;
                 }
-                foreach (Phong phong in phongtrong)
+                if (flag == 0)
                 {
-                    if (phong.MaPH == room.MaPH)
-                        return true;
+                    phongtrong.Add(phongs[i]);
                 }
-                return false;
-            
+            }
+            foreach (Phong phong in phongtrong)
+            {
+                if (phong.MaPH == room.MaPH)
+                    return true;
+            }
+            return false;
+
+        }
+        public string GenerateNextRoomCode(int tang)
+        {
+            // Dùng luôn DbContext field ở trên, không tạo mới
+            var codes = db.Phongs
+                          .Where(p => p.Tang == tang && p.DaXoa == false)
+                          .Select(p => p.MaPH)
+                          .ToList();
+
+            int maxNum = tang * 100;
+            foreach (var c in codes)
+            {
+                if (c != null && c.Length >= 4 && int.TryParse(c.Substring(1), out var n))
+                {
+                    if (n / 100 == tang && n > maxNum) maxNum = n;
+                }
+            }
+
+            int next = (maxNum % 100) + 1;   // số thứ tự kế tiếp trong tầng
+            int num = tang * 100 + next;    // VD: tầng 2 → 200 + 1 = 201
+            return "P" + num.ToString("000"); // "P201"
         }
 
     }

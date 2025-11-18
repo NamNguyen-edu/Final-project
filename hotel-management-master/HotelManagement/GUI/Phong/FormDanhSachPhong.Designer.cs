@@ -36,18 +36,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.DoubleBuffered = true;
+            this.buttonExport = new HotelManagement.CTControls.CTButton();
+            this.ctPanel1 = new CTPanel.CTPanel();
+            this.CTButtonThemPhong = new HotelManagement.CTControls.CTButton();
+            this.CTTextBoxTimPhongTheoMa = new HotelManagement.CTControls.CTTextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.buttonExport = new HotelManagement.CTControls.CTButton();
-            this.ctPanel1 = new CTPanel.CTPanel();
-            this.CTButtonThemPhong = new HotelManagement.CTControls.CTButton();
-            this.CTTextBoxTimPhongTheoMa = new HotelManagement.CTControls.CTTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -88,6 +88,7 @@
             this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
+            this.Column8,
             this.Column3,
             this.Column4,
             this.Column5,
@@ -126,62 +127,6 @@
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             this.grid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellMouseLeave);
             this.grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_CellMouseMove);
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 50F;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 150F;
-            this.Column2.HeaderText = "Mã phòng";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 225F;
-            this.Column3.HeaderText = "Tình trạng";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.FillWeight = 225F;
-            this.Column4.HeaderText = "Dọn dẹp";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 175F;
-            this.Column5.HeaderText = "Loại phòng";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column6.FillWeight = 75F;
-            this.Column6.HeaderText = "Sửa";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column7.FillWeight = 50F;
-            this.Column7.HeaderText = "Xóa";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
             // 
             // buttonExport
             // 
@@ -261,12 +206,82 @@
             this.CTTextBoxTimPhongTheoMa.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimPhongTheoMa.PlaceholderText = "Nhập mã phòng cần tìm";
             this.CTTextBoxTimPhongTheoMa.ReadOnly = false;
-            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 36);
+            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 43);
             this.CTTextBoxTimPhongTheoMa.TabIndex = 8;
             this.CTTextBoxTimPhongTheoMa.TabStop = false;
             this.CTTextBoxTimPhongTheoMa.Texts = "";
             this.CTTextBoxTimPhongTheoMa.UnderlineedStyle = false;
             this.CTTextBoxTimPhongTheoMa._TextChanged += new System.EventHandler(this.CTTextBoxTimPhongTheoMa__TextChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 50F;
+            this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 150F;
+            this.Column2.HeaderText = "Mã phòng";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Tầng";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 225F;
+            this.Column3.HeaderText = "Tình trạng";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.FillWeight = 225F;
+            this.Column4.HeaderText = "Dọn dẹp";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 175F;
+            this.Column5.HeaderText = "Loại phòng";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle2.NullValue")));
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column6.FillWeight = 75F;
+            this.Column6.HeaderText = "Sửa";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column7.FillWeight = 50F;
+            this.Column7.HeaderText = "Xóa";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // FormDanhSachPhong
             // 
@@ -303,6 +318,7 @@
         private CTControls.CTButton buttonExport;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;

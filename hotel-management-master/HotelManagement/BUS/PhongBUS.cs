@@ -35,11 +35,17 @@ namespace HotelManagement.BUS
         }
         public List<Phong> FindPhongTrong(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
-            return PhongDAO.Instance.FindPhongTrong(Checkin, Checkout, DSPhongThem);   
+            return PhongDAO.Instance.FindPhongTrong(Checkin, Checkout, DSPhongThem);
         }
         public void RemovePhong(string maPH)
         {
             PhongDAO.Instance.RemovePhong(maPH);
         }
+        public string GenerateNextRoomCode(int tang)
+        {
+            return PhongDAO.Instance.GenerateNextRoomCode(tang);
+        }
     }
 }
+
+
