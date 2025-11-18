@@ -159,8 +159,8 @@ namespace HotelManagement.GUI
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // If click Update button 
-                if (x == 8)
+                // Khi nhấn Update
+                if (x == 7)
                 {
                     FormBackground formBackground = new FormBackground(formMain);
                     try
