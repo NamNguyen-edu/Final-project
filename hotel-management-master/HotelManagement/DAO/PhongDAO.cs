@@ -108,7 +108,6 @@ namespace HotelManagement.DAO
         }
         public string GenerateNextRoomCode(int tang)
         {
-            // Dùng luôn DbContext field ở trên, không tạo mới
             var codes = db.Phongs
                           .Where(p => p.Tang == tang && p.DaXoa == false)
                           .Select(p => p.MaPH)

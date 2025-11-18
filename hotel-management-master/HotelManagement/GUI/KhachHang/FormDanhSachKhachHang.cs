@@ -160,7 +160,7 @@ namespace HotelManagement.GUI
             if (y >= 0)
             {
                 // Khi nhấn Update
-                if (x == 7)
+                if (x == 8)
                 {
                     FormBackground formBackground = new FormBackground(formMain);
                     try
@@ -229,8 +229,6 @@ namespace HotelManagement.GUI
             LoadGrid();
 
         }
-
-
 
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
