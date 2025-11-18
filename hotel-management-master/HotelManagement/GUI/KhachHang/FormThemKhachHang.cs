@@ -247,6 +247,13 @@ namespace HotelManagement.GUI
                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    if (khachHang.Email == this.ctTextBoxEmail.Texts )
+                    {
+                        CTMessageBox.Show("Email này đã tồn tại trong danh sách khách hàng!",
+                                          "Lỗi",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 try
                 {
