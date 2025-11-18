@@ -27,7 +27,7 @@ namespace HotelManagement.GUI
             InitializeComponent();
         }
 
-        public FormDanhSachPhieuThue1(FormMainCUS formMainCUS, TaiKhoan taiKhoan)
+        public FormDanhSachPhieuThue1(FormMainCUS formMainCUS,TaiKhoan taiKhoan)
         {
             this.taiKhoan = taiKhoan;
             InitializeComponent();
@@ -74,11 +74,11 @@ namespace HotelManagement.GUI
                 phieuThues = PhieuThueBUS.Instance.GetPhieuThues();
                 LoadDataGrid();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }    
         public void LoadDataGrid()
         {
             try
@@ -86,14 +86,14 @@ namespace HotelManagement.GUI
                 this.grid.Rows.Clear();
                 foreach (PhieuThue phieuThue in phieuThues)
                 {
-                    grid.Rows.Add(new object[] { PT, phieuThue.MaPT, phieuThue.KhachHang.TenKH, phieuThue.NgPT.ToString("dd/MM/yyyy"), phieuThue.NhanVien.TenNV, details });
+                    grid.Rows.Add(new object[] { PT, phieuThue.MaPT,phieuThue.KhachHang.TenKH,phieuThue.NgPT.ToString("dd/MM/yyyy"),phieuThue.NhanVien.TenNV,details});
                 }
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }    
 
         private void buttonExport_Click(object sender, EventArgs e)
         {
@@ -195,7 +195,7 @@ namespace HotelManagement.GUI
 
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            grid.Cursor = Cursors.Default;
-        }
+            grid.Cursor = Cursors.Default;      
+        }   
     }
 }

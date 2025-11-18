@@ -46,9 +46,5 @@ namespace HotelManagement.BUS
         {
             return KhachHangDAO.Instance.FindKHWithCCCD(cccd);
         }
-        public KhachHang FindKHWithEmail(string email)
-        {
-            return KhachHangDAO.Instance.FindKHWithEmail(email);
-        }
     }
 }

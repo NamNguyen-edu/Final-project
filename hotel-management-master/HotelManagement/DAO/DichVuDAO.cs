@@ -1,5 +1,4 @@
 ﻿using HotelManagement.DTO;
-using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -23,24 +22,20 @@ namespace HotelManagement.DAO
         public List<DichVu> GetDichVus()
         {
             instance = null;
-            return db.DichVus.Where(p => p.DaXoa == false).ToList();
-
-        }
+                return db.DichVus.Where(p => p.DaXoa == false).ToList();
+            
+        }    
         public DichVu FindDichVu(string MaDV)
         {
             using (HotelDTO hotelDTO = new HotelDTO())
             {
                 return hotelDTO.DichVus.Find(MaDV);
             }
-
+            
         }
         public void UpdateORAdd(DichVu dv)
         {
-            string error;
-            if (!ValidateDonGia(dv, out error))
-                throw new Exception(error);
-            if (!ValidateSoLuong(dv, out error))
-                throw new Exception(error);
+
             try
             {
                 dv.DaXoa = false;
@@ -48,9 +43,9 @@ namespace HotelManagement.DAO
                 db.SaveChanges();
                 instance = null;
             }
-            catch (Exception ex )
+            catch(Exception )
             {
-                throw new Exception(ex.Message);
+                db.DichVus.Remove(dv);
             }
 
         }
@@ -72,24 +67,24 @@ namespace HotelManagement.DAO
         public string GetMaDVNext()
         {
 
-            List<DichVu> DV = db.DichVus.ToList();
-            string MaMax = DV[DV.Count - 1].MaDV.ToString();
-            MaMax = MaMax.Substring(MaMax.Length - 2, 2);
-            int max = int.Parse(MaMax);
-            max++;
-            if (max < 10)
-            {
-                return "DV0" + max.ToString();
-            }
-            return "DV" + max.ToString();
-
+                List<DichVu> DV = db.DichVus.ToList();
+                string MaMax = DV[DV.Count - 1].MaDV.ToString();
+                MaMax = MaMax.Substring(MaMax.Length - 2, 2);
+                int max = int.Parse(MaMax);
+                max++;
+                if (max < 10)
+                {
+                    return "DV0" + max.ToString();
+                }
+                return "DV" + max.ToString();
+            
         }
-
+       
         public List<DichVu> FindDichVuWithName(string TenDV)
         {
 
-            return db.DichVus.Where(p => p.TenDV.Contains(TenDV) && p.DaXoa == false).ToList();
-
+                return db.DichVus.Where(p => p.TenDV.Contains(TenDV) && p.DaXoa == false).ToList();
+            
         }
         public List<DichVu> GetDichVusConLai()
         {
@@ -98,7 +93,7 @@ namespace HotelManagement.DAO
         public DichVu FindDichVuWithNameAndDonGia(string TenDV, string DonGia)
         {
             decimal dongia = decimal.Parse(DonGia);
-            return db.DichVus.Where(p => p.TenDV == TenDV && p.DonGia == dongia).SingleOrDefault();
+            return db.DichVus.Where(p => p.TenDV == TenDV && p.DonGia == dongia ).SingleOrDefault();
         }
         public void UpdateDV(List<DichVu> dichVus)
         {
@@ -119,36 +114,7 @@ namespace HotelManagement.DAO
                     db.DichVus.Remove(dichVu);
                 }
             }
-        }
-        public bool ValidateDonGia(DichVu dv, out string error)
-        {
-            error = "";
 
-            if (dv.DonGia < 1000)
-            {
-                error = "Đơn giá phải từ 1.000 đồng trở lên.";
-                return false;
-            }
-
-            return true;
-        }
-        public bool ValidateSoLuong(DichVu dv, out string error)
-        {
-            error = "";
-
-            if (dv.SLConLai == null)
-            {
-                error = "Số lượng không hợp lệ.";
-                return false;
-            }
-
-            if (dv.SLConLai < 0)
-            {
-                error = "Số lượng dịch vụ không được nhỏ hơn 0.";
-                return false;
-            }
-
-            return true;
         }
     }
 }

@@ -1,6 +1,6 @@
-CREATE DATABASE HotelManagement1
-GO
-USE HotelManagement1
+--CREATE DATABASE HotelManagement
+--GO
+USE HotelManagement
 GO
 SET DATEFORMAT DMY
 CREATE TABLE NhanVien(
@@ -250,7 +250,8 @@ INSERT INTO NhanVien (MaNV,TenNV,NgaySinh,DiaChi, GioiTinh,Luong,ChucVu,CCCD,SDT
 	INSERT INTO TaiKhoan (TenTK,Password,MaNV,"CapDoQuyen") VALUES ('admin1','1234','AD002',3) 
 	INSERT INTO TaiKhoan (TenTK,Password,MaNV,"CapDoQuyen") VALUES ('admin2','1234','AD003',3) 
 	INSERT INTO TaiKhoan (TenTK,Password,MaNV,"CapDoQuyen") VALUES ('Quanly','1234','QL001',2) 
-	INSERT INTO TaiKhoan (TenTK,Password,MaNV,"CapDoQuyen") VALUES ('NhanVien','1234','NV001',1) 
+	INSERT INTO TaiKhoan (TenTK,Password,MaNV,"CapDoQuyen") VALUES ('NhanVien','1234','NV001',1)
+	INSERT INTO TaiKhoan (TenTK,Password,MaNV,"CapDoQuyen") VALUES ('Khach1','1234','NV002',4)
 
 -- Khach Hang
 	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich, "CCCD/Passport", SDT, "DaXoa") VALUES ('KH001',N'Nguyễn Văn A', N'Nam', N'Việt Nam', '072001056912', '092391233',0)

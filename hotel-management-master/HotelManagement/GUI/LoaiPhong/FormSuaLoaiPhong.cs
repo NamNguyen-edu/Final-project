@@ -240,12 +240,6 @@ namespace HotelManagement.GUI
             string SoNguoi = ctTextBoxSoNguoi.Texts;
             string GiaNgay = ctTextBoxGiaNgay.Texts;
             string GiaGio = ctTextBoxGiaGio.Texts;
-            if (!LoaiPhongBUS.Instance.IsValidGia(decimal.Parse(GiaNgay), decimal.Parse(GiaGio), out string error))
-            {
-                CTMessageBox.Show(error, "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (TenLP == "" || SoGiuong == "" || SoNguoi == "" || GiaNgay == "" || GiaGio == "")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin loại phòng.", "Thông báo",
@@ -254,7 +248,7 @@ namespace HotelManagement.GUI
             }
             try
             {
-                loaiPhong.GiaGio = decimal.Parse(GiaGio.Trim(','));
+                loaiPhong.GiaGio = decimal.Parse(GiaNgay.Trim(','));
                 loaiPhong.GiaNgay = decimal.Parse(GiaNgay.Trim(','));
                 LoaiPhongBUS.Instance.AddOrUpdate(loaiPhong);
                 CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",

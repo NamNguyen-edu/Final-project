@@ -1,6 +1,7 @@
-﻿namespace HotelManagement.GUI
+﻿
+namespace HotelManagement.GUI
 {
-    partial class FormDanhSachPhong
+    partial class FormDSPhongCUS
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +30,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDanhSachPhong));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSPhongCUS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.DoubleBuffered = true;
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,6 +131,7 @@
             // 
             this.Column1.FillWeight = 50F;
             this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -139,6 +140,7 @@
             // 
             this.Column2.FillWeight = 150F;
             this.Column2.HeaderText = "Mã phòng";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -146,6 +148,7 @@
             // 
             this.Column3.FillWeight = 225F;
             this.Column3.HeaderText = "Tình trạng";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
@@ -153,6 +156,7 @@
             // 
             this.Column4.FillWeight = 225F;
             this.Column4.HeaderText = "Dọn dẹp";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
@@ -160,6 +164,7 @@
             // 
             this.Column5.FillWeight = 175F;
             this.Column5.HeaderText = "Loại phòng";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
@@ -170,6 +175,7 @@
             this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.FillWeight = 75F;
             this.Column6.HeaderText = "Sửa";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -180,6 +186,7 @@
             this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.FillWeight = 50F;
             this.Column7.HeaderText = "Xóa";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
@@ -261,14 +268,14 @@
             this.CTTextBoxTimPhongTheoMa.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimPhongTheoMa.PlaceholderText = "Nhập mã phòng cần tìm";
             this.CTTextBoxTimPhongTheoMa.ReadOnly = false;
-            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 36);
+            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 43);
             this.CTTextBoxTimPhongTheoMa.TabIndex = 8;
             this.CTTextBoxTimPhongTheoMa.TabStop = false;
             this.CTTextBoxTimPhongTheoMa.Texts = "";
             this.CTTextBoxTimPhongTheoMa.UnderlineedStyle = false;
             this.CTTextBoxTimPhongTheoMa._TextChanged += new System.EventHandler(this.CTTextBoxTimPhongTheoMa__TextChanged);
             // 
-            // FormDanhSachPhong
+            // FormDSPhongCUS
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
@@ -283,11 +290,11 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormDanhSachPhong";
+            this.Name = "FormDSPhongCUS";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "FormDanhSachPhong";
-            this.Load += new System.EventHandler(this.FormDanhSachPhong_Load);
+            this.Load += new System.EventHandler(this.FormDSPhongCUS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
