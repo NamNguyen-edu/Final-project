@@ -13,6 +13,7 @@ using HotelManagement.DTO;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
 using ApplicationSettings;
+using HotelManagement.DAO;
 
 namespace HotelManagement.GUI
 {
@@ -207,7 +208,7 @@ namespace HotelManagement.GUI
         private void FormThemNhanVien_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemNhanVien;
-           
+
         }
         private void CTTextBoxNhapHoTen__TextChanged(object sender, EventArgs e)
         {
@@ -253,17 +254,17 @@ namespace HotelManagement.GUI
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             string HoTen = CTTextBoxNhapHoTen.Texts;
-            string ChucVu = CTTextBoxNhapChucVu.Texts;
+            string ChucVu = cbChucVu.SelectedItem?.ToString() ?? "";
             string Luong = CTTextBoxLuong.Texts;
             string SDT = ctTextBoxSDT.Texts;
             string CCCD = CTTextBoxNhapCCCD.Texts;
             string DiaChi = CTTextBoxDiaChi.Texts;
             string email = ctTextBoxEmail.Texts;
-            string GioiTinh = ComboBoxGioiTinh.Texts;
+            string GioiTinh = ComboBoxGioiTinh.SelectedItem?.ToString() ?? "";
 
             // Validate trống
             if (HoTen == "" || ChucVu == "" || Luong == "" || SDT == "" || CCCD == "" ||
-                DiaChi == "" || email == "" || GioiTinh == "  Giới tính")
+                DiaChi == "" || email == "" || GioiTinh == "")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên.", "Thông báo",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -290,7 +291,7 @@ namespace HotelManagement.GUI
                 nhanVien.NgaySinh = ctDatePicker1.Value;
 
                 // VALIDATE TRÙNG DƯỚI BUS
-                List<NhanVien> nhanViens = NhanVienBUS.Instance.GetNhanViens();
+                List<NhanVien> nhanViens = NhanVienDAO.Instance.GetNhanViens();
 
                 if (nhanViens.Any(p => p.CCCD == CCCD))
                 {
