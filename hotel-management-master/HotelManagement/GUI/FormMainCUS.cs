@@ -43,7 +43,7 @@ namespace HotelManagement
         }
         private void ApplyThemeForKhach()
         {
-
+            
             SetAllButtonNormalColor();
             openChildForm(new FormTrangChu_CUS(this));
 
@@ -289,7 +289,7 @@ namespace HotelManagement
             childForm.Show();
         }
 
-
+   
 
         private void ctMinimize1_Click(object sender, EventArgs e)
         {
@@ -317,7 +317,7 @@ namespace HotelManagement
         {
             ctClose1.turnOn();
             ctMinimize1.turnOn();
-            ctMaximize1.turnOn();
+            ctMaximize1.turnOn();   
         }
 
         private void panelName_MouseDown(object sender, MouseEventArgs e)
@@ -341,12 +341,12 @@ namespace HotelManagement
             ButtonQLTK.BackColor = Color.FromArgb(249, 165, 105);
 
 
-
-            ButtonDatPhong.ForeColor
-            = ButtonThanhToan.ForeColor
-            = ButtonQLLD.ForeColor
-            = ButtonCSKH.ForeColor
-            = ButtonQLTK.ForeColor = Color.Black;
+          
+                ButtonDatPhong.ForeColor
+                = ButtonThanhToan.ForeColor
+                = ButtonQLLD.ForeColor
+                = ButtonCSKH.ForeColor
+                = ButtonQLTK.ForeColor = Color.Black;
         }
 
         //Khách hàng
@@ -354,7 +354,7 @@ namespace HotelManagement
         private void ButtonDatPhong_Click(object sender, EventArgs e)
         {
             //Change color button on side bar
-
+            
             ButtonTrangChu.BackColor = Color.FromArgb(249, 165, 105);
             ButtonTrangChu.ForeColor = Color.Black;
             ButtonDatPhong.BackColor = Color.FromArgb(72, 145, 152);
@@ -417,12 +417,12 @@ namespace HotelManagement
             //Change color button on side bar
 
 
-            SetAllButtonNormalColor();
-            ButtonTrangChu.BackColor = Color.FromArgb(72, 145, 152);
-            ButtonTrangChu.ForeColor = Color.White;
-            // form dành cho khách
-            openChildForm(new FormTrangChu_CUS(this));
-
+                SetAllButtonNormalColor();
+                ButtonTrangChu.BackColor = Color.FromArgb(72, 145, 152);
+                ButtonTrangChu.ForeColor = Color.White;
+                // form dành cho khách
+                openChildForm(new FormTrangChu_CUS(this));
+          
 
         }
 

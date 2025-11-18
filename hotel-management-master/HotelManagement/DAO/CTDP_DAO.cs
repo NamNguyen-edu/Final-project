@@ -20,12 +20,12 @@ namespace HotelManagement.DAO
             private set { instance = value; }
         }
         private CTDP_DAO() { }
-        public List<CTDP> GetCTDPs()
+        public List<CTDP> GetCTDPs() //lấy danh sách CTDP
         {
             HotelDTO db = new HotelDTO();
             return db.CTDPs.ToList();
         }   
-        public int getKhoangTGTheoNgay(string MaCTDP)
+        public int getKhoangTGTheoNgay(string MaCTDP) //tính thgian thuê theo ngày
         {
             CTDP ctdp;
             TimeSpan timeSpan = new TimeSpan();
@@ -44,7 +44,7 @@ namespace HotelManagement.DAO
                 }
               return timeSpan.Days;
         }
-        public int getKhoangTGTheoGio(string MaCTDP)
+        public int getKhoangTGTheoGio(string MaCTDP) //tính thời gian thuê theo giờ
         {
             CTDP ctdp;
             TimeSpan timeSpan = new TimeSpan();
@@ -63,7 +63,7 @@ namespace HotelManagement.DAO
             }
             return timeSpan.Hours;
         }
-        public CTDP FindCTDP(string MaPhong, DateTime currentTime)
+        public CTDP FindCTDP(string MaPhong, DateTime currentTime) // tìm CTDP theo phòng
         {
                 HotelDTO db = new HotelDTO();
                 CTDP ctdp;
@@ -73,7 +73,7 @@ namespace HotelManagement.DAO
         }
         public List<CTDP> getCTDPonTime(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
-                
+                // kiểm tra phòng có khả dụng k
                 List<CTDP> listCTDP;
                 HotelDTO db = new HotelDTO();
                 listCTDP= db.CTDPs.Where(p=>p.DaXoa==false).ToList();
@@ -94,7 +94,7 @@ namespace HotelManagement.DAO
                 return ctdpList;
             
         }
-        public string getNextCTDP()
+        public string getNextCTDP() // tạo mã ctdp mới
         {
                 List<CTDP> cTDPs;
                 HotelDTO db = new HotelDTO();      
@@ -139,7 +139,7 @@ namespace HotelManagement.DAO
         {
             HotelDTO db = new HotelDTO();
                 
-                cTDP.DaXoa = true;
+                cTDP.DaXoa = true; // cập nhật trong db là DaXoa chứ k có xóa hẳn
                 db.CTDPs.AddOrUpdate(cTDP);
                 db.SaveChanges();
 
@@ -170,18 +170,6 @@ namespace HotelManagement.DAO
                     return "CTDP0" + max.ToString();
                 }
                 return "CTDP" + max.ToString();      
-        }
-        public bool HasFutureBookingForRoom(string maPhong, DateTime now)
-        {
-            using (var db = new HotelDTO())
-            {
-                return db.CTDPs.Any(p =>
-                     p.DaXoa == false
-                && p.MaPH == maPhong
-                && p.TrangThai == "Đã đặt"
-                && now < p.CheckOut
-                );
-            }
         }
 
     }

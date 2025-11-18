@@ -93,12 +93,5 @@ namespace HotelManagement.DAO
                 return db.KhachHangs.Where(p => p.CCCD_Passport == cccd).SingleOrDefault();
             
         }
-        public KhachHang FindKHWithEmail(string email)
-        {
-            using (HotelDTO db = new HotelDTO())
-            {
-                return db.KhachHangs.FirstOrDefault(k => k.Email == email);
-            }
-        }
     }
 }

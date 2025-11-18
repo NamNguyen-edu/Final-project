@@ -234,14 +234,6 @@ namespace HotelManagement.GUI
 
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-            if (CTDP_BUS.Instance.HasFutureBookingForRoom(phong.MaPH, DateTime.Now))
-            {
-                CTMessageBox.Show(
-                    "Phòng này đang có lịch đặt",
-                    "Cập nhật thất bại",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
             string TinhTrang = comboBoxTinhTrangPhong.Texts; 
             string DonDep = comboBoxDonDep.Texts;
             string LoaiPhong = comboBoxLoaiPhong.Texts;

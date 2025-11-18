@@ -1,8 +1,4 @@
-﻿using ApplicationSettings;
-using HotelManagement.BUS;
-using HotelManagement.CTControls;
-using HotelManagement.DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +9,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using ApplicationSettings;
+using HotelManagement.BUS;
+using HotelManagement.CTControls;
+using HotelManagement.DTO;
 namespace HotelManagement.GUI
 {
     public partial class FormSuaNhanVien : Form
@@ -61,6 +60,7 @@ namespace HotelManagement.GUI
         private void LoadForm()
         {
             this.CTTextBoxNhapCCCD.RemovePlaceholder();
+            this.CTTextBoxNhapChucVu.RemovePlaceholder();
             this.ctTextBoxEmail.RemovePlaceholder();
             this.ctTextBoxSDT.RemovePlaceholder();
             this.CTTextBoxDiaChi.RemovePlaceholder();
@@ -69,13 +69,13 @@ namespace HotelManagement.GUI
 
             this.CTTextBoxNhapCCCD.Texts = this.nhanVien.CCCD;
             this.ComboBoxGioiTinh.Texts = "  " + this.nhanVien.GioiTinh;
+            this.CTTextBoxNhapChucVu.Texts = this.nhanVien.ChucVu;
             this.ctDatePicker1.Value = this.nhanVien.NgaySinh;
             this.ctTextBoxEmail.Texts = this.nhanVien.Email;
             this.ctTextBoxSDT.Texts = this.nhanVien.SDT;
             this.CTTextBoxDiaChi.Texts = this.nhanVien.DiaChi;
             this.CTTextBoxNhapHoTen.Texts = this.nhanVien.TenNV;
             this.CTTextBoxLuong.Texts = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C0}", this.nhanVien.Luong).Trim('$');
-            this.cbChucVu.Texts = " " + this.nhanVien.ChucVu;
         }
         //Private Methods
         //Private Methods
@@ -238,37 +238,92 @@ namespace HotelManagement.GUI
 
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
+            string HoTen = CTTextBoxNhapHoTen.Texts;
+            string ChucVu = CTTextBoxNhapChucVu.Texts;
+            string Luong = CTTextBoxLuong.Texts;
+            string SDT = ctTextBoxSDT.Texts;
+            string CCCD = CTTextBoxNhapCCCD.Texts;
+            string DiaChi = CTTextBoxDiaChi.Texts;
+            string email = ctTextBoxEmail.Texts;
+            string GioiTinh = ComboBoxGioiTinh.Texts;
+            if (HoTen == "" || ChucVu == "" || Luong == "" || SDT == "" || CCCD == "" || DiaChi == "" || email == "" || GioiTinh == "  Giới tính")
+            {
+                CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên.", "Thông báo",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (ctTextBoxSDT.Texts.Length != 9)
+            {
+                CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            DateTime ngaySinh = this.ctDatePicker1.Value;
+            int tuoi = DateTime.Now.Year - ngaySinh.Year;
+
+            // Nếu chưa tới ngày sinh trong năm nay thì trừ 1 tuổi
+            if (DateTime.Now < ngaySinh.AddYears(tuoi))
+            {
+                tuoi--;
+            }
+
+            // Ràng buộc tuổi >= 18
+            if (tuoi < 18)
+            {
+                CTMessageBox.Show("Nhân viên phải từ 18 tuổi trở lên.", "Thông báo",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
             try
             {
-                // Cập nhật lại giá trị từ form vào nhanVien hiện tại
-                nhanVien.TenNV = CTTextBoxNhapHoTen.Texts;
-                nhanVien.ChucVu = cbChucVu.Texts;
-                nhanVien.CCCD = CTTextBoxNhapCCCD.Texts;
-                nhanVien.SDT = ctTextBoxSDT.Texts;
-                nhanVien.Email = ctTextBoxEmail.Texts;
-                nhanVien.DiaChi = CTTextBoxDiaChi.Texts;
-                nhanVien.GioiTinh = ComboBoxGioiTinh.Texts.Trim();
-                nhanVien.NgaySinh = ctDatePicker1.Value;
-                nhanVien.Luong = CTTextBoxLuong.Texts == "" ? 0 : decimal.Parse(CTTextBoxLuong.Texts, System.Globalization.NumberStyles.Currency);
-
-                if (nhanVien.TenNV == "" || nhanVien.ChucVu == "" || nhanVien.CCCD == "" || nhanVien.SDT == "" || nhanVien.Email == "" || nhanVien.DiaChi == "" || nhanVien.GioiTinh == "" || nhanVien.NgaySinh.ToString() == "" || nhanVien.Luong.ToString() == "")
+                foreach (NhanVien nhanVien in NhanVienBUS.Instance.GetAllNhanViens())
                 {
-                    CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên.", "Thông báo",
-                           MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (nhanVien.CCCD == this.CTTextBoxNhapCCCD.Texts && nhanVien.MaNV != this.nhanVien.MaNV)
+                    {
+                        CTMessageBox.Show("Đã tồn tại số CCCD này trong danh sách nhân viên! Vui lòng kiểm tra lại thông tin.", "Thông báo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if (nhanVien.SDT == this.ctTextBoxSDT.Texts && nhanVien.MaNV != this.nhanVien.MaNV)
+                    {
+                        CTMessageBox.Show("Đã tồn tại SĐT này trong danh sách nhân viên! Vui lòng kiểm tra lại thông tin.", "Thông báo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+                try
+                {
+                    this.nhanVien.ChucVu = ChucVu;
+                    this.nhanVien.CCCD = CCCD;
+                    this.nhanVien.GioiTinh = this.ComboBoxGioiTinh.Texts.Trim(' ');
+                    this.nhanVien.NgaySinh = this.ctDatePicker1.Value;
+                    this.nhanVien.Email = email;
+                    this.nhanVien.SDT = SDT;
+                    this.nhanVien.DiaChi = DiaChi;
+                    this.nhanVien.TenNV = HoTen;
+                    NhanVienBUS.Instance.UpdateOrInsert(nhanVien);
+                    CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
 
-                // Gọi BUSINESS LAYER
-                NhanVienBUS.Instance.UpdateOrInsert(nhanVien);
-
-                CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.Close();
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                CTMessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -303,7 +358,7 @@ namespace HotelManagement.GUI
         private void ctTextBoxSDT__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxOnlyNum = sender as TextBox;
-            textBoxOnlyNum.MaxLength = 10;
+            textBoxOnlyNum.MaxLength = 9;
             textBoxOnlyNum.KeyPress += TextBoxOnlyNum_KeyPress;
         }
 
@@ -313,10 +368,7 @@ namespace HotelManagement.GUI
 
         }
 
-        private void CTTextBoxNhapCCCD_Load(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void ctTextBoxCMND__TextChanged(object sender, EventArgs e)
         {
@@ -324,5 +376,6 @@ namespace HotelManagement.GUI
             textBoxOnlyNum.MaxLength = 12;
             textBoxOnlyNum.KeyPress += TextBoxOnlyNum_KeyPress;
         }
+
     }
 }

@@ -50,14 +50,12 @@ namespace HotelManagement.GUI
             this.ctTextBoxQuocTich.RemovePlaceholder();
             this.ctTextBoxCCCD.RemovePlaceholder();
             this.ctTextBoxSDT.RemovePlaceholder();
-            this.ctTextBoxEmail.RemovePlaceholder();
-           
+
             this.ctTextBoxName.Texts = this.khachHang.TenKH;
             this.ctTextBoxQuocTich.Texts = this.khachHang.QuocTich;
             this.ctTextBoxCCCD.Texts = this.khachHang.CCCD_Passport;
             this.comboBoxGioiTinh.Texts = "  " + this.khachHang.GioiTinh;
             this.ctTextBoxSDT.Texts = this.khachHang.SDT;
-            this.ctTextBoxEmail.Texts = this.khachHang.Email;
         }
         //Control Box
 
@@ -263,11 +261,7 @@ namespace HotelManagement.GUI
 
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-            if (this.ctTextBoxName.Texts != "" &&
-                this.ctTextBoxQuocTich.Texts != "" &&
-                this.ctTextBoxCCCD.Texts != "" &&
-                this.comboBoxGioiTinh.Texts != "  Giới tính" &&
-                this.ctTextBoxEmail.Texts != "")
+            if (this.ctTextBoxName.Texts != "" && this.ctTextBoxQuocTich.Texts != "" && this.ctTextBoxCCCD.Texts != "" && this.comboBoxGioiTinh.Texts != "  Giới tính")
             {
                 if (ctTextBoxCCCD.Texts.Length != 12 && ctTextBoxCCCD.Texts.Length != 7)
                 {
@@ -275,17 +269,10 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (ctTextBoxSDT.Texts.Length != 10)
+                if (ctTextBoxSDT.Texts.Length != 9)
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                if (!IsValidEmail(ctTextBoxEmail.Texts))
-                {
-                    CTMessageBox.Show("Email không hợp lệ! Vui lòng nhập đúng định dạng (ví dụ: abc@gmail.com).",
-                                       "Thông báo",
-                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -298,13 +285,6 @@ namespace HotelManagement.GUI
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    if (khachHang.Email == this.ctTextBoxEmail.Texts && this.khachHang.Email != this.ctTextBoxEmail.Texts)
-                    {
-                        CTMessageBox.Show("Email này đã tồn tại trong danh sách khách hàng!",
-                                          "Lỗi",
-                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
                 }
                 try
                 {
@@ -313,7 +293,6 @@ namespace HotelManagement.GUI
                     khachHang.CCCD_Passport = this.ctTextBoxCCCD.Texts;
                     khachHang.SDT = this.ctTextBoxSDT.Texts;
                     khachHang.GioiTinh = this.comboBoxGioiTinh.Texts.Trim(' ');
-                    khachHang.Email = this.ctTextBoxEmail.Texts;
                     KhachHangBUS.Instance.UpdateOrAdd(khachHang);
 
                     CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",
@@ -338,7 +317,7 @@ namespace HotelManagement.GUI
         private void ctTextBoxSDT__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxSDT = sender as TextBox;
-            textBoxSDT.MaxLength = 10;
+            textBoxSDT.MaxLength = 9;
             textBoxSDT.KeyPress += TextBoxSDT_KeyPress;
         }
 
@@ -361,18 +340,6 @@ namespace HotelManagement.GUI
         private void FormSuaKhachHang_Load(object sender, EventArgs e)
         {
             this.ActiveControl = labelSuaKhachHang;
-        }
-        private bool IsValidEmail(string email)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

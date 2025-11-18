@@ -3,7 +3,6 @@ using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,7 +31,6 @@ namespace HotelManagement.BUS
         }
         public void UpdateOrInsert(NhanVien nhanVien)
         {
-            // Insert data vô db
             NhanVienDAO.Instance.UpdateOrInsert(nhanVien);
         }
         public void RemoveNhanVien(NhanVien nhanVien)
@@ -46,10 +44,6 @@ namespace HotelManagement.BUS
         public string GetMaNVNext()
         {
             return NhanVienDAO.Instance.GetMaNVNext();
-        }
-        public List<NhanVien> Findnhanvienwithname(string TenNV)
-        {
-            return NhanVienDAO.Instance.FindNhanVienWithName(TenNV);
         }
     }
 }
