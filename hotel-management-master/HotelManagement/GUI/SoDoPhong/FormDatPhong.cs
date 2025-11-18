@@ -600,11 +600,23 @@ namespace HotelManagement.GUI
                 }
                 try
                 {
+                   
                     CreateKH();
                     CreatePhieuThue();
                     CreateCTDP();
                     CreateHoaDon();
-                    SendBookingEmail(khachHang, phieuThue, listPhongDaDat);
+                    bool emailSent = SendBookingEmail(khachHang, phieuThue, listPhongDaDat);
+
+                    if (!emailSent)
+                    {
+                        CTMessageBox.Show("Không thể gửi email xác nhận.\nVui lòng thử lại.",
+                            "Lỗi gửi email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Email thành công → Thông báo
+                    CTMessageBox.Show("Gửi email thành công!", "Thông báo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     flag = 1;
                 }
                 catch (Exception ex)
@@ -764,7 +776,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-        private void SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
+        private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
         {
             try
             {
@@ -918,11 +930,13 @@ namespace HotelManagement.GUI
                 smtp.Credentials = new NetworkCredential(smtpUser, smtpPass);
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
+                return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Không thể gửi email xác nhận:\n" + ex.Message,
                                 "Lỗi gửi email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
     }
