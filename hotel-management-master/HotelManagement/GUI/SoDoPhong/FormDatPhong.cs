@@ -1,11 +1,17 @@
-﻿using HotelManagement.CTControls;
+﻿using ApplicationSettings;
+using HotelManagement.BUS;
+using HotelManagement.CTControls;
+using HotelManagement.DAO;
+using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -586,7 +592,7 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (CTTextBoxNhapSDT.Texts.Length != 10)
+                if (CTTextBoxNhapSDT.Texts.Length != 9)
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -706,6 +712,7 @@ namespace HotelManagement.GUI
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
 
+
         private void CTTextBoxNhapCCCD__TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -728,6 +735,13 @@ namespace HotelManagement.GUI
                     CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
                     ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
                     CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
+                    //khóa k cho đổi thông tin
+                    CTTextBoxNhapCCCD.Enabled = false;
+                    CTTextBoxNhapHoTen.Enabled = false;
+                    CTTextBoxNhapSDT.Enabled = false;
+                    CTTextBoxNhapDiaChi.Enabled = false;
+                    ComboBoxGioiTinh.Enabled = false;
+
                     ComboBoxGioiTinh.Focus();
                     flagHoTen = 1;
                 }
@@ -737,7 +751,7 @@ namespace HotelManagement.GUI
         private void CTTextBoxNhapSDT__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxOnlyNumber = sender as TextBox;
-            textBoxOnlyNumber.MaxLength = 10;
+            textBoxOnlyNumber.MaxLength = 9;
             textBoxOnlyNumber.KeyPress += TextBoxOnlyNumber_KeyPress;
         }
 

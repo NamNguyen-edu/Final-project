@@ -215,7 +215,7 @@ namespace HotelManagement.GUI
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        
+
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -231,15 +231,15 @@ namespace HotelManagement.GUI
             this.LabelNhanVienLapPhieu.Text = this.phieuThue.NhanVien.TenNV;
             this.LabelChiTietPhieuThueTieuDe.Text = this.phieuThue.MaPT;
             this.LabelTen.Text = this.phieuThue.KhachHang.TenKH;
-            this.LabelThoiGianLapPhieu.Text = this.phieuThue.NgPT.ToString("dd/MM/yyyy hh:mm");
+            this.LabelThoiGianLapPhieu.Text = this.phieuThue.NgPT.ToString("dd/MM/yyyy hh:mm:ss"); // chỉnh định dạng dd/MM/yyy là xóa đc lịch thuê
             LoadGrid();
         }
         private void LoadGrid()
         {
             grid.Rows.Clear();
-            List<CTDP> ctdps = CTDP_BUS.Instance.GetCTDPs().Where(p=>p.MaPT==phieuThue.MaPT && p.DaXoa==false).ToList();
-            
-            foreach(CTDP cTDP in ctdps)
+            List<CTDP> ctdps = CTDP_BUS.Instance.GetCTDPs().Where(p => p.MaPT == phieuThue.MaPT && p.DaXoa == false).ToList();
+
+            foreach (CTDP cTDP in ctdps)
             {
                 string TrangThai;
                 if (cTDP.TrangThai == "Đang thuê")
@@ -248,9 +248,9 @@ namespace HotelManagement.GUI
                     TrangThai = "Hoàn thành";
                 else
                     TrangThai = cTDP.TrangThai;
-                grid.Rows.Add(new object[] { cTDP.MaPH, cTDP.CheckIn.ToString("dd/MM/yyyy hh:mm:ss"), cTDP.CheckOut.ToString("dd/MM/yyyy hh:mm:ss"), TrangThai, this.delete }) ;
-            }    
-        }    
+                grid.Rows.Add(new object[] { cTDP.MaPH, cTDP.CheckIn.ToString("dd/MM/yyyy hh:mm:ss"), cTDP.CheckOut.ToString("dd/MM/yyyy hh:mm:ss"), TrangThai, this.delete });
+            }
+        }
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -277,13 +277,13 @@ namespace HotelManagement.GUI
                 {
                     try
                     {
-                        DateTime date = DateTime.ParseExact(grid.Rows[y].Cells[1].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                        DateTime date = DateTime.ParseExact(grid.Rows[y].Cells[1].Value.ToString(), "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture); //chỉnh định dạng dd/MM/yyyy HH:mm:ss
                         CTDP cTDP = CTDP_BUS.Instance.GetCTDPs().Where(p => p.MaPT == phieuThue.MaPT).ToList()[y];
-                        if(cTDP.TrangThai == "Đã xong" )
+                        if (cTDP.TrangThai == "Đã xong")
                         {
                             CTMessageBox.Show("Thông tin đặt phòng này không hủy được do đã hoàn thành!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
-                        }    
+                        }
                         else if (cTDP.TrangThai == "Đang thuê")
                         {
                             CTMessageBox.Show("Thông tin đặt phòng này không hủy được do đang thuê!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -298,11 +298,11 @@ namespace HotelManagement.GUI
                     }
                     catch (Exception ex)
                     {
-                       MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message);
                     }
                     finally
                     {
-                        
+
                     }
                 }
             }
@@ -312,7 +312,7 @@ namespace HotelManagement.GUI
         {
             try
             {
-                using (FormDatPhong formDatPhong = new FormDatPhong(null,this.phieuThue))
+                using (FormDatPhong formDatPhong = new FormDatPhong(null, this.phieuThue))
                 {
                     formDatPhong.ShowDialog();
                 }
