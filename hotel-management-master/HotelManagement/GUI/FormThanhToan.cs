@@ -28,7 +28,7 @@ namespace HotelManagement.GUI
         public FormThanhToan()
         {
             InitializeComponent();
-            InitializeWebView();
+
         }
         private async void InitializeWebView()
         {
@@ -104,7 +104,12 @@ namespace HotelManagement.GUI
         }
         private void FormThanhToan_Load(object sender, EventArgs e)
         {
-          
+            InitializeWebView();
+        }
+
+        private void ctClose1_Load(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
