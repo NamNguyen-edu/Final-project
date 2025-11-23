@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
-using System.Drawing.Drawing2D;
+
 
 namespace HotelManagement.CTControls
 {
@@ -137,12 +139,25 @@ namespace HotelManagement.CTControls
 
             }
         }
+       
+
         protected override void OnHandleCreated(EventArgs e)
+    {
+        base.OnHandleCreated(e);
+
+        // Prevent Designer crash
+        if (this.Site != null && this.Site.DesignMode)
+            return;
+
+        if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+            return;
+
+        if (this.Parent != null)
         {
-            base.OnHandleCreated(e);
             this.Parent.BackColorChanged += new EventHandler(Container_BackColorChanged);
         }
-        private void Container_BackColorChanged(object sender, EventArgs e)
+    }
+    private void Container_BackColorChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }

@@ -586,16 +586,22 @@ namespace HotelManagement.GUI
             }
             if (this.CTTextBoxNhapCCCD.Texts != "" && this.CTTextBoxNhapDiaChi.Texts != "" && this.CTTextBoxNhapHoTen.Texts != "" && this.ComboBoxGioiTinh.Texts != "  Giới tính")
             {
-                if (CTTextBoxNhapCCCD.Texts.Length != 12 && CTTextBoxNhapCCCD.Texts.Length != 7)
+                if (CTTextBoxNhapCCCD.Texts.Length < 12 && CTTextBoxNhapCCCD.Texts.Length > 7)
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ số CCCD/Passport.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (CTTextBoxNhapSDT.Texts.Length > 10)
+                if (CTTextBoxNhapSDT.Texts.Length <9)
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                if (!CTTextBoxNhapEmail.Texts.Contains("@") || !CTTextBoxNhapEmail.Texts.Contains("."))
+                {
+                    CTMessageBox.Show("Email không hợp lệ!", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 try
@@ -604,34 +610,19 @@ namespace HotelManagement.GUI
                     CreatePhieuThue();
                     CreateCTDP();
                     CreateHoaDon();
-                    bool emailSent = SendBookingEmail(khachHang, phieuThue, listPhongDaDat);
 
-                    if (!emailSent)
-                    {
-                        CTMessageBox.Show("Không thể gửi email xác nhận.\nVui lòng thử lại.",
-                            "Lỗi gửi email", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    if (!SendBookingEmail(khachHang, phieuThue, listPhongDaDat))
+                        throw new Exception("Không thể gửi email xác nhận. Vui lòng thử lại.");
 
-                    // Email thành công → Thông báo
-                    CTMessageBox.Show("Gửi email thành công!", "Thông báo",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    flag = 1;
+                    CTMessageBox.Show("Đặt phòng thành công!\nVui lòng kiểm tra email.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
                 {
-                    CTMessageBox.Show(ex.Message, "Thông báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CTMessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    if (flag == 1)
-                    {
-                        SendBookingEmail(khachHang, phieuThue, listPhongDaDat); // Gọi hàm gửi mail
-
-                        CTMessageBox.Show("Đặt phòng thành công\n Vui lòng kiểm tra email.", "Thông báo",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
                     this.Close();
                 }
             }
@@ -660,6 +651,7 @@ namespace HotelManagement.GUI
                     khachHang.TenKH = CTTextBoxNhapHoTen.Texts;
                     khachHang.CCCD_Passport = CTTextBoxNhapCCCD.Texts;
                     khachHang.GioiTinh = this.ComboBoxGioiTinh.Texts.Trim(' ');
+                    khachHang.Email= CTTextBoxNhapEmail.Texts;
 
                     KhachHangBUS.Instance.UpdateOrAdd(khachHang);
                 }
@@ -729,32 +721,61 @@ namespace HotelManagement.GUI
             TextBox textBox = sender as TextBox;
             textBox.MaxLength = 12;
             textBox.KeyPress += TextBoxOnlyNumber_KeyPress;
-            if (caseForm == 0)
+
+            if (caseForm == 0) // Chỉ xử lý khi ở chế độ Thêm Mới/Đặt phòng
             {
-                if (KhachHangBUS.Instance.FindKHWithCCCD(textBox.Text) != null)
+                // 1. Tìm kiếm trong DB (Lưu vào biến để tránh gọi DB 2 lần)
+                KhachHang khTimthay = KhachHangBUS.Instance.FindKHWithCCCD(textBox.Text);
+
+                // TRƯỜNG HỢP 1: Tìm thấy khách hàng trong DB
+                if (khTimthay != null)
                 {
-                    CTMessageBox.Show("Đã tồn tại số CCCD/Passport này trong danh sách.\r\nThông tin sẽ được tự động điền.", "Thông báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (flagHoTen == 0) // Chỉ hiện thông báo lần đầu tiên tìm thấy
+                    {
+                        CTMessageBox.Show("Đã tồn tại số CCCD.\r\nThông tin sẽ được tự động điền.", "Thông báo",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
                     CTTextBoxNhapSDT.RemovePlaceholder();
                     CTTextBoxNhapDiaChi.RemovePlaceholder();
                     CTTextBoxNhapHoTen.RemovePlaceholder();
-                    // CTTextBoxNhapCCCD.RemovePlaceholder();
 
+                    // Gán biến toàn cục khachHang
+                    khachHang = khTimthay;
 
-                    khachHang = KhachHangBUS.Instance.FindKHWithCCCD(textBox.Text);
+                    // Điền dữ liệu
                     CTTextBoxNhapSDT.Texts = khachHang.SDT;
                     CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
                     ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
                     CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
-                    //khóa k cho đổi thông tin
-                    CTTextBoxNhapCCCD.Enabled = false;
+                    CTTextBoxNhapEmail.Texts = khachHang.Email; 
+
+                    // Khóa không cho thay đổi thông tin
                     CTTextBoxNhapHoTen.Enabled = false;
                     CTTextBoxNhapSDT.Enabled = false;
                     CTTextBoxNhapDiaChi.Enabled = false;
                     ComboBoxGioiTinh.Enabled = false;
+                    CTTextBoxNhapEmail.Enabled = false; // Nhớ khóa cả email nếu có
 
                     ComboBoxGioiTinh.Focus();
+
+                    // Đánh dấu là đang hiển thị khách hàng cũ
                     flagHoTen = 1;
+                }
+                // TRƯỜNG HỢP 2: Không tìm thấy (Đang nhập mới hoặc nhập sai)
+                else
+                {
+
+                    if (flagHoTen == 1)
+                    {
+                        
+                        CTTextBoxNhapHoTen.Enabled = true;
+                        CTTextBoxNhapSDT.Enabled = true;
+                        CTTextBoxNhapDiaChi.Enabled = true;
+                        ComboBoxGioiTinh.Enabled = true;
+                        // Sau khi reset, đưa trạng thái về nhập mới
+                        flagHoTen = 0;
+                    }
                 }
             }
         }
@@ -762,7 +783,7 @@ namespace HotelManagement.GUI
         private void CTTextBoxNhapSDT__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxOnlyNumber = sender as TextBox;
-            textBoxOnlyNumber.MaxLength = 9;
+            textBoxOnlyNumber.MaxLength = 10;
             textBoxOnlyNumber.KeyPress += TextBoxOnlyNumber_KeyPress;
         }
 
