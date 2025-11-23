@@ -260,7 +260,6 @@ namespace HotelManagement.GUI
 
                 // Gọi BUSINESS LAYER
                 NhanVienBUS.Instance.UpdateOrInsert(nhanVien);
-
                 CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 

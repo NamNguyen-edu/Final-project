@@ -178,7 +178,7 @@ namespace HotelManagement.DAO
                 return db.CTDPs.Any(p =>
                      p.DaXoa == false
                 && p.MaPH == maPhong
-                && p.TrangThai == "Đã đặt"
+                && (p.TrangThai == "Đang thuê")
                 && now < p.CheckOut
                 );
             }
