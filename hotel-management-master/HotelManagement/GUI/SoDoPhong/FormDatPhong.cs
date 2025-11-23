@@ -773,6 +773,7 @@ namespace HotelManagement.GUI
                         CTTextBoxNhapSDT.Enabled = true;
                         CTTextBoxNhapDiaChi.Enabled = true;
                         ComboBoxGioiTinh.Enabled = true;
+                        CTTextBoxNhapEmail.Enabled = true;
                         // Sau khi reset, đưa trạng thái về nhập mới
                         flagHoTen = 0;
                     }
