@@ -52,13 +52,13 @@ namespace HotelManagement.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel1 = new DoubleBufferPanel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panel1 = new HotelManagement.GUI.FormDatPhong.DoubleBufferPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.cbBoxLetterKetThuc = new HotelManagement.CTControls.CTComboBox();
             this.cbBoxGioKetThuc = new HotelManagement.CTControls.CTComboBox();
@@ -100,9 +100,11 @@ namespace HotelManagement.GUI
             this.CTDatePickerNgayBD = new HotelManagement.CTControls.CTDatePicker();
             this.LabelThongTinPhong = new System.Windows.Forms.Label();
             this.LabelDatPhong = new System.Windows.Forms.Label();
-            this.PanelBackground = new DoubleBufferPanel();
+            this.PanelBackground = new HotelManagement.GUI.FormDatPhong.DoubleBufferPanel();
             this.CTButtonHuy = new HotelManagement.CTControls.CTButton();
             this.CTButtonDatTruoc = new HotelManagement.CTControls.CTButton();
+            this.CTTextBoxNhapEmail = new HotelManagement.CTControls.CTTextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPhongTrong)).BeginInit();
@@ -116,11 +118,14 @@ namespace HotelManagement.GUI
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayBD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayKT)).BeginInit();
             this.PanelBackground.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.panel1.Controls.Add(this.pictureBox6);
+            this.panel1.Controls.Add(this.CTTextBoxNhapEmail);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.cbBoxLetterKetThuc);
             this.panel1.Controls.Add(this.cbBoxGioKetThuc);
@@ -165,7 +170,7 @@ namespace HotelManagement.GUI
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(773, 126);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 15);
+            this.label6.Size = new System.Drawing.Size(88, 20);
             this.label6.TabIndex = 32;
             this.label6.Text = "Giờ kết thúc";
             // 
@@ -250,7 +255,7 @@ namespace HotelManagement.GUI
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(774, 59);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 15);
+            this.label5.Size = new System.Drawing.Size(87, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Giờ bắt đầu";
             // 
@@ -353,14 +358,14 @@ namespace HotelManagement.GUI
             this.gridPhongTrong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPhongTrong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridPhongTrong.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPhongTrong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPhongTrong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.gridPhongTrong.ColumnHeadersHeight = 50;
             this.gridPhongTrong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPhongTrong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -368,27 +373,27 @@ namespace HotelManagement.GUI
             this.Column2,
             this.Column3});
             this.gridPhongTrong.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPhongTrong.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPhongTrong.DefaultCellStyle = dataGridViewCellStyle8;
             this.gridPhongTrong.EnableHeadersVisualStyles = false;
             this.gridPhongTrong.Location = new System.Drawing.Point(319, 239);
             this.gridPhongTrong.MultiSelect = false;
             this.gridPhongTrong.Name = "gridPhongTrong";
             this.gridPhongTrong.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPhongTrong.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPhongTrong.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.gridPhongTrong.RowHeadersVisible = false;
             this.gridPhongTrong.RowHeadersWidth = 40;
             this.gridPhongTrong.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -404,12 +409,14 @@ namespace HotelManagement.GUI
             // Column1
             // 
             this.Column1.HeaderText = "Số phòng";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Loại phòng";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -417,6 +424,7 @@ namespace HotelManagement.GUI
             // 
             this.Column3.FillWeight = 75F;
             this.Column3.HeaderText = "Thêm";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
@@ -432,14 +440,14 @@ namespace HotelManagement.GUI
             this.gridPhongDaChon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridPhongDaChon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridPhongDaChon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPhongDaChon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPhongDaChon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.gridPhongDaChon.ColumnHeadersHeight = 50;
             this.gridPhongDaChon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridPhongDaChon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -449,27 +457,27 @@ namespace HotelManagement.GUI
             this.Column7,
             this.Column8});
             this.gridPhongDaChon.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridPhongDaChon.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridPhongDaChon.DefaultCellStyle = dataGridViewCellStyle11;
             this.gridPhongDaChon.EnableHeadersVisualStyles = false;
             this.gridPhongDaChon.Location = new System.Drawing.Point(638, 239);
             this.gridPhongDaChon.MultiSelect = false;
             this.gridPhongDaChon.Name = "gridPhongDaChon";
             this.gridPhongDaChon.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridPhongDaChon.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridPhongDaChon.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.gridPhongDaChon.RowHeadersVisible = false;
             this.gridPhongDaChon.RowHeadersWidth = 40;
             this.gridPhongDaChon.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -488,7 +496,7 @@ namespace HotelManagement.GUI
             this.Column4.MinimumWidth = 10;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 92;
+            this.Column4.Width = 125;
             // 
             // Column5
             // 
@@ -497,7 +505,7 @@ namespace HotelManagement.GUI
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column5.Width = 69;
+            this.Column5.Width = 96;
             // 
             // Column6
             // 
@@ -506,23 +514,25 @@ namespace HotelManagement.GUI
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column6.Width = 73;
+            this.Column6.Width = 135;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Ngày kết thúc";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column7.Width = 72;
+            this.Column7.Width = 138;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Hủy";
+            this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.Width = 42;
+            this.Column8.Width = 51;
             // 
             // ctPanel2
             // 
@@ -555,7 +565,7 @@ namespace HotelManagement.GUI
             // PictureBoxCCCD
             // 
             this.PictureBoxCCCD.Image = global::HotelManagement.Properties.Resources.CCCD;
-            this.PictureBoxCCCD.Location = new System.Drawing.Point(38, 180);
+            this.PictureBoxCCCD.Location = new System.Drawing.Point(30, 142);
             this.PictureBoxCCCD.Name = "PictureBoxCCCD";
             this.PictureBoxCCCD.Size = new System.Drawing.Size(38, 27);
             this.PictureBoxCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -574,7 +584,7 @@ namespace HotelManagement.GUI
             // PictureBoxDiaChi
             // 
             this.PictureBoxDiaChi.Image = global::HotelManagement.Properties.Resources.Address;
-            this.PictureBoxDiaChi.Location = new System.Drawing.Point(42, 320);
+            this.PictureBoxDiaChi.Location = new System.Drawing.Point(42, 350);
             this.PictureBoxDiaChi.Name = "PictureBoxDiaChi";
             this.PictureBoxDiaChi.Size = new System.Drawing.Size(30, 30);
             this.PictureBoxDiaChi.TabIndex = 21;
@@ -583,7 +593,7 @@ namespace HotelManagement.GUI
             // PictureBoxSDT
             // 
             this.PictureBoxSDT.Image = global::HotelManagement.Properties.Resources.Phone;
-            this.PictureBoxSDT.Location = new System.Drawing.Point(42, 249);
+            this.PictureBoxSDT.Location = new System.Drawing.Point(38, 198);
             this.PictureBoxSDT.Name = "PictureBoxSDT";
             this.PictureBoxSDT.Size = new System.Drawing.Size(30, 30);
             this.PictureBoxSDT.TabIndex = 22;
@@ -592,7 +602,7 @@ namespace HotelManagement.GUI
             // PictureBoxTen
             // 
             this.PictureBoxTen.Image = global::HotelManagement.Properties.Resources.NameKH;
-            this.PictureBoxTen.Location = new System.Drawing.Point(42, 105);
+            this.PictureBoxTen.Location = new System.Drawing.Point(38, 85);
             this.PictureBoxTen.Name = "PictureBoxTen";
             this.PictureBoxTen.Size = new System.Drawing.Size(30, 30);
             this.PictureBoxTen.TabIndex = 23;
@@ -607,7 +617,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapDiaChi.BorderSize = 1;
             this.CTTextBoxNhapDiaChi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapDiaChi.IsFocused = false;
-            this.CTTextBoxNhapDiaChi.Location = new System.Drawing.Point(79, 314);
+            this.CTTextBoxNhapDiaChi.Location = new System.Drawing.Point(79, 337);
             this.CTTextBoxNhapDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.CTTextBoxNhapDiaChi.Multiline = false;
             this.CTTextBoxNhapDiaChi.Name = "CTTextBoxNhapDiaChi";
@@ -616,7 +626,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapDiaChi.PlaceholderColor = System.Drawing.Color.Gray;
             this.CTTextBoxNhapDiaChi.PlaceholderText = "Nhập quốc tịch";
             this.CTTextBoxNhapDiaChi.ReadOnly = false;
-            this.CTTextBoxNhapDiaChi.Size = new System.Drawing.Size(205, 36);
+            this.CTTextBoxNhapDiaChi.Size = new System.Drawing.Size(205, 43);
             this.CTTextBoxNhapDiaChi.TabIndex = 4;
             this.CTTextBoxNhapDiaChi.Texts = "";
             this.CTTextBoxNhapDiaChi.UnderlineedStyle = true;
@@ -631,7 +641,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapSDT.BorderSize = 1;
             this.CTTextBoxNhapSDT.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapSDT.IsFocused = false;
-            this.CTTextBoxNhapSDT.Location = new System.Drawing.Point(79, 243);
+            this.CTTextBoxNhapSDT.Location = new System.Drawing.Point(75, 185);
             this.CTTextBoxNhapSDT.Margin = new System.Windows.Forms.Padding(4);
             this.CTTextBoxNhapSDT.Multiline = false;
             this.CTTextBoxNhapSDT.Name = "CTTextBoxNhapSDT";
@@ -640,7 +650,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapSDT.PlaceholderColor = System.Drawing.Color.Gray;
             this.CTTextBoxNhapSDT.PlaceholderText = "Nhập số điện thoại";
             this.CTTextBoxNhapSDT.ReadOnly = false;
-            this.CTTextBoxNhapSDT.Size = new System.Drawing.Size(205, 36);
+            this.CTTextBoxNhapSDT.Size = new System.Drawing.Size(205, 43);
             this.CTTextBoxNhapSDT.TabIndex = 3;
             this.CTTextBoxNhapSDT.Texts = "";
             this.CTTextBoxNhapSDT.UnderlineedStyle = true;
@@ -655,7 +665,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapCCCD.BorderSize = 1;
             this.CTTextBoxNhapCCCD.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapCCCD.IsFocused = false;
-            this.CTTextBoxNhapCCCD.Location = new System.Drawing.Point(79, 172);
+            this.CTTextBoxNhapCCCD.Location = new System.Drawing.Point(79, 126);
             this.CTTextBoxNhapCCCD.Margin = new System.Windows.Forms.Padding(4);
             this.CTTextBoxNhapCCCD.Multiline = false;
             this.CTTextBoxNhapCCCD.Name = "CTTextBoxNhapCCCD";
@@ -664,7 +674,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapCCCD.PlaceholderColor = System.Drawing.Color.Gray;
             this.CTTextBoxNhapCCCD.PlaceholderText = "Nhập số CCCD";
             this.CTTextBoxNhapCCCD.ReadOnly = false;
-            this.CTTextBoxNhapCCCD.Size = new System.Drawing.Size(205, 36);
+            this.CTTextBoxNhapCCCD.Size = new System.Drawing.Size(205, 43);
             this.CTTextBoxNhapCCCD.TabIndex = 2;
             this.CTTextBoxNhapCCCD.Texts = "";
             this.CTTextBoxNhapCCCD.UnderlineedStyle = true;
@@ -679,7 +689,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapHoTen.BorderSize = 1;
             this.CTTextBoxNhapHoTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapHoTen.IsFocused = false;
-            this.CTTextBoxNhapHoTen.Location = new System.Drawing.Point(79, 99);
+            this.CTTextBoxNhapHoTen.Location = new System.Drawing.Point(79, 72);
             this.CTTextBoxNhapHoTen.Margin = new System.Windows.Forms.Padding(4);
             this.CTTextBoxNhapHoTen.Multiline = false;
             this.CTTextBoxNhapHoTen.Name = "CTTextBoxNhapHoTen";
@@ -688,7 +698,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapHoTen.PlaceholderColor = System.Drawing.Color.Gray;
             this.CTTextBoxNhapHoTen.PlaceholderText = "Nhập họ tên khách hàng";
             this.CTTextBoxNhapHoTen.ReadOnly = false;
-            this.CTTextBoxNhapHoTen.Size = new System.Drawing.Size(205, 36);
+            this.CTTextBoxNhapHoTen.Size = new System.Drawing.Size(205, 43);
             this.CTTextBoxNhapHoTen.TabIndex = 1;
             this.CTTextBoxNhapHoTen.Texts = "";
             this.CTTextBoxNhapHoTen.UnderlineedStyle = true;
@@ -699,9 +709,9 @@ namespace HotelManagement.GUI
             this.LabelThongTinKH.AutoSize = true;
             this.LabelThongTinKH.BackColor = System.Drawing.Color.Transparent;
             this.LabelThongTinKH.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelThongTinKH.Location = new System.Drawing.Point(25, 27);
+            this.LabelThongTinKH.Location = new System.Drawing.Point(16, 10);
             this.LabelThongTinKH.Name = "LabelThongTinKH";
-            this.LabelThongTinKH.Size = new System.Drawing.Size(262, 32);
+            this.LabelThongTinKH.Size = new System.Drawing.Size(326, 41);
             this.LabelThongTinKH.TabIndex = 15;
             this.LabelThongTinKH.Text = "Thông tin khách hàng";
             // 
@@ -711,7 +721,7 @@ namespace HotelManagement.GUI
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(707, 196);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 25);
+            this.label4.Size = new System.Drawing.Size(179, 32);
             this.label4.TabIndex = 7;
             this.label4.Text = "Phòng đã chọn";
             // 
@@ -721,7 +731,7 @@ namespace HotelManagement.GUI
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(350, 196);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(213, 25);
+            this.label3.Size = new System.Drawing.Size(271, 32);
             this.label3.TabIndex = 7;
             this.label3.Text = "Danh sách phòng trống";
             // 
@@ -758,7 +768,7 @@ namespace HotelManagement.GUI
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(440, 124);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 15);
+            this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Ngày kết thúc";
             // 
@@ -768,7 +778,7 @@ namespace HotelManagement.GUI
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(440, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 15);
+            this.label1.Size = new System.Drawing.Size(99, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ngày bắt đầu";
             // 
@@ -813,7 +823,7 @@ namespace HotelManagement.GUI
             this.LabelThongTinPhong.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelThongTinPhong.Location = new System.Drawing.Point(529, 10);
             this.LabelThongTinPhong.Name = "LabelThongTinPhong";
-            this.LabelThongTinPhong.Size = new System.Drawing.Size(206, 32);
+            this.LabelThongTinPhong.Size = new System.Drawing.Size(256, 41);
             this.LabelThongTinPhong.TabIndex = 1;
             this.LabelThongTinPhong.Text = "Thông tin phòng";
             // 
@@ -824,7 +834,7 @@ namespace HotelManagement.GUI
             this.LabelDatPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDatPhong.Location = new System.Drawing.Point(431, 9);
             this.LabelDatPhong.Name = "LabelDatPhong";
-            this.LabelDatPhong.Size = new System.Drawing.Size(153, 37);
+            this.LabelDatPhong.Size = new System.Drawing.Size(189, 46);
             this.LabelDatPhong.TabIndex = 0;
             this.LabelDatPhong.Text = "Đặt Phòng";
             // 
@@ -884,6 +894,38 @@ namespace HotelManagement.GUI
             this.CTButtonDatTruoc.UseVisualStyleBackColor = false;
             this.CTButtonDatTruoc.Click += new System.EventHandler(this.CTButtonDatTruoc_Click);
             // 
+            // CTTextBoxNhapEmail
+            // 
+            this.CTTextBoxNhapEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxNhapEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CTTextBoxNhapEmail.BorderFocusColor = System.Drawing.Color.Black;
+            this.CTTextBoxNhapEmail.BorderRadius = 0;
+            this.CTTextBoxNhapEmail.BorderSize = 1;
+            this.CTTextBoxNhapEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTTextBoxNhapEmail.IsFocused = false;
+            this.CTTextBoxNhapEmail.Location = new System.Drawing.Point(79, 263);
+            this.CTTextBoxNhapEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.CTTextBoxNhapEmail.Multiline = false;
+            this.CTTextBoxNhapEmail.Name = "CTTextBoxNhapEmail";
+            this.CTTextBoxNhapEmail.Padding = new System.Windows.Forms.Padding(7);
+            this.CTTextBoxNhapEmail.PasswordChar = false;
+            this.CTTextBoxNhapEmail.PlaceholderColor = System.Drawing.Color.Gray;
+            this.CTTextBoxNhapEmail.PlaceholderText = "Nhập email";
+            this.CTTextBoxNhapEmail.ReadOnly = false;
+            this.CTTextBoxNhapEmail.Size = new System.Drawing.Size(205, 43);
+            this.CTTextBoxNhapEmail.TabIndex = 35;
+            this.CTTextBoxNhapEmail.Texts = "";
+            this.CTTextBoxNhapEmail.UnderlineedStyle = true;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
+            this.pictureBox6.Location = new System.Drawing.Point(42, 276);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.TabIndex = 36;
+            this.pictureBox6.TabStop = false;
+            // 
             // FormDatPhong
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -918,14 +960,13 @@ namespace HotelManagement.GUI
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayBD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayKT)).EndInit();
             this.PanelBackground.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label LabelThongTinPhong;
         private System.Windows.Forms.Label LabelDatPhong;
         private System.Windows.Forms.Label label4;
@@ -940,7 +981,6 @@ namespace HotelManagement.GUI
         private System.Windows.Forms.PictureBox PictureBoxGioBD;
         private CTControls.CTButton CTButtonDatTruoc;
         private CTControls.CTButton CTButtonHuy;
-        private System.Windows.Forms.Panel PanelBackground;
         private System.Windows.Forms.PictureBox PictureBoxCCCD;
         private System.Windows.Forms.PictureBox PictureBoxGioiTinh;
         private System.Windows.Forms.PictureBox PictureBoxDiaChi;
@@ -970,5 +1010,9 @@ namespace HotelManagement.GUI
         private CTControls.CTComboBox cbBoxLetterKetThuc;
         private CTControls.CTComboBox cbBoxGioKetThuc;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private CTControls.CTTextBox CTTextBoxNhapEmail;
+        private DoubleBufferPanel panel1;
+        private DoubleBufferPanel PanelBackground;
+        private PictureBox pictureBox6;
     }
 }
