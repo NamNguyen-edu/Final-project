@@ -21,6 +21,8 @@ namespace HotelManagement.DTO
         [StringLength(50)]
         public string TenTN { get; set; }
 
+        public int SoLuong { get; set; }
+
         public bool? DaXoa { get; set; }
 
         public virtual ICollection<CTTN> CTTNs { get; set; }

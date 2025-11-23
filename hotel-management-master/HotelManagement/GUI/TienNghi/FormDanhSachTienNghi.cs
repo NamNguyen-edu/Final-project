@@ -27,7 +27,7 @@ namespace HotelManagement.GUI
             InitializeComponent();
         }
 
-        public FormDanhSachTienNghi(FormMain formMain,TaiKhoan taiKhoan)
+        public FormDanhSachTienNghi(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
@@ -64,7 +64,7 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachTienNghi_Load(object sender, EventArgs e)
         {
-             grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
+            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
             /*grid.Rows.Add(new object[] { TN, "TN001", "Ti vi", edit, delete });
             grid.Rows.Add(new object[] { TN, "TN002", "Máy lạnh", edit, delete });
             grid.Rows.Add(new object[] {TN, "TN003", "Máy sấy", edit, delete });*/
@@ -91,10 +91,11 @@ namespace HotelManagement.GUI
                 grid.Rows.Clear();
                 foreach (TienNghi tienNghi in tienNghis)
                 {
-                    grid.Rows.Add(new object[] { TN, tienNghi.MaTN, tienNghi.TenTN, edit, delete });
+                    //grid.Rows.Add(new object[] { TN, tienNghi.MaTN, tienNghi.TenTN, edit, delete });
+                    grid.Rows.Add(new object[] { TN, tienNghi.MaTN, tienNghi.TenTN, tienNghi.SoLuong, edit, delete });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -149,7 +150,7 @@ namespace HotelManagement.GUI
             if (y >= 0)
             {
                 // If click Update button 
-                if (x == 3)
+                if (x == 4)
                 {
                     if (taiKhoan.CapDoQuyen == 1)
                     {
@@ -176,7 +177,7 @@ namespace HotelManagement.GUI
                     }
                     finally { formBackground.Dispose(); }
                 }
-                if (x == 4)
+                if (x == 5)
                 {
                     // If click Delete button 
                     if (taiKhoan.CapDoQuyen == 1)
@@ -184,7 +185,7 @@ namespace HotelManagement.GUI
                         CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", 
+                    DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo",
                                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogresult == DialogResult.Yes)
                     {

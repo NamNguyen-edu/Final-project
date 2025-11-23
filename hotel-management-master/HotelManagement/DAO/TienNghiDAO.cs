@@ -22,9 +22,23 @@ namespace HotelManagement.DAO
         public List<TienNghi> GetTienNghis()
         {
 
-                return db.TienNghis.Where(p => p.DaXoa == false).ToList();
-            
-        }    
+            // Lấy danh sách tiện nghi chưa xóa
+            var tns = db.TienNghis.Where(p => p.DaXoa == false).ToList();
+
+            // Lấy toàn bộ CTTN chưa xóa (để đỡ query nhiều lần)
+            var cttns = db.CTTNs.Where(p => p.DaXoa == false).ToList();
+
+            foreach (var tn in tns)
+            {
+                // Tổng SL của tiện nghi này trong tất cả CTTN
+                tn.SoLuong = cttns
+                    .Where(c => c.MaTN == tn.MaTN)
+                    .Sum(c => (int?)c.SL) ?? 0;
+            }
+
+            return tns;
+
+        }
         public TienNghi FindTienNghi(string MaTN)
         {
                 return db.TienNghis.Find(MaTN);
