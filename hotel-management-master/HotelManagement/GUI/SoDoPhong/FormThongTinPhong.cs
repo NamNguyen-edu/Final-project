@@ -274,8 +274,10 @@ namespace HotelManagement.GUI
                     {
                         if (v.SL != 0)
                             gridDichVu.Rows.Add(DichVuBUS.Instance.FindDichVu(v.MaDV).TenDV, v.SL, v.ThanhTien.ToString("#,#"));
+                        
                     }
                 }
+                
             }
             catch(Exception ex)
             {

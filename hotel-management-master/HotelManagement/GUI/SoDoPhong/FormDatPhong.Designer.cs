@@ -59,6 +59,8 @@ namespace HotelManagement.GUI
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new HotelManagement.GUI.FormDatPhong.DoubleBufferPanel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.CTTextBoxNhapEmail = new HotelManagement.CTControls.CTTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cbBoxLetterKetThuc = new HotelManagement.CTControls.CTComboBox();
             this.cbBoxGioKetThuc = new HotelManagement.CTControls.CTComboBox();
@@ -103,9 +105,8 @@ namespace HotelManagement.GUI
             this.PanelBackground = new HotelManagement.GUI.FormDatPhong.DoubleBufferPanel();
             this.CTButtonHuy = new HotelManagement.CTControls.CTButton();
             this.CTButtonDatTruoc = new HotelManagement.CTControls.CTButton();
-            this.CTTextBoxNhapEmail = new HotelManagement.CTControls.CTTextBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPhongTrong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPhongDaChon)).BeginInit();
@@ -118,7 +119,6 @@ namespace HotelManagement.GUI
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayBD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayKT)).BeginInit();
             this.PanelBackground.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -164,11 +164,44 @@ namespace HotelManagement.GUI
             this.panel1.Size = new System.Drawing.Size(950, 467);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
+            this.pictureBox6.Location = new System.Drawing.Point(38, 263);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(34, 43);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 36;
+            this.pictureBox6.TabStop = false;
+            // 
+            // CTTextBoxNhapEmail
+            // 
+            this.CTTextBoxNhapEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxNhapEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.CTTextBoxNhapEmail.BorderFocusColor = System.Drawing.Color.Black;
+            this.CTTextBoxNhapEmail.BorderRadius = 0;
+            this.CTTextBoxNhapEmail.BorderSize = 1;
+            this.CTTextBoxNhapEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTTextBoxNhapEmail.IsFocused = false;
+            this.CTTextBoxNhapEmail.Location = new System.Drawing.Point(79, 263);
+            this.CTTextBoxNhapEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.CTTextBoxNhapEmail.Multiline = false;
+            this.CTTextBoxNhapEmail.Name = "CTTextBoxNhapEmail";
+            this.CTTextBoxNhapEmail.Padding = new System.Windows.Forms.Padding(7);
+            this.CTTextBoxNhapEmail.PasswordChar = false;
+            this.CTTextBoxNhapEmail.PlaceholderColor = System.Drawing.Color.Gray;
+            this.CTTextBoxNhapEmail.PlaceholderText = "Nhập email";
+            this.CTTextBoxNhapEmail.ReadOnly = false;
+            this.CTTextBoxNhapEmail.Size = new System.Drawing.Size(205, 43);
+            this.CTTextBoxNhapEmail.TabIndex = 35;
+            this.CTTextBoxNhapEmail.Texts = "";
+            this.CTTextBoxNhapEmail.UnderlineedStyle = true;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(773, 126);
+            this.label6.Location = new System.Drawing.Point(765, 121);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 20);
             this.label6.TabIndex = 32;
@@ -253,7 +286,7 @@ namespace HotelManagement.GUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(774, 59);
+            this.label5.Location = new System.Drawing.Point(767, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 20);
             this.label5.TabIndex = 4;
@@ -339,10 +372,10 @@ namespace HotelManagement.GUI
             "  Nữ"});
             this.ComboBoxGioiTinh.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
             this.ComboBoxGioiTinh.ListTextColor = System.Drawing.Color.Black;
-            this.ComboBoxGioiTinh.Location = new System.Drawing.Point(79, 395);
+            this.ComboBoxGioiTinh.Location = new System.Drawing.Point(79, 404);
             this.ComboBoxGioiTinh.Name = "ComboBoxGioiTinh";
             this.ComboBoxGioiTinh.Padding = new System.Windows.Forms.Padding(2);
-            this.ComboBoxGioiTinh.Size = new System.Drawing.Size(153, 33);
+            this.ComboBoxGioiTinh.Size = new System.Drawing.Size(205, 33);
             this.ComboBoxGioiTinh.TabIndex = 5;
             this.ComboBoxGioiTinh.Texts = "  Giới tính";
             // 
@@ -565,9 +598,9 @@ namespace HotelManagement.GUI
             // PictureBoxCCCD
             // 
             this.PictureBoxCCCD.Image = global::HotelManagement.Properties.Resources.CCCD;
-            this.PictureBoxCCCD.Location = new System.Drawing.Point(30, 142);
+            this.PictureBoxCCCD.Location = new System.Drawing.Point(38, 134);
             this.PictureBoxCCCD.Name = "PictureBoxCCCD";
-            this.PictureBoxCCCD.Size = new System.Drawing.Size(38, 27);
+            this.PictureBoxCCCD.Size = new System.Drawing.Size(30, 35);
             this.PictureBoxCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxCCCD.TabIndex = 24;
             this.PictureBoxCCCD.TabStop = false;
@@ -575,18 +608,20 @@ namespace HotelManagement.GUI
             // PictureBoxGioiTinh
             // 
             this.PictureBoxGioiTinh.Image = global::HotelManagement.Properties.Resources.Gender;
-            this.PictureBoxGioiTinh.Location = new System.Drawing.Point(42, 398);
+            this.PictureBoxGioiTinh.Location = new System.Drawing.Point(38, 404);
             this.PictureBoxGioiTinh.Name = "PictureBoxGioiTinh";
-            this.PictureBoxGioiTinh.Size = new System.Drawing.Size(30, 30);
+            this.PictureBoxGioiTinh.Size = new System.Drawing.Size(30, 33);
+            this.PictureBoxGioiTinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxGioiTinh.TabIndex = 20;
             this.PictureBoxGioiTinh.TabStop = false;
             // 
             // PictureBoxDiaChi
             // 
             this.PictureBoxDiaChi.Image = global::HotelManagement.Properties.Resources.Address;
-            this.PictureBoxDiaChi.Location = new System.Drawing.Point(42, 350);
+            this.PictureBoxDiaChi.Location = new System.Drawing.Point(38, 337);
             this.PictureBoxDiaChi.Name = "PictureBoxDiaChi";
-            this.PictureBoxDiaChi.Size = new System.Drawing.Size(30, 30);
+            this.PictureBoxDiaChi.Size = new System.Drawing.Size(34, 43);
+            this.PictureBoxDiaChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxDiaChi.TabIndex = 21;
             this.PictureBoxDiaChi.TabStop = false;
             // 
@@ -602,9 +637,10 @@ namespace HotelManagement.GUI
             // PictureBoxTen
             // 
             this.PictureBoxTen.Image = global::HotelManagement.Properties.Resources.NameKH;
-            this.PictureBoxTen.Location = new System.Drawing.Point(38, 85);
+            this.PictureBoxTen.Location = new System.Drawing.Point(42, 69);
             this.PictureBoxTen.Name = "PictureBoxTen";
-            this.PictureBoxTen.Size = new System.Drawing.Size(30, 30);
+            this.PictureBoxTen.Size = new System.Drawing.Size(30, 41);
+            this.PictureBoxTen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxTen.TabIndex = 23;
             this.PictureBoxTen.TabStop = false;
             // 
@@ -689,7 +725,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapHoTen.BorderSize = 1;
             this.CTTextBoxNhapHoTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapHoTen.IsFocused = false;
-            this.CTTextBoxNhapHoTen.Location = new System.Drawing.Point(79, 72);
+            this.CTTextBoxNhapHoTen.Location = new System.Drawing.Point(79, 67);
             this.CTTextBoxNhapHoTen.Margin = new System.Windows.Forms.Padding(4);
             this.CTTextBoxNhapHoTen.Multiline = false;
             this.CTTextBoxNhapHoTen.Name = "CTTextBoxNhapHoTen";
@@ -729,7 +765,7 @@ namespace HotelManagement.GUI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(350, 196);
+            this.label3.Location = new System.Drawing.Point(332, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(271, 32);
             this.label3.TabIndex = 7;
@@ -821,7 +857,7 @@ namespace HotelManagement.GUI
             this.LabelThongTinPhong.AutoSize = true;
             this.LabelThongTinPhong.BackColor = System.Drawing.Color.Transparent;
             this.LabelThongTinPhong.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelThongTinPhong.Location = new System.Drawing.Point(529, 10);
+            this.LabelThongTinPhong.Location = new System.Drawing.Point(549, 10);
             this.LabelThongTinPhong.Name = "LabelThongTinPhong";
             this.LabelThongTinPhong.Size = new System.Drawing.Size(256, 41);
             this.LabelThongTinPhong.TabIndex = 1;
@@ -832,7 +868,7 @@ namespace HotelManagement.GUI
             this.LabelDatPhong.AutoSize = true;
             this.LabelDatPhong.BackColor = System.Drawing.Color.White;
             this.LabelDatPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelDatPhong.Location = new System.Drawing.Point(431, 9);
+            this.LabelDatPhong.Location = new System.Drawing.Point(424, 3);
             this.LabelDatPhong.Name = "LabelDatPhong";
             this.LabelDatPhong.Size = new System.Drawing.Size(189, 46);
             this.LabelDatPhong.TabIndex = 0;
@@ -841,6 +877,7 @@ namespace HotelManagement.GUI
             // PanelBackground
             // 
             this.PanelBackground.BackColor = System.Drawing.Color.White;
+            this.PanelBackground.Controls.Add(this.LabelDatPhong);
             this.PanelBackground.Controls.Add(this.CTButtonHuy);
             this.PanelBackground.Controls.Add(this.CTButtonDatTruoc);
             this.PanelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -894,44 +931,11 @@ namespace HotelManagement.GUI
             this.CTButtonDatTruoc.UseVisualStyleBackColor = false;
             this.CTButtonDatTruoc.Click += new System.EventHandler(this.CTButtonDatTruoc_Click);
             // 
-            // CTTextBoxNhapEmail
-            // 
-            this.CTTextBoxNhapEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.CTTextBoxNhapEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.CTTextBoxNhapEmail.BorderFocusColor = System.Drawing.Color.Black;
-            this.CTTextBoxNhapEmail.BorderRadius = 0;
-            this.CTTextBoxNhapEmail.BorderSize = 1;
-            this.CTTextBoxNhapEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTTextBoxNhapEmail.IsFocused = false;
-            this.CTTextBoxNhapEmail.Location = new System.Drawing.Point(79, 263);
-            this.CTTextBoxNhapEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.CTTextBoxNhapEmail.Multiline = false;
-            this.CTTextBoxNhapEmail.Name = "CTTextBoxNhapEmail";
-            this.CTTextBoxNhapEmail.Padding = new System.Windows.Forms.Padding(7);
-            this.CTTextBoxNhapEmail.PasswordChar = false;
-            this.CTTextBoxNhapEmail.PlaceholderColor = System.Drawing.Color.Gray;
-            this.CTTextBoxNhapEmail.PlaceholderText = "Nhập email";
-            this.CTTextBoxNhapEmail.ReadOnly = false;
-            this.CTTextBoxNhapEmail.Size = new System.Drawing.Size(205, 43);
-            this.CTTextBoxNhapEmail.TabIndex = 35;
-            this.CTTextBoxNhapEmail.Texts = "";
-            this.CTTextBoxNhapEmail.UnderlineedStyle = true;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
-            this.pictureBox6.Location = new System.Drawing.Point(42, 276);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox6.TabIndex = 36;
-            this.pictureBox6.TabStop = false;
-            // 
             // FormDatPhong
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1022, 587);
-            this.Controls.Add(this.LabelDatPhong);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PanelBackground);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -948,6 +952,7 @@ namespace HotelManagement.GUI
             this.Resize += new System.EventHandler(this.FormDatPhong_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPhongTrong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPhongDaChon)).EndInit();
@@ -960,9 +965,8 @@ namespace HotelManagement.GUI
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayBD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayKT)).EndInit();
             this.PanelBackground.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.PanelBackground.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

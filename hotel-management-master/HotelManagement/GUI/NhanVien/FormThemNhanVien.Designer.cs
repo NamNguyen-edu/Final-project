@@ -69,7 +69,7 @@
             // 
             this.LabelThemNhanVien.AutoSize = true;
             this.LabelThemNhanVien.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelThemNhanVien.Location = new System.Drawing.Point(521, 23);
+            this.LabelThemNhanVien.Location = new System.Drawing.Point(511, 23);
             this.LabelThemNhanVien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelThemNhanVien.Name = "LabelThemNhanVien";
             this.LabelThemNhanVien.Size = new System.Drawing.Size(274, 46);
@@ -103,6 +103,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1121, 565);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cbChucVu
             // 
@@ -123,8 +124,8 @@
             this.cbChucVu.Location = new System.Drawing.Point(147, 173);
             this.cbChucVu.Margin = new System.Windows.Forms.Padding(4);
             this.cbChucVu.Name = "cbChucVu";
-            this.cbChucVu.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbChucVu.Size = new System.Drawing.Size(315, 41);
+            this.cbChucVu.Padding = new System.Windows.Forms.Padding(2);
+            this.cbChucVu.Size = new System.Drawing.Size(312, 41);
             this.cbChucVu.TabIndex = 12;
             this.cbChucVu.Texts = "Chức vụ";
             // 
@@ -142,21 +143,21 @@
             "  Nữ"});
             this.ComboBoxGioiTinh.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
             this.ComboBoxGioiTinh.ListTextColor = System.Drawing.Color.Black;
-            this.ComboBoxGioiTinh.Location = new System.Drawing.Point(482, 496);
+            this.ComboBoxGioiTinh.Location = new System.Drawing.Point(445, 471);
             this.ComboBoxGioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBoxGioiTinh.Name = "ComboBoxGioiTinh";
-            this.ComboBoxGioiTinh.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ComboBoxGioiTinh.Size = new System.Drawing.Size(204, 41);
+            this.ComboBoxGioiTinh.Padding = new System.Windows.Forms.Padding(2);
+            this.ComboBoxGioiTinh.Size = new System.Drawing.Size(204, 44);
             this.ComboBoxGioiTinh.TabIndex = 9;
             this.ComboBoxGioiTinh.Texts = "  Giới tính";
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::HotelManagement.Properties.Resources.Gender;
-            this.pictureBox9.Location = new System.Drawing.Point(409, 500);
+            this.pictureBox9.Location = new System.Drawing.Point(378, 471);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox9.Size = new System.Drawing.Size(47, 44);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 11;
             this.pictureBox9.TabStop = false;
@@ -166,7 +167,7 @@
             this.LabelNgaySinh.AutoSize = true;
             this.LabelNgaySinh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelNgaySinh.ForeColor = System.Drawing.Color.Black;
-            this.LabelNgaySinh.Location = new System.Drawing.Point(772, 52);
+            this.LabelNgaySinh.Location = new System.Drawing.Point(798, 67);
             this.LabelNgaySinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelNgaySinh.Name = "LabelNgaySinh";
             this.LabelNgaySinh.Size = new System.Drawing.Size(86, 23);
@@ -179,7 +180,7 @@
             this.ctDatePicker1.BorderSize = 2;
             this.ctDatePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctDatePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.ctDatePicker1.Location = new System.Drawing.Point(685, 87);
+            this.ctDatePicker1.Location = new System.Drawing.Point(685, 89);
             this.ctDatePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.ctDatePicker1.MinimumSize = new System.Drawing.Size(4, 35);
             this.ctDatePicker1.Name = "ctDatePicker1";
@@ -191,32 +192,32 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.admin;
-            this.pictureBox3.Location = new System.Drawing.Point(93, 173);
+            this.pictureBox3.Location = new System.Drawing.Point(98, 173);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 41);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::HotelManagement.Properties.Resources.CCCD;
-            this.pictureBox6.Location = new System.Drawing.Point(609, 177);
+            this.pictureBox6.Location = new System.Drawing.Point(609, 173);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(56, 37);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 6;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::HotelManagement.Properties.Resources.email;
-            this.pictureBox8.Location = new System.Drawing.Point(609, 416);
+            this.pictureBox8.Location = new System.Drawing.Point(609, 372);
             this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox8.Size = new System.Drawing.Size(40, 44);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 6;
             this.pictureBox8.TabStop = false;
@@ -224,7 +225,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::HotelManagement.Properties.Resources.Address;
-            this.pictureBox7.Location = new System.Drawing.Point(609, 284);
+            this.pictureBox7.Location = new System.Drawing.Point(609, 269);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(40, 37);
@@ -235,10 +236,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::HotelManagement.Properties.Resources.CalendarPick;
-            this.pictureBox5.Location = new System.Drawing.Point(611, 83);
+            this.pictureBox5.Location = new System.Drawing.Point(611, 87);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(54, 39);
+            this.pictureBox5.Size = new System.Drawing.Size(38, 35);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 6;
             this.pictureBox5.TabStop = false;
@@ -263,7 +264,7 @@
             this.ctTextBoxSDT.BorderSize = 2;
             this.ctTextBoxSDT.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxSDT.IsFocused = false;
-            this.ctTextBoxSDT.Location = new System.Drawing.Point(147, 409);
+            this.ctTextBoxSDT.Location = new System.Drawing.Point(147, 365);
             this.ctTextBoxSDT.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxSDT.Multiline = false;
             this.ctTextBoxSDT.Name = "ctTextBoxSDT";
@@ -288,7 +289,7 @@
             this.ctTextBoxEmail.BorderSize = 2;
             this.ctTextBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxEmail.IsFocused = false;
-            this.ctTextBoxEmail.Location = new System.Drawing.Point(685, 409);
+            this.ctTextBoxEmail.Location = new System.Drawing.Point(685, 372);
             this.ctTextBoxEmail.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxEmail.Multiline = false;
             this.ctTextBoxEmail.Name = "ctTextBoxEmail";
@@ -297,7 +298,7 @@
             this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxEmail.PlaceholderText = "Nhập email";
             this.ctTextBoxEmail.ReadOnly = false;
-            this.ctTextBoxEmail.Size = new System.Drawing.Size(312, 44);
+            this.ctTextBoxEmail.Size = new System.Drawing.Size(311, 44);
             this.ctTextBoxEmail.TabIndex = 8;
             this.ctTextBoxEmail.Texts = "";
             this.ctTextBoxEmail.UnderlineedStyle = true;
@@ -311,7 +312,7 @@
             this.CTTextBoxDiaChi.BorderSize = 2;
             this.CTTextBoxDiaChi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxDiaChi.IsFocused = false;
-            this.CTTextBoxDiaChi.Location = new System.Drawing.Point(685, 278);
+            this.CTTextBoxDiaChi.Location = new System.Drawing.Point(685, 262);
             this.CTTextBoxDiaChi.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxDiaChi.Multiline = false;
             this.CTTextBoxDiaChi.Name = "CTTextBoxDiaChi";
@@ -376,7 +377,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::HotelManagement.Properties.Resources.Phone;
-            this.pictureBox4.Location = new System.Drawing.Point(93, 416);
+            this.pictureBox4.Location = new System.Drawing.Point(98, 372);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(40, 37);
@@ -387,7 +388,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.money;
-            this.pictureBox1.Location = new System.Drawing.Point(93, 291);
+            this.pictureBox1.Location = new System.Drawing.Point(98, 269);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 37);
@@ -404,7 +405,7 @@
             this.CTTextBoxLuong.BorderSize = 2;
             this.CTTextBoxLuong.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxLuong.IsFocused = false;
-            this.CTTextBoxLuong.Location = new System.Drawing.Point(143, 284);
+            this.CTTextBoxLuong.Location = new System.Drawing.Point(143, 262);
             this.CTTextBoxLuong.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxLuong.Multiline = false;
             this.CTTextBoxLuong.Name = "CTTextBoxLuong";
@@ -427,7 +428,6 @@
             this.CTButtonThoat.BorderRadius = 10;
             this.CTButtonThoat.BorderSize = 0;
             this.CTButtonThoat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CTButtonThoat.FlatAppearance.BorderSize = 0;
             this.CTButtonThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CTButtonThoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTButtonThoat.ForeColor = System.Drawing.Color.White;
@@ -449,7 +449,6 @@
             this.CTButtonCapNhat.BorderRadius = 10;
             this.CTButtonCapNhat.BorderSize = 0;
             this.CTButtonCapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CTButtonCapNhat.FlatAppearance.BorderSize = 0;
             this.CTButtonCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CTButtonCapNhat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTButtonCapNhat.ForeColor = System.Drawing.Color.White;
@@ -519,18 +518,10 @@
 
         private System.Windows.Forms.Label LabelThemNhanVien;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private CTControls.CTTextBox CTTextBoxLuong;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private CTControls.CTTextBox CTTextBoxNhapHoTen;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label LabelNgaySinh;
         private CTControls.CTDatePicker ctDatePicker1;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private CTControls.CTTextBox ctTextBoxEmail;
         private CTControls.CTTextBox CTTextBoxDiaChi;
         private CTControls.CTTextBox CTTextBoxNhapCCCD;
@@ -539,7 +530,15 @@
         private System.Windows.Forms.Panel PanelBackground;
         private CTControls.CTTextBox ctTextBoxSDT;
         private CTControls.CTComboBox ComboBoxGioiTinh;
-        private System.Windows.Forms.PictureBox pictureBox9;
         private CTControls.CTComboBox cbChucVu;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

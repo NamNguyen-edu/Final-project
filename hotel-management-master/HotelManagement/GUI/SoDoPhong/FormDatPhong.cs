@@ -755,7 +755,7 @@ namespace HotelManagement.GUI
                     CTTextBoxNhapSDT.Enabled = false;
                     CTTextBoxNhapDiaChi.Enabled = false;
                     ComboBoxGioiTinh.Enabled = false;
-                    CTTextBoxNhapEmail.Enabled = false; // Nhớ khóa cả email nếu có
+                    CTTextBoxNhapEmail.Enabled = false;
 
                     ComboBoxGioiTinh.Focus();
 
@@ -773,6 +773,7 @@ namespace HotelManagement.GUI
                         CTTextBoxNhapSDT.Enabled = true;
                         CTTextBoxNhapDiaChi.Enabled = true;
                         ComboBoxGioiTinh.Enabled = true;
+                        CTTextBoxNhapEmail.Enabled = true;
                         // Sau khi reset, đưa trạng thái về nhập mới
                         flagHoTen = 0;
                     }
@@ -803,7 +804,7 @@ namespace HotelManagement.GUI
                 string smtpHost = "smtp.gmail.com"; 
                 int smtpPort = 587;
                 string smtpUser = "ngynam05@gmail.com";
-                string smtpPass = "pass"; // Sử dụng app password
+                string smtpPass = "lmyarytfnihtcqps"; // Sử dụng app password
 
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(smtpUser, "Hotel Management System");

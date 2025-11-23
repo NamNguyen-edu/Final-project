@@ -1,4 +1,4 @@
-﻿using HotelManagement.BUS;
+﻿ using HotelManagement.BUS;
 using HotelManagement.CTControls;
 using HotelManagement.DTO;
 using System;
@@ -384,49 +384,31 @@ namespace HotelManagement.GUI
                 #region Remove Service
                 try
                 {
-                    DichVu dichVu=null;
-                    if (int.Parse(dgvDVDaChon.Rows[y].Cells[1].Value.ToString())>1)
+                    int currentSL = int.Parse(dgvDVDaChon.Rows[y].Cells[1].Value.ToString());
+                    decimal dongia = decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(',')) / currentSL;
+
+                    DichVu dv = dichVus
+                        .Where(p => p.TenDV == dgvDVDaChon.Rows[y].Cells[0].Value.ToString() && p.DonGia == dongia)
+                        .SingleOrDefault();
+
+                    CTDV cTDV = dichVusDaDat
+                        .Where(p => p.MaDV == dv.MaDV)
+                        .FirstOrDefault();
+
+                    if (currentSL > 1)
                     {
-                        decimal dongia = decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(',')) / int.Parse(dgvDVDaChon.Rows[y].Cells[1].Value.ToString());
-                        dichVu = dichVus.Where(p => p.TenDV == dgvDVDaChon.Rows[y].Cells[0].Value.ToString() && p.DonGia == dongia).SingleOrDefault();
-                        CTDV cTDV = dichVusDaDat.Where(p => p.MaDV == dichVu.MaDV && p.ThanhTien == decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(','))).SingleOrDefault();
-                        dgvDVDaChon.Rows[y].Cells[1].Value = --cTDV.SL;
-                        cTDV.ThanhTien = cTDV.DonGia * cTDV.SL;
+                        cTDV.SL--;
+                        cTDV.ThanhTien = cTDV.SL * cTDV.DonGia;
+
+                        dgvDVDaChon.Rows[y].Cells[1].Value = cTDV.SL;
                         dgvDVDaChon.Rows[y].Cells[2].Value = cTDV.ThanhTien.ToString("#,#");
                     }
-                    else 
-                    {
-                        decimal dongia = decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(',')) / int.Parse(dgvDVDaChon.Rows[y].Cells[1].Value.ToString());
-                        dichVu = dichVus.Where(p => p.TenDV == dgvDVDaChon.Rows[y].Cells[0].Value.ToString() && p.DonGia == dongia).SingleOrDefault();
-                        CTDV cTDV = dichVusDaDat.Where(p => p.MaDV == dichVu.MaDV && p.ThanhTien == decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(','))).SingleOrDefault();
-                        --cTDV.SL;
-                        cTDV.ThanhTien = cTDV.DonGia * cTDV.SL;
-                        LoadGridDaChon();
-                    }
+
+                    LoadGridDichVu();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);    
-                }
-                #endregion
-                #region increase Service
-                if (dichVu != null)
-                {
-                    try
-                    {
-                        foreach (DataGridViewRow item in gridDichVu.Rows)
-                        {
-                            if (item.Cells[0].Value.ToString() == dichVu.TenDV)
-                            {
-                                if (item.Cells[2].Value.ToString() != "")
-                                    item.Cells[2].Value = ++dichVu.SLConLai;
-                            }
-                        }
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);    
-                    }
+                    MessageBox.Show(ex.Message);
                 }
                 #endregion
             }

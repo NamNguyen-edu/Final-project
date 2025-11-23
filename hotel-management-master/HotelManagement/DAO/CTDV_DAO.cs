@@ -27,23 +27,28 @@ namespace HotelManagement.DAO
         
         public void InsertOrUpdateList(List<CTDV> cTDVs)
         {
-        HotelDTO db = new HotelDTO();
-
-            foreach (CTDV cTDV in cTDVs)
+            using (HotelDTO db = new HotelDTO())
+            {
+                foreach (var item in cTDVs)
                 {
-                    if (cTDV.SL != 0)
+                    // Nếu SL = 0 → xóa bản ghi
+                    if (item.SL == 0)
                     {
-                        db.CTDVs.AddOrUpdate(cTDV);
-                        CTDV cTDV1 = db.CTDVs.Where(p => p.DonGia == cTDV.DonGia && p.MaDV == cTDV.MaDV && p.MaCTDP == cTDV.MaCTDP).SingleOrDefault();
-                        if (cTDV.SL == 0 && cTDV1 != null)
-                        {
-                        
-                            //CTDV ctdv = db.CTDVs.Where(p => p.MaDV == cTDV.MaDV && p.DonGia == cTDV.DonGia && p.MaHD == cTDV.MaHD).SingleOrDefault();
-                            db.CTDVs.Remove(cTDV1);
-                        }
-                            db.SaveChanges();
+                        var toDelete = db.CTDVs
+                            .FirstOrDefault(p => p.MaDV == item.MaDV && p.MaCTDP == item.MaCTDP);
+
+                        if (toDelete != null)
+                            db.CTDVs.Remove(toDelete);
+                    }
+                    else
+                    {
+                        // SL > 0 → thêm hoặc cập nhật
+                        db.CTDVs.AddOrUpdate(item);
                     }
                 }
+
+                db.SaveChanges();
+            }
             db.Dispose();
             instance = null;
         }    
