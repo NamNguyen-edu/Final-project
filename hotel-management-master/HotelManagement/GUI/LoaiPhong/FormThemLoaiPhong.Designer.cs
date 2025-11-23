@@ -56,9 +56,9 @@
             // 
             this.LabelThemLoaiPhong.AutoSize = true;
             this.LabelThemLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelThemLoaiPhong.Location = new System.Drawing.Point(173, 9);
+            this.LabelThemLoaiPhong.Location = new System.Drawing.Point(121, 11);
             this.LabelThemLoaiPhong.Name = "LabelThemLoaiPhong";
-            this.LabelThemLoaiPhong.Size = new System.Drawing.Size(234, 37);
+            this.LabelThemLoaiPhong.Size = new System.Drawing.Size(290, 46);
             this.LabelThemLoaiPhong.TabIndex = 0;
             this.LabelThemLoaiPhong.Text = "Thêm loại phòng";
             // 
@@ -205,7 +205,7 @@
             this.ctTextBoxSoNguoi.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxSoNguoi.PlaceholderText = "Số người tối đa";
             this.ctTextBoxSoNguoi.ReadOnly = false;
-            this.ctTextBoxSoNguoi.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxSoNguoi.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxSoNguoi.TabIndex = 6;
             this.ctTextBoxSoNguoi.Texts = "";
             this.ctTextBoxSoNguoi.UnderlineedStyle = true;
@@ -228,7 +228,7 @@
             this.CTTextBoxSoGiuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxSoGiuong.PlaceholderText = "Số giường";
             this.CTTextBoxSoGiuong.ReadOnly = false;
-            this.CTTextBoxSoGiuong.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxSoGiuong.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxSoGiuong.TabIndex = 5;
             this.CTTextBoxSoGiuong.Texts = "";
             this.CTTextBoxSoGiuong.UnderlineedStyle = true;
@@ -251,7 +251,7 @@
             this.CTTextBoxTenLoaiPhong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxTenLoaiPhong.PlaceholderText = "Nhập tên loại phòng";
             this.CTTextBoxTenLoaiPhong.ReadOnly = false;
-            this.CTTextBoxTenLoaiPhong.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxTenLoaiPhong.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxTenLoaiPhong.TabIndex = 4;
             this.CTTextBoxTenLoaiPhong.Texts = "";
             this.CTTextBoxTenLoaiPhong.UnderlineedStyle = true;
@@ -274,7 +274,7 @@
             this.ctTextBoxGiaGio.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGiaGio.PlaceholderText = "Giá giờ";
             this.ctTextBoxGiaGio.ReadOnly = false;
-            this.ctTextBoxGiaGio.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxGiaGio.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxGiaGio.TabIndex = 8;
             this.ctTextBoxGiaGio.Texts = "";
             this.ctTextBoxGiaGio.UnderlineedStyle = true;
@@ -299,7 +299,7 @@
             this.ctTextBoxGiaNgay.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGiaNgay.PlaceholderText = "Giá ngày";
             this.ctTextBoxGiaNgay.ReadOnly = false;
-            this.ctTextBoxGiaNgay.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxGiaNgay.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxGiaNgay.TabIndex = 7;
             this.ctTextBoxGiaNgay.Texts = "";
             this.ctTextBoxGiaNgay.UnderlineedStyle = true;

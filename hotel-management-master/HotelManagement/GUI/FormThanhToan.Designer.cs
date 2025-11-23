@@ -28,19 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).BeginInit();
             this.SuspendLayout();
+            // 
+            // webView21
+            // 
+            this.webView21.AllowExternalDrop = true;
+            this.webView21.CreationProperties = null;
+            this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
+            this.webView21.Location = new System.Drawing.Point(12, 12);
+            this.webView21.Name = "webView21";
+            this.webView21.Size = new System.Drawing.Size(471, 663);
+            this.webView21.TabIndex = 0;
+            this.webView21.ZoomFactor = 1D;
             // 
             // FormThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(495, 687);
+            this.Controls.Add(this.webView21);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormThanhToan";
-            this.Text = "FormThanhToan";
+            this.Load += new System.EventHandler(this.FormThanhToan_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
     }
 }
