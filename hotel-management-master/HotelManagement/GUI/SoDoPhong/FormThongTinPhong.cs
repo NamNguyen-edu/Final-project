@@ -476,6 +476,13 @@ namespace HotelManagement.GUI
                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogresult == DialogResult.Yes)
             {
+                //FormBackground formBackground = new FormBackground(formMain);
+                //using (FormThanhToan frm = new FormThanhToan())
+                //{
+                //    this.Hide(); 
+                //    frm.ShowDialog(); 
+                //    this.Show();
+                //}
                 HoaDon hd = new HoaDon();
                 try
                 {
@@ -521,7 +528,6 @@ namespace HotelManagement.GUI
                 }
                 finally
                 {
-                    
                 }
             }
         }
