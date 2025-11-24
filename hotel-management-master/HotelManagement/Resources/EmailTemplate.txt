@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='vi'>
+<head>
+    <meta charset='UTF-8'>
+    <style>
+        /* Bạn có thể viết CSS thoải mái ở đây cho file gọn */
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .container { width: 600px; margin: 0 auto; background: #fff; border-radius: 10px; overflow: hidden; }
+        .header { background-color: #f9f4f0; padding: 25px; text-align: center; }
+        .content { padding: 30px 40px; }
+        table { width: 100%; border-collapse: collapse; }
+        td, th { padding: 10px; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style='color: #6b4f4f;'>Hotel Management</h1>
+        </div>
+        <div class="content">
+            <h2 style='color: #6b4f4f;'>Xác nhận đặt phòng thành công!</h2>
+            
+            <p>Chào <strong>{{TEN_KHACH}}</strong>,</p> 
+            <p>Cảm ơn bạn đã đặt phòng. Thông tin chi tiết:</p>
+
+            <table>
+                <tr>
+                    <td><b>Mã phiếu:</b></td>
+                    <td>{{MA_PHIEU}}</td>
+                </tr>
+                <tr>
+                    <td><b>Ngày đặt:</b></td>
+                    <td>{{NGAY_DAT}}</td>
+                </tr>
+            </table>
+
+            <h3>Danh sách phòng</h3>
+            <table>
+                <tr style='background: #f0f0f0;'>
+                    <th>Phòng</th>
+                    <th>Loại</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                </tr>
+                
+                {{DANH_SACH_PHONG}} 
+                
+            </table>
+
+            <h3>Thông tin khách hàng</h3>
+            <table>
+                 <tr><td><b>Họ tên:</b></td><td>{{TEN_KHACH}}</td></tr>
+                 <tr><td><b>Email:</b></td><td>{{EMAIL_KHACH}}</td></tr>
+                 <tr><td><b>SĐT:</b></td><td>{{SDT_KHACH}}</td></tr>
+            </table>
+
+            <p>Trân trọng,<br><b>Hotel Management Team</b></p>
+        </div>
+        <div style='text-align: center; padding: 20px; color: #888; font-size: 12px;'>
+            © 2025 Hotel Management
+        </div>
+    </div>
+</body>
+</html>

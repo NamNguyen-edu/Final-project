@@ -381,6 +381,26 @@ namespace HotelManagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
+        ///&lt;html lang=&apos;vi&apos;&gt;
+        ///&lt;head&gt;
+        ///    &lt;meta charset=&apos;UTF-8&apos;&gt;
+        ///    &lt;style&gt;
+        ///
+        ///        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        ///        .container { width: 600px; margin: 0 auto; background: #fff; border-radius: 10px; overflow: hidden; }
+        ///        .header { background-color: #f9f4f0; padding: 25px; text-align: center; }
+        ///        .content { padding: 30px 40px; }
+        ///        table { width: 100%; border-collapse: collapse; }
+        ///        td, th { padding: 10px; border-bottom: 1px sol [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string EmailTemplate {
+            get {
+                return ResourceManager.GetString("EmailTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap error {
@@ -906,6 +926,16 @@ namespace HotelManagement.Properties {
         internal static System.Drawing.Bitmap SoLuong {
             get {
                 object obj = ResourceManager.GetObject("SoLuong", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SoLuong1 {
+            get {
+                object obj = ResourceManager.GetObject("SoLuong1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
