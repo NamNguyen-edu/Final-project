@@ -1,3 +1,5 @@
+using HotelManagement.BUS;
+using HotelManagement.CTControls;
 using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
@@ -5,18 +7,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using HotelManagement.BUS;
+using static HotelManagement.DTO.HoaDon;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Runtime.CompilerServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using System.Drawing.Printing;
 using Button = System.Windows.Forms.Button;
-using HotelManagement.CTControls;
 
 namespace HotelManagement.GUI
 {
@@ -310,17 +311,37 @@ namespace HotelManagement.GUI
 
         private void CaptureScreen()
         {
-            Graphics myGraphics = this.CreateGraphics();
-            s = this.ClientSize;
-            memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
-            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
-            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, -10, s);
-        }
+            s = PanelBackground.Size;
+
+            memoryImage = new Bitmap(s.Width, s.Height);
+            PanelBackground.DrawToBitmap(
+                memoryImage,
+                new Rectangle(0, 0, s.Width, s.Height)
+            );
+        } 
 
         private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            e.Graphics.DrawImage(memoryImage, 0, 0);
+
+            // scale ảnh hóa đơn cho vừa trang giấy
+            Rectangle m = e.MarginBounds;
+
+            int w = memoryImage.Width;
+            int h = memoryImage.Height;
+
+            float ratio = Math.Min(
+                (float)m.Width / w,
+                (float)m.Height / h
+            );
+
+            w = (int)(w * ratio);
+            h = (int)(h * ratio);
+
+            e.Graphics.DrawImage(memoryImage, m.Left, m.Top, w, h);
+
+
         }
+
 
         private void HideButton()
         {
@@ -340,6 +361,7 @@ namespace HotelManagement.GUI
 
         private void Printer_Click(object sender, EventArgs e)
         {
+
             try
             {
                 if (printDialog.ShowDialog() == DialogResult.OK)
@@ -348,7 +370,16 @@ namespace HotelManagement.GUI
                     this.Refresh();
 
                     CaptureScreen();
-                    printDocument.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("In hóa đơn", s.Width + 23, s.Height + 17);
+
+                    // gán document cho preview (nếu chưa gán ở constructor)
+                    printPreviewDialog1.Document = printDocument;
+                    printPreviewDialog1.WindowState = FormWindowState.Maximized;
+                    printPreviewDialog1.ShowIcon = false;
+
+                    // hiển thị màn hình xem trước
+                    printPreviewDialog1.ShowDialog();
+
+
                     printDocument.Print();
 
                     ShowButton();
@@ -364,6 +395,8 @@ namespace HotelManagement.GUI
                 ShowButton();
                 printDialog.Dispose();
             }
+
+
         }
         #endregion
     }

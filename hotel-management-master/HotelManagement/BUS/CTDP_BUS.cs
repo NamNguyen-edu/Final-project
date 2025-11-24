@@ -56,5 +56,9 @@ namespace HotelManagement.BUS
         {
             return CTDP_DAO.Instance.HasFutureBookingForRoom(maPhong, now);
         }
+        public void UpdateTrangThaiQuaHan(DateTime now)
+        {
+            CTDP_DAO.Instance.UpdateTrangThaiQuaHan(now);
+        }
     }
 }

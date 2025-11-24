@@ -321,6 +321,7 @@ namespace HotelManagement.GUI
                 gridPhongTrong.Rows.Clear();
                 //List<Phong> phongs = PhongBUS.Instance.FindPhongTrong(CTDatePickerNgayBD.Value, CTDatePickerNgayKT.Value, listPhongDaDat);
                 List<Phong> phongs = PhongBUS.Instance.FindPhongTrong(this.CheckIn, this.CheckOut, listPhongDaDat);
+                phongs = phongs.Where(p => p.TTPH == "Bình thường").ToList();
                 foreach (Phong phong in phongs)
                 {
                     gridPhongTrong.Rows.Add(new object[] { phong.MaPH, phong.LoaiPhong.TenLPH, this.Add });
@@ -742,7 +743,6 @@ namespace HotelManagement.GUI
                         CTMessageBox.Show("Đã tồn tại số CCCD.\r\nThông tin sẽ được tự động điền.", "Thông báo",
                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
                     CTTextBoxNhapSDT.RemovePlaceholder();
                     CTTextBoxNhapDiaChi.RemovePlaceholder();
                     CTTextBoxNhapHoTen.RemovePlaceholder();
@@ -780,6 +780,7 @@ namespace HotelManagement.GUI
                         CTTextBoxNhapSDT.Enabled = true;
                         CTTextBoxNhapDiaChi.Enabled = true;
                         ComboBoxGioiTinh.Enabled = true;
+                        CTTextBoxNhapEmail.Enabled = true;
                         // Sau khi reset, đưa trạng thái về nhập mới
                         flagHoTen = 0;
                     }
