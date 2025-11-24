@@ -319,6 +319,7 @@ namespace HotelManagement.GUI
                 gridPhongTrong.Rows.Clear();
                 //List<Phong> phongs = PhongBUS.Instance.FindPhongTrong(CTDatePickerNgayBD.Value, CTDatePickerNgayKT.Value, listPhongDaDat);
                 List<Phong> phongs = PhongBUS.Instance.FindPhongTrong(this.CheckIn, this.CheckOut, listPhongDaDat);
+                phongs = phongs.Where(p => p.TTPH == "Bình thường").ToList();
                 foreach (Phong phong in phongs)
                 {
                     gridPhongTrong.Rows.Add(new object[] { phong.MaPH, phong.LoaiPhong.TenLPH, this.Add });
@@ -735,7 +736,6 @@ namespace HotelManagement.GUI
                         CTMessageBox.Show("Đã tồn tại số CCCD.\r\nThông tin sẽ được tự động điền.", "Thông báo",
                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-
                     CTTextBoxNhapSDT.RemovePlaceholder();
                     CTTextBoxNhapDiaChi.RemovePlaceholder();
                     CTTextBoxNhapHoTen.RemovePlaceholder();
@@ -804,7 +804,7 @@ namespace HotelManagement.GUI
                 string smtpHost = "smtp.gmail.com"; 
                 int smtpPort = 587;
                 string smtpUser = "ngynam05@gmail.com";
-                string smtpPass = "pass"; // Sử dụng app password
+                string smtpPass = "lmyarytfnihtcqps"; // Sử dụng app password
 
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(smtpUser, "Hotel Management System");
