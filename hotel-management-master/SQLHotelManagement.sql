@@ -137,6 +137,28 @@ ALTER TABLE
 ALTER TABLE 
 	"CTDV" ADD CONSTRAINT "CTDV_MaDV_foreign" FOREIGN KEY (MaDV) REFERENCES DichVu(MaDV)
 
+ALTER TABLE TienNghi ADD SoLuong INT DEFAULT 0;
+
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN001'; 
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN002';
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN003';
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN004'; 
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN005'; 
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN006'; 
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN007';
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN008';
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN009'; 
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN010'; 
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN011'; 
+UPDATE TienNghi SET SoLuong = 0 WHERE MaTN = 'TN012'; 
+
+
+
+
+
+
+ALTER TABLE Phong ADD Tang INT NOT NULL CONSTRAINT DF_Phong_Tang DEFAULT(1);
+
 
 GO
 -- Trigger Update Giá phòng
