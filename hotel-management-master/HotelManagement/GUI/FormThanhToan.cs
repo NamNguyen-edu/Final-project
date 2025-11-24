@@ -11,7 +11,10 @@ namespace HotelManagement.GUI
 {
     public partial class FormThanhToan : Form
     {
-        private string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
+        /// <summary>
+        /// Cấu hình VNPay
+        /// </summary>
+        private string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"; 
         private string vnp_TmnCode = "GTTWTT88"; 
         private string vnp_HashSecret = "GYJ4U78H3H1EJ9ED7Z1U9K0S6ENAZC8E"; 
         private string vnp_ReturnUrl = "http://localhost:8080/vnpay_return"; 
@@ -19,7 +22,6 @@ namespace HotelManagement.GUI
         private double PayAmount;
         private string Description;
 
-        // Constructor nhận tiền và nội dung như cũ
         public FormThanhToan(double amount, string description)
         {
             InitializeComponent();
@@ -91,10 +93,8 @@ namespace HotelManagement.GUI
 
                     if (!string.IsNullOrEmpty(queryString))
                     {
-                        // Bỏ dấu '?' ở đầu
                         queryString = queryString.TrimStart('?');
 
-                        // Tách các cặp tham số
                         string[] listParams = queryString.Split('&');
 
                         string vnp_ResponseCode = "";
@@ -106,7 +106,6 @@ namespace HotelManagement.GUI
                             if (parts.Length == 2)
                             {
                                 string key = parts[0];
-                                // HAY HƠN Ở CHỖ NÀY: Giải mã ký tự đặc biệt
                                 string value = WebUtility.UrlDecode(parts[1]);
 
                                 if (key == "vnp_ResponseCode") vnp_ResponseCode = value;
@@ -114,7 +113,6 @@ namespace HotelManagement.GUI
                             }
                         }
 
-                        // Xử lý kết quả
                         if (vnp_ResponseCode == "00")
                         {
                             CTMessageBox.Show($"Thanh toán thành công!\nMã GD: {vnp_TransactionNo}",
