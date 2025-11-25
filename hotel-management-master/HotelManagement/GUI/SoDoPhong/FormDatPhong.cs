@@ -735,33 +735,25 @@ namespace HotelManagement.GUI
             txt.KeyPress += TextBoxOnlyNumber_KeyPress;
 
             string cccd = txt.Text.Trim();
-            if (caseForm == 0)
+
+            // Chỉ kiểm tra khi nhập đủ 9–12 số
+            if (cccd.Length < 9)
+                return;
+
+            KhachHang khInDb = KhachHangBUS.Instance.FindKHWithCCCD(cccd);
+
+            // ➤ TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
+            if (khInDb != null)
             {
-                // TRƯỜNG HỢP 1: Tìm thấy khách hàng trong DB
-                if (khTimthay != null)
-                {
-                    if (flagHoTen == 0) // Chỉ hiện thông báo lần đầu tiên tìm thấy
-                    {
-                        CTMessageBox.Show("Đã tồn tại số CCCD.\r\nThông tin sẽ được tự động điền.", "Thông báo",
-                                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                // Gán vào biến toàn cục
+                this.khachHang = khInDb;
 
-                    CTTextBoxNhapSDT.RemovePlaceholder();
-                    CTTextBoxNhapDiaChi.RemovePlaceholder();
-                    CTTextBoxNhapHoTen.RemovePlaceholder();
-
-                    //  TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
-                    if (khInDb != null)
-                    {
-                        // Gán vào biến toàn cục
-                        this.khachHang = khInDb;
-
-                        // Điền dữ liệu
-                        CTTextBoxNhapSDT.Texts = khachHang.SDT;
-                        CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
-                        ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
-                        CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
-                        CTTextBoxNhapEmail.Texts = khachHang.Email;
+                // Autofill
+                CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
+                CTTextBoxNhapSDT.Texts = khachHang.SDT;
+                CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
+                ComboBoxGioiTinh.Texts = "  " + khachHang.GioiTinh;
+                CTTextBoxNhapEmail.Texts = khachHang.Email;
 
                         // Khóa không cho chỉnh sửa
                         CTTextBoxNhapHoTen.Enabled = false;
@@ -770,27 +762,36 @@ namespace HotelManagement.GUI
                         ComboBoxGioiTinh.Enabled = false;
                         CTTextBoxNhapEmail.Enabled = false;
 
-                        // Đánh dấu là đang hiển thị khách hàng cũ
-                        flagHoTen = 1;
-                    }
-                    // TRƯỜNG HỢP 2: Không tìm thấy (Đang nhập mới hoặc nhập sai)
-                    else
-                    {
+                flagHoTen = 1;   // đang dùng KH cũ
+            }
+            else
+            {
+                // ➤ TRƯỜNG HỢP 2: KH MỚI
 
-                        if (flagHoTen == 1)
-                        {
+                // Mở khóa các trường
+                CTTextBoxNhapHoTen.Enabled = true;
+                CTTextBoxNhapSDT.Enabled = true;
+                CTTextBoxNhapDiaChi.Enabled = true;
+                ComboBoxGioiTinh.Enabled = true;
+                CTTextBoxNhapEmail.Enabled = true;
 
-                            CTTextBoxNhapHoTen.Enabled = true;
-                            CTTextBoxNhapSDT.Enabled = true;
-                            CTTextBoxNhapDiaChi.Enabled = true;
-                            ComboBoxGioiTinh.Enabled = true;
-                            // Sau khi reset, đưa trạng thái về nhập mới
-                            flagHoTen = 0;
-                        }
-                    }
+                // Reset thông tin (nếu trước đó là KH cũ)
+                if (flagHoTen == 1)
+                {
+                    CTTextBoxNhapHoTen.Texts = "";
+                    CTTextBoxNhapSDT.Texts = "";
+                    CTTextBoxNhapDiaChi.Texts = "";
+                    ComboBoxGioiTinh.Texts = "  Giới tính";
+                    CTTextBoxNhapEmail.Texts = "";
                 }
+
+                // Reset state → KH mới
+                this.khachHang = new KhachHang();
+                flagHoTen = 0;
             }
         }
+
+
 
         private void CTTextBoxNhapSDT__TextChanged(object sender, EventArgs e)
         {
