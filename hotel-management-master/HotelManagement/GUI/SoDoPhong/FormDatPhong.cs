@@ -747,6 +747,10 @@ namespace HotelManagement.GUI
             {
                 // Gán vào biến toàn cục
                 this.khachHang = khInDb;
+                CTTextBoxNhapHoTen.RemovePlaceholder();
+                CTTextBoxNhapSDT.RemovePlaceholder();
+                CTTextBoxNhapDiaChi.RemovePlaceholder();
+                CTTextBoxNhapEmail.RemovePlaceholder();
 
                 // Autofill
                 CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
