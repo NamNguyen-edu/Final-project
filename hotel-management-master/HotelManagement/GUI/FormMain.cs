@@ -1,23 +1,28 @@
 ﻿
+using ApplicationSettings;
+using HotelManagement.CTControls;
+using HotelManagement.DTO;
 using HotelManagement.GUI;
+using HotelManagement.GUI.ThongKe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ApplicationSettings;
-using HotelManagement.GUI.ThongKe;
-using HotelManagement.DTO;
-using System.IO;
-using HotelManagement.CTControls;
-using System.Drawing.Text;
+using System.Media;
+
+
+
 namespace HotelManagement
 {
     public partial class FormMain : Form
@@ -29,6 +34,10 @@ namespace HotelManagement
         private int borderSize = 2;
         private Color borderColor = Color.FromArgb(72, 145, 153);
         private TaiKhoan taiKhoan;
+        private bool isMusicPlaying = false; // Biến để theo dõi trạng thái nhạc
+        private SoundPlayer player; // Để phát âm thanh
+
+
         //Constructor
         public FormMain(TaiKhoan taiKhoan)
         {
@@ -336,7 +345,26 @@ namespace HotelManagement
             int time = 300;
             WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
             this.LabelTenNguoiDung.Text = taiKhoan.NhanVien.TenNV;
+            PlayMusic();
+
+
         }
+
+        private void PlayMusic()
+        {
+            if (Properties.Resources.audiotrangchu != null) // Kiểm tra xem file âm thanh có tồn tại trong Resources không
+            {
+                player = new SoundPlayer(Properties.Resources.audiotrangchu); // Đọc file âm thanh từ Resources
+                player.PlayLooping(); // Phát nhạc liên tục (lặp lại)
+                isMusicPlaying = true; // Đánh dấu là nhạc đang phát
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy file âm thanh trong Resources!");
+            }
+        }
+
+
         private Form activeForm = null;
         public void openChildForm(Form childForm)
         {

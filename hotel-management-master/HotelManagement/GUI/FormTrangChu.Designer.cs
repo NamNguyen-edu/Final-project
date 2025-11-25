@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTrangChu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picSound = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSound)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -44,12 +46,23 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // picSound
+            // 
+            this.picSound.Image = global::HotelManagement.Properties.Resources.sound;
+            this.picSound.Location = new System.Drawing.Point(1163, 42);
+            this.picSound.Name = "picSound";
+            this.picSound.Size = new System.Drawing.Size(40, 35);
+            this.picSound.TabIndex = 1;
+            this.picSound.TabStop = false;
+            this.picSound.Click += new System.EventHandler(this.picSound_Click);
+            // 
             // FormTrangChu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1244, 794);
+            this.Controls.Add(this.picSound);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -57,6 +70,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSound)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -64,5 +78,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picSound;
     }
 }
