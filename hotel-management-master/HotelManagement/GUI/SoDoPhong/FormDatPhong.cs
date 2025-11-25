@@ -329,7 +329,7 @@ namespace HotelManagement.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CTMessageBox.Show(ex.Message);
             }
         }
 
@@ -348,7 +348,7 @@ namespace HotelManagement.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                CTMessageBox.Show(ex.Message);
             }
         }
 
@@ -735,7 +735,8 @@ namespace HotelManagement.GUI
             txt.KeyPress += TextBoxOnlyNumber_KeyPress;
 
             string cccd = txt.Text.Trim();
-
+            if (caseForm == 0)
+            {
                 // TRƯỜNG HỢP 1: Tìm thấy khách hàng trong DB
                 if (khTimthay != null)
                 {
@@ -749,42 +750,43 @@ namespace HotelManagement.GUI
                     CTTextBoxNhapDiaChi.RemovePlaceholder();
                     CTTextBoxNhapHoTen.RemovePlaceholder();
 
-            //  TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
-            if (khInDb != null)
-            {
-                // Gán vào biến toàn cục
-                this.khachHang = khInDb;
-
-                    // Điền dữ liệu
-                    CTTextBoxNhapSDT.Texts = khachHang.SDT;
-                    CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
-                    ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
-                    CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
-                    CTTextBoxNhapEmail.Texts = khachHang.Email; 
-
-                // Khóa không cho chỉnh sửa
-                CTTextBoxNhapHoTen.Enabled = false;
-                CTTextBoxNhapSDT.Enabled = false;
-                CTTextBoxNhapDiaChi.Enabled = false;
-                ComboBoxGioiTinh.Enabled = false;
-                CTTextBoxNhapEmail.Enabled = false;
-
-                    // Đánh dấu là đang hiển thị khách hàng cũ
-                    flagHoTen = 1;
-                }
-                // TRƯỜNG HỢP 2: Không tìm thấy (Đang nhập mới hoặc nhập sai)
-                else
-                {
-
-                    if (flagHoTen == 1)
+                    //  TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
+                    if (khInDb != null)
                     {
-                        
-                        CTTextBoxNhapHoTen.Enabled = true;
-                        CTTextBoxNhapSDT.Enabled = true;
-                        CTTextBoxNhapDiaChi.Enabled = true;
-                        ComboBoxGioiTinh.Enabled = true;
-                        // Sau khi reset, đưa trạng thái về nhập mới
-                        flagHoTen = 0;
+                        // Gán vào biến toàn cục
+                        this.khachHang = khInDb;
+
+                        // Điền dữ liệu
+                        CTTextBoxNhapSDT.Texts = khachHang.SDT;
+                        CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
+                        ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
+                        CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
+                        CTTextBoxNhapEmail.Texts = khachHang.Email;
+
+                        // Khóa không cho chỉnh sửa
+                        CTTextBoxNhapHoTen.Enabled = false;
+                        CTTextBoxNhapSDT.Enabled = false;
+                        CTTextBoxNhapDiaChi.Enabled = false;
+                        ComboBoxGioiTinh.Enabled = false;
+                        CTTextBoxNhapEmail.Enabled = false;
+
+                        // Đánh dấu là đang hiển thị khách hàng cũ
+                        flagHoTen = 1;
+                    }
+                    // TRƯỜNG HỢP 2: Không tìm thấy (Đang nhập mới hoặc nhập sai)
+                    else
+                    {
+
+                        if (flagHoTen == 1)
+                        {
+
+                            CTTextBoxNhapHoTen.Enabled = true;
+                            CTTextBoxNhapSDT.Enabled = true;
+                            CTTextBoxNhapDiaChi.Enabled = true;
+                            ComboBoxGioiTinh.Enabled = true;
+                            // Sau khi reset, đưa trạng thái về nhập mới
+                            flagHoTen = 0;
+                        }
                     }
                 }
             }
