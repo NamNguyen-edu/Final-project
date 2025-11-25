@@ -57,6 +57,7 @@ namespace HotelManagement.GUI
         {
             try
             {
+                CTDP_BUS.Instance.UpdateTrangThaiQuaHan(DateTime.Now);
                 //this.ctDatePicker1.Value = DateTime.Now;
                 phongs = PhongBUS.Instance.GetAllPhong();
                 LoadPhong(phongs);

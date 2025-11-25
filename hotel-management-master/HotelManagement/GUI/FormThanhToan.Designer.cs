@@ -55,8 +55,7 @@
             this.ctClose1.Name = "ctClose1";
             this.ctClose1.Size = new System.Drawing.Size(20, 18);
             this.ctClose1.TabIndex = 1;
-            this.ctClose1.Load += new System.EventHandler(this.ctClose1_Load);
-            this.ctClose1.Click += CtClose1_Click;
+            this.ctClose1.Click += ctClose1_Click;
             // 
             // FormThanhToan
             // 
@@ -75,10 +74,6 @@
             
         }
 
-        private void CtClose1_Click(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
 
         #endregion
 

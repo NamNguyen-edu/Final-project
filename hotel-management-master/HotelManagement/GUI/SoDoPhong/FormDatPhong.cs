@@ -3,6 +3,7 @@ using HotelManagement.BUS;
 using HotelManagement.CTControls;
 using HotelManagement.DAO;
 using HotelManagement.DTO;
+using HotelManagement.UTILS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ using HotelManagement.DAO;
 using System.Runtime.CompilerServices;
 using System.Net.Mail;
 using System.Net;
+using HotelManagement.Utils;
 
 namespace HotelManagement.GUI
 {
@@ -319,6 +321,7 @@ namespace HotelManagement.GUI
                 gridPhongTrong.Rows.Clear();
                 //List<Phong> phongs = PhongBUS.Instance.FindPhongTrong(CTDatePickerNgayBD.Value, CTDatePickerNgayKT.Value, listPhongDaDat);
                 List<Phong> phongs = PhongBUS.Instance.FindPhongTrong(this.CheckIn, this.CheckOut, listPhongDaDat);
+                phongs = phongs.Where(p => p.TTPH == "Bình thường").ToList();
                 foreach (Phong phong in phongs)
                 {
                     gridPhongTrong.Rows.Add(new object[] { phong.MaPH, phong.LoaiPhong.TenLPH, this.Add });
@@ -391,7 +394,7 @@ namespace HotelManagement.GUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    CTMessageBox.Show(ex.Message);
                 }
             }
         }
@@ -592,7 +595,7 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (CTTextBoxNhapSDT.Texts.Length <9)
+                if (CTTextBoxNhapSDT.Texts.Length < 9)
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -610,12 +613,17 @@ namespace HotelManagement.GUI
                     CreatePhieuThue();
                     CreateCTDP();
                     CreateHoaDon();
-
-                    if (!SendBookingEmail(khachHang, phieuThue, listPhongDaDat))
-                        throw new Exception("Không thể gửi email xác nhận. Vui lòng thử lại.");
-
-                    CTMessageBox.Show("Đặt phòng thành công!\nVui lòng kiểm tra email.", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    bool EmailSent = SendBookingEmail(khachHang, phieuThue, listPhongDaDat);
+                    if (EmailSent)
+                    {
+                        CTMessageBox.Show("Đặt phòng thành công!\nVui lòng kiểm tra email xác nhận.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        CTMessageBox.Show("Đặt phòng thành công!\n(Tuy nhiên hệ thống không gửi được email xác nhận, vui lòng kiểm tra lại cấu hình sau).",
+                            "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -728,11 +736,18 @@ namespace HotelManagement.GUI
 
             string cccd = txt.Text.Trim();
 
-            // Chỉ kiểm tra khi nhập đủ 9–12 số
-            if (cccd.Length < 9)
-                return;
+                // TRƯỜNG HỢP 1: Tìm thấy khách hàng trong DB
+                if (khTimthay != null)
+                {
+                    if (flagHoTen == 0) // Chỉ hiện thông báo lần đầu tiên tìm thấy
+                    {
+                        CTMessageBox.Show("Đã tồn tại số CCCD.\r\nThông tin sẽ được tự động điền.", "Thông báo",
+                                       MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
-            KhachHang khInDb = KhachHangBUS.Instance.FindKHWithCCCD(cccd);
+                    CTTextBoxNhapSDT.RemovePlaceholder();
+                    CTTextBoxNhapDiaChi.RemovePlaceholder();
+                    CTTextBoxNhapHoTen.RemovePlaceholder();
 
             //  TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
             if (khInDb != null)
@@ -740,12 +755,12 @@ namespace HotelManagement.GUI
                 // Gán vào biến toàn cục
                 this.khachHang = khInDb;
 
-                // Autofill
-                CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
-                CTTextBoxNhapSDT.Texts = khachHang.SDT;
-                CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
-                ComboBoxGioiTinh.Texts = "  " + khachHang.GioiTinh;
-                CTTextBoxNhapEmail.Texts = khachHang.Email;
+                    // Điền dữ liệu
+                    CTTextBoxNhapSDT.Texts = khachHang.SDT;
+                    CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
+                    ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
+                    CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
+                    CTTextBoxNhapEmail.Texts = khachHang.Email; 
 
                 // Khóa không cho chỉnh sửa
                 CTTextBoxNhapHoTen.Enabled = false;
@@ -754,34 +769,26 @@ namespace HotelManagement.GUI
                 ComboBoxGioiTinh.Enabled = false;
                 CTTextBoxNhapEmail.Enabled = false;
 
-                flagHoTen = 1;   // đang dùng KH cũ
-            }
-            else
-            {
-                //  TRƯỜNG HỢP 2: KH MỚI
-
-                // Mở khóa các trường
-                CTTextBoxNhapHoTen.Enabled = true;
-                CTTextBoxNhapSDT.Enabled = true;
-                CTTextBoxNhapDiaChi.Enabled = true;
-                ComboBoxGioiTinh.Enabled = true;
-                CTTextBoxNhapEmail.Enabled = true;
-
-                // Reset thông tin (nếu trước đó là KH cũ)
-                if (flagHoTen == 1)
-                {
-                    CTTextBoxNhapHoTen.Texts = "";
-                    CTTextBoxNhapSDT.Texts = "";
-                    CTTextBoxNhapDiaChi.Texts = "";
-                    ComboBoxGioiTinh.Texts = "  Giới tính";
-                    CTTextBoxNhapEmail.Texts = "";
+                    // Đánh dấu là đang hiển thị khách hàng cũ
+                    flagHoTen = 1;
                 }
+                // TRƯỜNG HỢP 2: Không tìm thấy (Đang nhập mới hoặc nhập sai)
+                else
+                {
 
-                // Reset state → KH mới
-                this.khachHang = new KhachHang();
-                flagHoTen = 0;
+                    if (flagHoTen == 1)
+                    {
+                        
+                        CTTextBoxNhapHoTen.Enabled = true;
+                        CTTextBoxNhapSDT.Enabled = true;
+                        CTTextBoxNhapDiaChi.Enabled = true;
+                        ComboBoxGioiTinh.Enabled = true;
+                        // Sau khi reset, đưa trạng thái về nhập mới
+                        flagHoTen = 0;
+                    }
+                }
             }
-         }
+        }
 
         private void CTTextBoxNhapSDT__TextChanged(object sender, EventArgs e)
         {
@@ -806,159 +813,20 @@ namespace HotelManagement.GUI
                 string smtpHost = "smtp.gmail.com"; 
                 int smtpPort = 587;
                 string smtpUser = "ngynam05@gmail.com";
-                string smtpPass = "lmyarytfnihtcqps"; // Sử dụng app password
+                string smtpPass = "pass"; // Sử dụng app password
 
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(smtpUser, "Hotel Management System");
-                mail.To.Add(kh.Email);
-                mail.Subject = "📌 Xác nhận đặt phòng khách sạn";
-                mail.IsBodyHtml = true;
-                StringBuilder sb = new StringBuilder();
 
-                foreach (var ctdp in listPhong)
-                {
-                    Phong phong = null;
-                    try
-                    {
-                        phong = PhongBUS.Instance.FindePhong(ctdp.MaPH);
-                    }
-                    catch { }
-
-                    string tenLoaiPhong = phong?.LoaiPhong?.TenLPH ?? "(Không có thông tin)";
-
-                    sb.Append($@"
-                <tr style='border-bottom:1px solid #eee;'>
-                    <td style='padding:10px;'>{ctdp.MaPH}</td>
-                    <td style='padding:10px;'>{tenLoaiPhong}</td>
-                    <td style='padding:10px;'>{ctdp.CheckIn:dd/MM/yyyy HH:mm}</td>
-                    <td style='padding:10px;'>{ctdp.CheckOut:dd/MM/yyyy HH:mm}</td>
-                </tr>
-            ");
-                }
-
-                string bangPhong = sb.ToString();
-
-                string htmlBody = $@"
-                <!DOCTYPE html>
-                <html lang='vi'>
-                <head>
-                    <meta charset='UTF-8'>
-                    <title>Xác nhận đặt phòng</title>
-                </head>
-
-                <body style='font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;'>
-
-                    <table width='100%' cellpadding='0' cellspacing='0'>
-                        <tr>
-                            <td style='padding: 20px 0;'>
-
-                                <table width='600' cellpadding='0' cellspacing='0' 
-                                    style='margin: 0 auto; background: #ffffff; 
-                                    border: 1px solid #ddd; border-radius: 10px; overflow: hidden;'>
-
-                                    <!-- Header -->
-                                    <tr>
-                                        <td style='background-color: #f9f4f0; padding: 25px; text-align: center; border-bottom: 1px solid #e0c9b6;'>
-                                            <h1 style='margin: 0; color: #6b4f4f; font-size: 24px;'>Hotel Management</h1>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Content -->
-                                    <tr>
-                                        <td style='padding: 30px 40px; color: #333;'>
-
-                                            <h2 style='color: #6b4f4f; font-size: 22px; margin-top: 0;'>Xác nhận đặt phòng thành công!</h2>
-
-                                            <p>Chào <strong>{kh.TenKH}</strong>,</p>
-                                            <p>Cảm ơn bạn đã đặt phòng tại hệ thống của chúng tôi. Vui lòng kiểm tra thông tin dưới đây:</p>
-
-                                            <!-- Thông tin chung -->
-                                            <table width='100%' style='border-collapse: collapse; margin-top: 20px;'>
-                                                <tr style='border-bottom: 1px solid #eee;'>
-                                                    <td style='padding: 12px 0; font-weight: bold;'>Mã phiếu thuê:</td>
-                                                    <td style='padding: 12px 0; text-align: right;'>{phieuThue.MaPT}</td>
-                                                </tr>
-                                                <tr style='border-bottom: 1px solid #eee;'>
-                                                    <td style='padding: 12px 0; font-weight: bold;'>Ngày đặt:</td>
-                                                    <td style='padding: 12px 0; text-align: right;'>{phieuThue.NgPT:dd/MM/yyyy HH:mm}</td>
-                                                </tr>
-                                            </table>
-
-                                            <!-- Thông tin phòng -->
-                                            <h3 style='color: #6b4f4f; font-size: 18px; margin-top: 30px;'>Danh sách phòng đã đặt</h3>
-
-                                            <table width='100%' cellpadding='0' cellspacing='0' 
-                                                style='border-collapse: collapse; margin-top: 10px;'>
-                                
-                                                <tr style='background: #f0f0f0; border-bottom:1px solid #ddd;'>
-                                                    <th style='padding:10px; text-align:left;'>Phòng</th>
-                                                    <th style='padding:10px; text-align:left;'>Loại phòng</th>
-                                                    <th style='padding:10px; text-align:left;'>Check-in</th>
-                                                    <th style='padding:10px; text-align:left;'>Check-out</th>
-                                                </tr>
-
-                                                {bangPhong}
-                                            </table>
-
-                                            <!-- Thông tin khách hàng -->
-                                            <h3 style='color: #6b4f4f; font-size: 18px; margin-top: 30px;'>Thông tin khách hàng</h3>
-
-                                            <table width='100%' style='border-collapse: collapse;'>
-                                                <tr style='border-bottom: 1px solid #eee;'>
-                                                    <td style='padding: 12px 0; font-weight: bold;'>Họ và tên:</td>
-                                                    <td style='padding: 12px 0; text-align: right;'>{kh.TenKH}</td>
-                                                </tr>
-                                                <tr style='border-bottom: 1px solid #eee;'>
-                                                    <td style='padding: 12px 0; font-weight: bold;'>Email:</td>
-                                                    <td style='padding: 12px 0; text-align: right;'>{kh.Email}</td>
-                                                </tr>
-                                                <tr style='border-bottom: 1px solid #eee;'>
-                                                    <td style='padding: 12px 0; font-weight: bold;'>Số điện thoại:</td>
-                                                    <td style='padding: 12px 0; text-align: right;'>{kh.SDT}</td>
-                                                </tr>
-                                                <tr style='border-bottom: 1px solid #eee;'>
-                                                    <td style='padding: 12px 0; font-weight: bold;'>Giới tính:</td>
-                                                    <td style='padding: 12px 0; text-align: right;'>{kh.GioiTinh}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style='padding: 12px 0; font-weight: bold;'>Quốc tịch:</td>
-                                                    <td style='padding: 12px 0; text-align: right;'>{kh.QuocTich}</td>
-                                                </tr>
-                                            </table>
-
-                                            <p style='margin-top: 25px;'>Nếu bạn cần hỗ trợ, xin vui lòng phản hồi email này.</p>
-                                            <p>Trân trọng,<br><b>Hotel Management</b></p>
-
-                                        </td>
-                                    </tr>
-
-                                    <!-- Footer -->
-                                    <tr>
-                                        <td style='padding: 20px; text-align: center; background: #f9f9f9; color: #888; font-size: 12px;'>
-                                            © 2025 Hotel Management – All rights reserved.
-                                        </td>
-                                    </tr>
-
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-
-                </body>
-                </html>
-                ";
-                mail.Body = htmlBody;
-
-                SmtpClient smtp = new SmtpClient(smtpHost, smtpPort);
-                smtp.Credentials = new NetworkCredential(smtpUser, smtpPass);
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
-                return true;
-            }
-            catch (Exception ex)
+        // Hàm này đóng vai trò "Nhạc trưởng", điều phối 2 ông Helper làm việc
+        private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
+        {
+            try
             {
-                MessageBox.Show("Không thể gửi email xác nhận:\n" + ex.Message,
-                                "Lỗi gửi email", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string body = EmailHelper.GetBookingEmailBody(kh, phieuThue, listPhong);
+                bool KQ = EmailHelper.SendEmail(kh.Email, "Xác nhận đặt phòng khách sạn", body);
+                return KQ;
+            }
+            catch
+            {
                 return false;
             }
         }

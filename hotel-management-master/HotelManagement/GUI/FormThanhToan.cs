@@ -1,114 +1,143 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using HotelManagement.UTILS;
+using HotelManagement.CTControls;
 using Microsoft.Web.WebView2.Core;
-using Newtonsoft.Json;
 using System;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Net;
+
 
 namespace HotelManagement.GUI
 {
-    public partial class FormThanhToan: Form
+    public partial class FormThanhToan : Form
     {
-        public class PaymentResult
-        {
-            public bool success { get; set; }
-            public string transactionId { get; set; }
-            public double amount { get; set; }
-            public string message { get; set; }
+        /// <summary>
+        /// Cấu hình VNPay
+        /// </summary>
+        private string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"; 
+        private string vnp_TmnCode = "GTTWTT88"; 
+        private string vnp_HashSecret = "GYJ4U78H3H1EJ9ED7Z1U9K0S6ENAZC8E"; 
+        private string vnp_ReturnUrl = "http://localhost:8080/vnpay_return"; 
 
-            // Các trường phục vụ gửi mail
-            public string emailTo { get; set; }
-            public string emailSubject { get; set; }
-            public string emailBody { get; set; }
-        }
-        public FormThanhToan()
+        private double PayAmount;
+        private string Description;
+
+        public FormThanhToan(double amount, string description)
         {
             InitializeComponent();
-
+            this.PayAmount = amount;
+            this.Description = description;
         }
-        private async void InitializeWebView()
+
+        private async void FormThanhToan_Load(object sender, EventArgs e)
         {
-            await webView21.EnsureCoreWebView2Async(null);
-
-            // Trỏ tới Web React đang chạy (bước 1)
-            webView21.Source = new Uri("http://localhost:3000");
-
-            // Đăng ký sự kiện nhận tin nhắn
-            webView21.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
+            await InitializeWebView();
         }
 
-        private void CoreWebView2_WebMessageReceived(object sender, CoreWebView2WebMessageReceivedEventArgs e)
+        private async System.Threading.Tasks.Task InitializeWebView()
         {
             try
             {
-                string jsonResult = e.TryGetWebMessageAsString();
-                PaymentResult result = JsonConvert.DeserializeObject<PaymentResult>(jsonResult);
-
-                if (result.success)
+                if (webView21.CoreWebView2 == null)
                 {
-                    // 1. Gửi Email (nếu có địa chỉ nhận)
-                    if (!string.IsNullOrEmpty(result.emailTo))
+                    await webView21.EnsureCoreWebView2Async(null);
+                }
+
+                webView21.CoreWebView2.NavigationStarting -= CoreWebView2_NavigationStarting;
+                webView21.CoreWebView2.NavigationStarting += CoreWebView2_NavigationStarting;
+
+                string paymentUrl = BuildVnPayUrl(PayAmount, Description);
+
+                webView21.CoreWebView2.Navigate(paymentUrl);
+            }
+            catch (Exception ex)
+            {
+                CTMessageBox.Show("Lỗi khởi tạo cổng thanh toán: " + ex.Message);
+            }
+        }
+
+        private string BuildVnPayUrl(double amount, string description)
+        {
+            VnPayLibrary vnpay = new VnPayLibrary();
+
+            vnpay.AddRequestData("vnp_Version", "2.1.0");
+            vnpay.AddRequestData("vnp_Command", "pay");
+            vnpay.AddRequestData("vnp_TmnCode", vnp_TmnCode); 
+
+            long vnp_Amount = (long)(amount * 100);
+            vnpay.AddRequestData("vnp_Amount", vnp_Amount.ToString());
+
+            vnpay.AddRequestData("vnp_CreateDate", DateTime.Now.ToString("yyyyMMddHHmmss"));
+            vnpay.AddRequestData("vnp_CurrCode", "VND");
+            vnpay.AddRequestData("vnp_IpAddr", "127.0.0.1");
+            vnpay.AddRequestData("vnp_Locale", "vn");
+            vnpay.AddRequestData("vnp_OrderInfo", description);
+            vnpay.AddRequestData("vnp_OrderType", "other");
+            vnpay.AddRequestData("vnp_ReturnUrl", vnp_ReturnUrl);
+            vnpay.AddRequestData("vnp_TxnRef", DateTime.Now.Ticks.ToString());
+            return vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
+        }
+
+        private void CoreWebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
+        {
+
+            if (e.Uri.StartsWith(vnp_ReturnUrl))
+            {
+                e.Cancel = true; 
+
+                try
+                {
+                    Uri myUri = new Uri(e.Uri);
+
+                    string queryString = myUri.Query;
+
+                    if (!string.IsNullOrEmpty(queryString))
                     {
-                        bool mailSent = SendEmail(result.emailTo, result.emailSubject, result.emailBody);
-                        if (mailSent) MessageBox.Show("Đã gửi hóa đơn qua email!");
+                        queryString = queryString.TrimStart('?');
+
+                        string[] listParams = queryString.Split('&');
+
+                        string vnp_ResponseCode = "";
+                        string vnp_TransactionNo = "";
+
+                        foreach (string param in listParams)
+                        {
+                            string[] parts = param.Split('=');
+                            if (parts.Length == 2)
+                            {
+                                string key = parts[0];
+                                string value = WebUtility.UrlDecode(parts[1]);
+
+                                if (key == "vnp_ResponseCode") vnp_ResponseCode = value;
+                                if (key == "vnp_TransactionNo") vnp_TransactionNo = value;
+                            }
+                        }
+
+                        if (vnp_ResponseCode == "00")
+                        {
+                            CTMessageBox.Show($"Thanh toán thành công!\nMã GD: {vnp_TransactionNo}",
+                                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.DialogResult = DialogResult.OK;
+                            this.Close();
+                        }
+                        else
+                        {
+                            CTMessageBox.Show("Giao dịch không thành công. Mã lỗi: " + vnp_ResponseCode,
+                                            "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            this.DialogResult = DialogResult.Cancel;
+                            this.Close();
+                        }
                     }
-
-                    // 2. Thông báo kết quả
-                    MessageBox.Show($"Thanh toán thành công!\nMã GD: {result.transactionId}\nSố tiền: {result.amount:N0} VNĐ",
-                                    "Hoàn tất", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show($"Thất bại: {result.message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CTMessageBox.Show("Lỗi xử lý: " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi xử lý dữ liệu: " + ex.Message);
-            }
         }
-
-        private bool SendEmail(string toEmail, string subject, string htmlBody)
+        private void ctClose1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // CẤU HÌNH SMTP CỦA BẠN
-                string smtpHost = "smtp.gmail.com";
-                int smtpPort = 587;
-                string smtpUser = "ngynam05@gmail.com";
-                string smtpPass = "lmyarytfnihtcqps"; // Mật khẩu ứng dụng (App Password)
-
-                MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(smtpUser, "Hotel Management System");
-                mail.To.Add(toEmail);
-                mail.Subject = subject;
-                mail.Body = htmlBody;
-                mail.IsBodyHtml = true; // QUAN TRỌNG: Để hiển thị HTML đẹp
-                mail.BodyEncoding = Encoding.UTF8;
-
-                SmtpClient smtp = new SmtpClient(smtpHost, smtpPort);
-                smtp.Credentials = new NetworkCredential(smtpUser, smtpPass);
-                smtp.EnableSsl = true;
-                smtp.Send(mail);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Không gửi được mail: " + ex.Message);
-                return false;
-            }
-        }
-        private void FormThanhToan_Load(object sender, EventArgs e)
-        {
-            InitializeWebView();
-        }
-
-        private void ctClose1_Load(object sender, EventArgs e)
-        {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

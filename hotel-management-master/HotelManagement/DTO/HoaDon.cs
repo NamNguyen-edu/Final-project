@@ -11,6 +11,7 @@ namespace HotelManagement.DTO
     {
         [Key]
         [StringLength(5)]
+
         public string MaHD { get; set; }
 
         [Column(TypeName = "smalldatetime")]
@@ -35,5 +36,7 @@ namespace HotelManagement.DTO
        // public bool? DaXoa { get; set; }
 
         public virtual NhanVien NhanVien { get; set; }
+
+        
     }
 }

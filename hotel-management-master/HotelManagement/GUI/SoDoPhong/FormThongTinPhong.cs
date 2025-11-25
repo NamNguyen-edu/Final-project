@@ -478,62 +478,70 @@ namespace HotelManagement.GUI
                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogresult == DialogResult.Yes)
             {
-                //FormBackground formBackground = new FormBackground(formMain);
-                //using (FormThanhToan frm = new FormThanhToan())
-                //{
-                //    this.Hide(); 
-                //    frm.ShowDialog(); 
-                //    this.Show();
-                //}
-                HoaDon hd = new HoaDon();
-                try
+                double amount = (double)ctdp.ThanhTien;
+                string description = "Thanh toan phong " + phong.MaPH;
+                FormBackground formBackground = new FormBackground(formMain);
+                using (FormThanhToan frm = new FormThanhToan(amount, description))
                 {
-                    phong.TTDD = "Chưa dọn dẹp";
-                    hd.MaHD = HoaDonBUS.Instance.getMaHDNext();
-                    hd.MaNV = taiKhoan.MaNV;
-                    hd.MaCTDP = ctdp.MaCTDP;
-                    ctdp.TrangThai = "Đã xong";
-                    hd.TrangThai = "Đã thanh toán";
-                    hd.NgHD = DateTime.Now;
-                    HoaDonBUS.Instance.ThanhToanHD(hd);
-                    CTDP_BUS.Instance.UpdateOrAddCTDP(ctdp);
-                    PhongBUS.Instance.UpdateOrAdd(phong);
-                    FormBackground formBackground = new FormBackground(formMain);
-                    try
+                    formBackground.Owner = formMain;
+                    formBackground.Show();
+                    DialogResult KQThanhToan = frm.ShowDialog();
+                    formBackground.Dispose();
+                    if (KQThanhToan == DialogResult.OK)
                     {
-                        using (FormHoaDon formHoaDon = new FormHoaDon(HoaDonBUS.Instance.FindHD(hd.MaHD)))
-                        {
-                            formBackground.Owner = formMain;
-                            formBackground.Show();
-                            formHoaDon.Owner = formBackground;
-                            formHoaDon.ShowDialog();
-                            formBackground.Dispose();
-                        }
-                        CTMessageBox.Show("Thanh toán thành công.", "Thông báo",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.phong = ctdp.Phong;
-                        this.phong.TTDD = "Chưa dọn dẹp";
-                        PhongBUS.Instance.UpdateOrAdd(phong);
-                        this.LoadPhongTrong();
-                        this.Close();
+                        LuuHDsauTT();
                     }
-                    catch (Exception)
-                    {
-                        CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else {
+                        CTMessageBox.Show("Giao dịch đã bị hủy hoặc thất bại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                }
-                catch (Exception)
-                {
-                    CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
                 }
             }
         }
-
+        private void LuuHDsauTT()
+        {
+            HoaDon hd = new HoaDon();
+            try
+            {
+                phong.TTDD = "Chưa dọn dẹp";
+                hd.MaHD = HoaDonBUS.Instance.getMaHDNext();
+                hd.MaNV = taiKhoan.MaNV;
+                hd.MaCTDP = ctdp.MaCTDP;
+                ctdp.TrangThai = "Đã xong";
+                hd.TrangThai = "Đã thanh toán";
+                hd.NgHD = DateTime.Now;
+                HoaDonBUS.Instance.ThanhToanHD(hd);
+                CTDP_BUS.Instance.UpdateOrAddCTDP(ctdp);
+                PhongBUS.Instance.UpdateOrAdd(phong);
+                FormBackground formBackground = new FormBackground(formMain);
+                try
+                {
+                    using (FormHoaDon formHoaDon = new FormHoaDon(HoaDonBUS.Instance.FindHD(hd.MaHD)))
+                    {
+                        formBackground.Owner = formMain;
+                        formBackground.Show();
+                        formHoaDon.Owner = formBackground;
+                        formHoaDon.ShowDialog();
+                        formBackground.Dispose();
+                    }
+                    CTMessageBox.Show("Thanh toán thành công.", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.phong = ctdp.Phong;
+                    this.phong.TTDD = "Chưa dọn dẹp";
+                    PhongBUS.Instance.UpdateOrAdd(phong);
+                    this.LoadPhongTrong();
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    CTMessageBox.Show("Lỗi khi in hóa đơn.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                CTMessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+            
         private void CTButtonCoc_Click(object sender, EventArgs e)
         {
             FormBackground formBackground = new FormBackground(formMain);
