@@ -231,7 +231,7 @@ namespace HotelManagement.GUI
         }
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-            string MaNV = comboBoxMaNV.Text;
+            string MaNV = comboBoxMaNV.SelectedItem.ToString().Trim();
             string TenTK = CTTextBoxNhapTenTaiKhoan.Texts;
             string MK = CTTextBoxNhapMatKhau.Texts;
             string CapDoQuyen = comboBoxCapDoQuyen.Texts;
