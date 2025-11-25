@@ -1,5 +1,6 @@
 ﻿using HotelManagement.UTILS;
 using HotelManagement.CTControls;
+using HotelManagement.ApplicationSettings;
 using Microsoft.Web.WebView2.Core;
 using System;
 using System.Drawing;
@@ -11,13 +12,6 @@ namespace HotelManagement.GUI
 {
     public partial class FormThanhToan : Form
     {
-        /// <summary>
-        /// Cấu hình VNPay
-        /// </summary>
-        private string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"; 
-        private string vnp_TmnCode = "GTTWTT88"; 
-        private string vnp_HashSecret = "GYJ4U78H3H1EJ9ED7Z1U9K0S6ENAZC8E"; 
-        private string vnp_ReturnUrl = "http://localhost:8080/vnpay_return"; //Đẩy ra file config appsetting
 
         private double PayAmount;
         private string Description;
@@ -62,7 +56,7 @@ namespace HotelManagement.GUI
 
             vnpay.AddRequestData("vnp_Version", "2.1.0");
             vnpay.AddRequestData("vnp_Command", "pay");
-            vnpay.AddRequestData("vnp_TmnCode", vnp_TmnCode); 
+            vnpay.AddRequestData("vnp_TmnCode", VNPayConfig.Vnp_TmnCode); 
 
             long vnp_Amount = (long)(amount * 100);
             vnpay.AddRequestData("vnp_Amount", vnp_Amount.ToString());
@@ -73,15 +67,15 @@ namespace HotelManagement.GUI
             vnpay.AddRequestData("vnp_Locale", "vn");
             vnpay.AddRequestData("vnp_OrderInfo", description);
             vnpay.AddRequestData("vnp_OrderType", "other");
-            vnpay.AddRequestData("vnp_ReturnUrl", vnp_ReturnUrl);
+            vnpay.AddRequestData("vnp_ReturnUrl", VNPayConfig.Vnp_ReturnUrl);
             vnpay.AddRequestData("vnp_TxnRef", DateTime.Now.Ticks.ToString());
-            return vnpay.CreateRequestUrl(vnp_Url, vnp_HashSecret);
+            return vnpay.CreateRequestUrl(VNPayConfig.Vnp_Url, VNPayConfig.Vnp_HashSecret);
         }
 
         private void CoreWebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
 
-            if (e.Uri.StartsWith(vnp_ReturnUrl))
+            if (e.Uri.StartsWith(VNPayConfig.Vnp_ReturnUrl))
             {
                 e.Cancel = true; 
 
