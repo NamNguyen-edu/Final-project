@@ -755,12 +755,12 @@ namespace HotelManagement.GUI
                 ComboBoxGioiTinh.Texts = "  " + khachHang.GioiTinh;
                 CTTextBoxNhapEmail.Texts = khachHang.Email;
 
-                        // Khóa không cho chỉnh sửa
-                        CTTextBoxNhapHoTen.Enabled = false;
-                        CTTextBoxNhapSDT.Enabled = false;
-                        CTTextBoxNhapDiaChi.Enabled = false;
-                        ComboBoxGioiTinh.Enabled = false;
-                        CTTextBoxNhapEmail.Enabled = false;
+                // Khóa không cho chỉnh sửa
+                CTTextBoxNhapHoTen.Enabled = false;
+                CTTextBoxNhapSDT.Enabled = false;
+                CTTextBoxNhapDiaChi.Enabled = false;
+                ComboBoxGioiTinh.Enabled = false;
+                CTTextBoxNhapEmail.Enabled = false;
 
                 flagHoTen = 1;   // đang dùng KH cũ
             }
