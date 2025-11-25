@@ -22,13 +22,27 @@ namespace HotelManagement.DAO
         public List<TienNghi> GetTienNghis()
         {
 
-                return db.TienNghis.Where(p => p.DaXoa == false).ToList();
-            
-        }    
+            // Lấy danh sách tiện nghi chưa xóa
+            var tns = db.TienNghis.Where(p => p.DaXoa == false).ToList();
+
+            // Lấy toàn bộ CTTN chưa xóa (để đỡ query nhiều lần)
+            var cttns = db.CTTNs.Where(p => p.DaXoa == false).ToList();
+
+            foreach (var tn in tns)
+            {
+                // Tổng SL của tiện nghi này trong tất cả CTTN
+                tn.SoLuong = cttns
+                    .Where(c => c.MaTN == tn.MaTN)
+                    .Sum(c => (int?)c.SL) ?? 0;
+            }
+
+            return tns;
+
+        }
         public TienNghi FindTienNghi(string MaTN)
         {
-                return db.TienNghis.Find(MaTN);
-            
+            return db.TienNghis.Find(MaTN);
+
         }
         public void RemoveTN(TienNghi tienNghi) // try catch th có phòng có mã tiện nghi đó
         {
@@ -40,51 +54,51 @@ namespace HotelManagement.DAO
                 db.TienNghis.AddOrUpdate(tienNghi);
                 db.SaveChanges();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 db.TienNghis.Remove(tienNghi);
                 return;
             }
             List<CTTN> cTTNs = db.CTTNs.ToList();
-            foreach(CTTN cTTN in cTTNs.Where(p=>p.MaTN==tienNghi.MaTN).ToList())
+            foreach (CTTN cTTN in cTTNs.Where(p => p.MaTN == tienNghi.MaTN).ToList())
             {
                 cTTN.DaXoa = true;
-            }    
-                db.SaveChanges();
+            }
+            db.SaveChanges();
         }
         public void InsertOrUpdate(TienNghi tienNghi)
         {
 
-                tienNghi.DaXoa = false;
-                db.TienNghis.AddOrUpdate(tienNghi);
-                db.SaveChanges();
-            
+            tienNghi.DaXoa = false;
+            db.TienNghis.AddOrUpdate(tienNghi);
+            db.SaveChanges();
+
         }
         public List<TienNghi> FindTienNghiWithName(string name)
         {
 
-                return db.TienNghis.Where(p => p.TenTN.Contains(name) && p.DaXoa == false).ToList();
-            
+            return db.TienNghis.Where(p => p.TenTN.Contains(name) && p.DaXoa == false).ToList();
+
         }
         public string GetMaTNNext()
         {
-            
-            
-                List<TienNghi> TN = db.TienNghis.ToList();
-                string MaMax = TN[TN.Count - 1].MaTN.ToString();
-                MaMax = MaMax.Substring(MaMax.Length - 3, 3);
-                int max = int.Parse(MaMax);
-                max++;
-                if (max < 10)
-                {
-                    return "TN00" + max.ToString();
-                }
-                else if (max < 100)
-                {
-                    return "TN0" + max.ToString();
-                }
-                return "TN" + max.ToString();
-            
+
+
+            List<TienNghi> TN = db.TienNghis.ToList();
+            string MaMax = TN[TN.Count - 1].MaTN.ToString();
+            MaMax = MaMax.Substring(MaMax.Length - 3, 3);
+            int max = int.Parse(MaMax);
+            max++;
+            if (max < 10)
+            {
+                return "TN00" + max.ToString();
+            }
+            else if (max < 100)
+            {
+                return "TN0" + max.ToString();
+            }
+            return "TN" + max.ToString();
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using HotelManagement.GUI;
+﻿
+using HotelManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -183,25 +184,46 @@ namespace HotelManagement
             }
         }
 
+        //private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
+        //{
+        //    if (this.WindowState != FormWindowState.Minimized)
+        //    {
+        //        using (GraphicsPath roundPath = GetRoundedPath(form.ClientRectangle, radius))
+        //        using (Pen penBorder = new Pen(borderColor, borderSize))
+        //        using (Matrix transform = new Matrix())
+        //        {
+        //            graph.SmoothingMode = SmoothingMode.AntiAlias;
+        //            form.Region = new Region(roundPath);
+        //            if (borderSize >= 1)
+        //            {
+        //                Rectangle rect = form.ClientRectangle;
+        //                float scaleX = 1.0F - ((borderSize + 1) / rect.Width);
+        //                float scaleY = 1.0F - ((borderSize + 1) / rect.Height);
+        //                transform.Scale(scaleX, scaleY);
+        //                transform.Translate(borderSize / 1.6F, borderSize / 1.6F);
+        //                graph.Transform = transform;
+        //                graph.DrawPath(penBorder, roundPath);
+        //            }
+        //        }
+        //    }
+        //}
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
             {
-                using (GraphicsPath roundPath = GetRoundedPath(form.ClientRectangle, radius))
+                // Loại bỏ phần bo góc, chỉ vẽ viền bình thường
                 using (Pen penBorder = new Pen(borderColor, borderSize))
-                using (Matrix transform = new Matrix())
                 {
                     graph.SmoothingMode = SmoothingMode.AntiAlias;
-                    form.Region = new Region(roundPath);
+
+                    // Tạo một vùng (region) hình chữ nhật bình thường, không có bo góc
+                    form.Region = new Region(form.ClientRectangle);
+
+                    // Vẽ viền xung quanh form nếu borderSize >= 1
                     if (borderSize >= 1)
                     {
-                        Rectangle rect = form.ClientRectangle;
-                        float scaleX = 1.0F - ((borderSize + 1) / rect.Width);
-                        float scaleY = 1.0F - ((borderSize + 1) / rect.Height);
-                        transform.Scale(scaleX, scaleY);
-                        transform.Translate(borderSize / 1.6F, borderSize / 1.6F);
-                        graph.Transform = transform;
-                        graph.DrawPath(penBorder, roundPath);
+                        graph.DrawRectangle(penBorder, form.ClientRectangle);
                     }
                 }
             }
