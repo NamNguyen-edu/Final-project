@@ -38,7 +38,7 @@ namespace HotelManagement.UTILS
                 data.Remove(data.Length - 1, 1);
                 query.Remove(query.Length - 1, 1);
             }
-
+            
             string signData = data.ToString();
             string vnp_SecureHash = HmacSHA512(vnp_HashSecret, signData);
 
