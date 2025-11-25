@@ -87,9 +87,9 @@ namespace HotelManagement.GUI
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
+                CTMessageBox.Show($"Đã xảy ra lỗi: {ex}! Vui lòng thử lại.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
