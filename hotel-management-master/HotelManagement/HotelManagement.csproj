@@ -128,9 +128,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>HotelManagement.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\audiotrangchu.wav" />
     <Content Include="Resources\calendardark.png" />
     <Content Include="Resources\calendarwhite.png" />
     <Content Include="Resources\clock.png" />
+    <None Include="Resources\favicon-32x32.png" />
     <Content Include="Resources\fixedcloseresize.png" />
     <Content Include="Resources\fixedgreenresize.png" />
     <Content Include="Resources\fixedmaxresize.png" />
@@ -139,8 +141,13 @@
     <Content Include="Resources\fixedredresize.png" />
     <Content Include="Resources\fixedyellowresize.png" />
     <Content Include="Resources\Giuong1.png" />
+    <None Include="Resources\videoplayback.wav" />
     <None Include="Resources\show.png" />
     <None Include="Resources\hide.png" />
+    <None Include="Resources\sound.bmp" />
+    <None Include="Resources\mute.png" />
+    <None Include="Resources\mute %282%29.png" />
+    <None Include="Resources\sound.png" />
     <Content Include="Resources\tick.png" />
     <Content Include="Resources\tickblack.png" />
     <None Include="Resources\error.png" />
