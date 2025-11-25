@@ -17,7 +17,7 @@ namespace HotelManagement.GUI
         private string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"; 
         private string vnp_TmnCode = "GTTWTT88"; 
         private string vnp_HashSecret = "GYJ4U78H3H1EJ9ED7Z1U9K0S6ENAZC8E"; 
-        private string vnp_ReturnUrl = "http://localhost:8080/vnpay_return"; 
+        private string vnp_ReturnUrl = "http://localhost:8080/vnpay_return"; //Đẩy ra file config appsetting
 
         private double PayAmount;
         private string Description;
