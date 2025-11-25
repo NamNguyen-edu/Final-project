@@ -644,16 +644,6 @@ namespace HotelManagement.GUI
         {
             try
             {
-                // 1. TRƯỜNG HỢP KHÁCH CŨ → update
-                if (flagHoTen == 1)
-                {
-                    // cập nhật thông tin (nếu muốn)
-                    khachHang.Email = CTTextBoxNhapEmail.Texts;
-                    khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
-
-                    KhachHangBUS.Instance.UpdateOrAdd(khachHang);
-                    return;
-                }
 
                 // 2. TRƯỜNG HỢP KHÁCH MỚI → tạo MaKH mới
                 if (string.IsNullOrEmpty(khachHang.MaKH))
