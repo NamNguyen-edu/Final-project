@@ -340,7 +340,7 @@ namespace HotelManagement
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
+            //WindowState = FormWindowState.Maximized;
             openChildForm(new FormTrangChu());
             int time = 300;
             WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
