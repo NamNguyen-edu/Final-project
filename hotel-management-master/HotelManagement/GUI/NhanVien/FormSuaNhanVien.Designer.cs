@@ -166,7 +166,7 @@
             this.LabelNgaySinh.AutoSize = true;
             this.LabelNgaySinh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelNgaySinh.ForeColor = System.Drawing.Color.Black;
-            this.LabelNgaySinh.Location = new System.Drawing.Point(577, 33);
+            this.LabelNgaySinh.Location = new System.Drawing.Point(585, 33);
             this.LabelNgaySinh.Name = "LabelNgaySinh";
             this.LabelNgaySinh.Size = new System.Drawing.Size(86, 23);
             this.LabelNgaySinh.TabIndex = 8;

@@ -579,7 +579,7 @@ namespace HotelManagement.GUI
         {
             int flag = 0;
             if (listPhongDaDat.Count == 0)
-            {
+            {   
                 CTMessageBox.Show("Chưa thêm thông tin đặt phòng", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -636,25 +636,29 @@ namespace HotelManagement.GUI
         {
             try
             {
-                if (phieuThue == null)
+                // 1. TRƯỜNG HỢP KHÁCH CŨ → update
+                if (flagHoTen == 1)
                 {
-                    if (flagHoTen == 1)
-                    {
-
-                        khachHang.MaKH = this.khachHang.MaKH;
-                        //CTMessageBox.Show("Thành cong");
-                    }
-                    else
-                        khachHang.MaKH = KhachHangBUS.Instance.GetMaKHNext();
-                    khachHang.SDT = CTTextBoxNhapSDT.Texts;
+                    // cập nhật thông tin (nếu muốn)
+                    khachHang.Email = CTTextBoxNhapEmail.Texts;
                     khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
-                    khachHang.TenKH = CTTextBoxNhapHoTen.Texts;
-                    khachHang.CCCD_Passport = CTTextBoxNhapCCCD.Texts;
-                    khachHang.GioiTinh = this.ComboBoxGioiTinh.Texts.Trim(' ');
-                    khachHang.Email= CTTextBoxNhapEmail.Texts;
 
                     KhachHangBUS.Instance.UpdateOrAdd(khachHang);
+                    return;
                 }
+
+                // 2. TRƯỜNG HỢP KHÁCH MỚI → tạo MaKH mới
+                if (string.IsNullOrEmpty(khachHang.MaKH))
+                    khachHang.MaKH = KhachHangBUS.Instance.GetMaKHNext();
+
+                khachHang.TenKH = CTTextBoxNhapHoTen.Texts;
+                khachHang.CCCD_Passport = CTTextBoxNhapCCCD.Texts;
+                khachHang.SDT = CTTextBoxNhapSDT.Texts;
+                khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
+                khachHang.GioiTinh = ComboBoxGioiTinh.Texts.Trim();
+                khachHang.Email = CTTextBoxNhapEmail.Texts;
+
+                KhachHangBUS.Instance.UpdateOrAdd(khachHang);
             }
             catch (Exception ex)
             {
@@ -718,68 +722,66 @@ namespace HotelManagement.GUI
 
         private void CTTextBoxNhapCCCD__TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            textBox.MaxLength = 12;
-            textBox.KeyPress += TextBoxOnlyNumber_KeyPress;
+            TextBox txt = sender as TextBox;
+            txt.MaxLength = 12;
+            txt.KeyPress += TextBoxOnlyNumber_KeyPress;
 
-            if (caseForm == 0) // Chỉ xử lý khi ở chế độ Thêm Mới/Đặt phòng
+            string cccd = txt.Text.Trim();
+
+            // Chỉ kiểm tra khi nhập đủ 9–12 số
+            if (cccd.Length < 9)
+                return;
+
+            KhachHang khInDb = KhachHangBUS.Instance.FindKHWithCCCD(cccd);
+
+            //  TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
+            if (khInDb != null)
             {
-                // 1. Tìm kiếm trong DB (Lưu vào biến để tránh gọi DB 2 lần)
-                KhachHang khTimthay = KhachHangBUS.Instance.FindKHWithCCCD(textBox.Text);
+                // Gán vào biến toàn cục
+                this.khachHang = khInDb;
 
-                // TRƯỜNG HỢP 1: Tìm thấy khách hàng trong DB
-                if (khTimthay != null)
-                {
-                    if (flagHoTen == 0) // Chỉ hiện thông báo lần đầu tiên tìm thấy
-                    {
-                        CTMessageBox.Show("Đã tồn tại số CCCD.\r\nThông tin sẽ được tự động điền.", "Thông báo",
-                                       MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                // Autofill
+                CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
+                CTTextBoxNhapSDT.Texts = khachHang.SDT;
+                CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
+                ComboBoxGioiTinh.Texts = "  " + khachHang.GioiTinh;
+                CTTextBoxNhapEmail.Texts = khachHang.Email;
 
-                    CTTextBoxNhapSDT.RemovePlaceholder();
-                    CTTextBoxNhapDiaChi.RemovePlaceholder();
-                    CTTextBoxNhapHoTen.RemovePlaceholder();
+                // Khóa không cho chỉnh sửa
+                CTTextBoxNhapHoTen.Enabled = false;
+                CTTextBoxNhapSDT.Enabled = false;
+                CTTextBoxNhapDiaChi.Enabled = false;
+                ComboBoxGioiTinh.Enabled = false;
+                CTTextBoxNhapEmail.Enabled = false;
 
-                    // Gán biến toàn cục khachHang
-                    khachHang = khTimthay;
-
-                    // Điền dữ liệu
-                    CTTextBoxNhapSDT.Texts = khachHang.SDT;
-                    CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
-                    ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
-                    CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
-                    CTTextBoxNhapEmail.Texts = khachHang.Email; 
-
-                    // Khóa không cho thay đổi thông tin
-                    CTTextBoxNhapHoTen.Enabled = false;
-                    CTTextBoxNhapSDT.Enabled = false;
-                    CTTextBoxNhapDiaChi.Enabled = false;
-                    ComboBoxGioiTinh.Enabled = false;
-                    CTTextBoxNhapEmail.Enabled = false;
-
-                    ComboBoxGioiTinh.Focus();
-
-                    // Đánh dấu là đang hiển thị khách hàng cũ
-                    flagHoTen = 1;
-                }
-                // TRƯỜNG HỢP 2: Không tìm thấy (Đang nhập mới hoặc nhập sai)
-                else
-                {
-
-                    if (flagHoTen == 1)
-                    {
-                        
-                        CTTextBoxNhapHoTen.Enabled = true;
-                        CTTextBoxNhapSDT.Enabled = true;
-                        CTTextBoxNhapDiaChi.Enabled = true;
-                        ComboBoxGioiTinh.Enabled = true;
-                        CTTextBoxNhapEmail.Enabled = true;
-                        // Sau khi reset, đưa trạng thái về nhập mới
-                        flagHoTen = 0;
-                    }
-                }
+                flagHoTen = 1;   // đang dùng KH cũ
             }
-        }
+            else
+            {
+                //  TRƯỜNG HỢP 2: KH MỚI
+
+                // Mở khóa các trường
+                CTTextBoxNhapHoTen.Enabled = true;
+                CTTextBoxNhapSDT.Enabled = true;
+                CTTextBoxNhapDiaChi.Enabled = true;
+                ComboBoxGioiTinh.Enabled = true;
+                CTTextBoxNhapEmail.Enabled = true;
+
+                // Reset thông tin (nếu trước đó là KH cũ)
+                if (flagHoTen == 1)
+                {
+                    CTTextBoxNhapHoTen.Texts = "";
+                    CTTextBoxNhapSDT.Texts = "";
+                    CTTextBoxNhapDiaChi.Texts = "";
+                    ComboBoxGioiTinh.Texts = "  Giới tính";
+                    CTTextBoxNhapEmail.Texts = "";
+                }
+
+                // Reset state → KH mới
+                this.khachHang = new KhachHang();
+                flagHoTen = 0;
+            }
+         }
 
         private void CTTextBoxNhapSDT__TextChanged(object sender, EventArgs e)
         {

@@ -167,9 +167,10 @@ namespace HotelManagement.GUI
             // pictureBox6
             // 
             this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
-            this.pictureBox6.Location = new System.Drawing.Point(42, 276);
+            this.pictureBox6.Location = new System.Drawing.Point(38, 263);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.Size = new System.Drawing.Size(34, 43);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 36;
             this.pictureBox6.TabStop = false;
             // 
@@ -597,7 +598,7 @@ namespace HotelManagement.GUI
             // PictureBoxCCCD
             // 
             this.PictureBoxCCCD.Image = global::HotelManagement.Properties.Resources.CCCD;
-            this.PictureBoxCCCD.Location = new System.Drawing.Point(30, 152);
+            this.PictureBoxCCCD.Location = new System.Drawing.Point(38, 144);
             this.PictureBoxCCCD.Name = "PictureBoxCCCD";
             this.PictureBoxCCCD.Size = new System.Drawing.Size(30, 35);
             this.PictureBoxCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -607,7 +608,7 @@ namespace HotelManagement.GUI
             // PictureBoxGioiTinh
             // 
             this.PictureBoxGioiTinh.Image = global::HotelManagement.Properties.Resources.Gender;
-            this.PictureBoxGioiTinh.Location = new System.Drawing.Point(38, 404);
+            this.PictureBoxGioiTinh.Location = new System.Drawing.Point(42, 404);
             this.PictureBoxGioiTinh.Name = "PictureBoxGioiTinh";
             this.PictureBoxGioiTinh.Size = new System.Drawing.Size(30, 33);
             this.PictureBoxGioiTinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -964,6 +965,7 @@ namespace HotelManagement.GUI
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayBD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxNgayKT)).EndInit();
             this.PanelBackground.ResumeLayout(false);
+            this.PanelBackground.PerformLayout();
             this.ResumeLayout(false);
 
         }

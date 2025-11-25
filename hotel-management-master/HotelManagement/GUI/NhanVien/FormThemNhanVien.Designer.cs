@@ -69,7 +69,7 @@
             // 
             this.LabelThemNhanVien.AutoSize = true;
             this.LabelThemNhanVien.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelThemNhanVien.Location = new System.Drawing.Point(511, 23);
+            this.LabelThemNhanVien.Location = new System.Drawing.Point(522, 23);
             this.LabelThemNhanVien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelThemNhanVien.Name = "LabelThemNhanVien";
             this.LabelThemNhanVien.Size = new System.Drawing.Size(274, 46);
@@ -117,17 +117,16 @@
             this.cbChucVu.Items.AddRange(new object[] {
             "Quản lý",
             "Tiếp tân",
-            "Bảo vệ",
-            "Nhân viên vệ sinh"});
+            "Nhân viên vệ sinh",
+            "Bảo vệ"});
             this.cbChucVu.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
             this.cbChucVu.ListTextColor = System.Drawing.Color.Black;
-            this.cbChucVu.Location = new System.Drawing.Point(147, 173);
-            this.cbChucVu.Margin = new System.Windows.Forms.Padding(4);
+            this.cbChucVu.Location = new System.Drawing.Point(147, 179);
             this.cbChucVu.Name = "cbChucVu";
             this.cbChucVu.Padding = new System.Windows.Forms.Padding(2);
-            this.cbChucVu.Size = new System.Drawing.Size(312, 41);
-            this.cbChucVu.TabIndex = 12;
-            this.cbChucVu.Texts = "Chức vụ";
+            this.cbChucVu.Size = new System.Drawing.Size(312, 35);
+            this.cbChucVu.TabIndex = 10;
+            this.cbChucVu.Texts = "  Chức vụ";
             // 
             // ComboBoxGioiTinh
             // 
@@ -143,21 +142,21 @@
             "  Nữ"});
             this.ComboBoxGioiTinh.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
             this.ComboBoxGioiTinh.ListTextColor = System.Drawing.Color.Black;
-            this.ComboBoxGioiTinh.Location = new System.Drawing.Point(445, 471);
-            this.ComboBoxGioiTinh.Margin = new System.Windows.Forms.Padding(4);
+            this.ComboBoxGioiTinh.Location = new System.Drawing.Point(502, 479);
             this.ComboBoxGioiTinh.Name = "ComboBoxGioiTinh";
             this.ComboBoxGioiTinh.Padding = new System.Windows.Forms.Padding(2);
-            this.ComboBoxGioiTinh.Size = new System.Drawing.Size(204, 44);
-            this.ComboBoxGioiTinh.TabIndex = 9;
+            this.ComboBoxGioiTinh.Size = new System.Drawing.Size(179, 33);
+            this.ComboBoxGioiTinh.TabIndex = 8;
+            this.ComboBoxGioiTinh.TabStop = false;
             this.ComboBoxGioiTinh.Texts = "  Giới tính";
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::HotelManagement.Properties.Resources.Gender;
-            this.pictureBox9.Location = new System.Drawing.Point(378, 471);
+            this.pictureBox9.Location = new System.Drawing.Point(435, 479);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(47, 44);
+            this.pictureBox9.Size = new System.Drawing.Size(47, 33);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 11;
             this.pictureBox9.TabStop = false;
@@ -167,7 +166,7 @@
             this.LabelNgaySinh.AutoSize = true;
             this.LabelNgaySinh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelNgaySinh.ForeColor = System.Drawing.Color.Black;
-            this.LabelNgaySinh.Location = new System.Drawing.Point(798, 67);
+            this.LabelNgaySinh.Location = new System.Drawing.Point(792, 64);
             this.LabelNgaySinh.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelNgaySinh.Name = "LabelNgaySinh";
             this.LabelNgaySinh.Size = new System.Drawing.Size(86, 23);
@@ -192,10 +191,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.admin;
-            this.pictureBox3.Location = new System.Drawing.Point(98, 173);
+            this.pictureBox3.Location = new System.Drawing.Point(98, 179);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(40, 41);
+            this.pictureBox3.Size = new System.Drawing.Size(40, 35);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;

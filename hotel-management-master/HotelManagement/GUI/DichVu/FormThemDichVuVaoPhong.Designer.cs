@@ -128,7 +128,7 @@
             this.LabelThemDichVuVaoPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelThemDichVuVaoPhong.Location = new System.Drawing.Point(245, 9);
             this.LabelThemDichVuVaoPhong.Name = "LabelThemDichVuVaoPhong";
-            this.LabelThemDichVuVaoPhong.Size = new System.Drawing.Size(332, 37);
+            this.LabelThemDichVuVaoPhong.Size = new System.Drawing.Size(411, 46);
             this.LabelThemDichVuVaoPhong.TabIndex = 1;
             this.LabelThemDichVuVaoPhong.Text = "Thêm dịch vụ vào phòng";
             // 
@@ -175,10 +175,11 @@
             this.CTTextBoxTimTheoTenDV.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimTheoTenDV.PlaceholderText = "Nhập tên dịch vụ cần tìm";
             this.CTTextBoxTimTheoTenDV.ReadOnly = false;
-            this.CTTextBoxTimTheoTenDV.Size = new System.Drawing.Size(247, 35);
+            this.CTTextBoxTimTheoTenDV.Size = new System.Drawing.Size(247, 40);
             this.CTTextBoxTimTheoTenDV.TabIndex = 34;
             this.CTTextBoxTimTheoTenDV.Texts = "";
             this.CTTextBoxTimTheoTenDV.UnderlineedStyle = false;
+            this.CTTextBoxTimTheoTenDV._TextChanged += new System.EventHandler(this.CTTextBoxTimTheoTenDV__TextChanged);
             // 
             // dgvDVDaChon
             // 
@@ -245,6 +246,7 @@
             // 
             this.dataGridViewTextBoxColumn1.FillWeight = 150F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Dịch vụ";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -255,6 +257,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Số lượng";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -266,6 +269,7 @@
             this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn3.FillWeight = 125F;
             this.dataGridViewTextBoxColumn3.HeaderText = "Thành tiền";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -274,6 +278,7 @@
             // Column5
             // 
             this.Column5.HeaderText = "Xóa";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -357,6 +362,7 @@
             // 
             this.Column1.FillWeight = 125F;
             this.Column1.HeaderText = "Dịch vụ";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -368,6 +374,7 @@
             this.Column2.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column2.FillWeight = 150F;
             this.Column2.HeaderText = "Đơn giá";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -378,6 +385,7 @@
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Column3.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column3.HeaderText = "SL còn lại";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -386,6 +394,7 @@
             // Column4
             // 
             this.Column4.HeaderText = "Thêm";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -410,7 +419,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(436, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 30);
+            this.label1.Size = new System.Drawing.Size(220, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Dịch vụ đã chọn";
             // 
@@ -420,13 +429,13 @@
             this.LabelDanhSachDichVu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDanhSachDichVu.Location = new System.Drawing.Point(18, 7);
             this.LabelDanhSachDichVu.Name = "LabelDanhSachDichVu";
-            this.LabelDanhSachDichVu.Size = new System.Drawing.Size(192, 30);
+            this.LabelDanhSachDichVu.Size = new System.Drawing.Size(246, 37);
             this.LabelDanhSachDichVu.TabIndex = 1;
             this.LabelDanhSachDichVu.Text = "Danh sách dịch vụ";
             // 
             // FormThemDichVuVaoPhong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 478);

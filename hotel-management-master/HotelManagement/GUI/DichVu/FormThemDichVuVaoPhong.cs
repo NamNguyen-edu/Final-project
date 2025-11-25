@@ -1,5 +1,6 @@
 ﻿ using HotelManagement.BUS;
 using HotelManagement.CTControls;
+using HotelManagement.DAO;
 using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
@@ -377,33 +378,69 @@ namespace HotelManagement.GUI
 
         private void dgvDVDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int x = e.ColumnIndex, y = e.RowIndex;
-            if (y >= 0 && x == 3)
+            if (y >= 0 && x == 3) // cột Hủy
             {
                 #region Remove Service
                 try
                 {
+                    // Đọc dữ liệu hiện tại trên lưới
                     int currentSL = int.Parse(dgvDVDaChon.Rows[y].Cells[1].Value.ToString());
-                    decimal dongia = decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(',')) / currentSL;
+                    decimal thanhTien = decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(','));
+                    decimal donGia = thanhTien / currentSL;
+                    string tenDV = dgvDVDaChon.Rows[y].Cells[0].Value.ToString();
 
+                    // Tìm DichVu tương ứng trong list dichVus để cộng lại tồn kho
                     DichVu dv = dichVus
-                        .Where(p => p.TenDV == dgvDVDaChon.Rows[y].Cells[0].Value.ToString() && p.DonGia == dongia)
+                        .Where(p => p.TenDV == tenDV && p.DonGia == donGia)
                         .SingleOrDefault();
 
-                    CTDV cTDV = dichVusDaDat
-                        .Where(p => p.MaDV == dv.MaDV)
-                        .FirstOrDefault();
+                    // Tìm CTDV tương ứng trong danh sách dichVusDaDat
+                    CTDV cTDV = null;
+                    if (dv != null)
+                    {
+                        cTDV = dichVusDaDat
+                            .Where(p => p.MaDV == dv.MaDV && p.DonGia == dv.DonGia)
+                            .FirstOrDefault();
+                    }
 
+                    if (dv == null || cTDV == null)
+                    {
+                        // Trường hợp dữ liệu không khớp, tránh crash
+                        MessageBox.Show("Không tìm thấy dịch vụ tương ứng để cập nhật.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // 1. CỘNG LẠI TỒN KHO (nếu không phải dịch vụ không giới hạn)
+                    if (dv.SLConLai != -1)
+                    {
+                        dv.SLConLai++; // hoàn trả 1 đơn vị về kho
+                    }
+
+                    // 2. XỬ LÝ GIẢM HOẶC XÓA HẲN DỊCH VỤ ĐÃ ĐẶT
                     if (currentSL > 1)
                     {
+                        // Giảm số lượng
                         cTDV.SL--;
                         cTDV.ThanhTien = cTDV.SL * cTDV.DonGia;
 
+                        // Cập nhật lại lên lưới
                         dgvDVDaChon.Rows[y].Cells[1].Value = cTDV.SL;
                         dgvDVDaChon.Rows[y].Cells[2].Value = cTDV.ThanhTien.ToString("#,#");
                     }
+                    else // currentSL == 1 -> xóa hẳn dịch vụ khỏi danh sách đã chọn
+                    {
+                        // Đánh dấu CTDV này là đã xóa + set SL = 0 để InsertOrUpdateList xử lý
+                        cTDV.SL = 0;
+                        cTDV.ThanhTien = 0;
+                        cTDV.DaXoa = true;
 
+                        // Xóa dòng trên DataGridView
+                        dgvDVDaChon.Rows.RemoveAt(y);
+                    }
+
+                    // 3. Cập nhật lại lưới dịch vụ để hiển thị tồn kho mới
                     LoadGridDichVu();
                 }
                 catch (Exception ex)
@@ -447,5 +484,27 @@ namespace HotelManagement.GUI
         {
             dgvDVDaChon.Cursor = Cursors.Default;
         }
-    }
+
+      private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
+      {
+            string keyword = CTTextBoxTimTheoTenDV.Text.Trim().ToLower();
+
+            // Lọc trực tiếp trên danh sách dịch vụ đang dùng
+            var filtered = dichVus
+                .Where(x => x.TenDV.ToLower().Contains(keyword))
+                .ToList();   
+
+            // Xóa lưới
+            gridDichVu.Rows.Clear();
+
+            // Đổ danh sách đã lọc
+            foreach (DichVu v in filtered)
+            {
+                if (v.SLConLai == -1)
+                    gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), "", Add);
+                else
+                    gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), v.SLConLai, Add);
+            }
+        }
+}
 }
