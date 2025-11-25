@@ -582,7 +582,7 @@ namespace HotelManagement.GUI
         {
             int flag = 0;
             if (listPhongDaDat.Count == 0)
-            {
+            {   
                 CTMessageBox.Show("Chưa thêm thông tin đặt phòng", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -644,25 +644,29 @@ namespace HotelManagement.GUI
         {
             try
             {
-                if (phieuThue == null)
+                // 1. TRƯỜNG HỢP KHÁCH CŨ → update
+                if (flagHoTen == 1)
                 {
-                    if (flagHoTen == 1)
-                    {
-
-                        khachHang.MaKH = this.khachHang.MaKH;
-                        //CTMessageBox.Show("Thành cong");
-                    }
-                    else
-                        khachHang.MaKH = KhachHangBUS.Instance.GetMaKHNext();
-                    khachHang.SDT = CTTextBoxNhapSDT.Texts;
-                    khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
-                    khachHang.TenKH = CTTextBoxNhapHoTen.Texts;
-                    khachHang.CCCD_Passport = CTTextBoxNhapCCCD.Texts;
-                    khachHang.GioiTinh = this.ComboBoxGioiTinh.Texts.Trim(' ');
+                    // cập nhật thông tin (nếu muốn)
                     khachHang.Email = CTTextBoxNhapEmail.Texts;
+                    khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
 
                     KhachHangBUS.Instance.UpdateOrAdd(khachHang);
+                    return;
                 }
+
+                // 2. TRƯỜNG HỢP KHÁCH MỚI → tạo MaKH mới
+                if (string.IsNullOrEmpty(khachHang.MaKH))
+                    khachHang.MaKH = KhachHangBUS.Instance.GetMaKHNext();
+
+                khachHang.TenKH = CTTextBoxNhapHoTen.Texts;
+                khachHang.CCCD_Passport = CTTextBoxNhapCCCD.Texts;
+                khachHang.SDT = CTTextBoxNhapSDT.Texts;
+                khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
+                khachHang.GioiTinh = ComboBoxGioiTinh.Texts.Trim();
+                khachHang.Email = CTTextBoxNhapEmail.Texts;
+
+                KhachHangBUS.Instance.UpdateOrAdd(khachHang);
             }
             catch (Exception ex)
             {
@@ -726,14 +730,11 @@ namespace HotelManagement.GUI
 
         private void CTTextBoxNhapCCCD__TextChanged(object sender, EventArgs e)
         {
-            TextBox textBox = sender as TextBox;
-            textBox.MaxLength = 12;
-            textBox.KeyPress += TextBoxOnlyNumber_KeyPress;
+            TextBox txt = sender as TextBox;
+            txt.MaxLength = 12;
+            txt.KeyPress += TextBoxOnlyNumber_KeyPress;
 
-            if (caseForm == 0) // Chỉ xử lý khi ở chế độ Thêm Mới/Đặt phòng
-            {
-                // 1. Tìm kiếm trong DB (Lưu vào biến để tránh gọi DB 2 lần)
-                KhachHang khTimthay = KhachHangBUS.Instance.FindKHWithCCCD(textBox.Text);
+            string cccd = txt.Text.Trim();
 
                 // TRƯỜNG HỢP 1: Tìm thấy khách hàng trong DB
                 if (khTimthay != null)
@@ -743,28 +744,30 @@ namespace HotelManagement.GUI
                         CTMessageBox.Show("Đã tồn tại số CCCD.\r\nThông tin sẽ được tự động điền.", "Thông báo",
                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
                     CTTextBoxNhapSDT.RemovePlaceholder();
                     CTTextBoxNhapDiaChi.RemovePlaceholder();
                     CTTextBoxNhapHoTen.RemovePlaceholder();
 
-                    // Gán biến toàn cục khachHang
-                    khachHang = khTimthay;
+            //  TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
+            if (khInDb != null)
+            {
+                // Gán vào biến toàn cục
+                this.khachHang = khInDb;
 
                     // Điền dữ liệu
                     CTTextBoxNhapSDT.Texts = khachHang.SDT;
                     CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
                     ComboBoxGioiTinh.Texts = khachHang.GioiTinh;
                     CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
-                    CTTextBoxNhapEmail.Texts = khachHang.Email;
+                    CTTextBoxNhapEmail.Texts = khachHang.Email; 
 
-                    // Khóa không cho thay đổi thông tin
-                    CTTextBoxNhapHoTen.Enabled = false;
-                    CTTextBoxNhapSDT.Enabled = false;
-                    CTTextBoxNhapDiaChi.Enabled = false;
-                    ComboBoxGioiTinh.Enabled = false;
-                    CTTextBoxNhapEmail.Enabled = false; // Nhớ khóa cả email nếu có
-
-                    ComboBoxGioiTinh.Focus();
+                // Khóa không cho chỉnh sửa
+                CTTextBoxNhapHoTen.Enabled = false;
+                CTTextBoxNhapSDT.Enabled = false;
+                CTTextBoxNhapDiaChi.Enabled = false;
+                ComboBoxGioiTinh.Enabled = false;
+                CTTextBoxNhapEmail.Enabled = false;
 
                     // Đánh dấu là đang hiển thị khách hàng cũ
                     flagHoTen = 1;
@@ -775,12 +778,11 @@ namespace HotelManagement.GUI
 
                     if (flagHoTen == 1)
                     {
-
+                        
                         CTTextBoxNhapHoTen.Enabled = true;
                         CTTextBoxNhapSDT.Enabled = true;
                         CTTextBoxNhapDiaChi.Enabled = true;
                         ComboBoxGioiTinh.Enabled = true;
-                        CTTextBoxNhapEmail.Enabled = true;
                         // Sau khi reset, đưa trạng thái về nhập mới
                         flagHoTen = 0;
                     }
@@ -804,6 +806,14 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
+        private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
+        {
+            try
+            {
+                string smtpHost = "smtp.gmail.com"; 
+                int smtpPort = 587;
+                string smtpUser = "ngynam05@gmail.com";
+                string smtpPass = "pass"; // Sử dụng app password
 
 
         // Hàm này đóng vai trò "Nhạc trưởng", điều phối 2 ông Helper làm việc
