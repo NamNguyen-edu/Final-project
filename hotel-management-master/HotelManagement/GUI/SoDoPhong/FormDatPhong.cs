@@ -806,17 +806,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-        private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
-        {
-            try
-            {
-                string smtpHost = "smtp.gmail.com"; 
-                int smtpPort = 587;
-                string smtpUser = "ngynam05@gmail.com";
-                string smtpPass = "pass"; // Sử dụng app password
 
-
-        // Hàm này đóng vai trò "Nhạc trưởng", điều phối 2 ông Helper làm việc
         private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
         {
             try
