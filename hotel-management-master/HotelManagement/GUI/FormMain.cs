@@ -1,22 +1,28 @@
-﻿using HotelManagement.GUI;
+﻿
+using ApplicationSettings;
+using HotelManagement.CTControls;
+using HotelManagement.DTO;
+using HotelManagement.GUI;
+using HotelManagement.GUI.ThongKe;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ApplicationSettings;
-using HotelManagement.GUI.ThongKe;
-using HotelManagement.DTO;
-using System.IO;
-using HotelManagement.CTControls;
-using System.Drawing.Text;
+using System.Media;
+
+
+
 namespace HotelManagement
 {
     public partial class FormMain : Form
@@ -28,6 +34,21 @@ namespace HotelManagement
         private int borderSize = 2;
         private Color borderColor = Color.FromArgb(72, 145, 153);
         private TaiKhoan taiKhoan;
+        private bool isMusicPlaying = false; // Biến để theo dõi trạng thái nhạc
+        private SoundPlayer player; // Để phát âm thanh
+
+
+        // Ở trên cùng class FormMain
+        private bool isCollapsed = false;      // đang thu nhỏ hay không
+        private Timer sidebarTimer;
+        private int sidebarExpandedWidth = 262;
+        private int sidebarCollapsedWidth = 65;
+        private int sidebarStep = 10;          // mỗi tick thay đổi bao nhiêu pixel
+
+
+
+
+
         //Constructor
         public FormMain(TaiKhoan taiKhoan)
         {
@@ -46,7 +67,50 @@ namespace HotelManagement
             //else if (this.LoaiTK == 4)
             //    LoadFormForKhach();
             //customDesign();
+
+
+            ////  TIMER CHO ANIMATION SIDEBAR
+            //sidebarTimer = new Timer();
+            //sidebarTimer.Interval = 10;               
+            //sidebarTimer.Tick += SidebarTimer_Tick;
+
+
         }
+
+        //private void SidebarTimer_Tick(object sender, EventArgs e)
+        //{
+        //    if (isCollapsed)
+        //    {
+        //        // Đang thu nhỏ -> mở rộng ra
+        //        Sidebar.Width += sidebarStep;
+        //        if (Sidebar.Width >= sidebarExpandedWidth)
+        //        {
+        //            // dừng tại kích thước tối đa
+        //            Sidebar.Width = sidebarExpandedWidth;
+        //            sidebarTimer.Stop();
+        //            isCollapsed = false;
+
+        //            // hiện lại text menu
+        //            DisplayTextMenu();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // Đang mở -> thu nhỏ lại
+        //        Sidebar.Width -= sidebarStep;
+        //        if (Sidebar.Width <= sidebarCollapsedWidth)
+        //        {
+        //            // dừng tại kích thước nhỏ nhất
+        //            Sidebar.Width = sidebarCollapsedWidth;
+        //            sidebarTimer.Stop();
+        //            isCollapsed = true;
+
+        //            // ẩn text menu cho gọn
+        //            NotDisplayTextMenu();
+        //        }
+        //    }
+        //}
+
 
         private void LoadFormForAdmin()
         {
@@ -183,25 +247,47 @@ namespace HotelManagement
             }
         }
 
+        //private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
+        //{
+        //    if (this.WindowState != FormWindowState.Minimized)
+        //    {
+        //        using (GraphicsPath roundPath = GetRoundedPath(form.ClientRectangle, radius))
+        //        using (Pen penBorder = new Pen(borderColor, borderSize))
+        //        using (Matrix transform = new Matrix())
+        //        {
+        //            graph.SmoothingMode = SmoothingMode.AntiAlias;
+        //            form.Region = new Region(roundPath);
+        //            if (borderSize >= 1)
+        //            {
+        //                Rectangle rect = form.ClientRectangle;
+        //                float scaleX = 1.0F - ((borderSize + 1) / rect.Width);
+        //                float scaleY = 1.0F - ((borderSize + 1) / rect.Height);
+        //                transform.Scale(scaleX, scaleY);
+        //                transform.Translate(borderSize / 1.6F, borderSize / 1.6F);
+        //                graph.Transform = transform;
+        //                graph.DrawPath(penBorder, roundPath);
+        //            }
+        //        }
+        //    }
+        //}
+
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
             {
-                using (GraphicsPath roundPath = GetRoundedPath(form.ClientRectangle, radius))
+                // Loại bỏ phần bo góc, chỉ vẽ viền bình thường
                 using (Pen penBorder = new Pen(borderColor, borderSize))
-                using (Matrix transform = new Matrix())
                 {
                     graph.SmoothingMode = SmoothingMode.AntiAlias;
-                    form.Region = new Region(roundPath);
+
+                    // Tạo một vùng (region) hình chữ nhật bình thường, không có bo góc
+                    form.Region = new Region(form.ClientRectangle);
+
+                    // Vẽ viền xung quanh form nếu borderSize >= 1
                     if (borderSize >= 1)
                     {
-                        Rectangle rect = form.ClientRectangle;
-                        float scaleX = 1.0F - ((borderSize + 1) / rect.Width);
-                        float scaleY = 1.0F - ((borderSize + 1) / rect.Height);
-                        transform.Scale(scaleX, scaleY);
-                        transform.Translate(borderSize / 1.6F, borderSize / 1.6F);
-                        graph.Transform = transform;
-                        graph.DrawPath(penBorder, roundPath);
+                        graph.DrawRectangle(penBorder, form.ClientRectangle);
                     }
                 }
             }
@@ -289,11 +375,16 @@ namespace HotelManagement
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
 
+        //Chỉnh padding
         private void FormMain_Resize(object sender, EventArgs e)
         {
+            if (this.WindowState == FormWindowState.Maximized)
+                this.Padding = new Padding(0);
+            else
+                this.Padding = new Padding(borderSize);
+
             this.Invalidate();
         }
-
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -314,7 +405,26 @@ namespace HotelManagement
             int time = 300;
             WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
             this.LabelTenNguoiDung.Text = taiKhoan.NhanVien.TenNV;
+            PlayMusic();
+
+
         }
+
+        private void PlayMusic()
+        {
+            if (Properties.Resources.audiotrangchu != null) // Kiểm tra xem file âm thanh có tồn tại trong Resources không
+            {
+                player = new SoundPlayer(Properties.Resources.audiotrangchu); // Đọc file âm thanh từ Resources
+                player.PlayLooping(); // Phát nhạc liên tục (lặp lại)
+                isMusicPlaying = true; // Đánh dấu là nhạc đang phát
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy file âm thanh trong Resources!");
+            }
+        }
+
+
         private Form activeForm = null;
         public void openChildForm(Form childForm)
         {
@@ -515,10 +625,7 @@ namespace HotelManagement
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void ctMaximize1_Click(object sender, EventArgs e)
-        {
-            CTMessageBox.Show("Ứng dụng chưa hỗ trợ kích thước toàn màn hình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        private void ctMaximize1_Click(object sender, EventArgs e) => this.WindowState = (this.WindowState == FormWindowState.Normal) ? FormWindowState.Maximized : FormWindowState.Normal;
         private void panelControlBox_MouseHover(object sender, EventArgs e)
         {
             ctClose1.turnOn();
@@ -841,6 +948,13 @@ namespace HotelManagement
                 NotDisplayTextMenu();
                 Sidebar.Size = size;
             }
+            //else  // Không cho spam click khi đang chạy animation
+            // if (!sidebarTimer.Enabled)
+            //{
+            //    if (!isCollapsed)
+            //        NotDisplayTextMenu();
+            //    sidebarTimer.Start();
+            //}
             else
             {
                 isDisplayed = true;

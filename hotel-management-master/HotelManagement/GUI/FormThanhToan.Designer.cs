@@ -55,6 +55,7 @@
             this.ctClose1.Name = "ctClose1";
             this.ctClose1.Size = new System.Drawing.Size(15, 15);
             this.ctClose1.TabIndex = 1;
+            this.ctClose1.Click += ctClose1_Click;
             // 
             // FormThanhToan
             // 
