@@ -11,6 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
+using System.Globalization;
+using System.Runtime.InteropServices;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Drawing;
 
 namespace HotelManagement.GUI.ThongKe
 {
@@ -169,5 +177,12 @@ namespace HotelManagement.GUI.ThongKe
                 CTMessageBox.Show(ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);    
             }
         }
+
+        private void Printer_ThongKe_Click(object sender, EventArgs e)
+        {
+            ExportToPDF();
+        }
+
+
     }
 }

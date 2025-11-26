@@ -179,7 +179,7 @@
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(131)))), ((int)(((byte)(163)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.panelTitleBar.Controls.Add(this.panelControlBox);
             this.panelTitleBar.Controls.Add(this.labelCaption);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -219,6 +219,7 @@
             this.ctMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMaximize1.Enabled = false;
             this.ctMaximize1.Location = new System.Drawing.Point(9, 4);
+            this.ctMaximize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMaximize1.Name = "ctMaximize1";
             this.ctMaximize1.Size = new System.Drawing.Size(15, 15);
             this.ctMaximize1.TabIndex = 7;
@@ -229,6 +230,7 @@
             this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Location = new System.Drawing.Point(70, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(15, 15);
             this.btnClose.TabIndex = 5;
@@ -241,7 +243,7 @@
             this.labelCaption.ForeColor = System.Drawing.Color.White;
             this.labelCaption.Location = new System.Drawing.Point(9, 8);
             this.labelCaption.Name = "labelCaption";
-            this.labelCaption.Size = new System.Drawing.Size(62, 20);
+            this.labelCaption.Size = new System.Drawing.Size(79, 25);
             this.labelCaption.TabIndex = 4;
             this.labelCaption.Text = "Caption";
             // 
