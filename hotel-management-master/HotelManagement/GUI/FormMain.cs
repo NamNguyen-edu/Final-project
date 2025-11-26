@@ -217,6 +217,7 @@ namespace HotelManagement
         //    }
         //}
 
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
@@ -320,11 +321,16 @@ namespace HotelManagement
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
 
+        //Chỉnh padding
         private void FormMain_Resize(object sender, EventArgs e)
         {
+            if (this.WindowState == FormWindowState.Maximized)
+                this.Padding = new Padding(0);
+            else
+                this.Padding = new Padding(borderSize);
+
             this.Invalidate();
         }
-
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -340,7 +346,7 @@ namespace HotelManagement
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
+            //WindowState = FormWindowState.Maximized;
             openChildForm(new FormTrangChu());
             int time = 300;
             WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
@@ -565,10 +571,12 @@ namespace HotelManagement
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void ctMaximize1_Click(object sender, EventArgs e)
-        {
-            CTMessageBox.Show("Ứng dụng chưa hỗ trợ kích thước toàn màn hình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        //private void ctMaximize1_Click(object sender, EventArgs e)
+        //{
+        //    CTMessageBox.Show("Ứng dụng chưa hỗ trợ kích thước toàn màn hình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //}
+        private void ctMaximize1_Click(object sender, EventArgs e) => this.WindowState = (this.WindowState == FormWindowState.Normal) ? FormWindowState.Maximized : FormWindowState.Normal;
         private void panelControlBox_MouseHover(object sender, EventArgs e)
         {
             ctClose1.turnOn();

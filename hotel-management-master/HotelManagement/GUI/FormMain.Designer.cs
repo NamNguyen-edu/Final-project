@@ -54,10 +54,10 @@
             this.panelName = new System.Windows.Forms.Panel();
             this.PictureBoxMenu = new System.Windows.Forms.PictureBox();
             this.panelControlBox = new System.Windows.Forms.Panel();
+            this.labelTenKhachSan = new System.Windows.Forms.Label();
             this.ctMaximize1 = new HotelManagement.CTControls.CTMaximize();
             this.ctMinimize1 = new HotelManagement.CTControls.CTMinimize();
             this.ctClose1 = new HotelManagement.CTControls.CTClose();
-            this.labelTenKhachSan = new System.Windows.Forms.Label();
             this.PanelBackground.SuspendLayout();
             this.panelInfomation.SuspendLayout();
             this.Sidebar.SuspendLayout();
@@ -83,9 +83,10 @@
             // 
             // panelMainChildForm
             // 
+            this.panelMainChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMainChildForm.AutoScroll = true;
             this.panelMainChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.panelMainChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainChildForm.Location = new System.Drawing.Point(262, 60);
             this.panelMainChildForm.Name = "panelMainChildForm";
             this.panelMainChildForm.Size = new System.Drawing.Size(1260, 833);
@@ -431,7 +432,7 @@
             this.linkLabelDangXuat.AutoSize = true;
             this.linkLabelDangXuat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabelDangXuat.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelDangXuat.Location = new System.Drawing.Point(3, 10);
+            this.linkLabelDangXuat.Location = new System.Drawing.Point(3, -3);
             this.linkLabelDangXuat.Name = "linkLabelDangXuat";
             this.linkLabelDangXuat.Size = new System.Drawing.Size(101, 28);
             this.linkLabelDangXuat.TabIndex = 2;
@@ -499,6 +500,18 @@
             this.panelControlBox.MouseHover += new System.EventHandler(this.panelControlBox_MouseHover);
             this.panelControlBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelControlBox_MouseMove);
             // 
+            // labelTenKhachSan
+            // 
+            this.labelTenKhachSan.AutoSize = true;
+            this.labelTenKhachSan.BackColor = System.Drawing.Color.Transparent;
+            this.labelTenKhachSan.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTenKhachSan.ForeColor = System.Drawing.Color.LightSalmon;
+            this.labelTenKhachSan.Location = new System.Drawing.Point(68, 14);
+            this.labelTenKhachSan.Name = "labelTenKhachSan";
+            this.labelTenKhachSan.Size = new System.Drawing.Size(285, 41);
+            this.labelTenKhachSan.TabIndex = 2;
+            this.labelTenKhachSan.Text = "Hotel Management";
+            // 
             // ctMaximize1
             // 
             this.ctMaximize1.BackColor = System.Drawing.Color.Transparent;
@@ -535,18 +548,6 @@
             this.ctClose1.TabIndex = 0;
             this.ctClose1.Click += new System.EventHandler(this.ctClose1_Click);
             // 
-            // labelTenKhachSan
-            // 
-            this.labelTenKhachSan.AutoSize = true;
-            this.labelTenKhachSan.BackColor = System.Drawing.Color.Transparent;
-            this.labelTenKhachSan.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTenKhachSan.ForeColor = System.Drawing.Color.LightSalmon;
-            this.labelTenKhachSan.Location = new System.Drawing.Point(68, 14);
-            this.labelTenKhachSan.Name = "labelTenKhachSan";
-            this.labelTenKhachSan.Size = new System.Drawing.Size(285, 41);
-            this.labelTenKhachSan.TabIndex = 2;
-            this.labelTenKhachSan.Text = "Hotel Management";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -560,7 +561,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1522, 934);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý khách sạn";
@@ -568,7 +568,6 @@
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.SizeChanged += new System.EventHandler(this.FormMain_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMain_Paint);
-            //this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMain_Keydown);
             this.Resize += new System.EventHandler(this.FormMain_Resize);
             this.PanelBackground.ResumeLayout(false);
             this.panelInfomation.ResumeLayout(false);

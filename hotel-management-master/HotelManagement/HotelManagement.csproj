@@ -129,6 +129,7 @@
       <DependentUpon>HotelManagement.mdf</DependentUpon>
     </Content>
     <None Include="Resources\audiotrangchu.wav" />
+    <None Include="Resources\audiotrangchu %281%29.wav" />
     <Content Include="Resources\calendardark.png" />
     <Content Include="Resources\calendarwhite.png" />
     <Content Include="Resources\clock.png" />
