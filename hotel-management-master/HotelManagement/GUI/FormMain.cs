@@ -38,6 +38,17 @@ namespace HotelManagement
         private SoundPlayer player; // Để phát âm thanh
 
 
+        // Ở trên cùng class FormMain
+        private bool isCollapsed = false;      // đang thu nhỏ hay không
+        private Timer sidebarTimer;
+        private int sidebarExpandedWidth = 262;
+        private int sidebarCollapsedWidth = 65;
+        private int sidebarStep = 10;          // mỗi tick thay đổi bao nhiêu pixel
+
+
+
+
+
         //Constructor
         public FormMain(TaiKhoan taiKhoan)
         {
@@ -56,7 +67,50 @@ namespace HotelManagement
             //else if (this.LoaiTK == 4)
             //    LoadFormForKhach();
             //customDesign();
+
+
+            ////  TIMER CHO ANIMATION SIDEBAR
+            //sidebarTimer = new Timer();
+            //sidebarTimer.Interval = 10;               
+            //sidebarTimer.Tick += SidebarTimer_Tick;
+
+
         }
+
+        //private void SidebarTimer_Tick(object sender, EventArgs e)
+        //{
+        //    if (isCollapsed)
+        //    {
+        //        // Đang thu nhỏ -> mở rộng ra
+        //        Sidebar.Width += sidebarStep;
+        //        if (Sidebar.Width >= sidebarExpandedWidth)
+        //        {
+        //            // dừng tại kích thước tối đa
+        //            Sidebar.Width = sidebarExpandedWidth;
+        //            sidebarTimer.Stop();
+        //            isCollapsed = false;
+
+        //            // hiện lại text menu
+        //            DisplayTextMenu();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // Đang mở -> thu nhỏ lại
+        //        Sidebar.Width -= sidebarStep;
+        //        if (Sidebar.Width <= sidebarCollapsedWidth)
+        //        {
+        //            // dừng tại kích thước nhỏ nhất
+        //            Sidebar.Width = sidebarCollapsedWidth;
+        //            sidebarTimer.Stop();
+        //            isCollapsed = true;
+
+        //            // ẩn text menu cho gọn
+        //            NotDisplayTextMenu();
+        //        }
+        //    }
+        //}
+
 
         private void LoadFormForAdmin()
         {
@@ -571,11 +625,6 @@ namespace HotelManagement
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        //private void ctMaximize1_Click(object sender, EventArgs e)
-        //{
-        //    CTMessageBox.Show("Ứng dụng chưa hỗ trợ kích thước toàn màn hình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //}
         private void ctMaximize1_Click(object sender, EventArgs e) => this.WindowState = (this.WindowState == FormWindowState.Normal) ? FormWindowState.Maximized : FormWindowState.Normal;
         private void panelControlBox_MouseHover(object sender, EventArgs e)
         {
@@ -899,6 +948,13 @@ namespace HotelManagement
                 NotDisplayTextMenu();
                 Sidebar.Size = size;
             }
+            //else  // Không cho spam click khi đang chạy animation
+            // if (!sidebarTimer.Enabled)
+            //{
+            //    if (!isCollapsed)
+            //        NotDisplayTextMenu();
+            //    sidebarTimer.Start();
+            //}
             else
             {
                 isDisplayed = true;

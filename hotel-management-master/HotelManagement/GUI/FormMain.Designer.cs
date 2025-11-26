@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.PanelBackground = new System.Windows.Forms.Panel();
-            this.panelMainChildForm = new System.Windows.Forms.Panel();
             this.panelInfomation = new System.Windows.Forms.Panel();
             this.labelPhienBan = new System.Windows.Forms.Label();
             this.labelBanQuyen = new System.Windows.Forms.Label();
+            this.panelMainChildForm = new System.Windows.Forms.Panel();
             this.Sidebar = new System.Windows.Forms.Panel();
             this.ButtonThongKe = new System.Windows.Forms.Button();
             this.ButtonDanhSachTaiKhoan = new System.Windows.Forms.Button();
@@ -70,8 +70,8 @@
             // 
             // PanelBackground
             // 
-            this.PanelBackground.Controls.Add(this.panelMainChildForm);
             this.PanelBackground.Controls.Add(this.panelInfomation);
+            this.PanelBackground.Controls.Add(this.panelMainChildForm);
             this.PanelBackground.Controls.Add(this.Sidebar);
             this.PanelBackground.Controls.Add(this.panelName);
             this.PanelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -80,17 +80,6 @@
             this.PanelBackground.Size = new System.Drawing.Size(1522, 934);
             this.PanelBackground.TabIndex = 0;
             this.PanelBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelBackground_Paint);
-            // 
-            // panelMainChildForm
-            // 
-            this.panelMainChildForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMainChildForm.AutoScroll = true;
-            this.panelMainChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.panelMainChildForm.Location = new System.Drawing.Point(262, 60);
-            this.panelMainChildForm.Name = "panelMainChildForm";
-            this.panelMainChildForm.Size = new System.Drawing.Size(1260, 833);
-            this.panelMainChildForm.TabIndex = 7;
             // 
             // panelInfomation
             // 
@@ -123,6 +112,16 @@
             this.labelBanQuyen.Size = new System.Drawing.Size(501, 28);
             this.labelBanQuyen.TabIndex = 0;
             this.labelBanQuyen.Text = "Copyright © 2022 TBT Coorporation. All rights reserved.";
+            // 
+            // panelMainChildForm
+            // 
+            this.panelMainChildForm.AutoScroll = true;
+            this.panelMainChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.panelMainChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMainChildForm.Location = new System.Drawing.Point(262, 60);
+            this.panelMainChildForm.Name = "panelMainChildForm";
+            this.panelMainChildForm.Size = new System.Drawing.Size(1260, 874);
+            this.panelMainChildForm.TabIndex = 7;
             // 
             // Sidebar
             // 
