@@ -66,16 +66,16 @@ namespace HotelManagement.CTControls
                 {
                     StyleDataGridView(dgv);
                 }
-                // Xử lý TextBox Ghi Chú (Áp dụng màu highlight nếu cần)
-                else if (c is TextBox txt && txt.Name == "TextBoxGhiChu")
-                {
-                    //txt.BackColor = AppTheme.PopupHighlightColor;
-                    //txt.ForeColor = AppTheme.TextColorNormal;
-                }
                 // Xử lý Panel chứa nội dung chính
                 else if (c is Panel pnl && pnl.Name == "PanelChuaThongTin")
                 {
                     pnl.BackColor = AppTheme.PopupContentPanelColor;
+                }
+                else if (c.GetType().Name == "CTTextBox")
+                {
+                    dynamic ctbb = c;
+                    ctbb.BackColor = AppTheme.PopupMainBackground; // White
+                    ctbb.ForeColor = AppTheme.TextColorNormal;
                 }
 
                 // Đệ quy

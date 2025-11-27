@@ -23,16 +23,14 @@ namespace HotelManagement.GUI
         private FormMain formMain;
         private TaiKhoan taiKhoan1;
 
-        public FormDanhSachLoaiPhong()
-        {
-            InitializeComponent();
-        }
+
 
         public FormDanhSachLoaiPhong(FormMain formMain,TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan1 = taiKhoan;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         /*private void CTButtonThemLoaiPhong_Click(object sender, EventArgs e)
@@ -58,7 +56,7 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachLoaiPhong_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
+            //grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
             LoadAllDataGrid();
             /*grid.Rows.Add(new object[] { LP, "LP001", "Phòng đơn", "1", "2", "100,000", "50,000", edit, delete });
             grid.Rows.Add(new object[] { LP, "LP002", "Phòng đôi", "2", "4", "200,000", "100,000", edit, delete });
