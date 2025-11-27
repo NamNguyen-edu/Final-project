@@ -32,6 +32,7 @@ namespace HotelManagement.GUI
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan = taiKhoan;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         private void CTButtonThemTienNghi_Click(object sender, EventArgs e)
@@ -64,7 +65,6 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachTienNghi_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
             /*grid.Rows.Add(new object[] { TN, "TN001", "Ti vi", edit, delete });
             grid.Rows.Add(new object[] { TN, "TN002", "Máy lạnh", edit, delete });
             grid.Rows.Add(new object[] {TN, "TN003", "Máy sấy", edit, delete });*/

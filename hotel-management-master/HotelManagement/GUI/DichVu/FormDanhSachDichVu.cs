@@ -22,16 +22,13 @@ namespace HotelManagement.GUI
         private List<DichVu> dichVus;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
-        public FormDanhSachDichVu()
-        {
-            InitializeComponent();
-        }
 
         public FormDanhSachDichVu(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan = taiKhoan;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         private void CTButtonThemDichVu_Click(object sender, EventArgs e)
@@ -62,7 +59,7 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachDichVu_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
+           
             LoadALLDV();
 
            /* grid.Rows.Add(new object[] { this.DV, "DV001", "Pepsi", "10,000", "100", edit, delete });

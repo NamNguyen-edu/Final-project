@@ -22,17 +22,13 @@ namespace HotelManagement.GUI
         private FormMain formMain;
         private TaiKhoan taiKhoan1;
         List<NhanVien> nhanViens;
-        public FormDanhSachNhanVien()
-        {
-            InitializeComponent();
-        }
-
         
         public FormDanhSachNhanVien(FormMain formMain,TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan1 = taiKhoan;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }   
 
         private void CTButtonThemNhanVien_Click(object sender, EventArgs e)
@@ -63,8 +59,6 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachNhanVien_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
-
             LoadAllGrid();
             /* grid.Rows.Add(new object[] { NV, "NV001", "Phan Tuấn Thành", "Giám đốc", "11/10/2003", "Nam", "0123456789", "thanhpt1110@gmail.com", edit, delete });
              grid.Rows.Add(new object[] { NV, "NV001", "Phan Tuấn Thành", "Quản lý", "11/10/2003", "Nam", "0123456789", "thanhpt1110@gmail.com", edit, delete });

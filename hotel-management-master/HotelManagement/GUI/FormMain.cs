@@ -77,6 +77,13 @@ namespace HotelManagement
 
         }
 
+        public TaiKhoan TaiKhoanDangNhap
+        {
+            get { return taiKhoan; }
+        }
+
+
+
         //private void SidebarTimer_Tick(object sender, EventArgs e)
         //{
         //    if (isCollapsed)
@@ -402,14 +409,35 @@ namespace HotelManagement
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //WindowState = FormWindowState.Maximized;
-            openChildForm(new FormTrangChu());
+          
+            // hiệu ứng mở form
             int time = 300;
             WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
+
+            // tên người dùng trên thanh top
             this.LabelTenNguoiDung.Text = taiKhoan.NhanVien.TenNV;
-            PlayMusic();
 
+            if (LoaiTK == 1) // Nhân viên
+            {
+                ButtonTrangChu.Show();          
+                SetColorButtonTrangChu();      
+                openChildForm(new FormTC(this));
+            }
+            else
+            {
+                ButtonTrangChu.Hide();
 
+                if (LoaiTK == 2) // Quản lý
+                {
+                    openChildForm(new FormSoDoPhong(this, taiKhoan));
+                }
+                else if (LoaiTK == 3) // Admin
+                {
+                    openChildForm(new FormSoDoPhong(this, taiKhoan));
+                }
+            }
+
+            //PlayMusic();
         }
 
         private void PlayMusic()
@@ -443,184 +471,7 @@ namespace HotelManagement
         }
 
         /*private void customDesign()
-        {
-            this.panelThuChiSubmenu.Visible = false;
-            this.panelThongKeSubmenu.Visible = false;
-            this.panelNhanSuSubmenu.Visible = false;
-        }
-
-        private void hideSubmenu()
-        {
-            if (this.panelThuChiSubmenu.Visible == true)
-                this.panelThuChiSubmenu.Visible = false;
-            if (this.panelThongKeSubmenu.Visible == true)
-                this.panelThongKeSubmenu.Visible = false;
-            if (this.panelNhanSuSubmenu.Visible == true)
-                this.panelNhanSuSubmenu.Visible = false;
-        }
-
-        private void showSubmenu(Panel subMenu)
-        {
-            if (subMenu.Visible == false)
-            {
-                hideSubmenu();
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
-        }
-
-        // Parent button menu
-        private void buttonQuanLyThuChi_Click(object sender, EventArgs e)
-        {
-            disableButtonSidebar();
-            disableAllSubmenuColor();
-            activateButtonSidebar(sender);
-            showSubmenu(panelThuChiSubmenu);
-        }
-
-        private void buttonThongKe_Click(object sender, EventArgs e)
-        {
-            disableButtonSidebar();
-            disableAllSubmenuColor();
-            activateButtonSidebar(sender);
-            showSubmenu(panelThongKeSubmenu);
-        }
-
-        private void buttonNhanSu_Click(object sender, EventArgs e)
-        {
-            disableButtonSidebar();
-            disableAllSubmenuColor();
-            activateButtonSidebar(sender);
-            showSubmenu(panelNhanSuSubmenu);
-        }
-
-        private Form activeForm = null;
-        private void openChildForm(Form childForm)
-        {
-            if (activeForm != null)
-                activeForm.Close();
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            panelMainChildForm.Controls.Add(childForm);
-            panelMainChildForm.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
-        // Settings button
-        private void buttonSoDoPhong_Click(object sender, EventArgs e)
-        {
-            hideSubmenu();
-            disableButtonSidebar();
-            openChildForm(new FormSoDoPhong());
-            activateButtonSidebar(sender);
-        }
-
-        private void buttonLoaiPhong_Click(object sender, EventArgs e)
-        {
-            hideSubmenu();
-            disableButtonSidebar();
-            openChildForm(new FormLoaiPhong());
-            activateButtonSidebar(sender);
-        }
-
-        private void buttonKho_Click(object sender, EventArgs e)
-        {
-            hideSubmenu();
-            disableButtonSidebar();
-            openChildForm(new FormKho());
-            activateButtonSidebar(sender);
-        }  
-
-        private void buttonDoanhThu_Click(object sender, EventArgs e)
-        {
-            disableButtonSubmenu(this.panelThuChiSubmenu);
-            openChildForm(new FormDoanhThu());
-            activateButtonSubmenu(sender);
-        }
-
-        private void buttonCongNo_Click(object sender, EventArgs e)
-        {
-            disableButtonSubmenu(this.panelThuChiSubmenu);
-            openChildForm(new FormCongNo());
-            activateButtonSubmenu(sender);
-        }
-
-        private void buttonSoLuongKhach_Click(object sender, EventArgs e)
-        {
-            disableButtonSubmenu(this.panelThongKeSubmenu);
-            openChildForm(new FormSoLuongKhach());
-            activateButtonSubmenu(sender);
-        }
-
-        private void buttonThoiGian_Click(object sender, EventArgs e)
-        {
-            disableButtonSubmenu(this.panelThongKeSubmenu);
-            openChildForm(new FormThoiGian());
-            activateButtonSubmenu(sender);
-        }
-
-        private void buttonChinhSuaNhanSu_Click(object sender, EventArgs e)
-        {
-            disableButtonSubmenu(this.panelNhanSuSubmenu);
-            openChildForm(new FormChinhSuaNhanSu());
-            activateButtonSubmenu(sender);
-        }
-
-        private void buttonChamCong_Click(object sender, EventArgs e)
-        {
-            disableButtonSubmenu(this.panelNhanSuSubmenu);
-            openChildForm(new FormChamCong());
-            activateButtonSubmenu(sender);
-        }
-
-        private void activateButtonSidebar(object btnSender)
-        {
-            if (btnSender != null)
-            {
-                Button currentButton = (Button)btnSender;
-                currentButton = (Button)btnSender;
-                currentButton.BackColor = Color.FromArgb(153, 179, 208);
-            }
-        }
-
-        private void activateButtonSubmenu(object btnSender)
-        {
-            if (btnSender != null)
-            {
-                Button currentButton = (Button)btnSender;
-                currentButton = (Button)btnSender;
-                currentButton.BackColor = Color.FromArgb(199, 215, 224);
-            }
-        }
-
-        private void disableButtonSidebar()
-        {
-            foreach(Control prevButton in Sidebar.Controls)
-            {
-                if (prevButton.GetType() == typeof(Button))
-                    prevButton.BackColor = Color.FromArgb(171, 200, 232);
-            }
-        }
-
-        private void disableButtonSubmenu(Panel subMenu)
-        {
-            foreach (Control prevButton in subMenu.Controls)
-            {
-                if (prevButton.GetType() == typeof(Button))
-                    prevButton.BackColor = Color.FromArgb(222, 240, 250);
-            }
-        }
-        
-        private void disableAllSubmenuColor()
-        {
-            disableButtonSubmenu(this.panelThuChiSubmenu);
-            disableButtonSubmenu(this.panelThongKeSubmenu);
-            disableButtonSubmenu(this.panelNhanSuSubmenu);
-        }
+      
 */
 
         private void ctMinimize1_Click(object sender, EventArgs e)
@@ -663,116 +514,35 @@ namespace HotelManagement
 
         private void SetColorButtonTrangChu()
         {
-            ButtonTrangChu.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonTrangChu.ForeColor = Color.Black;
+            ButtonTrangChu.BackColor = Color.FromArgb(182, 103, 36);
+            ButtonTrangChu.ForeColor = Color.White;
         }
 
         private void SetAllButtonNormalColor()
         {
+            Color normalColor = Color.FromArgb(182, 103, 36);
+            ButtonSoDoPhong.BackColor = normalColor;
+            ButtonDanhSachDatPhong.BackColor = normalColor;
+            ButtonDanhSachHoaDon.BackColor = normalColor;
+            ButtonDanhSachKhachHang.BackColor = normalColor;
+            ButtonPhong.BackColor = normalColor;
+            ButtonLoaiPhong.BackColor = normalColor;
+            ButtonDanhSachDichVu.BackColor = normalColor;
+            ButtonDanhSachTienNghi.BackColor = normalColor;
+            ButtonDanhSachTaiKhoan.BackColor = normalColor;
+            ButtonDanhSachNhanVien.BackColor = normalColor;
+            ButtonThongKe.BackColor = normalColor;
 
-            ButtonSoDoPhong.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonDanhSachDatPhong.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonDanhSachHoaDon.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonDanhSachKhachHang.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonPhong.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonLoaiPhong.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonDanhSachDichVu.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonDanhSachTienNghi.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonDanhSachTaiKhoan.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonDanhSachNhanVien.BackColor = Color.FromArgb(72, 145, 153);
-            ButtonThongKe.BackColor = Color.FromArgb(72, 145, 153);
-
-            //ButtonDatPhong.BackColor = Color.FromArgb(249, 165, 105);
-            //ButtonThanhToan.BackColor = Color.FromArgb(249, 165, 105);
-            //ButtonQLLD.BackColor = Color.FromArgb(249, 165, 105);
-            //ButtonCSKH.BackColor = Color.FromArgb(249, 165, 105);
-            //ButtonQLTK.BackColor = Color.FromArgb(249, 165, 105);
-
-
-            ButtonSoDoPhong.ForeColor
-                = ButtonDanhSachDatPhong.ForeColor
-                = ButtonDanhSachHoaDon.ForeColor
-                = ButtonDanhSachKhachHang.ForeColor
-                = ButtonPhong.ForeColor
-                = ButtonLoaiPhong.ForeColor
-                = ButtonDanhSachDichVu.ForeColor
-                = ButtonDanhSachTienNghi.ForeColor
-                = ButtonDanhSachTaiKhoan.ForeColor
-                = ButtonDanhSachNhanVien.ForeColor = Color.Black;
-            //= ButtonDatPhong.ForeColor
-            //= ButtonThanhToan.ForeColor
-            //= ButtonQLLD.ForeColor
-            //= ButtonCSKH.ForeColor
-            //= ButtonQLTK.ForeColor
-            //= ButtonThongKe.ForeColor 
         }
 
-        //Khách hàng
-
-        //private void ButtonDatPhong_Click(object sender, EventArgs e)
-        //{
-        //    //Change color button on side bar
-        //    SetAllButtonNormalColor();
-        //    ButtonTrangChu.BackColor = Color.FromArgb(249, 165, 105);
-        //    ButtonTrangChu.ForeColor = Color.Black;
-        //    ButtonDatPhong.BackColor = Color.FromArgb(72, 145, 152);
-        //    ButtonDatPhong.ForeColor = Color.White;
-        //    //Open Child Form
-        //    openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
-        //}
-
-        //private void ButtonThanhToan_Click(object sender, EventArgs e)
-        //{
-        //    //Change color button on side bar
-        //    SetAllButtonNormalColor();
-        //    ButtonTrangChu.BackColor = Color.FromArgb(249, 165, 105);
-        //    ButtonTrangChu.ForeColor = Color.Black;
-        //    ButtonThanhToan.BackColor = Color.FromArgb(72, 145, 152);
-        //    ButtonThanhToan.ForeColor = Color.White;
-        //    //Open Child Form
-        //    openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
-        //}
-        //private void ButtonQLLD_Click(object sender, EventArgs e)
-        //{
-        //    //Change color button on side bar
-        //    SetAllButtonNormalColor();
-        //    ButtonTrangChu.BackColor = Color.FromArgb(249, 165, 105);
-        //    ButtonTrangChu.ForeColor = Color.Black;
-        //    ButtonQLLD.BackColor = Color.FromArgb(72, 145, 152);
-        //    ButtonQLLD.ForeColor = Color.White;
-        //    //Open Child Form
-        //    openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
-        //}
-        //private void ButtonCSKH_Click(object sender, EventArgs e)
-        //{
-        //    //Change color button on side bar
-        //    SetAllButtonNormalColor();
-        //    ButtonTrangChu.BackColor = Color.FromArgb(249, 165, 105);
-        //    ButtonTrangChu.ForeColor = Color.Black;
-        //    ButtonCSKH.BackColor = Color.FromArgb(72, 145, 152);
-        //    ButtonCSKH.ForeColor = Color.White;
-        //    //Open Child Form
-        //    openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
-        //}
-        //private void ButtonQLTK_Click(object sender, EventArgs e)
-        //{
-        //    //Change color button on side bar
-        //    SetAllButtonNormalColor();
-        //    ButtonTrangChu.BackColor = Color.FromArgb(249, 165, 105);
-        //    ButtonTrangChu.ForeColor = Color.Black;
-        //    ButtonQLTK.BackColor = Color.FromArgb(72, 145, 152);
-        //    ButtonQLTK.ForeColor = Color.White;
-        //    //Open Child Form
-        //    openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
-        //}
-
+        public static Color Select = Color.FromArgb(221, 173, 127);
         //Nội bộ
         private void ButtonDanhSachDatPhong_Click(object sender, EventArgs e)
         {
             //Change color button on side bar
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
-            ButtonDanhSachDatPhong.BackColor = Color.FromArgb(233, 117, 32);
+            ButtonDanhSachDatPhong.BackColor = Select;
             ButtonDanhSachDatPhong.ForeColor = Color.White;
             //Open Child Form
             openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
@@ -811,7 +581,7 @@ namespace HotelManagement
             ButtonTrangChu.BackColor = Color.FromArgb(233, 117, 32);
             ButtonTrangChu.ForeColor = Color.White;
             //Open Child Form
-            openChildForm(new FormTrangChu(this));
+            openChildForm(new FormTC(this));
 
 
 

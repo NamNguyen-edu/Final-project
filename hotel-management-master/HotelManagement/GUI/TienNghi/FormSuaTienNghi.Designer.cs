@@ -103,7 +103,7 @@
             this.LabelSuaTienNghi.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSuaTienNghi.Location = new System.Drawing.Point(173, 9);
             this.LabelSuaTienNghi.Name = "LabelSuaTienNghi";
-            this.LabelSuaTienNghi.Size = new System.Drawing.Size(186, 37);
+            this.LabelSuaTienNghi.Size = new System.Drawing.Size(232, 46);
             this.LabelSuaTienNghi.TabIndex = 0;
             this.LabelSuaTienNghi.Text = "Sửa tiện nghi";
             // 
@@ -116,6 +116,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(416, 212);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -134,7 +135,7 @@
             this.ctTextBoxName.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxName.BorderRadius = 0;
             this.ctTextBoxName.BorderSize = 2;
-            this.ctTextBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTextBoxName.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxName.IsFocused = false;
             this.ctTextBoxName.Location = new System.Drawing.Point(107, 78);
             this.ctTextBoxName.Margin = new System.Windows.Forms.Padding(4);
@@ -145,7 +146,7 @@
             this.ctTextBoxName.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxName.PlaceholderText = "Tên tiện nghi";
             this.ctTextBoxName.ReadOnly = false;
-            this.ctTextBoxName.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxName.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxName.TabIndex = 2;
             this.ctTextBoxName.Texts = "";
             this.ctTextBoxName.UnderlineedStyle = true;

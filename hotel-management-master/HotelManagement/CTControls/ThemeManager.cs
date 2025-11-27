@@ -13,15 +13,17 @@ namespace HotelManagement.CTControls
     public static class ThemeManager
     {
 
-        public static void ResetSidebarButtons(Panel sidebar)
+        public static void ResetSidebarButtons(Control container)
         {
-            foreach (Control c in sidebar.Controls)
+            foreach (Control c in container.Controls)
             {
                 if (c is Button btn)
                 {
                     btn.BackColor = AppTheme.PrimaryColor;
                     btn.ForeColor = AppTheme.TextColorNormal;
                 }
+                if (c.HasChildren)
+                    ResetSidebarButtons(c);
             }
         }
 
@@ -45,9 +47,6 @@ namespace HotelManagement.CTControls
             ApplyRecursive(form);
         }
 
-        // ===============================================
-        // C. CORE RECURSIVE APPLICATION (ÁP DỤNG MÀU)
-        // ===============================================
         private static void ApplyRecursive(Control container)
         {
             foreach (Control c in container.Controls)
@@ -67,16 +66,16 @@ namespace HotelManagement.CTControls
                 {
                     StyleDataGridView(dgv);
                 }
-                // Xử lý TextBox Ghi Chú (Áp dụng màu highlight nếu cần)
-                else if (c is TextBox txt && txt.Name == "TextBoxGhiChu")
-                {
-                    //txt.BackColor = AppTheme.PopupHighlightColor;
-                    //txt.ForeColor = AppTheme.TextColorNormal;
-                }
                 // Xử lý Panel chứa nội dung chính
                 else if (c is Panel pnl && pnl.Name == "PanelChuaThongTin")
                 {
                     pnl.BackColor = AppTheme.PopupContentPanelColor;
+                }
+                else if (c.GetType().Name == "CTTextBox")
+                {
+                    dynamic ctbb = c;
+                    ctbb.BackColor = AppTheme.PopupMainBackground; // White
+                    ctbb.ForeColor = AppTheme.TextColorNormal;
                 }
 
                 // Đệ quy
@@ -85,9 +84,6 @@ namespace HotelManagement.CTControls
             }
         }
 
-        // ===============================================
-        // D. HÀM HELPER ĐỂ ĐỊNH DẠNG RIÊNG
-        // ===============================================
 
         private static void ApplyCustomButtonTheme(CTButton btn)
         {
@@ -151,10 +147,90 @@ namespace HotelManagement.CTControls
 
             // Đổi cho Cell (Ô dữ liệu)
             dgv.BackgroundColor = AppTheme.PopupMainBackground; // Đảm bảo nền Form được nhìn thấy
-            dgv.DefaultCellStyle.BackColor = AppTheme.GridContainerBackground;
+            dgv.DefaultCellStyle.BackColor = AppTheme.GridCellLight;
             dgv.DefaultCellStyle.SelectionBackColor = AppTheme.GridSelectionColor; // Màu Cam nổi bật
             dgv.DefaultCellStyle.ForeColor = AppTheme.TextColorNormal; // Chữ đen
 
         }
+        public static void ApplyMainFormTheme(FormMain form)
+        {
+            // MÀU NỀN FORM TỔNG
+            form.BackColor = AppTheme.MainBackColor;
+            form.PanelBackground.BackColor = AppTheme.MainBackColor;
+
+            // HEADER
+            form.panelName.BackColor = AppTheme.PrimaryColor;
+            form.panelControlBox.BackColor = AppTheme.PrimaryColor;
+
+            // SIDEBAR
+            form.Sidebar.BackColor = AppTheme.PrimaryColor;
+            form.PanelUser.BackColor = AppTheme.PrimaryColor;
+
+            // LOGOUT LABEL + USERNAME
+            form.linkLabelDangXuat.ForeColor = AppTheme.TextColorActive;
+            form.LabelTenNguoiDung.ForeColor = AppTheme.TextColorActive;
+
+            // CONTENT
+            form.panelMainChildForm.BackColor = AppTheme.MainBackColor;
+
+            // FOOTER
+            form.panelInfomation.BackColor = AppTheme.PrimaryColor;
+
+            ResetSidebarButtons(form.Sidebar);
+        }
+        public static void ApplySidebarBehavior(Control sidebar)
+        {
+            foreach (Control c in sidebar.Controls)
+            {
+                if (c is Button btn)
+                {
+                    btn.BackColor = AppTheme.SidebarPrimary;
+                    btn.ForeColor = AppTheme.SidebarTextNormal;
+
+                    // Gán sự kiện hover
+                    btn.MouseEnter += (s, e) =>
+                    {
+                        if (btn.Tag?.ToString() != "active")
+                            btn.BackColor = AppTheme.SidebarHover;
+                    };
+
+                    btn.MouseLeave += (s, e) =>
+                    {
+                        if (btn.Tag?.ToString() != "active")
+                            btn.BackColor = AppTheme.SidebarPrimary;
+                    };
+                }
+
+                // đệ quy cho panel con
+                if (c.HasChildren)
+                    ApplySidebarBehavior(c);
+            }
+        }
+        public static void HighlightButton(Button btn, Control sidebar)
+        {
+            // Reset tất cả tag
+            ClearActiveStatus(sidebar);
+
+            btn.Tag = "active";
+            btn.BackColor = AppTheme.SidebarActive;
+            btn.ForeColor = AppTheme.SidebarTextActive;
+        }
+
+        private static void ClearActiveStatus(Control container)
+        {
+            foreach (Control c in container.Controls)
+            {
+                if (c is Button btn)
+                {
+                    btn.Tag = null;
+                    btn.BackColor = AppTheme.SidebarPrimary;
+                    btn.ForeColor = AppTheme.SidebarTextNormal;
+                }
+
+                if (c.HasChildren)
+                    ClearActiveStatus(c);
+            }
+        }
+
     }
 }

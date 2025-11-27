@@ -22,16 +22,12 @@ namespace HotelManagement.GUI
         private FormMain formMain;
         private TaiKhoan taiKhoan;
 
-        public FormDanhSachPhieuThue()
-        {
-            InitializeComponent();
-        }
-
         public FormDanhSachPhieuThue(FormMain formMain,TaiKhoan taiKhoan)
         {
             this.taiKhoan = taiKhoan;
             InitializeComponent();
             this.formMain = formMain;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         private void CTButtonDatPhong_Click(object sender, EventArgs e)
@@ -57,8 +53,6 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachPhieuThue_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
-
 
             /*grid.Rows.Add(new object[] { PT, "PT001", "Phan Tuấn Thành", "10/11/2003 15:45:00", "Nguyễn Văn Anh", details});
             grid.Rows.Add(new object[] { PT, "PT002", "Nguyễn Phúc Bình", "10/11/2003 15:45:00", "Nguyễn Văn Anh",  details});

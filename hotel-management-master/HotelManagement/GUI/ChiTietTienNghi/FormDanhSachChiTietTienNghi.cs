@@ -43,11 +43,12 @@ namespace HotelManagement.GUI
             this.formMain = formMain;
             this.taiKhoan = taiKhoan;
             InitializeComponent();
+            ThemeManager.ApplyThemeToRoomPopup(this);
         }
         //Fields
         private int borderRadius = 20;
         private int borderSize = 2;
-        private Color borderColor = Color.White;
+        private Color borderColor = AppTheme.PopupMainBackground;
 
         //Control Box
 

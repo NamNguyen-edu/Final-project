@@ -5,7 +5,7 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.PanelBackground = new System.Windows.Forms.Panel();
@@ -83,7 +83,7 @@
             // 
             // panelInfomation
             // 
-            this.panelInfomation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(145)))), ((int)(((byte)(153)))));
+            this.panelInfomation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.panelInfomation.Controls.Add(this.labelPhienBan);
             this.panelInfomation.Controls.Add(this.labelBanQuyen);
             this.panelInfomation.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -116,7 +116,7 @@
             // panelMainChildForm
             // 
             this.panelMainChildForm.AutoScroll = true;
-            this.panelMainChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.panelMainChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.panelMainChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMainChildForm.Location = new System.Drawing.Point(262, 60);
             this.panelMainChildForm.Name = "panelMainChildForm";
@@ -126,7 +126,7 @@
             // Sidebar
             // 
             this.Sidebar.AutoScroll = true;
-            this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(145)))), ((int)(((byte)(153)))));
+            this.Sidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.Sidebar.Controls.Add(this.ButtonThongKe);
             this.Sidebar.Controls.Add(this.ButtonDanhSachTaiKhoan);
             this.Sidebar.Controls.Add(this.ButtonDanhSachNhanVien);
@@ -153,7 +153,7 @@
             this.ButtonThongKe.FlatAppearance.BorderSize = 0;
             this.ButtonThongKe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonThongKe.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonThongKe.ForeColor = System.Drawing.Color.Black;
+            this.ButtonThongKe.ForeColor = System.Drawing.Color.White;
             this.ButtonThongKe.Image = global::HotelManagement.Properties.Resources.MenuThongKe;
             this.ButtonThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonThongKe.Location = new System.Drawing.Point(0, 662);
@@ -175,7 +175,7 @@
             this.ButtonDanhSachTaiKhoan.FlatAppearance.BorderSize = 0;
             this.ButtonDanhSachTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDanhSachTaiKhoan.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDanhSachTaiKhoan.ForeColor = System.Drawing.Color.Black;
+            this.ButtonDanhSachTaiKhoan.ForeColor = System.Drawing.Color.White;
             this.ButtonDanhSachTaiKhoan.Image = global::HotelManagement.Properties.Resources.MenuQuanLyTaiKhoan;
             this.ButtonDanhSachTaiKhoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonDanhSachTaiKhoan.Location = new System.Drawing.Point(0, 614);
@@ -197,7 +197,7 @@
             this.ButtonDanhSachNhanVien.FlatAppearance.BorderSize = 0;
             this.ButtonDanhSachNhanVien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDanhSachNhanVien.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDanhSachNhanVien.ForeColor = System.Drawing.Color.Black;
+            this.ButtonDanhSachNhanVien.ForeColor = System.Drawing.Color.White;
             this.ButtonDanhSachNhanVien.Image = global::HotelManagement.Properties.Resources.MenuQuanLyNhanVien;
             this.ButtonDanhSachNhanVien.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonDanhSachNhanVien.Location = new System.Drawing.Point(0, 566);
@@ -219,7 +219,7 @@
             this.ButtonDanhSachKhachHang.FlatAppearance.BorderSize = 0;
             this.ButtonDanhSachKhachHang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDanhSachKhachHang.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDanhSachKhachHang.ForeColor = System.Drawing.Color.Black;
+            this.ButtonDanhSachKhachHang.ForeColor = System.Drawing.Color.White;
             this.ButtonDanhSachKhachHang.Image = global::HotelManagement.Properties.Resources.MenuQuanLyKhachHang;
             this.ButtonDanhSachKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonDanhSachKhachHang.Location = new System.Drawing.Point(0, 518);
@@ -236,13 +236,13 @@
             // 
             // ButtonDanhSachTienNghi
             // 
-            this.ButtonDanhSachTienNghi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(145)))), ((int)(((byte)(153)))));
+            this.ButtonDanhSachTienNghi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.ButtonDanhSachTienNghi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ButtonDanhSachTienNghi.Dock = System.Windows.Forms.DockStyle.Top;
             this.ButtonDanhSachTienNghi.FlatAppearance.BorderSize = 0;
             this.ButtonDanhSachTienNghi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDanhSachTienNghi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDanhSachTienNghi.ForeColor = System.Drawing.Color.Black;
+            this.ButtonDanhSachTienNghi.ForeColor = System.Drawing.Color.White;
             this.ButtonDanhSachTienNghi.Image = global::HotelManagement.Properties.Resources.MenuTienNghi;
             this.ButtonDanhSachTienNghi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonDanhSachTienNghi.Location = new System.Drawing.Point(0, 470);
@@ -264,7 +264,7 @@
             this.ButtonDanhSachDichVu.FlatAppearance.BorderSize = 0;
             this.ButtonDanhSachDichVu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDanhSachDichVu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDanhSachDichVu.ForeColor = System.Drawing.Color.Black;
+            this.ButtonDanhSachDichVu.ForeColor = System.Drawing.Color.White;
             this.ButtonDanhSachDichVu.Image = global::HotelManagement.Properties.Resources.MenuQuanLyDichVu;
             this.ButtonDanhSachDichVu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonDanhSachDichVu.Location = new System.Drawing.Point(0, 422);
@@ -286,7 +286,7 @@
             this.ButtonDanhSachHoaDon.FlatAppearance.BorderSize = 0;
             this.ButtonDanhSachHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDanhSachHoaDon.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDanhSachHoaDon.ForeColor = System.Drawing.Color.Black;
+            this.ButtonDanhSachHoaDon.ForeColor = System.Drawing.Color.White;
             this.ButtonDanhSachHoaDon.Image = global::HotelManagement.Properties.Resources.MenuDanhSachHoaDon;
             this.ButtonDanhSachHoaDon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonDanhSachHoaDon.Location = new System.Drawing.Point(0, 374);
@@ -308,7 +308,7 @@
             this.ButtonDanhSachDatPhong.FlatAppearance.BorderSize = 0;
             this.ButtonDanhSachDatPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonDanhSachDatPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonDanhSachDatPhong.ForeColor = System.Drawing.Color.Black;
+            this.ButtonDanhSachDatPhong.ForeColor = System.Drawing.Color.White;
             this.ButtonDanhSachDatPhong.Image = global::HotelManagement.Properties.Resources.MenuDatPhong;
             this.ButtonDanhSachDatPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonDanhSachDatPhong.Location = new System.Drawing.Point(0, 326);
@@ -330,7 +330,7 @@
             this.ButtonLoaiPhong.FlatAppearance.BorderSize = 0;
             this.ButtonLoaiPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonLoaiPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonLoaiPhong.ForeColor = System.Drawing.Color.Black;
+            this.ButtonLoaiPhong.ForeColor = System.Drawing.Color.White;
             this.ButtonLoaiPhong.Image = global::HotelManagement.Properties.Resources.MenuLoaiPhong;
             this.ButtonLoaiPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonLoaiPhong.Location = new System.Drawing.Point(0, 278);
@@ -352,7 +352,7 @@
             this.ButtonPhong.FlatAppearance.BorderSize = 0;
             this.ButtonPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonPhong.ForeColor = System.Drawing.Color.Black;
+            this.ButtonPhong.ForeColor = System.Drawing.Color.White;
             this.ButtonPhong.Image = global::HotelManagement.Properties.Resources.MenuPhong;
             this.ButtonPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonPhong.Location = new System.Drawing.Point(0, 230);
@@ -374,7 +374,7 @@
             this.ButtonSoDoPhong.FlatAppearance.BorderSize = 0;
             this.ButtonSoDoPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonSoDoPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonSoDoPhong.ForeColor = System.Drawing.Color.Black;
+            this.ButtonSoDoPhong.ForeColor = System.Drawing.Color.White;
             this.ButtonSoDoPhong.Image = global::HotelManagement.Properties.Resources.MenuSoDoPhong;
             this.ButtonSoDoPhong.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonSoDoPhong.Location = new System.Drawing.Point(0, 182);
@@ -415,7 +415,7 @@
             // 
             // PanelUser
             // 
-            this.PanelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
+            this.PanelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(220)))), ((int)(((byte)(200)))));
             this.PanelUser.Controls.Add(this.linkLabelDangXuat);
             this.PanelUser.Controls.Add(this.LabelTenNguoiDung);
             this.PanelUser.Controls.Add(this.PictureBoxUser);
@@ -459,7 +459,7 @@
             // 
             // panelName
             // 
-            this.panelName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(145)))), ((int)(((byte)(153)))));
+            this.panelName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.panelName.Controls.Add(this.PictureBoxMenu);
             this.panelName.Controls.Add(this.panelControlBox);
             this.panelName.Controls.Add(this.labelTenKhachSan);
@@ -487,7 +487,7 @@
             // panelControlBox
             // 
             this.panelControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControlBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(145)))), ((int)(((byte)(153)))));
+            this.panelControlBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.panelControlBox.Controls.Add(this.ctMaximize1);
             this.panelControlBox.Controls.Add(this.ctMinimize1);
             this.panelControlBox.Controls.Add(this.ctClose1);
@@ -504,7 +504,7 @@
             this.labelTenKhachSan.AutoSize = true;
             this.labelTenKhachSan.BackColor = System.Drawing.Color.Transparent;
             this.labelTenKhachSan.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTenKhachSan.ForeColor = System.Drawing.Color.LightSalmon;
+            this.labelTenKhachSan.ForeColor = System.Drawing.Color.White;
             this.labelTenKhachSan.Location = new System.Drawing.Point(68, 14);
             this.labelTenKhachSan.Name = "labelTenKhachSan";
             this.labelTenKhachSan.Size = new System.Drawing.Size(285, 41);
@@ -517,7 +517,7 @@
             this.ctMaximize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMaximize1.BackgroundImage")));
             this.ctMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMaximize1.Location = new System.Drawing.Point(10, 6);
-            this.ctMaximize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ctMaximize1.Margin = new System.Windows.Forms.Padding(4);
             this.ctMaximize1.Name = "ctMaximize1";
             this.ctMaximize1.Size = new System.Drawing.Size(15, 15);
             this.ctMaximize1.TabIndex = 2;
@@ -529,7 +529,7 @@
             this.ctMinimize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMinimize1.BackgroundImage")));
             this.ctMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMinimize1.Location = new System.Drawing.Point(40, 6);
-            this.ctMinimize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ctMinimize1.Margin = new System.Windows.Forms.Padding(4);
             this.ctMinimize1.Name = "ctMinimize1";
             this.ctMinimize1.Size = new System.Drawing.Size(15, 15);
             this.ctMinimize1.TabIndex = 1;
@@ -541,7 +541,7 @@
             this.ctClose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctClose1.BackgroundImage")));
             this.ctClose1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctClose1.Location = new System.Drawing.Point(71, 6);
-            this.ctClose1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ctClose1.Margin = new System.Windows.Forms.Padding(4);
             this.ctClose1.Name = "ctClose1";
             this.ctClose1.Size = new System.Drawing.Size(15, 15);
             this.ctClose1.TabIndex = 0;
@@ -585,39 +585,39 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel PanelBackground;
-        private System.Windows.Forms.Panel panelMainChildForm;
-        private System.Windows.Forms.Panel panelInfomation;
-        private System.Windows.Forms.Label labelPhienBan;
-        private System.Windows.Forms.Label labelBanQuyen;
-        private System.Windows.Forms.Panel Sidebar;
-        private System.Windows.Forms.Panel panelName;
-        private System.Windows.Forms.Panel panelControlBox;
-        private CTControls.CTMaximize ctMaximize1;
-        private CTControls.CTMinimize ctMinimize1;
-        private CTControls.CTClose ctClose1;
-        private System.Windows.Forms.Label labelTenKhachSan;
-        private System.Windows.Forms.PictureBox PictureBoxMenu;
-        private System.Windows.Forms.Panel PanelUser;
-        private System.Windows.Forms.PictureBox PictureBoxUser;
-        private System.Windows.Forms.Label LabelTenNguoiDung;
-        private System.Windows.Forms.Button ButtonThongKe;
-        private System.Windows.Forms.Button ButtonDanhSachTaiKhoan;
-        private System.Windows.Forms.Button ButtonDanhSachNhanVien;
-        private System.Windows.Forms.Button ButtonDanhSachKhachHang;
-        private System.Windows.Forms.Button ButtonDanhSachTienNghi;
-        private System.Windows.Forms.Button ButtonDanhSachDichVu;
-        private System.Windows.Forms.Button ButtonDanhSachHoaDon;
-        private System.Windows.Forms.Button ButtonDanhSachDatPhong;
-        private System.Windows.Forms.Button ButtonLoaiPhong;
-        private System.Windows.Forms.Button ButtonPhong;
-        private System.Windows.Forms.Button ButtonSoDoPhong;
-        private System.Windows.Forms.Button ButtonTrangChu;
-        private System.Windows.Forms.LinkLabel linkLabelDangXuat;
-        private System.Windows.Forms.Button ButtonQLTK;
-        private System.Windows.Forms.Button ButtonCSKH;
-        private System.Windows.Forms.Button ButtonQLLD;
-        private System.Windows.Forms.Button ButtonThanhToan;
-        private System.Windows.Forms.Button ButtonDatPhong;
+        public System.Windows.Forms.Panel PanelBackground;
+        public System.Windows.Forms.Panel panelMainChildForm;
+        public System.Windows.Forms.Panel panelInfomation;
+        public System.Windows.Forms.Label labelPhienBan;
+        public System.Windows.Forms.Label labelBanQuyen;
+        public System.Windows.Forms.Panel Sidebar;
+        public System.Windows.Forms.Panel panelName;
+        public System.Windows.Forms.Panel panelControlBox;
+        public CTControls.CTMaximize ctMaximize1;
+        public CTControls.CTMinimize ctMinimize1;
+        public CTControls.CTClose ctClose1;
+        public System.Windows.Forms.Label labelTenKhachSan;
+        public System.Windows.Forms.PictureBox PictureBoxMenu;
+        public System.Windows.Forms.Panel PanelUser;
+        public System.Windows.Forms.PictureBox PictureBoxUser;
+        public System.Windows.Forms.Label LabelTenNguoiDung;
+        public System.Windows.Forms.Button ButtonThongKe;
+        public System.Windows.Forms.Button ButtonDanhSachTaiKhoan;
+        public System.Windows.Forms.Button ButtonDanhSachNhanVien;
+        public System.Windows.Forms.Button ButtonDanhSachKhachHang;
+        public System.Windows.Forms.Button ButtonDanhSachTienNghi;
+        public System.Windows.Forms.Button ButtonDanhSachDichVu;
+        public System.Windows.Forms.Button ButtonDanhSachHoaDon;
+        public System.Windows.Forms.Button ButtonDanhSachDatPhong;
+        public System.Windows.Forms.Button ButtonLoaiPhong;
+        public System.Windows.Forms.Button ButtonPhong;
+        public System.Windows.Forms.Button ButtonSoDoPhong;
+        public System.Windows.Forms.Button ButtonTrangChu;
+        public System.Windows.Forms.LinkLabel linkLabelDangXuat;
+        public System.Windows.Forms.Button ButtonQLTK;
+        public System.Windows.Forms.Button ButtonCSKH;
+        public System.Windows.Forms.Button ButtonQLLD;
+        public System.Windows.Forms.Button ButtonThanhToan;
+        public System.Windows.Forms.Button ButtonDatPhong;
     }
 }

@@ -22,11 +22,6 @@ namespace HotelManagement.GUI
         private Image delete = Properties.Resources.delete;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
-        public FormDanhSachKhachHang()
-        {
-            InitializeComponent();
-            LoadAllGrid();
-        }
 
         public FormDanhSachKhachHang(FormMain formMain,TaiKhoan taiKhoan)
         {
@@ -34,6 +29,7 @@ namespace HotelManagement.GUI
             LoadAllGrid();
             this.formMain = formMain;
             this.taiKhoan = taiKhoan;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         private void CTButtonThemKhachHang_Click(object sender, EventArgs e)
@@ -61,8 +57,6 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachKhachHang_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
-
             /*grid.Rows.Add(new object[] { KH, "KH001", "Phan Tuấn Thành", "123456789101", "0956093276", "Việt Nam", "Nam", edit, delete });
             grid.Rows.Add(new object[] { KH, "KH002", "Trần Văn C", "123456789101", "0956093276", "Singapore", "Nữ", edit, delete });
             grid.Rows.Add(new object[] { KH, "KH003", "Nguyễn Thị B", "123456789101", "0956093276", "Thái Lan", "Nữ", edit, delete });

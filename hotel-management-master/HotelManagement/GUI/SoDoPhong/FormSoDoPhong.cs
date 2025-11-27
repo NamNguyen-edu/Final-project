@@ -191,11 +191,6 @@ namespace HotelManagement.GUI
 
         private  void ResetTimer(Timer timer)
         {
-            /*if(flag1==1)
-            {
-                flag1 = 0;
-                return;
-            }  */  
             timer.Stop();
             timer.Start();         
         }
