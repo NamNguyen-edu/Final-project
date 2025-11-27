@@ -180,7 +180,7 @@ namespace HotelManagement.GUI.ThongKe
 
         private void Printer_ThongKe_Click(object sender, EventArgs e)
         {
-            ExportToPDF();
+
         }
 
 
