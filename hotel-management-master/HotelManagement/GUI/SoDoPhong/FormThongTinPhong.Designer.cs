@@ -106,36 +106,6 @@
             this.PanelBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelBackground_Paint);
             this.PanelBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBackground_MouseDown);
             // 
-            // PanelChuaButtonCoc
-            // 
-            this.PanelChuaButtonCoc.Controls.Add(this.CTButtonCoc);
-            this.PanelChuaButtonCoc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelChuaButtonCoc.Location = new System.Drawing.Point(-337, 488);
-            this.PanelChuaButtonCoc.Name = "PanelChuaButtonCoc";
-            this.PanelChuaButtonCoc.Size = new System.Drawing.Size(188, 62);
-            this.PanelChuaButtonCoc.TabIndex = 36;
-            // 
-            // CTButtonCoc
-            // 
-            this.CTButtonCoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            this.CTButtonCoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            this.CTButtonCoc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            this.CTButtonCoc.BorderRadius = 10;
-            this.CTButtonCoc.BorderSize = 0;
-            this.CTButtonCoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CTButtonCoc.FlatAppearance.BorderSize = 0;
-            this.CTButtonCoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CTButtonCoc.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTButtonCoc.ForeColor = System.Drawing.Color.White;
-            this.CTButtonCoc.Location = new System.Drawing.Point(20, 9);
-            this.CTButtonCoc.Name = "CTButtonCoc";
-            this.CTButtonCoc.Size = new System.Drawing.Size(150, 40);
-            this.CTButtonCoc.TabIndex = 0;
-            this.CTButtonCoc.Text = "Đặt cọc";
-            this.CTButtonCoc.TextColor = System.Drawing.Color.White;
-            this.CTButtonCoc.UseVisualStyleBackColor = false;
-            this.CTButtonCoc.Click += new System.EventHandler(this.CTButtonCoc_Click);
-            // 
             // PanelChuaButtonThemDichVu
             // 
             this.PanelChuaButtonThemDichVu.Controls.Add(this.CTButtonThemDichVu);
