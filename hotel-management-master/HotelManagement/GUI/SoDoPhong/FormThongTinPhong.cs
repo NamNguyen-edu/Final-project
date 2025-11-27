@@ -20,9 +20,10 @@ namespace HotelManagement.GUI
     public partial class FormThongTinPhong : Form
     {
         //Fields
+
         private int borderRadius = 20;
         private int borderSize = 2;
-        private Color borderColor = Color.White;
+        private Color borderColor = AppTheme.PopupMainBackground;
         private CTDP ctdp;
         private Phong phong;
         private TaiKhoan taiKhoan;
@@ -47,6 +48,7 @@ namespace HotelManagement.GUI
             this.taiKhoan = taiKhoan;
             this.formMain = formMain;
             InitializeComponent();
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToRoomPopup(this);
             LoadPage();
             this.CTButtonCoc.Hide();
         }
