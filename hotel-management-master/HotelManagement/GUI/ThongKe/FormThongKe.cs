@@ -11,13 +11,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
+using System.Globalization;
+using System.Runtime.InteropServices;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Drawing.Printing;
+using System.Runtime.InteropServices;
+
 
 namespace HotelManagement.GUI.ThongKe
 {
+   
     public partial class FormThongKe : Form
     {
         private FormMain formMain;
         private ThongKeDAO thongKe;
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool PrintWindow(IntPtr hwnd, IntPtr hdcBlt, uint nFlags);
+        private Bitmap _dashboardBitmap;
+        private PrintDocument _printDocument;
         public FormThongKe()
         {
             InitializeComponent();
@@ -26,6 +41,9 @@ namespace HotelManagement.GUI.ThongKe
         {
             InitializeComponent();
             this.formMain = formMain;
+            _printDocument = new PrintDocument();
+            _printDocument.DefaultPageSettings.Landscape = true; // A4 ngang cho giống màn hình
+            _printDocument.PrintPage += PrintDocument_PrintPage;
             dtpNgayBD.Value = DateTime.Today.AddDays(-7);
             dtpNgayKT.Value = DateTime.Now;
             Button7Ngay.Select();
@@ -40,7 +58,7 @@ namespace HotelManagement.GUI.ThongKe
             ButtonTuyChon.BackColor
                 = ButtonHomNay.BackColor
                 = Button7Ngay.BackColor
-                = Button30Ngay.BackColor 
+                = Button30Ngay.BackColor
                 = Button6Thang.BackColor = Color.FromArgb(207, 236, 236);
             ButtonTuyChon.ForeColor
                 = ButtonHomNay.ForeColor
@@ -108,7 +126,7 @@ namespace HotelManagement.GUI.ThongKe
             ButtonTuyChon.ForeColor = Color.White;
             LoadData();
         }
-        
+
         private void LoadData()
         {
             try
@@ -164,10 +182,52 @@ namespace HotelManagement.GUI.ThongKe
                     Console.WriteLine("View not loaded, same query");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                CTMessageBox.Show(ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);    
+                CTMessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Printer_ThongKe_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Refresh();
+                _dashboardBitmap = CaptureFormWithPrintWindow(this);
+
+                using (PrintPreviewDialog preview = new PrintPreviewDialog())
+                {
+                    preview.Document = _printDocument;
+                    preview.WindowState = FormWindowState.Maximized;
+                    preview.ShowIcon = false;
+                    preview.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                CTMessageBox.Show(ex.Message, "Lỗi in thống kê",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Bitmap CaptureFormWithPrintWindow(Control form)
+        {
+            {
+                Bitmap bmp = new Bitmap(form.Width, form.Height);
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    IntPtr hdc = g.GetHdc();
+                    PrintWindow(form.Handle, hdc, 0);
+                    g.ReleaseHdc(hdc);
+                }
+                return bmp;
+            }
+
+        }
+        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(_dashboardBitmap, e.MarginBounds);
+            e.HasMorePages = false;
         }
     }
 }

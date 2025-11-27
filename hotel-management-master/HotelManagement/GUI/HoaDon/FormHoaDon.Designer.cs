@@ -479,7 +479,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormHoaDon";
+            this.Text = "6";
             this.Activated += new System.EventHandler(this.FormHoaDon_Activated);
             this.Load += new System.EventHandler(this.FormHoaDon_Load);
             this.SizeChanged += new System.EventHandler(this.FormHoaDon_SizeChanged);

@@ -2,7 +2,7 @@
 using HotelManagement.CTControls;
 using HotelManagement.DAO;
 using HotelManagement.DTO;
-using HotelManagement.GUI.SoDoPhong;
+using HotelManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -542,28 +542,6 @@ namespace HotelManagement.GUI
             {
                 CTMessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-            
-        private void CTButtonCoc_Click(object sender, EventArgs e)
-        {
-            FormBackground formBackground = new FormBackground(formMain);
-            try
-            {
-                using (FormDatCoc formDatCoc = new FormDatCoc())
-                {
-                    formBackground.Owner = formMain;
-                    formBackground.Show();
-                    formDatCoc.Owner = formBackground;
-                    formDatCoc.ShowDialog();
-                    formBackground.Dispose();
-                }
-            }
-            catch (Exception)
-            {
-                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { formBackground.Dispose(); }
         }
     }
 }

@@ -1,4 +1,10 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.Drawing;
 using System.Windows.Forms;
 using System.Linq; // Cần thiết cho các hàm LINQ
 
@@ -136,7 +142,7 @@ namespace HotelManagement.CTControls
             dgv.EnableHeadersVisualStyles = false;
             // Đổi cho Header (Column Header)
             dgv.ColumnHeadersDefaultCellStyle.BackColor = AppTheme.GridHeaderDark; // Nâu đậm
-            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = AppTheme.GridHeaderDark; 
+            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = AppTheme.GridHeaderDark;
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = AppTheme.TextColorActive; // Chữ trắng
 
             // Đổi cho Cell (Ô dữ liệu)
