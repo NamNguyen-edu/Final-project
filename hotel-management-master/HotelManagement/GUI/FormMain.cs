@@ -77,6 +77,13 @@ namespace HotelManagement
 
         }
 
+        public TaiKhoan TaiKhoanDangNhap
+        {
+            get { return taiKhoan; }
+        }
+
+
+
         //private void SidebarTimer_Tick(object sender, EventArgs e)
         //{
         //    if (isCollapsed)
@@ -402,14 +409,35 @@ namespace HotelManagement
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
-            //WindowState = FormWindowState.Maximized;
-            openChildForm(new FormTrangChu());
+          
+            // hiệu ứng mở form
             int time = 300;
             WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
+
+            // tên người dùng trên thanh top
             this.LabelTenNguoiDung.Text = taiKhoan.NhanVien.TenNV;
-            PlayMusic();
 
+            if (LoaiTK == 1) // Nhân viên
+            {
+                ButtonTrangChu.Show();          
+                SetColorButtonTrangChu();      
+                openChildForm(new FormTC(this));
+            }
+            else
+            {
+                ButtonTrangChu.Hide();
 
+                if (LoaiTK == 2) // Quản lý
+                {
+                    openChildForm(new FormSoDoPhong(this, taiKhoan));
+                }
+                else if (LoaiTK == 3) // Admin
+                {
+                    openChildForm(new FormSoDoPhong(this, taiKhoan));
+                }
+            }
+
+            //PlayMusic();
         }
 
         private void PlayMusic()
@@ -486,8 +514,8 @@ namespace HotelManagement
 
         private void SetColorButtonTrangChu()
         {
-            ButtonTrangChu.BackColor = Color.FromArgb(80, 145, 153);
-            ButtonTrangChu.ForeColor = Color.Black;
+            ButtonTrangChu.BackColor = Color.FromArgb(182, 103, 36);
+            ButtonTrangChu.ForeColor = Color.White;
         }
 
         private void SetAllButtonNormalColor()
@@ -553,7 +581,7 @@ namespace HotelManagement
             ButtonTrangChu.BackColor = Color.FromArgb(233, 117, 32);
             ButtonTrangChu.ForeColor = Color.White;
             //Open Child Form
-            openChildForm(new FormTrangChu(this));
+            openChildForm(new FormTC(this));
 
 
 
