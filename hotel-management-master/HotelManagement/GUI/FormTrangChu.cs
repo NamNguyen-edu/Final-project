@@ -29,50 +29,50 @@ namespace HotelManagement.GUI
         }
         private void formTrangChu_load()
         {
-            PlayMusic();
+            //PlayMusic();
         }
-        private bool isMusicPlaying = false;
-        private bool isMuted = false; // Biến để theo dõi trạng thái mute
-        private void PlayMusic()
-        {
-            if (Properties.Resources.audiotrangchu != null)
-            {
-                player = new SoundPlayer(Properties.Resources.audiotrangchu);
-                player.PlayLooping(); // Phát nhạc liên tục
-                isMusicPlaying = true; // Đánh dấu là nhạc đang phát
-                picSound.Image = Properties.Resources.sound; // Thay đổi icon để hiển thị đang bật nhạc
+        //private bool isMusicPlaying = false;
+        //private bool isMuted = false; // Biến để theo dõi trạng thái mute
+        //private void PlayMusic()
+        //{
+        //    if (Properties.Resources.audiotrangchu != null)
+        //    {
+        //        player = new SoundPlayer(Properties.Resources.audiotrangchu);
+        //        player.PlayLooping(); // Phát nhạc liên tục
+        //        isMusicPlaying = true; // Đánh dấu là nhạc đang phát
+        //        picSound.Image = Properties.Resources.sound; // Thay đổi icon để hiển thị đang bật nhạc
 
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy file âm thanh trong Resources!");
-            }
-        }
-        private void picSound_Click(object sender, EventArgs e)
-        {
-            if (isMuted)
-            {
-                // Nếu đang tắt nhạc, bật lại nhạc
-                PlayMusic();
-                isMuted = false; // Đánh dấu nhạc đã bật
-            }
-            else
-            {
-                // Nếu đang phát nhạc, tắt nhạc
-                StopMusic();
-                isMuted = true; // Đánh dấu nhạc đã tắt (mute)
-            }
-        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Không tìm thấy file âm thanh trong Resources!");
+        //    }
+        //}
+        //private void picSound_Click(object sender, EventArgs e)
+        //{
+        //    if (isMuted)
+        //    {
+        //        // Nếu đang tắt nhạc, bật lại nhạc
+        //        PlayMusic();
+        //        isMuted = false; // Đánh dấu nhạc đã bật
+        //    }
+        //    else
+        //    {
+        //        // Nếu đang phát nhạc, tắt nhạc
+        //        StopMusic();
+        //        isMuted = true; // Đánh dấu nhạc đã tắt (mute)
+        //    }
+        //}
 
-        private void StopMusic()
-        {
-            if (player != null)
-            {
-                player.Stop(); // Dừng nhạc
-                isMusicPlaying = false; // Đánh dấu là nhạc đã dừng
-                picSound.Image = Properties.Resources.mute; // Thay đổi icon để hiển thị đang tắt nhạc
-            }
-        }
+        //private void StopMusic()
+        //{
+        //    if (player != null)
+        //    {
+        //        player.Stop(); // Dừng nhạc
+        //        isMusicPlaying = false; // Đánh dấu là nhạc đã dừng
+        //        picSound.Image = Properties.Resources.mute; // Thay đổi icon để hiển thị đang tắt nhạc
+        //    }
+        //}
 
         private void CTButtonTest_Click(object sender, EventArgs e)
         {

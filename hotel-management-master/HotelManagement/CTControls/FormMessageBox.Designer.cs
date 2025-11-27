@@ -66,7 +66,7 @@
             // 
             // panelBody
             // 
-            this.panelBody.BackColor = System.Drawing.SystemColors.Control;
+            this.panelBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.panelBody.Controls.Add(this.labelMessage);
             this.panelBody.Controls.Add(this.pictureBoxIcon);
             this.panelBody.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,7 +79,7 @@
             // labelMessage
             // 
             this.labelMessage.AutoSize = true;
-            this.labelMessage.BackColor = System.Drawing.SystemColors.Control;
+            this.labelMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.labelMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelMessage.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessage.ForeColor = System.Drawing.Color.Black;
@@ -107,7 +107,7 @@
             // 
             // panelButtons
             // 
-            this.panelButtons.BackColor = System.Drawing.SystemColors.Control;
+            this.panelButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.panelButtons.Controls.Add(this.button3);
             this.panelButtons.Controls.Add(this.button2);
             this.panelButtons.Controls.Add(this.button1);
@@ -139,28 +139,28 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(87)))), ((int)(((byte)(83)))));
-            this.button2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(87)))), ((int)(((byte)(83)))));
-            this.button2.BorderColor = System.Drawing.SystemColors.Control;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
+            this.button2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
+            this.button2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.button2.BorderRadius = 10;
-            this.button2.BorderSize = 0;
+            this.button2.BorderSize = 2;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.button2.Location = new System.Drawing.Point(139, 6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 35);
             this.button2.TabIndex = 0;
             this.button2.Text = "Không";
-            this.button2.TextColor = System.Drawing.Color.White;
+            this.button2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(141)))), ((int)(((byte)(44)))));
-            this.button1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(141)))), ((int)(((byte)(44)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.button1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.button1.BorderColor = System.Drawing.SystemColors.Control;
             this.button1.BorderRadius = 10;
             this.button1.BorderSize = 0;
@@ -179,7 +179,7 @@
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(131)))), ((int)(((byte)(163)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.panelTitleBar.Controls.Add(this.panelControlBox);
             this.panelTitleBar.Controls.Add(this.labelCaption);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
@@ -241,7 +241,7 @@
             this.labelCaption.ForeColor = System.Drawing.Color.White;
             this.labelCaption.Location = new System.Drawing.Point(9, 8);
             this.labelCaption.Name = "labelCaption";
-            this.labelCaption.Size = new System.Drawing.Size(62, 20);
+            this.labelCaption.Size = new System.Drawing.Size(79, 25);
             this.labelCaption.TabIndex = 4;
             this.labelCaption.Text = "Caption";
             // 

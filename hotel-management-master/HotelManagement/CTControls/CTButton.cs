@@ -24,7 +24,7 @@ namespace HotelManagement.CTControls
         //Fields
         private int borderSize = 0;
         private int borderRadius = 20;
-        private Color borderColor = Color.FromArgb(88, 188, 188);
+        private Color borderColor = Color.FromArgb(182, 103, 36);
 
         public int BorderSize
         {
@@ -70,7 +70,7 @@ namespace HotelManagement.CTControls
             this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             this.Size = new Size(150, 40);
-            this.BackColor = Color.FromArgb(88, 188, 188);
+            this.BackColor = Color.FromArgb(182, 103, 36);
             this.ForeColor = Color.White;
             this.Resize += new EventHandler(Button_Resize);
         }

@@ -61,6 +61,7 @@ namespace HotelManagement
         private void LoadFormForAdmin()
         {
             _isKhachMode = false;
+            this.ButtonTrangChu.Hide();
             //this.ButtonDatPhong.Hide();
             //this.ButtonThanhToan.Hide();
             //this.ButtonQLLD.Hide();
@@ -132,6 +133,7 @@ namespace HotelManagement
             this.ButtonDanhSachTaiKhoan.Hide();
             this.ButtonDanhSachNhanVien.Hide();
             this.ButtonThongKe.Hide();
+            this.ButtonLoaiPhong.Hide();
             //this.ButtonDatPhong.Hide();
             //this.ButtonThanhToan.Hide();
             //this.ButtonQLLD.Hide();
