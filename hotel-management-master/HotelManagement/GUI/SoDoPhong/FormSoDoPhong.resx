@@ -122,17 +122,16 @@
     <value>
         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
-        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
+        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
 </value>
   </data>
   <metadata name="timerAppear.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

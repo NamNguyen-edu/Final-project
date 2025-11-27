@@ -117,7 +117,7 @@ namespace HotelManagement.GUI
             // 
             // PanelLocPhong
             // 
-            this.PanelLocPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.PanelLocPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.PanelLocPhong.Controls.Add(this.PanelTinhTrangPhong);
             this.PanelLocPhong.Controls.Add(this.PanelLoaiPhong);
             this.PanelLocPhong.Controls.Add(this.PanelRadioButtonTrangThaiPhong);
@@ -142,9 +142,10 @@ namespace HotelManagement.GUI
             // 
             this.LabelTinhTrangDonDep.AutoSize = true;
             this.LabelTinhTrangDonDep.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTinhTrangDonDep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.LabelTinhTrangDonDep.Location = new System.Drawing.Point(7, 6);
             this.LabelTinhTrangDonDep.Name = "LabelTinhTrangDonDep";
-            this.LabelTinhTrangDonDep.Size = new System.Drawing.Size(185, 25);
+            this.LabelTinhTrangDonDep.Size = new System.Drawing.Size(235, 32);
             this.LabelTinhTrangDonDep.TabIndex = 0;
             this.LabelTinhTrangDonDep.Text = "Tình trạng dọn dẹp";
             // 
@@ -155,11 +156,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonTatCa.CheckedColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CTRadioButtonTatCa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonTatCa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonTatCa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonTatCa.Location = new System.Drawing.Point(12, 103);
             this.CTRadioButtonTatCa.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonTatCa.Name = "CTRadioButtonTatCa";
             this.CTRadioButtonTatCa.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonTatCa.Size = new System.Drawing.Size(78, 25);
+            this.CTRadioButtonTatCa.Size = new System.Drawing.Size(94, 32);
             this.CTRadioButtonTatCa.TabIndex = 1;
             this.CTRadioButtonTatCa.TabStop = true;
             this.CTRadioButtonTatCa.Text = "Tất cả";
@@ -173,11 +175,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonDaDonDep.CheckedColor = System.Drawing.Color.SeaGreen;
             this.CTRadioButtonDaDonDep.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonDaDonDep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonDaDonDep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonDaDonDep.Location = new System.Drawing.Point(12, 41);
             this.CTRadioButtonDaDonDep.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonDaDonDep.Name = "CTRadioButtonDaDonDep";
             this.CTRadioButtonDaDonDep.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonDaDonDep.Size = new System.Drawing.Size(118, 25);
+            this.CTRadioButtonDaDonDep.Size = new System.Drawing.Size(146, 32);
             this.CTRadioButtonDaDonDep.TabIndex = 1;
             this.CTRadioButtonDaDonDep.Text = "Đã dọn dẹp";
             this.CTRadioButtonDaDonDep.UnCheckedColor = System.Drawing.Color.Gray;
@@ -190,11 +193,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonChuaDonDep.CheckedColor = System.Drawing.Color.Gray;
             this.CTRadioButtonChuaDonDep.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonChuaDonDep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonChuaDonDep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonChuaDonDep.Location = new System.Drawing.Point(12, 72);
             this.CTRadioButtonChuaDonDep.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonChuaDonDep.Name = "CTRadioButtonChuaDonDep";
             this.CTRadioButtonChuaDonDep.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonChuaDonDep.Size = new System.Drawing.Size(135, 25);
+            this.CTRadioButtonChuaDonDep.Size = new System.Drawing.Size(167, 32);
             this.CTRadioButtonChuaDonDep.TabIndex = 1;
             this.CTRadioButtonChuaDonDep.Text = "Chưa dọn dẹp";
             this.CTRadioButtonChuaDonDep.UnCheckedColor = System.Drawing.Color.Gray;
@@ -218,9 +222,10 @@ namespace HotelManagement.GUI
             // 
             this.LabelLoaiPhong.AutoSize = true;
             this.LabelLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelLoaiPhong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.LabelLoaiPhong.Location = new System.Drawing.Point(7, 6);
             this.LabelLoaiPhong.Name = "LabelLoaiPhong";
-            this.LabelLoaiPhong.Size = new System.Drawing.Size(113, 25);
+            this.LabelLoaiPhong.Size = new System.Drawing.Size(142, 32);
             this.LabelLoaiPhong.TabIndex = 0;
             this.LabelLoaiPhong.Text = "Loại phòng";
             // 
@@ -231,11 +236,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonTatCaLoaiPhong.CheckedColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CTRadioButtonTatCaLoaiPhong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonTatCaLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonTatCaLoaiPhong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonTatCaLoaiPhong.Location = new System.Drawing.Point(12, 164);
             this.CTRadioButtonTatCaLoaiPhong.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonTatCaLoaiPhong.Name = "CTRadioButtonTatCaLoaiPhong";
             this.CTRadioButtonTatCaLoaiPhong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonTatCaLoaiPhong.Size = new System.Drawing.Size(156, 25);
+            this.CTRadioButtonTatCaLoaiPhong.Size = new System.Drawing.Size(194, 32);
             this.CTRadioButtonTatCaLoaiPhong.TabIndex = 1;
             this.CTRadioButtonTatCaLoaiPhong.TabStop = true;
             this.CTRadioButtonTatCaLoaiPhong.Text = "Tất cả loại phòng";
@@ -249,11 +255,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongVIPDoi.CheckedColor = System.Drawing.Color.Gold;
             this.CTRadioButtonPhongVIPDoi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongVIPDoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongVIPDoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongVIPDoi.Location = new System.Drawing.Point(12, 133);
             this.CTRadioButtonPhongVIPDoi.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongVIPDoi.Name = "CTRadioButtonPhongVIPDoi";
             this.CTRadioButtonPhongVIPDoi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongVIPDoi.Size = new System.Drawing.Size(136, 25);
+            this.CTRadioButtonPhongVIPDoi.Size = new System.Drawing.Size(167, 32);
             this.CTRadioButtonPhongVIPDoi.TabIndex = 1;
             this.CTRadioButtonPhongVIPDoi.Text = "Phòng VIP đôi";
             this.CTRadioButtonPhongVIPDoi.UnCheckedColor = System.Drawing.Color.Gray;
@@ -266,11 +273,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongThuongDon.CheckedColor = System.Drawing.Color.SeaGreen;
             this.CTRadioButtonPhongThuongDon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongThuongDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongThuongDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongThuongDon.Location = new System.Drawing.Point(12, 40);
             this.CTRadioButtonPhongThuongDon.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongThuongDon.Name = "CTRadioButtonPhongThuongDon";
             this.CTRadioButtonPhongThuongDon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongThuongDon.Size = new System.Drawing.Size(170, 25);
+            this.CTRadioButtonPhongThuongDon.Size = new System.Drawing.Size(210, 32);
             this.CTRadioButtonPhongThuongDon.TabIndex = 1;
             this.CTRadioButtonPhongThuongDon.Text = "Phòng thường đơn";
             this.CTRadioButtonPhongThuongDon.UnCheckedColor = System.Drawing.Color.Gray;
@@ -283,11 +291,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongVIPDon.CheckedColor = System.Drawing.Color.Gold;
             this.CTRadioButtonPhongVIPDon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongVIPDon.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongVIPDon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongVIPDon.Location = new System.Drawing.Point(12, 102);
             this.CTRadioButtonPhongVIPDon.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongVIPDon.Name = "CTRadioButtonPhongVIPDon";
             this.CTRadioButtonPhongVIPDon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongVIPDon.Size = new System.Drawing.Size(142, 25);
+            this.CTRadioButtonPhongVIPDon.Size = new System.Drawing.Size(173, 32);
             this.CTRadioButtonPhongVIPDon.TabIndex = 1;
             this.CTRadioButtonPhongVIPDon.Text = "Phòng VIP đơn";
             this.CTRadioButtonPhongVIPDon.UnCheckedColor = System.Drawing.Color.Gray;
@@ -300,11 +309,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongThuongDoi.CheckedColor = System.Drawing.Color.SeaGreen;
             this.CTRadioButtonPhongThuongDoi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongThuongDoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongThuongDoi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongThuongDoi.Location = new System.Drawing.Point(12, 71);
             this.CTRadioButtonPhongThuongDoi.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongThuongDoi.Name = "CTRadioButtonPhongThuongDoi";
             this.CTRadioButtonPhongThuongDoi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongThuongDoi.Size = new System.Drawing.Size(164, 25);
+            this.CTRadioButtonPhongThuongDoi.Size = new System.Drawing.Size(204, 32);
             this.CTRadioButtonPhongThuongDoi.TabIndex = 1;
             this.CTRadioButtonPhongThuongDoi.Text = "Phòng thường đôi";
             this.CTRadioButtonPhongThuongDoi.UnCheckedColor = System.Drawing.Color.Gray;
@@ -328,9 +338,10 @@ namespace HotelManagement.GUI
             // 
             this.LabelTrangThaiPhong.AutoSize = true;
             this.LabelTrangThaiPhong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelTrangThaiPhong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.LabelTrangThaiPhong.Location = new System.Drawing.Point(7, 6);
             this.LabelTrangThaiPhong.Name = "LabelTrangThaiPhong";
-            this.LabelTrangThaiPhong.Size = new System.Drawing.Size(166, 25);
+            this.LabelTrangThaiPhong.Size = new System.Drawing.Size(210, 32);
             this.LabelTrangThaiPhong.TabIndex = 0;
             this.LabelTrangThaiPhong.Text = "Trạng thái phòng";
             // 
@@ -341,11 +352,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonTatCaPhong.CheckedColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.CTRadioButtonTatCaPhong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonTatCaPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonTatCaPhong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonTatCaPhong.Location = new System.Drawing.Point(12, 164);
             this.CTRadioButtonTatCaPhong.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonTatCaPhong.Name = "CTRadioButtonTatCaPhong";
             this.CTRadioButtonTatCaPhong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonTatCaPhong.Size = new System.Drawing.Size(127, 25);
+            this.CTRadioButtonTatCaPhong.Size = new System.Drawing.Size(157, 32);
             this.CTRadioButtonTatCaPhong.TabIndex = 1;
             this.CTRadioButtonTatCaPhong.TabStop = true;
             this.CTRadioButtonTatCaPhong.Text = "Tất cả phòng";
@@ -359,11 +371,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongDangSuaChua.CheckedColor = System.Drawing.Color.DodgerBlue;
             this.CTRadioButtonPhongDangSuaChua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongDangSuaChua.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongDangSuaChua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongDangSuaChua.Location = new System.Drawing.Point(12, 133);
             this.CTRadioButtonPhongDangSuaChua.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongDangSuaChua.Name = "CTRadioButtonPhongDangSuaChua";
             this.CTRadioButtonPhongDangSuaChua.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongDangSuaChua.Size = new System.Drawing.Size(187, 25);
+            this.CTRadioButtonPhongDangSuaChua.Size = new System.Drawing.Size(232, 32);
             this.CTRadioButtonPhongDangSuaChua.TabIndex = 1;
             this.CTRadioButtonPhongDangSuaChua.Text = "Phòng đang sửa chữa";
             this.CTRadioButtonPhongDangSuaChua.UnCheckedColor = System.Drawing.Color.Gray;
@@ -376,11 +389,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongTrong.CheckedColor = System.Drawing.Color.SeaGreen;
             this.CTRadioButtonPhongTrong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongTrong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongTrong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongTrong.Location = new System.Drawing.Point(12, 40);
             this.CTRadioButtonPhongTrong.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongTrong.Name = "CTRadioButtonPhongTrong";
             this.CTRadioButtonPhongTrong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongTrong.Size = new System.Drawing.Size(125, 25);
+            this.CTRadioButtonPhongTrong.Size = new System.Drawing.Size(154, 32);
             this.CTRadioButtonPhongTrong.TabIndex = 1;
             this.CTRadioButtonPhongTrong.Text = "Phòng trống";
             this.CTRadioButtonPhongTrong.UnCheckedColor = System.Drawing.Color.Gray;
@@ -393,11 +407,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongDangThue.CheckedColor = System.Drawing.Color.Red;
             this.CTRadioButtonPhongDangThue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongDangThue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongDangThue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongDangThue.Location = new System.Drawing.Point(12, 102);
             this.CTRadioButtonPhongDangThue.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongDangThue.Name = "CTRadioButtonPhongDangThue";
             this.CTRadioButtonPhongDangThue.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongDangThue.Size = new System.Drawing.Size(157, 25);
+            this.CTRadioButtonPhongDangThue.Size = new System.Drawing.Size(194, 32);
             this.CTRadioButtonPhongDangThue.TabIndex = 1;
             this.CTRadioButtonPhongDangThue.Text = "Phòng đang thuê";
             this.CTRadioButtonPhongDangThue.UnCheckedColor = System.Drawing.Color.Gray;
@@ -410,11 +425,12 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongDaDat.CheckedColor = System.Drawing.Color.Goldenrod;
             this.CTRadioButtonPhongDaDat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CTRadioButtonPhongDaDat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTRadioButtonPhongDaDat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.CTRadioButtonPhongDaDat.Location = new System.Drawing.Point(12, 71);
             this.CTRadioButtonPhongDaDat.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongDaDat.Name = "CTRadioButtonPhongDaDat";
             this.CTRadioButtonPhongDaDat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongDaDat.Size = new System.Drawing.Size(130, 25);
+            this.CTRadioButtonPhongDaDat.Size = new System.Drawing.Size(161, 32);
             this.CTRadioButtonPhongDaDat.TabIndex = 1;
             this.CTRadioButtonPhongDaDat.Text = "Phòng đã đặt";
             this.CTRadioButtonPhongDaDat.UnCheckedColor = System.Drawing.Color.Gray;
@@ -424,7 +440,7 @@ namespace HotelManagement.GUI
             // PanelTitle
             // 
             this.PanelTitle.AutoScroll = true;
-            this.PanelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.PanelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.PanelTitle.Controls.Add(this.label7);
             this.PanelTitle.Controls.Add(this.cbBoxLetter);
             this.PanelTitle.Controls.Add(this.cbBoxGio);
@@ -442,20 +458,21 @@ namespace HotelManagement.GUI
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.label7.Location = new System.Drawing.Point(256, 5);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 15);
+            this.label7.Size = new System.Drawing.Size(69, 20);
             this.label7.TabIndex = 41;
             this.label7.Text = "Chọn giờ";
             // 
             // cbBoxLetter
             // 
-            this.cbBoxLetter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.cbBoxLetter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.cbBoxLetter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.cbBoxLetter.BorderSize = 2;
             this.cbBoxLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxLetter.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBoxLetter.ForeColor = System.Drawing.Color.Black;
+            this.cbBoxLetter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.cbBoxLetter.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.cbBoxLetter.Items.AddRange(new object[] {
             "AM",
@@ -472,12 +489,12 @@ namespace HotelManagement.GUI
             // 
             // cbBoxGio
             // 
-            this.cbBoxGio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.cbBoxGio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.cbBoxGio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.cbBoxGio.BorderSize = 2;
             this.cbBoxGio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbBoxGio.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBoxGio.ForeColor = System.Drawing.Color.Black;
+            this.cbBoxGio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.cbBoxGio.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.cbBoxGio.Items.AddRange(new object[] {
             "01:00",
@@ -518,10 +535,10 @@ namespace HotelManagement.GUI
             // 
             this.LabelChonNgay.AutoSize = true;
             this.LabelChonNgay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelChonNgay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelChonNgay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.LabelChonNgay.Location = new System.Drawing.Point(48, 5);
             this.LabelChonNgay.Name = "LabelChonNgay";
-            this.LabelChonNgay.Size = new System.Drawing.Size(65, 15);
+            this.LabelChonNgay.Size = new System.Drawing.Size(79, 20);
             this.LabelChonNgay.TabIndex = 10;
             this.LabelChonNgay.Text = "Chọn ngày";
             // 
@@ -537,9 +554,9 @@ namespace HotelManagement.GUI
             this.ctDatePicker1.MinimumSize = new System.Drawing.Size(4, 35);
             this.ctDatePicker1.Name = "ctDatePicker1";
             this.ctDatePicker1.Size = new System.Drawing.Size(163, 35);
-            this.ctDatePicker1.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.ctDatePicker1.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctDatePicker1.TabIndex = 39;
-            this.ctDatePicker1.TextColor = System.Drawing.Color.Black;
+            this.ctDatePicker1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.ctDatePicker1.ValueChanged += new System.EventHandler(this.ctDatePicker1_ValueChanged);
             // 
             // pictureBox1
@@ -553,7 +570,7 @@ namespace HotelManagement.GUI
             // 
             // ctTextBox1
             // 
-            this.ctTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.ctTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctTextBox1.BorderColor = System.Drawing.Color.DarkGray;
             this.ctTextBox1.BorderFocusColor = System.Drawing.Color.DimGray;
             this.ctTextBox1.BorderRadius = 5;
@@ -569,7 +586,7 @@ namespace HotelManagement.GUI
             this.ctTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.ctTextBox1.PlaceholderText = "Nhập mã phòng cần tìm";
             this.ctTextBox1.ReadOnly = false;
-            this.ctTextBox1.Size = new System.Drawing.Size(235, 36);
+            this.ctTextBox1.Size = new System.Drawing.Size(235, 43);
             this.ctTextBox1.TabIndex = 1;
             this.ctTextBox1.TabStop = false;
             this.ctTextBox1.Texts = "";
@@ -585,6 +602,7 @@ namespace HotelManagement.GUI
             // panelSoDoPhong
             // 
             this.panelSoDoPhong.AutoScroll = true;
+            this.panelSoDoPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.panelSoDoPhong.Controls.Add(this.flowLayoutPanel5);
             this.panelSoDoPhong.Controls.Add(this.panel5);
             this.panelSoDoPhong.Controls.Add(this.flowLayoutPanel4);
@@ -624,9 +642,10 @@ namespace HotelManagement.GUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.label5.Location = new System.Drawing.Point(12, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 25);
+            this.label5.Size = new System.Drawing.Size(88, 32);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tầng 5";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -654,9 +673,10 @@ namespace HotelManagement.GUI
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.label4.Location = new System.Drawing.Point(12, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 25);
+            this.label4.Size = new System.Drawing.Size(89, 32);
             this.label4.TabIndex = 0;
             this.label4.Text = "Tầng 4";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -684,9 +704,10 @@ namespace HotelManagement.GUI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.label3.Location = new System.Drawing.Point(12, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 25);
+            this.label3.Size = new System.Drawing.Size(88, 32);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tầng 3";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -714,9 +735,10 @@ namespace HotelManagement.GUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.label2.Location = new System.Drawing.Point(12, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 25);
+            this.label2.Size = new System.Drawing.Size(88, 32);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tầng 2";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -744,9 +766,10 @@ namespace HotelManagement.GUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             this.label1.Location = new System.Drawing.Point(12, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 25);
+            this.label1.Size = new System.Drawing.Size(85, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tầng 1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
