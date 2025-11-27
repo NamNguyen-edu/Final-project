@@ -132,8 +132,12 @@
     <None Include="Resources\audiotrangchu %281%29.wav" />
     <Content Include="Resources\calendardark.png" />
     <Content Include="Resources\calendarwhite.png" />
+    <None Include="Resources\ChuaDon.png" />
     <Content Include="Resources\clock.png" />
     <None Include="Resources\favicon-32x32.png" />
+    <None Include="Resources\CSKH.png" />
+    <None Include="Resources\Dangsc.png" />
+    <None Include="Resources\DangThue.png" />
     <Content Include="Resources\fixedcloseresize.png" />
     <Content Include="Resources\fixedgreenresize.png" />
     <Content Include="Resources\fixedmaxresize.png" />
