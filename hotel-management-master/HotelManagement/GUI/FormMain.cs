@@ -906,7 +906,8 @@ namespace HotelManagement
             ButtonThongKe.BackColor = Color.FromArgb(233, 117, 32);
 
             //Open Child Form
-            openChildForm(new FormThongKe(this));
+            openChildForm(new HotelManagement.GUI.ThongKe.FormThongKe(this));
+
         }
         private void DisplayTextMenu()
         {

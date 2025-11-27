@@ -304,7 +304,6 @@ namespace HotelManagement.GUI
             this.PanelChuaButtonDatPhongNay.Hide();
             this.PanelChuaButtonThanhToan.Hide();
             this.PanelChuaButtonNhanPhong.Hide();
-            this.PanelChuaButtonCoc.Hide();
         }
 
         private void LoadPhongTrong()
@@ -323,7 +322,6 @@ namespace HotelManagement.GUI
             this.PanelChuaButtonThemDichVu.Hide();
             this.PanelChuaButtonThanhToan.Hide();
             this.PanelChuaButtonNhanPhong.Hide();
-            this.PanelChuaButtonCoc.Hide();
         }
         private void LoadPage()
         {

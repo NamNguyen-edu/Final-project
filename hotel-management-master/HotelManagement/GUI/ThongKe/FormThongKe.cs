@@ -51,6 +51,7 @@ namespace HotelManagement.GUI.ThongKe
             Button7Ngay.ForeColor = Color.White;
             thongKe = new ThongKeDAO();
             LoadData();
+            ChonTab(btnTongQuan, pnlTongQuan);
         }
 
         private void setButtonNormal()
@@ -134,25 +135,11 @@ namespace HotelManagement.GUI.ThongKe
                 var refreshDate = thongKe.LoadData(dtpNgayBD.Value, dtpNgayKT.Value);
                 if (refreshDate == true)
                 {
-                    chartDoanhThuThue.Series[0].Points.Clear();
-                    chartDoanhThuThue.Series[1].Points.Clear();
-                    chartDoanhThuThue.Series[2].Points.Clear();
-                    chartDoanhThuThue.Series[3].Points.Clear();
-                    foreach (var item in thongKe.DoanhThuThuongDonList)
+                    chartDoanhThuTong.Series["Tổng Doanh Thu"].Points.Clear();
+
+                    foreach (var item in thongKe.DoanhThuTongList)
                     {
-                        chartDoanhThuThue.Series[0].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-                    foreach (var item in thongKe.DoanhThuThuongDoiList)
-                    {
-                        chartDoanhThuThue.Series[1].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-                    foreach (var item in thongKe.DoanhThuVipDonList)
-                    {
-                        chartDoanhThuThue.Series[2].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-                    foreach (var item in thongKe.DoanhThuVipDoiList)
-                    {
-                        chartDoanhThuThue.Series[3].Points.AddXY(item.Date, item.TotalAmount);
+                        chartDoanhThuTong.Series["Tổng Doanh Thu"].Points.AddXY(item.Date, item.TotalAmount);
                     }
 
                     chartSoPhongDat.DataSource = thongKe.SoPhongDatList;
@@ -160,21 +147,11 @@ namespace HotelManagement.GUI.ThongKe
                     chartSoPhongDat.Series[0].YValueMembers = "TotalAmount";
                     chartSoPhongDat.DataBind();
 
-                    chartDichVu.DataSource = thongKe.TopDichVuList;
-                    chartDichVu.Series[0].XValueMember = "Key";
-                    chartDichVu.Series[0].YValueMembers = "Value";
-                    chartDichVu.DataBind();
 
                     DoanhThuThue.Text = thongKe.TongDoanhThuThue.ToString("#,#");
                     DoanhThuDichVu.Text = thongKe.TongDoanhThuDichVu.ToString("#,#");
                     SoPhongDat.Text = thongKe.SoPhongDat.ToString();
-
-                    TenLoaiPhongDoanhThuCaoNhat.Text = thongKe.TenLoaiPhongDoanhThuCaoNhat;
-                    DoanhThuLoaiPhongCaoNhat.Text = thongKe.DoanhThuLoaiPhongCaoNhat.ToString("#,#");
-                    TenLoaiPhongDatNhieuNhat.Text = thongKe.TenLoaiPhongDuocDatNhieuNhat;
-                    SoLanDatLoaiPhongNhieuNhat.Text = thongKe.SoLanLoaiPhongDatNhieuNhat.ToString();
-                    TenDichVuDoanhThuCaoNhat.Text = thongKe.TenDichVuDoanhThuCaoNhat;
-                    DoanhThuDichVuCaoNhat.Text = thongKe.DoanhThuDichVuCaoNhat.ToString("#,#");
+                    TongDoanhThuTong.Text = thongKe.TongDoanhThuTong.ToString("#,#");
 
                 }
                 else
@@ -228,6 +205,62 @@ namespace HotelManagement.GUI.ThongKe
         {
             e.Graphics.DrawImage(_dashboardBitmap, e.MarginBounds);
             e.HasMorePages = false;
+        }
+
+        private void btnTongQuan_Click(object sender, EventArgs e)
+        {
+            ChonTab(btnTongQuan, pnlTongQuan);
+        }
+
+        private void btnPhong_Click(object sender, EventArgs e)
+        {
+            ChonTab(btnPhong, pnlPhong);
+        }
+
+        private void btnDichVu_Click(object sender, EventArgs e)
+        {
+            ChonTab(btnDichVu, pnlDichVu);
+        }
+
+        private void btnKhach_Click(object sender, EventArgs e)
+        {
+            ChonTab(btnKhach, pnlKhach);
+        }
+        private void ChonTab(System.Windows.Forms.Button btnDangChon, Control pnlDangChon)
+        {
+            var allButtons = new System.Windows.Forms.Button[] { btnTongQuan, btnPhong, btnDichVu, btnKhach };
+
+            foreach (var b in allButtons)
+            {
+                b.BackColor = Color.FromArgb(207, 236, 236);
+                b.ForeColor = Color.Black;
+            }
+
+            btnDangChon.BackColor = Color.FromArgb(30, 119, 148);
+            btnDangChon.ForeColor = Color.White;
+
+            pnlTongQuan.Visible = false;
+            pnlPhong.Visible = false;
+            pnlDichVu.Visible = false;
+            pnlKhach.Visible = false;
+
+            pnlDangChon.Visible = true;
+            pnlDangChon.BringToFront();
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartSoPhongDat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTongDoanhThu_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
