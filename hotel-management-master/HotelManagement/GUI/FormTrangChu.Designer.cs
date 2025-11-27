@@ -44,16 +44,16 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // picSound
-            // 
-            this.picSound.Image = global::HotelManagement.Properties.Resources.sound;
-            this.picSound.Location = new System.Drawing.Point(1163, 42);
-            this.picSound.Name = "picSound";
-            this.picSound.Size = new System.Drawing.Size(40, 35);
-            this.picSound.TabIndex = 1;
-            this.picSound.TabStop = false;
-            this.picSound.Click += new System.EventHandler(this.picSound_Click);
+            //// 
+            //// picSound
+            //// 
+            //this.picSound.Image = global::HotelManagement.Properties.Resources.sound;
+            //this.picSound.Location = new System.Drawing.Point(1163, 42);
+            //this.picSound.Name = "picSound";
+            //this.picSound.Size = new System.Drawing.Size(40, 35);
+            //this.picSound.TabIndex = 1;
+            //this.picSound.TabStop = false;
+            //this.picSound.Click += new System.EventHandler(this.picSound_Click);
             // 
             // FormTrangChu
             // 

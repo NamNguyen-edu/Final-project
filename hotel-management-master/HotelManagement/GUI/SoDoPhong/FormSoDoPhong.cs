@@ -114,7 +114,7 @@ namespace HotelManagement.GUI
 
                     if (phong.TTPH == "Bình thường" && ctdp != null)
                     {
-                        if (ctdp.TrangThai == "Đã đặt" && (this.CTRadioButtonPhongDaDat.Checked || this.CTRadioButtonTatCaPhong.Checked))
+                        if (ctdp.TrangThai == "Đã Cọc" && (this.CTRadioButtonPhongDaDat.Checked || this.CTRadioButtonTatCaPhong.Checked))
                         {
                             CTRoomDaDat room = new CTRoomDaDat(ctdp, this, this.formMain, taiKhoan);
                             if (ctdp.TheoGio == false)
@@ -191,11 +191,6 @@ namespace HotelManagement.GUI
 
         private  void ResetTimer(Timer timer)
         {
-            /*if(flag1==1)
-            {
-                flag1 = 0;
-                return;
-            }  */  
             timer.Stop();
             timer.Start();         
         }

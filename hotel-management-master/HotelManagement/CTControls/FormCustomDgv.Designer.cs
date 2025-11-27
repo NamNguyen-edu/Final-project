@@ -111,6 +111,7 @@ namespace HotelManagement
             // 
             this.Column1.FillWeight = 50F;
             this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -119,6 +120,7 @@ namespace HotelManagement
             // 
             this.Column2.FillWeight = 175F;
             this.Column2.HeaderText = "Mã phiếu thuê";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -127,6 +129,7 @@ namespace HotelManagement
             // 
             this.Column3.FillWeight = 250F;
             this.Column3.HeaderText = "Ngày lập phiếu";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -135,6 +138,7 @@ namespace HotelManagement
             // 
             this.Column4.FillWeight = 225F;
             this.Column4.HeaderText = "Khách hàng";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -143,6 +147,7 @@ namespace HotelManagement
             // 
             this.Column5.FillWeight = 225F;
             this.Column5.HeaderText = "Nhân viên";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -150,6 +155,7 @@ namespace HotelManagement
             // Column6
             // 
             this.Column6.HeaderText = "Chi tiết";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -157,6 +163,7 @@ namespace HotelManagement
             // 
             this.Column7.FillWeight = 75F;
             this.Column7.HeaderText = "Xóa";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
@@ -197,7 +204,7 @@ namespace HotelManagement
             // 
             // FormCustomDgv
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 715);
             this.Controls.Add(this.buttonExport);

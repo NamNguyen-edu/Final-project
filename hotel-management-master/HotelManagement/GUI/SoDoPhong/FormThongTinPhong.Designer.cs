@@ -32,8 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelBackground = new System.Windows.Forms.Panel();
-            this.PanelChuaButtonCoc = new System.Windows.Forms.Panel();
-            this.CTButtonCoc = new HotelManagement.CTControls.CTButton();
             this.PanelChuaButtonThemDichVu = new System.Windows.Forms.Panel();
             this.CTButtonThemDichVu = new HotelManagement.CTControls.CTButton();
             this.PanelChuaButtonThanhToan = new System.Windows.Forms.Panel();
@@ -70,8 +68,8 @@
             this.ctPanel3 = new CTPanel.CTPanel();
             this.PanelBackgroundTop = new System.Windows.Forms.Panel();
             this.LabelMaPhong = new System.Windows.Forms.Label();
+            this.CTButtonCoc = new HotelManagement.CTControls.CTButton();
             this.PanelBackground.SuspendLayout();
-            this.PanelChuaButtonCoc.SuspendLayout();
             this.PanelChuaButtonThemDichVu.SuspendLayout();
             this.PanelChuaButtonThanhToan.SuspendLayout();
             this.PanelChuaButtonDatPhongNay.SuspendLayout();
@@ -89,7 +87,6 @@
             // 
             // PanelBackground
             // 
-            this.PanelBackground.Controls.Add(this.PanelChuaButtonCoc);
             this.PanelBackground.Controls.Add(this.PanelChuaButtonThemDichVu);
             this.PanelBackground.Controls.Add(this.PanelChuaButtonThanhToan);
             this.PanelBackground.Controls.Add(this.PanelChuaButtonDatPhongNay);
@@ -105,36 +102,6 @@
             this.PanelBackground.TabIndex = 0;
             this.PanelBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelBackground_Paint);
             this.PanelBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBackground_MouseDown);
-            // 
-            // PanelChuaButtonCoc
-            // 
-            this.PanelChuaButtonCoc.Controls.Add(this.CTButtonCoc);
-            this.PanelChuaButtonCoc.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PanelChuaButtonCoc.Location = new System.Drawing.Point(-337, 488);
-            this.PanelChuaButtonCoc.Name = "PanelChuaButtonCoc";
-            this.PanelChuaButtonCoc.Size = new System.Drawing.Size(188, 62);
-            this.PanelChuaButtonCoc.TabIndex = 36;
-            // 
-            // CTButtonCoc
-            // 
-            this.CTButtonCoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            this.CTButtonCoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            this.CTButtonCoc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            this.CTButtonCoc.BorderRadius = 10;
-            this.CTButtonCoc.BorderSize = 0;
-            this.CTButtonCoc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CTButtonCoc.FlatAppearance.BorderSize = 0;
-            this.CTButtonCoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CTButtonCoc.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTButtonCoc.ForeColor = System.Drawing.Color.White;
-            this.CTButtonCoc.Location = new System.Drawing.Point(20, 9);
-            this.CTButtonCoc.Name = "CTButtonCoc";
-            this.CTButtonCoc.Size = new System.Drawing.Size(150, 40);
-            this.CTButtonCoc.TabIndex = 0;
-            this.CTButtonCoc.Text = "Đặt cọc";
-            this.CTButtonCoc.TextColor = System.Drawing.Color.White;
-            this.CTButtonCoc.UseVisualStyleBackColor = false;
-            this.CTButtonCoc.Click += new System.EventHandler(this.CTButtonCoc_Click);
             // 
             // PanelChuaButtonThemDichVu
             // 
@@ -362,7 +329,7 @@
             this.LabelGhiChu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelGhiChu.Location = new System.Drawing.Point(492, 293);
             this.LabelGhiChu.Name = "LabelGhiChu";
-            this.LabelGhiChu.Size = new System.Drawing.Size(68, 21);
+            this.LabelGhiChu.Size = new System.Drawing.Size(87, 28);
             this.LabelGhiChu.TabIndex = 0;
             this.LabelGhiChu.Text = "Ghi chú:";
             // 
@@ -376,7 +343,7 @@
             "Đang dọn dẹp"});
             this.ComboBoxTinhTrangDonDep.Location = new System.Drawing.Point(616, 237);
             this.ComboBoxTinhTrangDonDep.Name = "ComboBoxTinhTrangDonDep";
-            this.ComboBoxTinhTrangDonDep.Size = new System.Drawing.Size(192, 29);
+            this.ComboBoxTinhTrangDonDep.Size = new System.Drawing.Size(192, 36);
             this.ComboBoxTinhTrangDonDep.TabIndex = 4;
             this.ComboBoxTinhTrangDonDep.Text = "  Tình trạng dọn dẹp";
             // 
@@ -387,7 +354,7 @@
             this.ComboBoxTinhTrangPhong.FormattingEnabled = true;
             this.ComboBoxTinhTrangPhong.Location = new System.Drawing.Point(616, 155);
             this.ComboBoxTinhTrangPhong.Name = "ComboBoxTinhTrangPhong";
-            this.ComboBoxTinhTrangPhong.Size = new System.Drawing.Size(192, 29);
+            this.ComboBoxTinhTrangPhong.Size = new System.Drawing.Size(192, 36);
             this.ComboBoxTinhTrangPhong.TabIndex = 4;
             this.ComboBoxTinhTrangPhong.Text = "  Tình trạng phòng";
             // 
@@ -452,6 +419,7 @@
             // 
             this.Column1.FillWeight = 125F;
             this.Column1.HeaderText = "Dịch vụ";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -459,6 +427,7 @@
             // Column2
             // 
             this.Column2.HeaderText = "Số lượng";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -467,6 +436,7 @@
             // 
             this.Column3.FillWeight = 125F;
             this.Column3.HeaderText = "Thành tiền";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -479,7 +449,7 @@
             this.LabelCapNhatTinhTrangDonDep.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCapNhatTinhTrangDonDep.Location = new System.Drawing.Point(505, 200);
             this.LabelCapNhatTinhTrangDonDep.Name = "LabelCapNhatTinhTrangDonDep";
-            this.LabelCapNhatTinhTrangDonDep.Size = new System.Drawing.Size(254, 25);
+            this.LabelCapNhatTinhTrangDonDep.Size = new System.Drawing.Size(326, 32);
             this.LabelCapNhatTinhTrangDonDep.TabIndex = 3;
             this.LabelCapNhatTinhTrangDonDep.Text = "Cập nhật tình trạng dọn dẹp";
             // 
@@ -504,7 +474,7 @@
             this.LabelCapNhatTinhTrangPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCapNhatTinhTrangPhong.Location = new System.Drawing.Point(509, 117);
             this.LabelCapNhatTinhTrangPhong.Name = "LabelCapNhatTinhTrangPhong";
-            this.LabelCapNhatTinhTrangPhong.Size = new System.Drawing.Size(239, 25);
+            this.LabelCapNhatTinhTrangPhong.Size = new System.Drawing.Size(306, 32);
             this.LabelCapNhatTinhTrangPhong.TabIndex = 3;
             this.LabelCapNhatTinhTrangPhong.Text = "Cập nhật tình trạng phòng";
             // 
@@ -514,7 +484,7 @@
             this.LabelSoNguoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSoNguoi.Location = new System.Drawing.Point(750, 37);
             this.LabelSoNguoi.Name = "LabelSoNguoi";
-            this.LabelSoNguoi.Size = new System.Drawing.Size(73, 21);
+            this.LabelSoNguoi.Size = new System.Drawing.Size(92, 28);
             this.LabelSoNguoi.TabIndex = 3;
             this.LabelSoNguoi.Text = "Số người";
             // 
@@ -524,7 +494,7 @@
             this.LabelThoiGianThue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelThoiGianThue.Location = new System.Drawing.Point(526, 37);
             this.LabelThoiGianThue.Name = "LabelThoiGianThue";
-            this.LabelThoiGianThue.Size = new System.Drawing.Size(110, 21);
+            this.LabelThoiGianThue.Size = new System.Drawing.Size(137, 28);
             this.LabelThoiGianThue.TabIndex = 3;
             this.LabelThoiGianThue.Text = "Thời gian thuê";
             this.LabelThoiGianThue.Click += new System.EventHandler(this.LabelThoiGianThue_Click);
@@ -535,7 +505,7 @@
             this.LabelNgayCheckin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelNgayCheckin.Location = new System.Drawing.Point(318, 37);
             this.LabelNgayCheckin.Name = "LabelNgayCheckin";
-            this.LabelNgayCheckin.Size = new System.Drawing.Size(103, 21);
+            this.LabelNgayCheckin.Size = new System.Drawing.Size(129, 28);
             this.LabelNgayCheckin.TabIndex = 3;
             this.LabelNgayCheckin.Text = "Ngày checkin";
             // 
@@ -545,7 +515,7 @@
             this.LabelTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelTen.Location = new System.Drawing.Point(66, 37);
             this.LabelTen.Name = "LabelTen";
-            this.LabelTen.Size = new System.Drawing.Size(140, 21);
+            this.LabelTen.Size = new System.Drawing.Size(176, 28);
             this.LabelTen.TabIndex = 3;
             this.LabelTen.Text = "Họ tên khách hàng";
             // 
@@ -631,9 +601,25 @@
             this.LabelMaPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelMaPhong.Location = new System.Drawing.Point(408, 9);
             this.LabelMaPhong.Name = "LabelMaPhong";
-            this.LabelMaPhong.Size = new System.Drawing.Size(148, 37);
+            this.LabelMaPhong.Size = new System.Drawing.Size(184, 46);
             this.LabelMaPhong.TabIndex = 4;
             this.LabelMaPhong.Text = "Mã Phòng";
+            // 
+            // CTButtonCoc
+            // 
+            this.CTButtonCoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.CTButtonCoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.CTButtonCoc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.CTButtonCoc.BorderRadius = 20;
+            this.CTButtonCoc.BorderSize = 0;
+            this.CTButtonCoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CTButtonCoc.ForeColor = System.Drawing.Color.White;
+            this.CTButtonCoc.Location = new System.Drawing.Point(0, 0);
+            this.CTButtonCoc.Name = "CTButtonCoc";
+            this.CTButtonCoc.Size = new System.Drawing.Size(150, 40);
+            this.CTButtonCoc.TabIndex = 0;
+            this.CTButtonCoc.TextColor = System.Drawing.Color.White;
+            this.CTButtonCoc.UseVisualStyleBackColor = false;
             // 
             // FormThongTinPhong
             // 
@@ -654,7 +640,6 @@
             this.Resize += new System.EventHandler(this.FormThongTinPhong_Resize);
             this.StyleChanged += new System.EventHandler(this.FormThongTinPhong_SizeChanged);
             this.PanelBackground.ResumeLayout(false);
-            this.PanelChuaButtonCoc.ResumeLayout(false);
             this.PanelChuaButtonThemDichVu.ResumeLayout(false);
             this.PanelChuaButtonThanhToan.ResumeLayout(false);
             this.PanelChuaButtonDatPhongNay.ResumeLayout(false);
@@ -701,7 +686,6 @@
         private CTPanel.CTPanel ctPanel2;
         private System.Windows.Forms.TextBox TextBoxGhiChu;
         private CTPanel.CTPanel ctPanel3;
-        private System.Windows.Forms.Panel PanelChuaButtonCoc;
         private CTControls.CTButton CTButtonCoc;
         private System.Windows.Forms.Panel PanelChuaButtonThemDichVu;
         private CTControls.CTButton CTButtonThemDichVu;

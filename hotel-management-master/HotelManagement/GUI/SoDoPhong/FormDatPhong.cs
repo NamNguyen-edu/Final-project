@@ -1,36 +1,23 @@
 ﻿using ApplicationSettings;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
-using HotelManagement.DAO;
 using HotelManagement.DTO;
-using HotelManagement.UTILS;
+using HotelManagement.Utils;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using HotelManagement.BUS;
-using HotelManagement.DTO;
-using ApplicationSettings;
-using HotelManagement.DAO;
-using System.Runtime.CompilerServices;
-using System.Net.Mail;
-using System.Net;
-using HotelManagement.Utils;
+
 
 namespace HotelManagement.GUI
 {
     public partial class FormDatPhong : Form
     {
-        //Fields
+        // Khai báo các biến
         private int borderRadius = 15;
         private int borderSize = 2;
         private Color borderColor = Color.White;
@@ -44,6 +31,7 @@ namespace HotelManagement.GUI
         private PhieuThue phieuThue;
         private DateTime CheckIn = DateTime.Now;  // flag = 1
         private DateTime CheckOut = DateTime.Now; // flag = 2
+        private decimal TienCoc;
 
         //Constructor
         public FormDatPhong()
@@ -82,9 +70,6 @@ namespace HotelManagement.GUI
                 return cp;
             }
         }
-
-        //Private Methods
-        //Private Methods
         #region Draw Form
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
@@ -383,6 +368,7 @@ namespace HotelManagement.GUI
                         cTDP.SoNguoi = cTDP.Phong.LoaiPhong.SoNguoiToiDa;
                         cTDP.DonGia = cTDP.Phong.LoaiPhong.GiaNgay;
                         cTDP.TrangThai = "Đã đặt";
+
                         listPhongDaDat.Add(cTDP);
                         LoadGridPhongDat();
                         LoadgridPhongTrong();
@@ -580,9 +566,9 @@ namespace HotelManagement.GUI
 
         private void CTButtonDatTruoc_Click(object sender, EventArgs e)
         {
-            int flag = 0;
+
             if (listPhongDaDat.Count == 0)
-            {   
+            {
                 CTMessageBox.Show("Chưa thêm thông tin đặt phòng", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -607,6 +593,39 @@ namespace HotelManagement.GUI
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+                // 1. Xác nhận khách muốn đặt cọc
+                DialogResult ask = CTMessageBox.Show(
+                    "Bạn có muốn thanh toán tiền đặt cọc ngay bây giờ?",
+                    "Xác nhận đặt cọc",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (ask == DialogResult.No)
+                {
+                    return; // không đặt cọc → thoát
+                }
+
+                // 2. Tính số tiền cọc (VD: 30%)
+                foreach (CTDP ctdp in listPhongDaDat)
+                {
+                    decimal tiendatcoc = (decimal)PhongBUS.Instance.FindePhong(ctdp.MaPH).LoaiPhong.GiaNgay * 0.3m;
+                    TienCoc += tiendatcoc;
+                }
+
+                // 3. Mở FormDatCoc
+                FormDatCoc f = new FormDatCoc(TienCoc, "Tien dat coc phong");
+                var result = f.ShowDialog();
+
+                if (result != DialogResult.OK)
+                {
+                    CTMessageBox.Show("Thanh toán thất bại hoặc bị hủy.", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // → ĐẾN ĐÂY LÀ THANH TOÁN CỌC THÀNH CÔNG
+
                 try
                 {
                     CreateKH();
@@ -691,8 +710,9 @@ namespace HotelManagement.GUI
                 foreach (CTDP ctdp in listPhongDaDat)
                 {
                     ctdp.MaPT = phieuThue.MaPT;
-                    ctdp.TrangThai = "Đã đặt";
+                    ctdp.TrangThai = "Đã Cọc";
                     ctdp.DaXoa = false;
+                    ctdp.TienDatCoc = (decimal)PhongBUS.Instance.FindePhong(ctdp.MaPH).LoaiPhong.GiaNgay * 0.3m;
                     CTDP_BUS.Instance.UpdateOrAddCTDP(ctdp);
                 }
             }
@@ -704,6 +724,39 @@ namespace HotelManagement.GUI
 
         private void CreateHoaDon()
         {
+            // Mỗi phòng taọ 1 hóa đơn đặt cọc
+            foreach (CTDP ctdp in listPhongDaDat)
+            {
+                try
+                {
+                    Phong phong = PhongBUS.Instance.FindePhong(ctdp.MaPH);
+                    // 2. Tạo hóa đơn đặt cọc
+                    HoaDon hd = new HoaDon();
+                    hd.MaHD = HoaDonBUS.Instance.getMaHDNext();
+                    hd.MaCTDP = ctdp.MaCTDP;
+                    hd.MaNV = taiKhoan.MaNV;
+                    hd.NgHD = DateTime.Now;
+                    hd.TrangThai = "Đã Đặt Cọc";
+                    // 4. Lưu hóa đơn
+                    HoaDonBUS.Instance.ThanhToanHD(hd);
+                    // 5. (Không thay đổi trạng thái phòng, phòng chưa checkin)
+                }
+                catch (Exception ex)
+                {
+                    CTMessageBox.Show(
+                        ex.InnerException?.Message ?? ex.Message,
+                        "Lỗi khi tạo hóa đơn",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+            CTMessageBox.Show(
+                "Tạo hóa đơn đặt cọc thành công!",
+                "Thông báo",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         private void CTTextBoxNhapHoTen__TextChanged(object sender, EventArgs e)
@@ -768,7 +821,6 @@ namespace HotelManagement.GUI
                 CTTextBoxNhapDiaChi.Enabled = true;
                 ComboBoxGioiTinh.Enabled = true;
                 CTTextBoxNhapEmail.Enabled = true;
-
                 // Reset thông tin (nếu trước đó là KH cũ)
                 if (flagHoTen == 1)
                 {
@@ -778,15 +830,11 @@ namespace HotelManagement.GUI
                     ComboBoxGioiTinh.Texts = "  Giới tính";
                     CTTextBoxNhapEmail.Texts = "";
                 }
-
                 // Reset state → KH mới
                 this.khachHang = new KhachHang();
                 flagHoTen = 0;
             }
         }
-
-
-
         private void CTTextBoxNhapSDT__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxOnlyNumber = sender as TextBox;

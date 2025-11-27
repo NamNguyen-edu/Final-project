@@ -2,7 +2,7 @@
 using HotelManagement.CTControls;
 using HotelManagement.DAO;
 using HotelManagement.DTO;
-using HotelManagement.GUI.SoDoPhong;
+using HotelManagement.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +20,10 @@ namespace HotelManagement.GUI
     public partial class FormThongTinPhong : Form
     {
         //Fields
+
         private int borderRadius = 20;
         private int borderSize = 2;
-        private Color borderColor = Color.White;
+        private Color borderColor = AppTheme.PopupMainBackground;
         private CTDP ctdp;
         private Phong phong;
         private TaiKhoan taiKhoan;
@@ -47,6 +48,7 @@ namespace HotelManagement.GUI
             this.taiKhoan = taiKhoan;
             this.formMain = formMain;
             InitializeComponent();
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToRoomPopup(this);
             LoadPage();
             this.CTButtonCoc.Hide();
         }
@@ -302,7 +304,7 @@ namespace HotelManagement.GUI
             this.PanelChuaButtonDatPhongNay.Hide();
             this.PanelChuaButtonThanhToan.Hide();
             this.PanelChuaButtonNhanPhong.Hide();
-            this.PanelChuaButtonCoc.Hide();
+            //this.PanelChuaButtonCoc.Hide();
         }
 
         private void LoadPhongTrong()
@@ -321,7 +323,7 @@ namespace HotelManagement.GUI
             this.PanelChuaButtonThemDichVu.Hide();
             this.PanelChuaButtonThanhToan.Hide();
             this.PanelChuaButtonNhanPhong.Hide();
-            this.PanelChuaButtonCoc.Hide();
+            //this.PanelChuaButtonCoc.Hide();
         }
         private void LoadPage()
         {
@@ -540,28 +542,6 @@ namespace HotelManagement.GUI
             {
                 CTMessageBox.Show("Lỗi khi lưu dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-            
-        private void CTButtonCoc_Click(object sender, EventArgs e)
-        {
-            FormBackground formBackground = new FormBackground(formMain);
-            try
-            {
-                using (FormDatCoc formDatCoc = new FormDatCoc())
-                {
-                    formBackground.Owner = formMain;
-                    formBackground.Show();
-                    formDatCoc.Owner = formBackground;
-                    formDatCoc.ShowDialog();
-                    formBackground.Dispose();
-                }
-            }
-            catch (Exception)
-            {
-                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { formBackground.Dispose(); }
         }
     }
 }
