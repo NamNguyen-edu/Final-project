@@ -439,7 +439,7 @@
 &lt;body&gt;
     &lt;div class="container"&gt;
         &lt;div class="header"&gt;
-            &lt;h1 style='color: #6b4f4f;'&gt;Hotel Management&lt;/h1&gt;
+            &lt;h1 style='color: #6b4f4f;'&gt;UEH Hotel Management&lt;/h1&gt;
         &lt;/div&gt;
         &lt;div class="content"&gt;
             &lt;h2 style='color: #6b4f4f;'&gt;Xác nhận đặt phòng thành công!&lt;/h2&gt;
@@ -478,10 +478,10 @@
                  &lt;tr&gt;&lt;td&gt;&lt;b&gt;SĐT:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;{{SDT_KHACH}}&lt;/td&gt;&lt;/tr&gt;
             &lt;/table&gt;
 
-            &lt;p&gt;Trân trọng,&lt;br&gt;&lt;b&gt;Hotel Management Team&lt;/b&gt;&lt;/p&gt;
+            &lt;p&gt;Trân trọng,&lt;br&gt;&lt;b&gt;UEH Hotel Team&lt;/b&gt;&lt;/p&gt;
         &lt;/div&gt;
         &lt;div style='text-align: center; padding: 20px; color: #888; font-size: 12px;'&gt;
-            © 2025 Hotel Management
+            © 2025 UEH Hotel 
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/body&gt;
