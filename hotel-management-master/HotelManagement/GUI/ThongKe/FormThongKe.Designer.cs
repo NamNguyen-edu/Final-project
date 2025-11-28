@@ -713,6 +713,8 @@
             // 
             this.chartSoPhongDat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chartSoPhongDat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea4.BackColor = System.Drawing.Color.Cornsilk;
             chartArea4.Name = "ChartArea1";
             this.chartSoPhongDat.ChartAreas.Add(chartArea4);
@@ -758,7 +760,7 @@
             this.pnlTongQuan.Controls.Add(this.ctPanel1);
             this.pnlTongQuan.Controls.Add(this.ctPanel4);
             this.pnlTongQuan.Controls.Add(this.ctPanel5);
-            this.pnlTongQuan.Location = new System.Drawing.Point(13, 120);
+            this.pnlTongQuan.Location = new System.Drawing.Point(12, 120);
             this.pnlTongQuan.Name = "pnlTongQuan";
             this.pnlTongQuan.Size = new System.Drawing.Size(1239, 681);
             this.pnlTongQuan.TabIndex = 109;
@@ -896,6 +898,8 @@
             // chartDoanhThuTong
             // 
             this.chartDoanhThuTong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
             chartArea5.BackColor = System.Drawing.Color.Cornsilk;
             chartArea5.Name = "ChartArea1";
             this.chartDoanhThuTong.ChartAreas.Add(chartArea5);
@@ -1895,10 +1899,10 @@
             this.Controls.Add(this.dtpNgayKT);
             this.Controls.Add(this.dtpNgayBD);
             this.Controls.Add(this.LabelThongKe);
+            this.Controls.Add(this.pnlTongQuan);
             this.Controls.Add(this.pnlKhach);
             this.Controls.Add(this.pnlDichVu);
             this.Controls.Add(this.pnlPhong);
-            this.Controls.Add(this.pnlTongQuan);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormThongKe";
