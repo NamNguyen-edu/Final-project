@@ -83,7 +83,7 @@ namespace HotelManagement.GUI
                         if (ctdp.TrangThai == "Đang thuê" && (this.CTRadioButtonPhongDangThue.Checked || this.CTRadioButtonTatCaPhong.Checked))
                         {
                             CTRoomDangThue room = new CTRoomDangThue(ctdp, this, this.formMain, this.taiKhoan);
-                            room.Name = "PhongSDangThue";
+                            room.Name = "PhongDangThue";
                             if (ctdp.TheoGio == false)
                                 room.setThoiGian(CTDP_BUS.Instance.getKhoangTGTheoNgay(ctdp.MaCTDP).ToString() + " Ngày");
                             else
@@ -114,7 +114,7 @@ namespace HotelManagement.GUI
 
                     if (phong.TTPH == "Bình thường" && ctdp != null)
                     {
-                        if (ctdp.TrangThai == "Đã Cọc" && (this.CTRadioButtonPhongDaDat.Checked || this.CTRadioButtonTatCaPhong.Checked))
+                        if (ctdp.TrangThai == "Đã cọc" && (this.CTRadioButtonPhongDaDat.Checked || this.CTRadioButtonTatCaPhong.Checked))
                         {
                             CTRoomDaDat room = new CTRoomDaDat(ctdp, this, this.formMain, taiKhoan);
                             if (ctdp.TheoGio == false)
@@ -152,7 +152,7 @@ namespace HotelManagement.GUI
                 this.flowLayoutPanel5.Controls.Clear();
                 foreach (CTRoom cTRoom in DSPhong)
                 {
-                        
+
                     if (cTRoom.MaPhong.StartsWith("P1"))
                     {
                         flowLayoutPanel1.Controls.Add(cTRoom);
@@ -175,7 +175,7 @@ namespace HotelManagement.GUI
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -465,6 +465,93 @@ namespace HotelManagement.GUI
             this.timerSearch.Stop();
             this.label1.Hide();
             this.panelSoDoPhong.Hide();
+            LoadAddLoaiPhong();
+            LoadCheckBoxLoaiPhong();
+            LoadCheckBoxTTDD();
+            this.label1.Show();
+            this.panelSoDoPhong.Show();
+            LoadPhong(phongs);
+        }
+
+        // Hiển thị chỉ phòng đang thuê tại thời điểm dateTime hiện tại
+        public void ShowPhongDangThue()
+        {
+            // chọn radio
+            CTRadioButtonPhongDangThue.Checked = true;
+            CTRadioButtonPhongDaDat.Checked = false;
+            CTRadioButtonPhongTrong.Checked = false;
+            CTRadioButtonPhongDangSuaChua.Checked = false;
+            CTRadioButtonTatCaPhong.Checked = false;
+
+            this.label1.Hide();
+            this.panelSoDoPhong.Hide();
+
+            // reload dữ liệu
+            phongs = PhongBUS.Instance.GetAllPhong();
+            LoadAddLoaiPhong();
+            LoadCheckBoxLoaiPhong();
+            LoadCheckBoxTTDD();
+            this.label1.Show();
+            this.panelSoDoPhong.Show();
+            LoadPhong(phongs);
+        }
+
+        public void ShowPhongDaDat()
+        {
+            CTRadioButtonPhongDangThue.Checked = false;
+            CTRadioButtonPhongDaDat.Checked = true;
+            CTRadioButtonPhongTrong.Checked = false;
+            CTRadioButtonPhongDangSuaChua.Checked = false;
+            CTRadioButtonTatCaPhong.Checked = false;
+
+            this.label1.Hide();
+            this.panelSoDoPhong.Hide();
+
+            phongs = PhongBUS.Instance.GetAllPhong();
+            LoadAddLoaiPhong();
+            LoadCheckBoxLoaiPhong();
+            LoadCheckBoxTTDD();
+            this.label1.Show();
+            this.panelSoDoPhong.Show();
+            LoadPhong(phongs);
+        }
+
+        public void ShowPhongChuaDon()
+        {
+            // tất cả trạng thái phòng, lọc theo chưa dọn
+            CTRadioButtonTatCaPhong.Checked = true;
+            CTRadioButtonPhongDangThue.Checked = false;
+            CTRadioButtonPhongDaDat.Checked = false;
+            CTRadioButtonPhongTrong.Checked = false;
+            CTRadioButtonPhongDangSuaChua.Checked = false;
+
+            CTRadioButtonDaDonDep.Checked = false;
+            CTRadioButtonChuaDonDep.Checked = true;
+
+            this.label1.Hide();
+            this.panelSoDoPhong.Hide();
+
+            phongs = PhongBUS.Instance.GetAllPhong();
+            LoadAddLoaiPhong();
+            LoadCheckBoxLoaiPhong();
+            LoadCheckBoxTTDD();
+            this.label1.Show();
+            this.panelSoDoPhong.Show();
+            LoadPhong(phongs);
+        }
+
+        public void ShowPhongDangSuaChua()
+        {
+            CTRadioButtonPhongDangThue.Checked = false;
+            CTRadioButtonPhongDaDat.Checked = false;
+            CTRadioButtonPhongTrong.Checked = false;
+            CTRadioButtonPhongDangSuaChua.Checked = true;
+            CTRadioButtonTatCaPhong.Checked = false;
+
+            this.label1.Hide();
+            this.panelSoDoPhong.Hide();
+
+            phongs = PhongBUS.Instance.GetAllPhong();
             LoadAddLoaiPhong();
             LoadCheckBoxLoaiPhong();
             LoadCheckBoxTTDD();

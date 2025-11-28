@@ -192,6 +192,10 @@ namespace HotelManagement.GUI
             this.ovItem1.Name = "ovItem1";
             this.ovItem1.Size = new System.Drawing.Size(281, 84);
             this.ovItem1.TabIndex = 1;
+            this.ovItem1.Click += new EventHandler(this.ovItem1_Click);
+            this.lblOv1Title.Click += new EventHandler(this.ovItem1_Click);
+            this.lblOv1Value.Click += new EventHandler(this.ovItem1_Click);
+
             // 
             // pictureBox1
             // 
@@ -232,6 +236,10 @@ namespace HotelManagement.GUI
             this.ovItem2.Name = "ovItem2";
             this.ovItem2.Size = new System.Drawing.Size(281, 80);
             this.ovItem2.TabIndex = 2;
+            this.ovItem2.Click += new EventHandler(this.ovItem2_Click);
+            this.lblOv2Title.Click += new EventHandler(this.ovItem2_Click);
+            this.lblOv2Value.Click += new EventHandler(this.ovItem2_Click);
+
             // 
             // pictureBox2
             // 
@@ -272,6 +280,9 @@ namespace HotelManagement.GUI
             this.ovItem3.Name = "ovItem3";
             this.ovItem3.Size = new System.Drawing.Size(281, 81);
             this.ovItem3.TabIndex = 3;
+            this.ovItem3.Click += new EventHandler(this.ovItem3_Click);
+            this.lblOv3Title.Click += new EventHandler(this.ovItem3_Click);
+            this.lblOv3Value.Click += new EventHandler(this.ovItem3_Click);
             // 
             // pictureBox3
             // 
@@ -312,6 +323,9 @@ namespace HotelManagement.GUI
             this.ovItem4.Name = "ovItem4";
             this.ovItem4.Size = new System.Drawing.Size(281, 80);
             this.ovItem4.TabIndex = 4;
+            this.ovItem4.Click += new EventHandler(this.ovItem4_Click);
+            this.lblOv4Title.Click += new EventHandler(this.ovItem4_Click);
+            this.lblOv4Value.Click += new EventHandler(this.ovItem4_Click);
             // 
             // pictureBox4
             // 
