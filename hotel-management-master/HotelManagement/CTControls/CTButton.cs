@@ -24,6 +24,7 @@ namespace HotelManagement.CTControls
         //Fields
         private int borderSize = 0;
         private int borderRadius = 20;
+        private Button button1;
         private Color borderColor = Color.FromArgb(182, 103, 36);
 
         public int BorderSize
@@ -160,6 +161,23 @@ namespace HotelManagement.CTControls
     private void Container_BackColorChanged(object sender, EventArgs e)
         {
             this.Invalidate();
+        }
+
+        private void InitializeComponent()
+        {
+            this.button1 = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.ResumeLayout(false);
+
         }
     }
 }

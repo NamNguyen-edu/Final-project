@@ -41,6 +41,9 @@ namespace HotelManagement.DAO
         public List<DoanhThuTheoNgay> DoanhThuDichVuList { get; set; }
         public List<SoPhongTheoNgay> SoPhongDatList { get; set; }
         public List<DoanhThuTheoNgay> DoanhThuTongList { get; set; }
+        public List<DatPhongTheoLoai> TyTrongDatPhongList { get; set; }
+        public List<DoanhThuTheoLoaiPhong> DoanhThuLoaiPhongList { get; set; }
+
         public decimal TongDoanhThuThuongDon { get; set; }
         public decimal TongDoanhThuThuongDoi { get; set; }
         public decimal TongDoanhThuVipDon { get; set; }
@@ -56,6 +59,16 @@ namespace HotelManagement.DAO
         public int SoLanLoaiPhongDatNhieuNhat { get; set; }
         public string TenDichVuDoanhThuCaoNhat { get; set; }
         public decimal DoanhThuDichVuCaoNhat { get; set; }
+        public struct DatPhongTheoLoai
+        {
+            public string TenLoaiPhong { get; set; }
+            public int SoLan { get; set; }
+        }
+        public struct DoanhThuTheoLoaiPhong
+        {
+            public string TenLoaiPhong { get; set; }
+            public decimal TongTien { get; set; }
+        }
 
         public ThongKeDAO()
         {
@@ -84,6 +97,9 @@ namespace HotelManagement.DAO
                 GetLoaiPhongDoanhThuCaoNhat();
                 GetDichVuDoanhThuCaoNhat();
                 GetLoaiPhongDatNhieuNhat();
+                GetTyTrongDatPhong();
+                GetDoanhThuTheoLoaiPhong();
+
                 //
                 Console.WriteLine("Refresh data: {0} - {1}", ngayBD.ToString(), ngayKT.ToString());
                 return true;
@@ -776,5 +792,85 @@ namespace HotelManagement.DAO
             // Tổng doanh thu = phòng + dịch vụ
             TongDoanhThuTong = TongDoanhThuThue + TongDoanhThuDichVu;
         }
+        private void GetTyTrongDatPhong()
+        {
+            TyTrongDatPhongList = new List<DatPhongTheoLoai>();
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = ngayBD;
+                    command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = ngayKT;
+
+                    command.CommandText =
+                        @" SELECT TenLPH, COUNT(*) AS SoLan
+                   FROM CTDP 
+                   INNER JOIN Phong ON CTDP.MaPH = Phong.MaPH
+                   INNER JOIN LoaiPhong ON LoaiPhong.MaLPH = Phong.MaLPH
+                   INNER JOIN HoaDon ON HoaDon.MaCTDP = CTDP.MaCTDP
+                   WHERE HoaDon.DaXoa = 0 
+                     AND NgHD BETWEEN @fromDate AND @toDate
+                     AND HoaDon.TrangThai = N'Đã thanh toán'
+                   GROUP BY TenLPH";
+
+                    var reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        TyTrongDatPhongList.Add(new DatPhongTheoLoai
+                        {
+                            TenLoaiPhong = reader[0].ToString(),
+                            SoLan = Convert.ToInt32(reader[1])
+                        });
+                    }
+
+                    reader.Close();
+                }
+            }
+        }
+        private void GetDoanhThuTheoLoaiPhong()
+        {
+            DoanhThuLoaiPhongList = new List<DoanhThuTheoLoaiPhong>();
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+                using (var command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = ngayBD;
+                    command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = ngayKT;
+
+                    command.CommandText =
+                        @" SELECT TenLPH,
+                          SUM(HoaDon.TriGia) AS TongTien
+                   FROM HoaDon
+                   INNER JOIN CTDP ON HoaDon.MaCTDP = CTDP.MaCTDP
+                   INNER JOIN Phong ON CTDP.MaPH = Phong.MaPH
+                   INNER JOIN LoaiPhong ON LoaiPhong.MaLPH = Phong.MaLPH
+                   WHERE HoaDon.DaXoa = 0
+                     AND NgHD BETWEEN @fromDate AND @toDate
+                     AND HoaDon.TrangThai = N'Đã thanh toán'
+                   GROUP BY TenLPH";
+
+                    var reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DoanhThuLoaiPhongList.Add(new DoanhThuTheoLoaiPhong
+                        {
+                            TenLoaiPhong = reader[0].ToString(),
+                            TongTien = Convert.ToDecimal(reader[1])
+                        });
+                    }
+
+                    reader.Close();
+                }
+            }
+        }
+
+
     }
 }

@@ -36,6 +36,8 @@ namespace HotelManagement.GUI.ThongKe
         public FormThongKe()
         {
             InitializeComponent();
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
+
         }
         public FormThongKe(FormMain formMain)
         {
@@ -46,8 +48,9 @@ namespace HotelManagement.GUI.ThongKe
             _printDocument.PrintPage += PrintDocument_PrintPage;
             dtpNgayBD.Value = DateTime.Today.AddDays(-7);
             dtpNgayKT.Value = DateTime.Now;
+            setButtonNormal();
             Button7Ngay.Select();
-            Button7Ngay.BackColor = Color.FromArgb(30, 119, 148);
+            Button7Ngay.BackColor = Color.FromArgb(128, 61, 8);
             Button7Ngay.ForeColor = Color.White;
             thongKe = new ThongKeDAO();
             LoadData();
@@ -60,7 +63,8 @@ namespace HotelManagement.GUI.ThongKe
                 = ButtonHomNay.BackColor
                 = Button7Ngay.BackColor
                 = Button30Ngay.BackColor
-                = Button6Thang.BackColor = Color.FromArgb(207, 236, 236);
+                = Button6Thang.BackColor
+                = ButtonOK.BackColor = Color.FromArgb(245, 210, 165);
             ButtonTuyChon.ForeColor
                 = ButtonHomNay.ForeColor
                 = Button7Ngay.ForeColor
@@ -71,7 +75,7 @@ namespace HotelManagement.GUI.ThongKe
         {
             setButtonNormal();
             ButtonOK.Enabled = true;
-            ButtonTuyChon.BackColor = Color.FromArgb(30, 119, 148);
+            ButtonTuyChon.BackColor = Color.FromArgb(128, 61, 8);
             ButtonTuyChon.ForeColor = Color.White;
             LoadData();
         }
@@ -79,7 +83,7 @@ namespace HotelManagement.GUI.ThongKe
         private void ButtonHomNay_Click(object sender, EventArgs e)
         {
             setButtonNormal();
-            ButtonHomNay.BackColor = Color.FromArgb(30, 119, 148);
+            ButtonHomNay.BackColor = Color.FromArgb(128, 61, 8);
             ButtonHomNay.ForeColor = Color.White;
             ButtonOK.Enabled = false;
             dtpNgayBD.Value = DateTime.Now.Date;
@@ -90,7 +94,7 @@ namespace HotelManagement.GUI.ThongKe
         private void Button7Ngay_Click(object sender, EventArgs e)
         {
             setButtonNormal();
-            Button7Ngay.BackColor = Color.FromArgb(30, 119, 148);
+            Button7Ngay.BackColor = Color.FromArgb(128, 61, 8);
             Button7Ngay.ForeColor = Color.White;
             ButtonOK.Enabled = false;
             dtpNgayBD.Value = DateTime.Today.AddDays(-7);
@@ -101,7 +105,7 @@ namespace HotelManagement.GUI.ThongKe
         private void Button30Ngay_Click(object sender, EventArgs e)
         {
             setButtonNormal();
-            Button30Ngay.BackColor = Color.FromArgb(30, 119, 148);
+            Button30Ngay.BackColor = Color.FromArgb(128, 61, 8);
             Button30Ngay.ForeColor = Color.White;
             ButtonOK.Enabled = false;
             dtpNgayBD.Value = DateTime.Today.AddDays(-30);
@@ -112,7 +116,7 @@ namespace HotelManagement.GUI.ThongKe
         private void Button6Thang_Click(object sender, EventArgs e)
         {
             setButtonNormal();
-            Button6Thang.BackColor = Color.FromArgb(30, 119, 148);
+            Button6Thang.BackColor = Color.FromArgb(128, 61, 8);
             Button6Thang.ForeColor = Color.White;
             ButtonOK.Enabled = false;
             dtpNgayBD.Value = DateTime.Today.AddDays(-180);
@@ -123,7 +127,7 @@ namespace HotelManagement.GUI.ThongKe
         private void ButtonOK_Click(object sender, EventArgs e)
         {
             setButtonNormal();
-            ButtonTuyChon.BackColor = Color.FromArgb(30, 119, 148);
+            ButtonTuyChon.BackColor = Color.FromArgb(128, 61, 8);
             ButtonTuyChon.ForeColor = Color.White;
             LoadData();
         }
@@ -132,37 +136,86 @@ namespace HotelManagement.GUI.ThongKe
         {
             try
             {
-                var refreshDate = thongKe.LoadData(dtpNgayBD.Value, dtpNgayKT.Value);
-                if (refreshDate == true)
-                {
-                    chartDoanhThuTong.Series["Tổng Doanh Thu"].Points.Clear();
+                bool refreshed = thongKe.LoadData(dtpNgayBD.Value, dtpNgayKT.Value);
+                if (!refreshed) return;
 
-                    foreach (var item in thongKe.DoanhThuTongList)
-                    {
-                        chartDoanhThuTong.Series["Tổng Doanh Thu"].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-
-                    chartSoPhongDat.DataSource = thongKe.SoPhongDatList;
-                    chartSoPhongDat.Series[0].XValueMember = "Date";
-                    chartSoPhongDat.Series[0].YValueMembers = "TotalAmount";
-                    chartSoPhongDat.DataBind();
-
-
-                    DoanhThuThue.Text = thongKe.TongDoanhThuThue.ToString("#,#");
-                    DoanhThuDichVu.Text = thongKe.TongDoanhThuDichVu.ToString("#,#");
-                    SoPhongDat.Text = thongKe.SoPhongDat.ToString();
-                    TongDoanhThuTong.Text = thongKe.TongDoanhThuTong.ToString("#,#");
-
-                }
-                else
-                {
-                    Console.WriteLine("View not loaded, same query");
-                }
+                UpdateUI_TongQuan();
+                UpdateUI_Phong();
+                UpdateUI_DichVu();
+                UpdateUI_Khach();
             }
             catch (Exception ex)
             {
                 CTMessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void UpdateUI_TongQuan()
+        {
+            TongDoanhThuTong.Text = thongKe.TongDoanhThuTong.ToString("#,#");
+            DoanhThuThue.Text = thongKe.TongDoanhThuThue.ToString("#,#");
+            DoanhThuDichVu.Text = thongKe.TongDoanhThuDichVu.ToString("#,#");
+            SoPhongDat.Text = thongKe.SoPhongDat.ToString();
+
+            chartDoanhThuTong.Series["Tổng Doanh Thu"].Points.Clear();
+            foreach (var item in thongKe.DoanhThuTongList)
+                chartDoanhThuTong.Series["Tổng Doanh Thu"].Points.AddXY(item.Date, item.TotalAmount);
+
+            chartSoPhongDat.DataSource = thongKe.SoPhongDatList;
+            chartSoPhongDat.Series[0].XValueMember = "Date";
+            chartSoPhongDat.Series[0].YValueMembers = "TotalAmount";
+            chartSoPhongDat.DataBind();
+        }
+        private void UpdateUI_Phong()
+        {
+            lblPhong_TopDoanhThu_Ten.Text = thongKe.TenLoaiPhongDoanhThuCaoNhat;
+            lblPhong_TopDoanhThu_GiaTri.Text = thongKe.DoanhThuLoaiPhongCaoNhat.ToString("#,#");
+
+            // B. KPI – Đặt nhiều nhất
+            lblPhong_TopDat_Ten.Text = thongKe.TenLoaiPhongDuocDatNhieuNhat;
+            lblPhong_TopDat_SoLan.Text = thongKe.SoLanLoaiPhongDatNhieuNhat.ToString();
+
+            // C. Line Chart – Doanh thu từng loại phòng
+            chartPhong_Line.Series["Thường đơn"].Points.Clear();
+            chartPhong_Line.Series["Thường đôi"].Points.Clear();
+            chartPhong_Line.Series["VIP đơn"].Points.Clear();
+            chartPhong_Line.Series["VIP đôi"].Points.Clear();
+
+            foreach (var x in thongKe.DoanhThuThuongDonList)
+                chartPhong_Line.Series["Thường đơn"].Points.AddXY(x.Date, x.TotalAmount);
+
+            foreach (var x in thongKe.DoanhThuThuongDoiList)
+                chartPhong_Line.Series["Thường đôi"].Points.AddXY(x.Date, x.TotalAmount);
+
+            foreach (var x in thongKe.DoanhThuVipDonList)
+                chartPhong_Line.Series["VIP đơn"].Points.AddXY(x.Date, x.TotalAmount);
+
+            foreach (var x in thongKe.DoanhThuVipDoiList)
+                chartPhong_Line.Series["VIP đôi"].Points.AddXY(x.Date, x.TotalAmount);
+
+
+            // D. Pie Chart – Tỷ trọng đặt phòng
+            chartPhong_TyTrong.Series["TyTrong"].Points.Clear();
+
+            foreach (var item in thongKe.TyTrongDatPhongList)
+            {
+                chartPhong_TyTrong.Series["TyTrong"].Points.AddXY(item.TenLoaiPhong, item.SoLan);
+            }
+
+            chartPhong_Horizontal.Series["DoanhThu"].Points.Clear();
+
+            foreach (var item in thongKe.DoanhThuLoaiPhongList)
+            {
+                chartPhong_Horizontal.Series["DoanhThu"]
+                    .Points.AddXY(item.TenLoaiPhong, item.TongTien);
+            }
+        }
+        private void UpdateUI_DichVu()
+        {
+
+        }
+        private void UpdateUI_Khach()
+        {
+            // để tôi viết sau nếu bạn gửi design tab Khách
         }
 
         private void Printer_ThongKe_Click(object sender, EventArgs e)
@@ -232,11 +285,11 @@ namespace HotelManagement.GUI.ThongKe
 
             foreach (var b in allButtons)
             {
-                b.BackColor = Color.FromArgb(207, 236, 236);
+                b.BackColor = Color.FromArgb(245, 210, 165);
                 b.ForeColor = Color.Black;
             }
 
-            btnDangChon.BackColor = Color.FromArgb(30, 119, 148);
+            btnDangChon.BackColor = Color.FromArgb(128, 61, 8);
             btnDangChon.ForeColor = Color.White;
 
             pnlTongQuan.Visible = false;
@@ -259,6 +312,21 @@ namespace HotelManagement.GUI.ThongKe
         }
 
         private void lblTongDoanhThu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartPhong_TyTrong_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chartPhong_Line_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ctPanel12_Load(object sender, EventArgs e)
         {
 
         }
