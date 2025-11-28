@@ -77,6 +77,11 @@ namespace HotelManagement.CTControls
                     ctbb.BackColor = AppTheme.PopupMainBackground; // White
                     ctbb.ForeColor = AppTheme.TextColorNormal;
                 }
+                else if (c is Panel pnel && pnel.Name == "PanelBackground")
+                {
+                    // PanelBackground nên dùng màu nền nhẹ nhất (PopupMainBackground)
+                    pnel.BackColor = AppTheme.PopupMainBackground;
+                }
 
                 // Đệ quy
                 if (c.HasChildren)
@@ -130,21 +135,15 @@ namespace HotelManagement.CTControls
                 ctp.GradientTopColor = AppTheme.GridContainerBackground;
 
             }
-            //else if (c.Name == "ctPanel3")
-            //{
-            //    Ghi Chú: giữ nguyên màu Highlight nhạt mới(230, 210, 180)
-            //    ctp.GradientBottomColor = AppTheme.PopupHighlightColor;
-            //    ctp.GradientTopColor = AppTheme.PopupHighlightColor;
-            //}
+
         }
-        private static void StyleDataGridView(DataGridView dgv)
+        public static void StyleDataGridView(DataGridView dgv)
         {
             dgv.EnableHeadersVisualStyles = false;
-            // Đổi cho Header (Column Header)
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = AppTheme.GridHeaderDark; // Nâu đậm
-            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = AppTheme.GridHeaderDark;
-            dgv.ColumnHeadersDefaultCellStyle.ForeColor = AppTheme.TextColorActive; // Chữ trắng
 
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = AppTheme.GridHeaderDark; 
+            dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = AppTheme.GridHeaderDark;
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = AppTheme.TextColorActive; 
             // Đổi cho Cell (Ô dữ liệu)
             dgv.BackgroundColor = AppTheme.PopupMainBackground; // Đảm bảo nền Form được nhìn thấy
             dgv.DefaultCellStyle.BackColor = AppTheme.GridCellLight;

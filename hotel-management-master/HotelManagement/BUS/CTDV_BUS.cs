@@ -25,5 +25,20 @@ namespace HotelManagement.BUS
         {
             CTDV_DAO.Instance.InsertOrUpdateList(cTDVs);
         }
+        //public List<CTDV> FindCTDV(string maCTDP)
+        //{
+        //    return CTDV_DAO.Instance.FindCTDV(maCTDP);
+        //}
+        public decimal TinhTongTienDichVu(string maCTDP)
+        {
+            var list = FindCTDV(maCTDP);
+
+            if (list == null || list.Count == 0)
+                return 0;
+
+            return list
+                .Where(x => x.DaXoa == false && x.SL > 0)
+                .Sum(x => x.ThanhTien);
+        }
     }
 }
