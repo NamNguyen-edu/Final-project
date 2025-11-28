@@ -211,11 +211,60 @@ namespace HotelManagement.GUI.ThongKe
         }
         private void UpdateUI_DichVu()
         {
+            // Dịch vụ doanh thu cao nhất
+            lblDV_TopDT_Ten.Text = thongKe.TenDichVuDoanhThuCaoNhat;
+            lblDV_TopDT_GiaTri.Text = thongKe.DoanhThuDichVuCaoNhat.ToString("#,#");
+
+            // Dịch vụ được sử dụng nhiều nhất
+            lblDV_TopSL_Ten.Text = thongKe.TenDichVuSuDungNhieuNhat;
+            lblDV_TopSL_SoLan.Text = thongKe.SoLanDichVuSuDungNhieuNhat.ToString();
+
+            chartDV_Line.Series["Doanh Thu Dịch Vụ"].Points.Clear();
+
+            foreach (var item in thongKe.DoanhThuDichVuTheoNgayList)
+            {
+                chartDV_Line.Series["Doanh Thu Dịch Vụ"]
+                    .Points.AddXY(item.Date, item.TotalAmount);
+            }
+            chartDV_Top5.Series["DoanhThu"].Points.Clear();
+
+            foreach (var dv in thongKe.TopDichVuList)
+            {
+                chartDV_Top5.Series["DoanhThu"].Points.AddXY(dv.Key, dv.Value);
+            }
+            chartDV_Pie.Series["TyTrong"].Points.Clear();
+
+            foreach (var dv in thongKe.TyTrongDoanhThuDVList)
+            {
+                chartDV_Pie.Series["TyTrong"]
+                    .Points.AddXY(dv.Key, dv.Value);
+            }
 
         }
         private void UpdateUI_Khach()
         {
-            // để tôi viết sau nếu bạn gửi design tab Khách
+
+
+            // KPI
+            lblKH_TongKhach_GiaTri.Text = thongKe.TongSoKhach.ToString();
+            lblKH_TopDat_Ten.Text = thongKe.TenKhachDatNhieuNhat;
+            lblKH_TopDat_SoLan.Text = thongKe.SoLanKhachDatNhieuNhat.ToString();
+            lblKH_TopChiTieu_Ten.Text = thongKe.TenKhachChiNhieuNhat;
+            lblKH_TopChiTieu_GiaTri.Text = thongKe.TienKhachChiNhieuNhat.ToString("#,#");
+
+            chartKH_TopChiTieu.Series["Dong"].Points.Clear();
+
+            foreach (var kh in thongKe.Top5KhachChiTieuList)
+            {
+                chartKH_TopChiTieu.Series["Dong"].Points.AddXY(kh.TenKhach, kh.TongTien);
+            }
+            chartKH_SoKhach.Series["KhachHang"].Points.Clear();
+
+            foreach (var item in thongKe.SoKhachTheoNgayList)
+            {
+                chartKH_SoKhach.Series["KhachHang"].Points.AddXY(item.Date, item.TotalAmount);
+            }
+
         }
 
         private void Printer_ThongKe_Click(object sender, EventArgs e)

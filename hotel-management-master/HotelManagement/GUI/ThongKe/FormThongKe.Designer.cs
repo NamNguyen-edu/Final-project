@@ -28,6 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -36,6 +51,18 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -44,43 +71,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series19 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title11 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.LabelThongKe = new System.Windows.Forms.Label();
             this.LabelNgayBD = new System.Windows.Forms.Label();
             this.LabelNgayKT = new System.Windows.Forms.Label();
@@ -96,6 +86,19 @@
             this.btnDichVu = new System.Windows.Forms.Button();
             this.btnPhong = new System.Windows.Forms.Button();
             this.pnlPhong = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.chartPhong_TyTrong = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartPhong_Horizontal = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartPhong_Line = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.lblPhong_TopDat_Ten = new System.Windows.Forms.Label();
+            this.lblPhong_TopDat_SoLan = new System.Windows.Forms.Label();
+            this.lblPhong_TopDat_Title = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblPhong_TopDoanhThu_Ten = new System.Windows.Forms.Label();
+            this.lblPhong_TopDoanhThu_GiaTri = new System.Windows.Forms.Label();
+            this.lblPhong_TopDoanhThu_Title = new System.Windows.Forms.Label();
             this.chartSoPhongDat = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlTongQuan = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -114,53 +117,49 @@
             this.TongDoanhThuTong = new System.Windows.Forms.Label();
             this.lblTongDoanhThu = new System.Windows.Forms.Label();
             this.pnlKhach = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.chart7 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart8 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart9 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlDichVu = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chartDV_Pie = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartDV_Top5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartDV_Line = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblDV_TopSL_Ten = new System.Windows.Forms.Label();
+            this.lblDV_TopSL_SoLan = new System.Windows.Forms.Label();
+            this.lblDV_TopSL_Title = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.lblDV_TopDT_Ten = new System.Windows.Forms.Label();
+            this.lblDV_TopDT_GiaTri = new System.Windows.Forms.Label();
+            this.lblDV_TopDT_Title = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.chart4 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chart5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.chart6 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblPhong_TopDoanhThu_GiaTri = new System.Windows.Forms.Label();
-            this.lblPhong_TopDoanhThu_Title = new System.Windows.Forms.Label();
-            this.lblPhong_TopDoanhThu_Ten = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.lblPhong_TopDat_Ten = new System.Windows.Forms.Label();
-            this.lblPhong_TopDat_SoLan = new System.Windows.Forms.Label();
-            this.lblPhong_TopDat_Title = new System.Windows.Forms.Label();
-            this.chartPhong_Line = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartPhong_Horizontal = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartPhong_TyTrong = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.chartKH_SoKhach = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartKH_TopChiTieu = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.lblKH_TopDat_Ten = new System.Windows.Forms.Label();
+            this.lblKH_TopDat_SoLan = new System.Windows.Forms.Label();
+            this.lblKH_TopDat_Title = new System.Windows.Forms.Label();
+            this.lblKH_TopChiTieu_Title = new System.Windows.Forms.Label();
+            this.lblKH_TopChiTieu_GiaTri = new System.Windows.Forms.Label();
+            this.lblKH_TopChiTieu_Ten = new System.Windows.Forms.Label();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.lblKH_TongKhach_GiaTri = new System.Windows.Forms.Label();
+            this.lblKH_TongKhach_Title = new System.Windows.Forms.Label();
+            this.dtpNgayKT = new HotelManagement.CTControls.CTDatePicker();
+            this.dtpNgayBD = new HotelManagement.CTControls.CTDatePicker();
+            this.ctPanel23 = new CTPanel.CTPanel();
+            this.ctPanel10 = new CTPanel.CTPanel();
+            this.ctPanel20 = new CTPanel.CTPanel();
+            this.ctPanel21 = new CTPanel.CTPanel();
+            this.ctPanel22 = new CTPanel.CTPanel();
+            this.ctPanel14 = new CTPanel.CTPanel();
+            this.ctPanel15 = new CTPanel.CTPanel();
+            this.ctPanel16 = new CTPanel.CTPanel();
+            this.ctPanel17 = new CTPanel.CTPanel();
+            this.ctPanel18 = new CTPanel.CTPanel();
             this.ctPanel11 = new CTPanel.CTPanel();
             this.ctPanel12 = new CTPanel.CTPanel();
             this.ctPanel13 = new CTPanel.CTPanel();
@@ -173,23 +172,14 @@
             this.ctPanel1 = new CTPanel.CTPanel();
             this.ctPanel4 = new CTPanel.CTPanel();
             this.ctPanel5 = new CTPanel.CTPanel();
-            this.ctPanel22 = new CTPanel.CTPanel();
-            this.ctPanel26 = new CTPanel.CTPanel();
-            this.ctPanel27 = new CTPanel.CTPanel();
-            this.ctPanel29 = new CTPanel.CTPanel();
-            this.ctPanel30 = new CTPanel.CTPanel();
-            this.ctPanel31 = new CTPanel.CTPanel();
-            this.dtpNgayKT = new HotelManagement.CTControls.CTDatePicker();
-            this.dtpNgayBD = new HotelManagement.CTControls.CTDatePicker();
-            this.ctPanel10 = new CTPanel.CTPanel();
-            this.ctPanel19 = new CTPanel.CTPanel();
-            this.ctPanel20 = new CTPanel.CTPanel();
-            this.ctPanel21 = new CTPanel.CTPanel();
-            this.ctPanel23 = new CTPanel.CTPanel();
-            this.ctPanel24 = new CTPanel.CTPanel();
-            this.ctPanel25 = new CTPanel.CTPanel();
             ((System.ComponentModel.ISupportInitialize)(this.Printer_ThongKe)).BeginInit();
             this.pnlPhong.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_TyTrong)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Horizontal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Line)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSoPhongDat)).BeginInit();
             this.pnlTongQuan.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -199,26 +189,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThuTong)).BeginInit();
             this.pnlTDT.SuspendLayout();
             this.pnlKhach.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart9)).BeginInit();
             this.pnlDichVu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart6)).BeginInit();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Line)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Horizontal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_TyTrong)).BeginInit();
-            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDV_Pie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDV_Top5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDV_Line)).BeginInit();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_SoKhach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_TopChiTieu)).BeginInit();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // LabelThongKe
@@ -454,6 +439,275 @@
             this.pnlPhong.Name = "pnlPhong";
             this.pnlPhong.Size = new System.Drawing.Size(1240, 681);
             this.pnlPhong.TabIndex = 142;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(420, 261);
+            this.panel7.TabIndex = 160;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(420, 261);
+            this.label4.TabIndex = 147;
+            this.label4.Text = "BÁO CÁO PHÒNG";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chartPhong_TyTrong
+            // 
+            this.chartPhong_TyTrong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea1.Name = "ChartArea1";
+            this.chartPhong_TyTrong.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend1.BorderWidth = 2;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chartPhong_TyTrong.Legends.Add(legend1);
+            this.chartPhong_TyTrong.Location = new System.Drawing.Point(24, 299);
+            this.chartPhong_TyTrong.Name = "chartPhong_TyTrong";
+            this.chartPhong_TyTrong.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartPhong_TyTrong.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.Label = "#PERCENT{P2}";
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.Legend = "Legend1";
+            series1.LegendText = " #VALX";
+            series1.Name = "TyTrong";
+            this.chartPhong_TyTrong.Series.Add(series1);
+            this.chartPhong_TyTrong.Size = new System.Drawing.Size(395, 365);
+            this.chartPhong_TyTrong.TabIndex = 156;
+            this.chartPhong_TyTrong.Text = "chart10";
+            title1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.ForeColor = System.Drawing.SystemColors.Window;
+            title1.Name = "Tỷ trong đặt phòng";
+            title1.Text = "Tỷ trọng đặt phòng";
+            this.chartPhong_TyTrong.Titles.Add(title1);
+            this.chartPhong_TyTrong.Click += new System.EventHandler(this.chartPhong_TyTrong_Click);
+            // 
+            // chartPhong_Horizontal
+            // 
+            this.chartPhong_Horizontal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea2.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea2.Name = "ChartArea1";
+            this.chartPhong_Horizontal.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chartPhong_Horizontal.Legends.Add(legend2);
+            this.chartPhong_Horizontal.Location = new System.Drawing.Point(464, 172);
+            this.chartPhong_Horizontal.Name = "chartPhong_Horizontal";
+            this.chartPhong_Horizontal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartPhong_Horizontal.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.Olive,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))))};
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "DoanhThu";
+            this.chartPhong_Horizontal.Series.Add(series2);
+            this.chartPhong_Horizontal.Size = new System.Drawing.Size(761, 227);
+            this.chartPhong_Horizontal.TabIndex = 155;
+            this.chartPhong_Horizontal.Text = "chart10";
+            title2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.ForeColor = System.Drawing.SystemColors.Window;
+            title2.Name = "Doanh thu theo loại phòng";
+            title2.Text = "Doanh thu theo loại phòng";
+            this.chartPhong_Horizontal.Titles.Add(title2);
+            // 
+            // chartPhong_Line
+            // 
+            this.chartPhong_Line.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea3.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea3.Name = "ChartArea1";
+            this.chartPhong_Line.ChartAreas.Add(chartArea3);
+            legend3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.ForeColor = System.Drawing.Color.White;
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chartPhong_Line.Legends.Add(legend3);
+            this.chartPhong_Line.Location = new System.Drawing.Point(454, 416);
+            this.chartPhong_Line.Name = "chartPhong_Line";
+            this.chartPhong_Line.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartPhong_Line.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.DarkGoldenrod,
+        System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.LabelForeColor = System.Drawing.Color.White;
+            series3.Legend = "Legend1";
+            series3.MarkerColor = System.Drawing.Color.White;
+            series3.Name = "Thường đơn";
+            series4.BorderWidth = 3;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "Thường đôi";
+            series5.BorderWidth = 3;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "VIP đơn";
+            series6.BorderWidth = 3;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "VIP đôi";
+            this.chartPhong_Line.Series.Add(series3);
+            this.chartPhong_Line.Series.Add(series4);
+            this.chartPhong_Line.Series.Add(series5);
+            this.chartPhong_Line.Series.Add(series6);
+            this.chartPhong_Line.Size = new System.Drawing.Size(765, 242);
+            this.chartPhong_Line.TabIndex = 154;
+            this.chartPhong_Line.Text = "chart10";
+            title3.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.ForeColor = System.Drawing.SystemColors.Window;
+            title3.Name = "Doanh thu theo thời gian";
+            title3.Text = "Doanh thu theo thời gian";
+            this.chartPhong_Line.Titles.Add(title3);
+            this.chartPhong_Line.Click += new System.EventHandler(this.chartPhong_Line_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Controls.Add(this.lblPhong_TopDat_Ten);
+            this.panel6.Controls.Add(this.lblPhong_TopDat_SoLan);
+            this.panel6.Controls.Add(this.lblPhong_TopDat_Title);
+            this.panel6.Location = new System.Drawing.Point(859, 15);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(363, 132);
+            this.panel6.TabIndex = 152;
+            // 
+            // lblPhong_TopDat_Ten
+            // 
+            this.lblPhong_TopDat_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblPhong_TopDat_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPhong_TopDat_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhong_TopDat_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblPhong_TopDat_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblPhong_TopDat_Ten.Name = "lblPhong_TopDat_Ten";
+            this.lblPhong_TopDat_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblPhong_TopDat_Ten.TabIndex = 116;
+            this.lblPhong_TopDat_Ten.Text = "Tên phòng";
+            this.lblPhong_TopDat_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPhong_TopDat_SoLan
+            // 
+            this.lblPhong_TopDat_SoLan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblPhong_TopDat_SoLan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblPhong_TopDat_SoLan.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhong_TopDat_SoLan.ForeColor = System.Drawing.Color.White;
+            this.lblPhong_TopDat_SoLan.Location = new System.Drawing.Point(0, 75);
+            this.lblPhong_TopDat_SoLan.Name = "lblPhong_TopDat_SoLan";
+            this.lblPhong_TopDat_SoLan.Size = new System.Drawing.Size(363, 57);
+            this.lblPhong_TopDat_SoLan.TabIndex = 115;
+            this.lblPhong_TopDat_SoLan.Text = "1,000,000,000";
+            this.lblPhong_TopDat_SoLan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPhong_TopDat_Title
+            // 
+            this.lblPhong_TopDat_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblPhong_TopDat_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPhong_TopDat_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhong_TopDat_Title.ForeColor = System.Drawing.Color.White;
+            this.lblPhong_TopDat_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblPhong_TopDat_Title.Name = "lblPhong_TopDat_Title";
+            this.lblPhong_TopDat_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblPhong_TopDat_Title.TabIndex = 114;
+            this.lblPhong_TopDat_Title.Text = "Loại phòng được đặt nhiều nhất";
+            this.lblPhong_TopDat_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.lblPhong_TopDoanhThu_Ten);
+            this.panel5.Controls.Add(this.lblPhong_TopDoanhThu_GiaTri);
+            this.panel5.Controls.Add(this.lblPhong_TopDoanhThu_Title);
+            this.panel5.Location = new System.Drawing.Point(454, 15);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(363, 132);
+            this.panel5.TabIndex = 149;
+            // 
+            // lblPhong_TopDoanhThu_Ten
+            // 
+            this.lblPhong_TopDoanhThu_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblPhong_TopDoanhThu_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPhong_TopDoanhThu_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhong_TopDoanhThu_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblPhong_TopDoanhThu_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblPhong_TopDoanhThu_Ten.Name = "lblPhong_TopDoanhThu_Ten";
+            this.lblPhong_TopDoanhThu_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblPhong_TopDoanhThu_Ten.TabIndex = 116;
+            this.lblPhong_TopDoanhThu_Ten.Text = "Tên phòng";
+            this.lblPhong_TopDoanhThu_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPhong_TopDoanhThu_GiaTri
+            // 
+            this.lblPhong_TopDoanhThu_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblPhong_TopDoanhThu_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblPhong_TopDoanhThu_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhong_TopDoanhThu_GiaTri.ForeColor = System.Drawing.Color.White;
+            this.lblPhong_TopDoanhThu_GiaTri.Location = new System.Drawing.Point(0, 75);
+            this.lblPhong_TopDoanhThu_GiaTri.Name = "lblPhong_TopDoanhThu_GiaTri";
+            this.lblPhong_TopDoanhThu_GiaTri.Size = new System.Drawing.Size(363, 57);
+            this.lblPhong_TopDoanhThu_GiaTri.TabIndex = 115;
+            this.lblPhong_TopDoanhThu_GiaTri.Text = "1,000,000,000";
+            this.lblPhong_TopDoanhThu_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPhong_TopDoanhThu_Title
+            // 
+            this.lblPhong_TopDoanhThu_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblPhong_TopDoanhThu_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPhong_TopDoanhThu_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhong_TopDoanhThu_Title.ForeColor = System.Drawing.Color.White;
+            this.lblPhong_TopDoanhThu_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblPhong_TopDoanhThu_Title.Name = "lblPhong_TopDoanhThu_Title";
+            this.lblPhong_TopDoanhThu_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblPhong_TopDoanhThu_Title.TabIndex = 114;
+            this.lblPhong_TopDoanhThu_Title.Text = "Loại phòng doanh thu cao nhất";
+            this.lblPhong_TopDoanhThu_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chartSoPhongDat
             // 
@@ -718,889 +972,733 @@
             // pnlKhach
             // 
             this.pnlKhach.BackColor = System.Drawing.Color.Wheat;
-            this.pnlKhach.Controls.Add(this.label27);
-            this.pnlKhach.Controls.Add(this.label28);
-            this.pnlKhach.Controls.Add(this.label29);
-            this.pnlKhach.Controls.Add(this.label30);
-            this.pnlKhach.Controls.Add(this.label31);
-            this.pnlKhach.Controls.Add(this.label32);
-            this.pnlKhach.Controls.Add(this.pictureBox16);
-            this.pnlKhach.Controls.Add(this.pictureBox17);
-            this.pnlKhach.Controls.Add(this.pictureBox18);
-            this.pnlKhach.Controls.Add(this.label33);
-            this.pnlKhach.Controls.Add(this.label34);
-            this.pnlKhach.Controls.Add(this.label35);
-            this.pnlKhach.Controls.Add(this.ctPanel22);
-            this.pnlKhach.Controls.Add(this.ctPanel26);
-            this.pnlKhach.Controls.Add(this.ctPanel27);
-            this.pnlKhach.Controls.Add(this.chart7);
-            this.pnlKhach.Controls.Add(this.chart8);
-            this.pnlKhach.Controls.Add(this.chart9);
-            this.pnlKhach.Controls.Add(this.ctPanel29);
-            this.pnlKhach.Controls.Add(this.ctPanel30);
-            this.pnlKhach.Controls.Add(this.ctPanel31);
-            this.pnlKhach.Location = new System.Drawing.Point(12, 120);
+            this.pnlKhach.Controls.Add(this.panel12);
+            this.pnlKhach.Location = new System.Drawing.Point(11, 120);
             this.pnlKhach.Name = "pnlKhach";
             this.pnlKhach.Size = new System.Drawing.Size(1241, 681);
             this.pnlKhach.TabIndex = 144;
             // 
-            // label27
-            // 
-            this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(342, 355);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(168, 41);
-            this.label27.TabIndex = 135;
-            this.label27.Text = "52,000,000";
-            // 
-            // label28
-            // 
-            this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(342, 258);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(168, 41);
-            this.label28.TabIndex = 136;
-            this.label28.Text = "52,000,000";
-            // 
-            // label29
-            // 
-            this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(141, 355);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(170, 41);
-            this.label29.TabIndex = 132;
-            this.label29.Text = "Nước ngọt";
-            // 
-            // label30
-            // 
-            this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label30.AutoSize = true;
-            this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(135, 258);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(215, 41);
-            this.label30.TabIndex = 133;
-            this.label30.Text = "Phòng vip đôi";
-            // 
-            // label31
-            // 
-            this.label31.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label31.AutoSize = true;
-            this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label31.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(342, 147);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(168, 41);
-            this.label31.TabIndex = 137;
-            this.label31.Text = "52,000,000";
-            // 
-            // label32
-            // 
-            this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label32.AutoSize = true;
-            this.label32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(135, 147);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(215, 41);
-            this.label32.TabIndex = 134;
-            this.label32.Text = "Phòng vip đôi";
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.pictureBox16.Image = global::HotelManagement.Properties.Resources.top1;
-            this.pictureBox16.Location = new System.Drawing.Point(29, 320);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox16.TabIndex = 129;
-            this.pictureBox16.TabStop = false;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.pictureBox17.Image = global::HotelManagement.Properties.Resources.top1;
-            this.pictureBox17.Location = new System.Drawing.Point(29, 217);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox17.TabIndex = 130;
-            this.pictureBox17.TabStop = false;
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.pictureBox18.Image = global::HotelManagement.Properties.Resources.top1;
-            this.pictureBox18.Location = new System.Drawing.Point(29, 116);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox18.TabIndex = 131;
-            this.pictureBox18.TabStop = false;
-            // 
-            // label33
-            // 
-            this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label33.AutoSize = true;
-            this.label33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label33.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(142, 217);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(368, 32);
-            this.label33.TabIndex = 126;
-            this.label33.Text = "Loại phòng được đặt nhiều nhất";
-            // 
-            // label34
-            // 
-            this.label34.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label34.AutoSize = true;
-            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.Location = new System.Drawing.Point(163, 320);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(317, 32);
-            this.label34.TabIndex = 127;
-            this.label34.Text = "Dịch vụ doanh thu cao nhất";
-            // 
-            // label35
-            // 
-            this.label35.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label35.AutoSize = true;
-            this.label35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label35.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(151, 116);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(358, 32);
-            this.label35.TabIndex = 128;
-            this.label35.Text = "Loại phòng doanh thu cao nhất";
-            // 
-            // chart7
-            // 
-            this.chart7.AllowDrop = true;
-            this.chart7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chart7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea6.Name = "ChartArea1";
-            this.chart7.ChartAreas.Add(chartArea6);
-            legend6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend6.Name = "Legend1";
-            this.chart7.Legends.Add(legend6);
-            this.chart7.Location = new System.Drawing.Point(31, 429);
-            this.chart7.Name = "chart7";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series9.Color = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chart7.Series.Add(series9);
-            this.chart7.Size = new System.Drawing.Size(506, 232);
-            this.chart7.TabIndex = 119;
-            this.chart7.Text = "chart3";
-            title6.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title6.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title6.Name = "Title1";
-            title6.Text = "Các dịch vụ được sử dụng";
-            this.chart7.Titles.Add(title6);
-            // 
-            // chart8
-            // 
-            this.chart8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chart8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            chartArea7.Name = "ChartArea1";
-            this.chart8.ChartAreas.Add(chartArea7);
-            legend7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend7.Name = "Legend1";
-            this.chart8.Legends.Add(legend7);
-            this.chart8.Location = new System.Drawing.Point(567, 475);
-            this.chart8.Name = "chart8";
-            series10.ChartArea = "ChartArea1";
-            series10.Color = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            series10.Legend = "Legend1";
-            series10.Name = "Số phòng";
-            this.chart8.Series.Add(series10);
-            this.chart8.Size = new System.Drawing.Size(652, 186);
-            this.chart8.TabIndex = 118;
-            this.chart8.Text = "chart8";
-            title7.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title7.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title7.Name = "Title1";
-            title7.Text = "Số phòng được đặt";
-            this.chart8.Titles.Add(title7);
-            // 
-            // chart9
-            // 
-            this.chart9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chart9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            chartArea8.Name = "ChartArea1";
-            this.chart9.ChartAreas.Add(chartArea8);
-            legend8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend8.Name = "Legend1";
-            this.chart9.Legends.Add(legend8);
-            this.chart9.Location = new System.Drawing.Point(567, 108);
-            this.chart9.Name = "chart9";
-            this.chart9.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series11.BorderWidth = 3;
-            series11.ChartArea = "ChartArea1";
-            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series11.Color = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(201)))), ((int)(((byte)(103)))));
-            series11.Legend = "Legend1";
-            series11.MarkerSize = 8;
-            series11.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series11.Name = "Phòng thường đơn";
-            series12.BorderWidth = 3;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Color = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            series12.Legend = "Legend1";
-            series12.MarkerSize = 8;
-            series12.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series12.Name = "Phòng thường đôi";
-            series12.YValuesPerPoint = 3;
-            series13.BorderWidth = 3;
-            series13.ChartArea = "ChartArea1";
-            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series13.Color = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
-            series13.Legend = "Legend1";
-            series13.MarkerSize = 8;
-            series13.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series13.Name = "Phòng vip đơn";
-            series13.YValuesPerPoint = 3;
-            series14.BorderWidth = 3;
-            series14.ChartArea = "ChartArea1";
-            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series14.Color = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            series14.Legend = "Legend1";
-            series14.MarkerSize = 8;
-            series14.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series14.Name = "Phòng vip đôi";
-            this.chart9.Series.Add(series11);
-            this.chart9.Series.Add(series12);
-            this.chart9.Series.Add(series13);
-            this.chart9.Series.Add(series14);
-            this.chart9.Size = new System.Drawing.Size(652, 333);
-            this.chart9.TabIndex = 109;
-            this.chart9.Text = "chart9";
-            title8.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title8.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title8.ForeColor = System.Drawing.SystemColors.ControlText;
-            title8.Name = "Title1";
-            title8.Text = "Doanh thu thuê phòng";
-            this.chart9.Titles.Add(title8);
-            // 
             // pnlDichVu
             // 
             this.pnlDichVu.BackColor = System.Drawing.Color.Wheat;
-            this.pnlDichVu.Controls.Add(this.label2);
-            this.pnlDichVu.Controls.Add(this.label3);
-            this.pnlDichVu.Controls.Add(this.label18);
-            this.pnlDichVu.Controls.Add(this.label19);
-            this.pnlDichVu.Controls.Add(this.label20);
-            this.pnlDichVu.Controls.Add(this.label21);
-            this.pnlDichVu.Controls.Add(this.pictureBox7);
-            this.pnlDichVu.Controls.Add(this.pictureBox13);
-            this.pnlDichVu.Controls.Add(this.pictureBox14);
-            this.pnlDichVu.Controls.Add(this.label22);
-            this.pnlDichVu.Controls.Add(this.label23);
-            this.pnlDichVu.Controls.Add(this.label24);
-            this.pnlDichVu.Controls.Add(this.ctPanel10);
-            this.pnlDichVu.Controls.Add(this.ctPanel19);
-            this.pnlDichVu.Controls.Add(this.ctPanel20);
-            this.pnlDichVu.Controls.Add(this.chart4);
-            this.pnlDichVu.Controls.Add(this.chart5);
-            this.pnlDichVu.Controls.Add(this.label25);
-            this.pnlDichVu.Controls.Add(this.label26);
-            this.pnlDichVu.Controls.Add(this.pictureBox15);
-            this.pnlDichVu.Controls.Add(this.ctPanel21);
-            this.pnlDichVu.Controls.Add(this.chart6);
-            this.pnlDichVu.Controls.Add(this.ctPanel23);
-            this.pnlDichVu.Controls.Add(this.ctPanel24);
-            this.pnlDichVu.Controls.Add(this.ctPanel25);
+            this.pnlDichVu.Controls.Add(this.panel8);
             this.pnlDichVu.Location = new System.Drawing.Point(12, 120);
             this.pnlDichVu.Name = "pnlDichVu";
             this.pnlDichVu.Size = new System.Drawing.Size(1241, 681);
             this.pnlDichVu.TabIndex = 145;
             // 
-            // label2
+            // panel8
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(342, 355);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 41);
-            this.label2.TabIndex = 135;
-            this.label2.Text = "52,000,000";
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Controls.Add(this.chartDV_Pie);
+            this.panel8.Controls.Add(this.chartDV_Top5);
+            this.panel8.Controls.Add(this.chartDV_Line);
+            this.panel8.Controls.Add(this.ctPanel14);
+            this.panel8.Controls.Add(this.ctPanel15);
+            this.panel8.Controls.Add(this.ctPanel16);
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.ctPanel17);
+            this.panel8.Controls.Add(this.panel11);
+            this.panel8.Controls.Add(this.ctPanel18);
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1240, 681);
+            this.panel8.TabIndex = 147;
             // 
-            // label3
+            // panel9
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(342, 258);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 41);
-            this.label3.TabIndex = 136;
-            this.label3.Text = "52,000,000";
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(420, 261);
+            this.panel9.TabIndex = 160;
             // 
-            // label18
+            // label1
             // 
-            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(141, 355);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(170, 41);
-            this.label18.TabIndex = 132;
-            this.label18.Text = "Nước ngọt";
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(420, 261);
+            this.label1.TabIndex = 147;
+            this.label1.Text = "BÁO CÁO DỊCH VỤ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label19
+            // chartDV_Pie
             // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(135, 258);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(215, 41);
-            this.label19.TabIndex = 133;
-            this.label19.Text = "Phòng vip đôi";
-            // 
-            // label20
-            // 
-            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(342, 147);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(168, 41);
-            this.label20.TabIndex = 137;
-            this.label20.Text = "52,000,000";
-            // 
-            // label21
-            // 
-            this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(135, 147);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(215, 41);
-            this.label21.TabIndex = 134;
-            this.label21.Text = "Phòng vip đôi";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.pictureBox7.Image = global::HotelManagement.Properties.Resources.top1;
-            this.pictureBox7.Location = new System.Drawing.Point(29, 320);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 129;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.pictureBox13.Image = global::HotelManagement.Properties.Resources.top1;
-            this.pictureBox13.Location = new System.Drawing.Point(29, 217);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 130;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.pictureBox14.Image = global::HotelManagement.Properties.Resources.top1;
-            this.pictureBox14.Location = new System.Drawing.Point(29, 116);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(85, 85);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 131;
-            this.pictureBox14.TabStop = false;
-            // 
-            // label22
-            // 
-            this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(142, 217);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(368, 32);
-            this.label22.TabIndex = 126;
-            this.label22.Text = "Loại phòng được đặt nhiều nhất";
-            // 
-            // label23
-            // 
-            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(163, 320);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(317, 32);
-            this.label23.TabIndex = 127;
-            this.label23.Text = "Dịch vụ doanh thu cao nhất";
-            // 
-            // label24
-            // 
-            this.label24.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.label24.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(151, 116);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(358, 32);
-            this.label24.TabIndex = 128;
-            this.label24.Text = "Loại phòng doanh thu cao nhất";
-            // 
-            // chart4
-            // 
-            this.chart4.AllowDrop = true;
-            this.chart4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chart4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea9.Name = "ChartArea1";
-            this.chart4.ChartAreas.Add(chartArea9);
-            legend9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend9.Name = "Legend1";
-            this.chart4.Legends.Add(legend9);
-            this.chart4.Location = new System.Drawing.Point(31, 429);
-            this.chart4.Name = "chart4";
-            series15.ChartArea = "ChartArea1";
-            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series15.Color = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            series15.Legend = "Legend1";
-            series15.Name = "Series1";
-            this.chart4.Series.Add(series15);
-            this.chart4.Size = new System.Drawing.Size(506, 232);
-            this.chart4.TabIndex = 119;
-            this.chart4.Text = "chart3";
-            title9.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title9.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title9.Name = "Title1";
-            title9.Text = "Các dịch vụ được sử dụng";
-            this.chart4.Titles.Add(title9);
-            // 
-            // chart5
-            // 
-            this.chart5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chart5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            chartArea10.Name = "ChartArea1";
-            this.chart5.ChartAreas.Add(chartArea10);
-            legend10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend10.Name = "Legend1";
-            this.chart5.Legends.Add(legend10);
-            this.chart5.Location = new System.Drawing.Point(567, 475);
-            this.chart5.Name = "chart5";
-            series16.ChartArea = "ChartArea1";
-            series16.Color = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            series16.Legend = "Legend1";
-            series16.Name = "Số phòng";
-            this.chart5.Series.Add(series16);
-            this.chart5.Size = new System.Drawing.Size(652, 186);
-            this.chart5.TabIndex = 118;
-            this.chart5.Text = "chart5";
-            title10.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title10.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title10.Name = "Title1";
-            title10.Text = "Số phòng được đặt";
-            this.chart5.Titles.Add(title10);
-            // 
-            // label25
-            // 
-            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(201)))), ((int)(((byte)(103)))));
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(963, 51);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(80, 46);
-            this.label25.TabIndex = 116;
-            this.label25.Text = "125";
-            // 
-            // label26
-            // 
-            this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(201)))), ((int)(((byte)(103)))));
-            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(965, 24);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(162, 32);
-            this.label26.TabIndex = 117;
-            this.label26.Text = "Số phòng đặt";
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(201)))), ((int)(((byte)(103)))));
-            this.pictureBox15.Image = global::HotelManagement.Properties.Resources.DatPhongChart;
-            this.pictureBox15.Location = new System.Drawing.Point(872, 24);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(65, 65);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox15.TabIndex = 115;
-            this.pictureBox15.TabStop = false;
-            // 
-            // chart6
-            // 
-            this.chart6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chart6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            chartArea11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            chartArea11.Name = "ChartArea1";
-            this.chart6.ChartAreas.Add(chartArea11);
-            legend11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            legend11.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend11.Name = "Legend1";
-            this.chart6.Legends.Add(legend11);
-            this.chart6.Location = new System.Drawing.Point(567, 108);
-            this.chart6.Name = "chart6";
-            this.chart6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series17.BorderWidth = 3;
-            series17.ChartArea = "ChartArea1";
-            series17.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series17.Color = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(201)))), ((int)(((byte)(103)))));
-            series17.Legend = "Legend1";
-            series17.MarkerSize = 8;
-            series17.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series17.Name = "Phòng thường đơn";
-            series18.BorderWidth = 3;
-            series18.ChartArea = "ChartArea1";
-            series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series18.Color = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(107)))), ((int)(((byte)(104)))));
-            series18.Legend = "Legend1";
-            series18.MarkerSize = 8;
-            series18.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series18.Name = "Phòng thường đôi";
-            series18.YValuesPerPoint = 3;
-            series19.BorderWidth = 3;
-            series19.ChartArea = "ChartArea1";
-            series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series19.Color = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(140)))), ((int)(((byte)(240)))));
-            series19.Legend = "Legend1";
-            series19.MarkerSize = 8;
-            series19.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series19.Name = "Phòng vip đơn";
-            series19.YValuesPerPoint = 3;
-            series20.BorderWidth = 3;
-            series20.ChartArea = "ChartArea1";
-            series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series20.Color = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(189)))), ((int)(((byte)(0)))));
-            series20.Legend = "Legend1";
-            series20.MarkerSize = 8;
-            series20.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-            series20.Name = "Phòng vip đôi";
-            this.chart6.Series.Add(series17);
-            this.chart6.Series.Add(series18);
-            this.chart6.Series.Add(series19);
-            this.chart6.Series.Add(series20);
-            this.chart6.Size = new System.Drawing.Size(652, 333);
-            this.chart6.TabIndex = 109;
-            this.chart6.Text = "chart6";
-            title11.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title11.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title11.ForeColor = System.Drawing.SystemColors.ControlText;
-            title11.Name = "Title1";
-            title11.Text = "Doanh thu thuê phòng";
-            this.chart6.Titles.Add(title11);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.lblPhong_TopDoanhThu_Ten);
-            this.panel5.Controls.Add(this.lblPhong_TopDoanhThu_GiaTri);
-            this.panel5.Controls.Add(this.lblPhong_TopDoanhThu_Title);
-            this.panel5.Location = new System.Drawing.Point(454, 15);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(363, 132);
-            this.panel5.TabIndex = 149;
-            // 
-            // lblPhong_TopDoanhThu_GiaTri
-            // 
-            this.lblPhong_TopDoanhThu_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblPhong_TopDoanhThu_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPhong_TopDoanhThu_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhong_TopDoanhThu_GiaTri.ForeColor = System.Drawing.Color.White;
-            this.lblPhong_TopDoanhThu_GiaTri.Location = new System.Drawing.Point(0, 75);
-            this.lblPhong_TopDoanhThu_GiaTri.Name = "lblPhong_TopDoanhThu_GiaTri";
-            this.lblPhong_TopDoanhThu_GiaTri.Size = new System.Drawing.Size(363, 57);
-            this.lblPhong_TopDoanhThu_GiaTri.TabIndex = 115;
-            this.lblPhong_TopDoanhThu_GiaTri.Text = "1,000,000,000";
-            this.lblPhong_TopDoanhThu_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPhong_TopDoanhThu_Title
-            // 
-            this.lblPhong_TopDoanhThu_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblPhong_TopDoanhThu_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblPhong_TopDoanhThu_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhong_TopDoanhThu_Title.ForeColor = System.Drawing.Color.White;
-            this.lblPhong_TopDoanhThu_Title.Location = new System.Drawing.Point(0, 0);
-            this.lblPhong_TopDoanhThu_Title.Name = "lblPhong_TopDoanhThu_Title";
-            this.lblPhong_TopDoanhThu_Title.Size = new System.Drawing.Size(363, 32);
-            this.lblPhong_TopDoanhThu_Title.TabIndex = 114;
-            this.lblPhong_TopDoanhThu_Title.Text = "Loại phòng doanh thu cao nhất";
-            this.lblPhong_TopDoanhThu_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPhong_TopDoanhThu_Ten
-            // 
-            this.lblPhong_TopDoanhThu_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblPhong_TopDoanhThu_Ten.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblPhong_TopDoanhThu_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhong_TopDoanhThu_Ten.ForeColor = System.Drawing.Color.White;
-            this.lblPhong_TopDoanhThu_Ten.Location = new System.Drawing.Point(0, 32);
-            this.lblPhong_TopDoanhThu_Ten.Name = "lblPhong_TopDoanhThu_Ten";
-            this.lblPhong_TopDoanhThu_Ten.Size = new System.Drawing.Size(363, 46);
-            this.lblPhong_TopDoanhThu_Ten.TabIndex = 116;
-            this.lblPhong_TopDoanhThu_Ten.Text = "Tên phòng";
-            this.lblPhong_TopDoanhThu_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.lblPhong_TopDat_Ten);
-            this.panel6.Controls.Add(this.lblPhong_TopDat_SoLan);
-            this.panel6.Controls.Add(this.lblPhong_TopDat_Title);
-            this.panel6.Location = new System.Drawing.Point(859, 15);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(363, 132);
-            this.panel6.TabIndex = 152;
-            // 
-            // lblPhong_TopDat_Ten
-            // 
-            this.lblPhong_TopDat_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblPhong_TopDat_Ten.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblPhong_TopDat_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhong_TopDat_Ten.ForeColor = System.Drawing.Color.White;
-            this.lblPhong_TopDat_Ten.Location = new System.Drawing.Point(0, 32);
-            this.lblPhong_TopDat_Ten.Name = "lblPhong_TopDat_Ten";
-            this.lblPhong_TopDat_Ten.Size = new System.Drawing.Size(363, 46);
-            this.lblPhong_TopDat_Ten.TabIndex = 116;
-            this.lblPhong_TopDat_Ten.Text = "Tên phòng";
-            this.lblPhong_TopDat_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPhong_TopDat_SoLan
-            // 
-            this.lblPhong_TopDat_SoLan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblPhong_TopDat_SoLan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPhong_TopDat_SoLan.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhong_TopDat_SoLan.ForeColor = System.Drawing.Color.White;
-            this.lblPhong_TopDat_SoLan.Location = new System.Drawing.Point(0, 75);
-            this.lblPhong_TopDat_SoLan.Name = "lblPhong_TopDat_SoLan";
-            this.lblPhong_TopDat_SoLan.Size = new System.Drawing.Size(363, 57);
-            this.lblPhong_TopDat_SoLan.TabIndex = 115;
-            this.lblPhong_TopDat_SoLan.Text = "1,000,000,000";
-            this.lblPhong_TopDat_SoLan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPhong_TopDat_Title
-            // 
-            this.lblPhong_TopDat_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblPhong_TopDat_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblPhong_TopDat_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhong_TopDat_Title.ForeColor = System.Drawing.Color.White;
-            this.lblPhong_TopDat_Title.Location = new System.Drawing.Point(0, 0);
-            this.lblPhong_TopDat_Title.Name = "lblPhong_TopDat_Title";
-            this.lblPhong_TopDat_Title.Size = new System.Drawing.Size(363, 32);
-            this.lblPhong_TopDat_Title.TabIndex = 114;
-            this.lblPhong_TopDat_Title.Text = "Loại phòng được đặt nhiều nhất";
-            this.lblPhong_TopDat_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chartPhong_Line
-            // 
-            this.chartPhong_Line.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            chartArea3.BackColor = System.Drawing.Color.Cornsilk;
-            chartArea3.Name = "ChartArea1";
-            this.chartPhong_Line.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.ForeColor = System.Drawing.Color.White;
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chartPhong_Line.Legends.Add(legend3);
-            this.chartPhong_Line.Location = new System.Drawing.Point(454, 416);
-            this.chartPhong_Line.Name = "chartPhong_Line";
-            this.chartPhong_Line.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartPhong_Line.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
-        System.Drawing.Color.DarkGoldenrod,
-        System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
-            series3.BorderWidth = 3;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.LabelForeColor = System.Drawing.Color.White;
-            series3.Legend = "Legend1";
-            series3.MarkerColor = System.Drawing.Color.White;
-            series3.Name = "Thường đơn";
-            series4.BorderWidth = 3;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "Thường đôi";
-            series5.BorderWidth = 3;
-            series5.ChartArea = "ChartArea1";
-            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series5.Legend = "Legend1";
-            series5.Name = "VIP đơn";
-            series6.BorderWidth = 3;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "VIP đôi";
-            this.chartPhong_Line.Series.Add(series3);
-            this.chartPhong_Line.Series.Add(series4);
-            this.chartPhong_Line.Series.Add(series5);
-            this.chartPhong_Line.Series.Add(series6);
-            this.chartPhong_Line.Size = new System.Drawing.Size(765, 242);
-            this.chartPhong_Line.TabIndex = 154;
-            this.chartPhong_Line.Text = "chart10";
-            title3.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.ForeColor = System.Drawing.SystemColors.Window;
-            title3.Name = "Doanh thu theo thời gian";
-            title3.Text = "Doanh thu theo thời gian";
-            this.chartPhong_Line.Titles.Add(title3);
-            this.chartPhong_Line.Click += new System.EventHandler(this.chartPhong_Line_Click);
-            // 
-            // chartPhong_Horizontal
-            // 
-            this.chartPhong_Horizontal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            chartArea2.BackColor = System.Drawing.Color.Cornsilk;
-            chartArea2.Name = "ChartArea1";
-            this.chartPhong_Horizontal.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.ForeColor = System.Drawing.Color.White;
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.chartPhong_Horizontal.Legends.Add(legend2);
-            this.chartPhong_Horizontal.Location = new System.Drawing.Point(464, 172);
-            this.chartPhong_Horizontal.Name = "chartPhong_Horizontal";
-            this.chartPhong_Horizontal.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartPhong_Horizontal.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
-        System.Drawing.Color.Olive,
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.Yellow,
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))))};
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.LabelForeColor = System.Drawing.Color.White;
-            series2.Legend = "Legend1";
-            series2.Name = "DoanhThu";
-            this.chartPhong_Horizontal.Series.Add(series2);
-            this.chartPhong_Horizontal.Size = new System.Drawing.Size(761, 227);
-            this.chartPhong_Horizontal.TabIndex = 155;
-            this.chartPhong_Horizontal.Text = "chart10";
-            title2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.ForeColor = System.Drawing.SystemColors.Window;
-            title2.Name = "Doanh thu theo loại phòng";
-            title2.Text = "Doanh thu theo loại phòng";
-            this.chartPhong_Horizontal.Titles.Add(title2);
-            // 
-            // chartPhong_TyTrong
-            // 
-            this.chartPhong_TyTrong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            chartArea1.Name = "ChartArea1";
-            this.chartPhong_TyTrong.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            legend1.BorderWidth = 2;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend1.ForeColor = System.Drawing.Color.White;
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chartPhong_TyTrong.Legends.Add(legend1);
-            this.chartPhong_TyTrong.Location = new System.Drawing.Point(24, 299);
-            this.chartPhong_TyTrong.Name = "chartPhong_TyTrong";
-            this.chartPhong_TyTrong.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartPhong_TyTrong.PaletteCustomColors = new System.Drawing.Color[] {
+            this.chartDV_Pie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea8.Name = "ChartArea1";
+            this.chartDV_Pie.ChartAreas.Add(chartArea8);
+            legend8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend8.BorderWidth = 2;
+            legend8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend8.ForeColor = System.Drawing.Color.White;
+            legend8.IsTextAutoFit = false;
+            legend8.Name = "Legend1";
+            this.chartDV_Pie.Legends.Add(legend8);
+            this.chartDV_Pie.Location = new System.Drawing.Point(24, 299);
+            this.chartDV_Pie.Name = "chartDV_Pie";
+            this.chartDV_Pie.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartDV_Pie.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.Label = "#PERCENT{P2}";
-            series1.LabelBackColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.LegendText = " #VALX";
-            series1.Name = "TyTrong";
-            this.chartPhong_TyTrong.Series.Add(series1);
-            this.chartPhong_TyTrong.Size = new System.Drawing.Size(395, 365);
-            this.chartPhong_TyTrong.TabIndex = 156;
-            this.chartPhong_TyTrong.Text = "chart10";
-            title1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.ForeColor = System.Drawing.SystemColors.Window;
-            title1.Name = "Tỷ trong đặt phòng";
-            title1.Text = "Tỷ trọng đặt phòng";
-            this.chartPhong_TyTrong.Titles.Add(title1);
-            this.chartPhong_TyTrong.Click += new System.EventHandler(this.chartPhong_TyTrong_Click);
+            series11.BorderWidth = 2;
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series11.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series11.Label = "#PERCENT{P2}";
+            series11.LabelBackColor = System.Drawing.Color.Transparent;
+            series11.Legend = "Legend1";
+            series11.LegendText = " #VALX";
+            series11.Name = "TyTrong";
+            this.chartDV_Pie.Series.Add(series11);
+            this.chartDV_Pie.Size = new System.Drawing.Size(395, 365);
+            this.chartDV_Pie.TabIndex = 156;
+            this.chartDV_Pie.Text = "chart10";
+            title8.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title8.ForeColor = System.Drawing.SystemColors.Window;
+            title8.Name = "Tỷ trong dịch vụ";
+            title8.Text = "Tỷ trong dịch vụ";
+            this.chartDV_Pie.Titles.Add(title8);
             // 
-            // panel7
+            // chartDV_Top5
             // 
-            this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(420, 261);
-            this.panel7.TabIndex = 160;
+            this.chartDV_Top5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea9.AxisX.IsLabelAutoFit = false;
+            chartArea9.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea9.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea9.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea9.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea9.Name = "ChartArea1";
+            this.chartDV_Top5.ChartAreas.Add(chartArea9);
+            legend9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend9.Enabled = false;
+            legend9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend9.ForeColor = System.Drawing.Color.White;
+            legend9.IsTextAutoFit = false;
+            legend9.Name = "Legend1";
+            this.chartDV_Top5.Legends.Add(legend9);
+            this.chartDV_Top5.Location = new System.Drawing.Point(464, 172);
+            this.chartDV_Top5.Name = "chartDV_Top5";
+            this.chartDV_Top5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartDV_Top5.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.Olive,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))))};
+            series12.BorderWidth = 2;
+            series12.ChartArea = "ChartArea1";
+            series12.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series12.IsXValueIndexed = true;
+            series12.LabelForeColor = System.Drawing.Color.White;
+            series12.Legend = "Legend1";
+            series12.Name = "DoanhThu";
+            this.chartDV_Top5.Series.Add(series12);
+            this.chartDV_Top5.Size = new System.Drawing.Size(761, 227);
+            this.chartDV_Top5.TabIndex = 155;
+            this.chartDV_Top5.Text = "chart10";
+            title9.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title9.ForeColor = System.Drawing.SystemColors.Window;
+            title9.Name = "Top 5 doanh thu dịch vụ";
+            title9.Text = "Top 5 doanh thu dịch vụ";
+            this.chartDV_Top5.Titles.Add(title9);
             // 
-            // label4
+            // chartDV_Line
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.chartDV_Line.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea10.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea10.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea10.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea10.Name = "ChartArea1";
+            this.chartDV_Line.ChartAreas.Add(chartArea10);
+            legend10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend10.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend10.ForeColor = System.Drawing.Color.White;
+            legend10.IsTextAutoFit = false;
+            legend10.Name = "Legend1";
+            this.chartDV_Line.Legends.Add(legend10);
+            this.chartDV_Line.Location = new System.Drawing.Point(454, 416);
+            this.chartDV_Line.Name = "chartDV_Line";
+            this.chartDV_Line.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartDV_Line.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.DarkGoldenrod,
+        System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
+            series13.BorderWidth = 3;
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series13.LabelForeColor = System.Drawing.Color.White;
+            series13.Legend = "Legend1";
+            series13.LegendText = "Doanh Thu";
+            series13.MarkerColor = System.Drawing.Color.White;
+            series13.Name = "Doanh Thu Dịch Vụ";
+            this.chartDV_Line.Series.Add(series13);
+            this.chartDV_Line.Size = new System.Drawing.Size(765, 242);
+            this.chartDV_Line.TabIndex = 154;
+            this.chartDV_Line.Text = "chart10";
+            title10.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title10.ForeColor = System.Drawing.SystemColors.Window;
+            title10.Name = "Doanh thu dịch vụ theo thời gian";
+            title10.Text = "Doanh thu dịch vụ theo thời gian";
+            this.chartDV_Line.Titles.Add(title10);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.Transparent;
+            this.panel10.Controls.Add(this.lblDV_TopSL_Ten);
+            this.panel10.Controls.Add(this.lblDV_TopSL_SoLan);
+            this.panel10.Controls.Add(this.lblDV_TopSL_Title);
+            this.panel10.Location = new System.Drawing.Point(859, 15);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(363, 132);
+            this.panel10.TabIndex = 152;
+            // 
+            // lblDV_TopSL_Ten
+            // 
+            this.lblDV_TopSL_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblDV_TopSL_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDV_TopSL_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDV_TopSL_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblDV_TopSL_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblDV_TopSL_Ten.Name = "lblDV_TopSL_Ten";
+            this.lblDV_TopSL_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblDV_TopSL_Ten.TabIndex = 116;
+            this.lblDV_TopSL_Ten.Text = "Tên phòng";
+            this.lblDV_TopSL_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDV_TopSL_SoLan
+            // 
+            this.lblDV_TopSL_SoLan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblDV_TopSL_SoLan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblDV_TopSL_SoLan.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDV_TopSL_SoLan.ForeColor = System.Drawing.Color.White;
+            this.lblDV_TopSL_SoLan.Location = new System.Drawing.Point(0, 75);
+            this.lblDV_TopSL_SoLan.Name = "lblDV_TopSL_SoLan";
+            this.lblDV_TopSL_SoLan.Size = new System.Drawing.Size(363, 57);
+            this.lblDV_TopSL_SoLan.TabIndex = 115;
+            this.lblDV_TopSL_SoLan.Text = "1,000,000,000";
+            this.lblDV_TopSL_SoLan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDV_TopSL_Title
+            // 
+            this.lblDV_TopSL_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblDV_TopSL_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDV_TopSL_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDV_TopSL_Title.ForeColor = System.Drawing.Color.White;
+            this.lblDV_TopSL_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblDV_TopSL_Title.Name = "lblDV_TopSL_Title";
+            this.lblDV_TopSL_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblDV_TopSL_Title.TabIndex = 114;
+            this.lblDV_TopSL_Title.Text = "Dịch vụ sử dụng nhiều nhất";
+            this.lblDV_TopSL_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.Transparent;
+            this.panel11.Controls.Add(this.lblDV_TopDT_Ten);
+            this.panel11.Controls.Add(this.lblDV_TopDT_GiaTri);
+            this.panel11.Controls.Add(this.lblDV_TopDT_Title);
+            this.panel11.Location = new System.Drawing.Point(454, 15);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(363, 132);
+            this.panel11.TabIndex = 149;
+            // 
+            // lblDV_TopDT_Ten
+            // 
+            this.lblDV_TopDT_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblDV_TopDT_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDV_TopDT_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDV_TopDT_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblDV_TopDT_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblDV_TopDT_Ten.Name = "lblDV_TopDT_Ten";
+            this.lblDV_TopDT_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblDV_TopDT_Ten.TabIndex = 116;
+            this.lblDV_TopDT_Ten.Text = "Tên phòng";
+            this.lblDV_TopDT_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDV_TopDT_GiaTri
+            // 
+            this.lblDV_TopDT_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblDV_TopDT_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblDV_TopDT_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDV_TopDT_GiaTri.ForeColor = System.Drawing.Color.White;
+            this.lblDV_TopDT_GiaTri.Location = new System.Drawing.Point(0, 75);
+            this.lblDV_TopDT_GiaTri.Name = "lblDV_TopDT_GiaTri";
+            this.lblDV_TopDT_GiaTri.Size = new System.Drawing.Size(363, 57);
+            this.lblDV_TopDT_GiaTri.TabIndex = 115;
+            this.lblDV_TopDT_GiaTri.Text = "1,000,000,000";
+            this.lblDV_TopDT_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDV_TopDT_Title
+            // 
+            this.lblDV_TopDT_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblDV_TopDT_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblDV_TopDT_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDV_TopDT_Title.ForeColor = System.Drawing.Color.White;
+            this.lblDV_TopDT_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblDV_TopDT_Title.Name = "lblDV_TopDT_Title";
+            this.lblDV_TopDT_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblDV_TopDT_Title.TabIndex = 114;
+            this.lblDV_TopDT_Title.Text = "Dịch vụ doanh thu cao nhất";
+            this.lblDV_TopDT_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
+            this.panel12.Controls.Add(this.panel16);
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Controls.Add(this.chartKH_SoKhach);
+            this.panel12.Controls.Add(this.chartKH_TopChiTieu);
+            this.panel12.Controls.Add(this.ctPanel23);
+            this.panel12.Controls.Add(this.ctPanel10);
+            this.panel12.Controls.Add(this.ctPanel20);
+            this.panel12.Controls.Add(this.panel14);
+            this.panel12.Controls.Add(this.ctPanel21);
+            this.panel12.Controls.Add(this.panel15);
+            this.panel12.Controls.Add(this.ctPanel22);
+            this.panel12.Location = new System.Drawing.Point(1, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1240, 681);
+            this.panel12.TabIndex = 148;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Transparent;
+            this.panel13.Controls.Add(this.label2);
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1251, 83);
+            this.panel13.TabIndex = 160;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(420, 261);
-            this.label4.TabIndex = 147;
-            this.label4.Text = "BÁO CÁO PHÒNG";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1251, 83);
+            this.label2.TabIndex = 147;
+            this.label2.Text = "BÁO CÁO KHÁCH HÀNG";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chartKH_SoKhach
+            // 
+            this.chartKH_SoKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea6.AxisX.IsLabelAutoFit = false;
+            chartArea6.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea6.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea6.Name = "ChartArea1";
+            this.chartKH_SoKhach.ChartAreas.Add(chartArea6);
+            legend6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend6.Enabled = false;
+            legend6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend6.ForeColor = System.Drawing.Color.White;
+            legend6.IsTextAutoFit = false;
+            legend6.Name = "Legend1";
+            this.chartKH_SoKhach.Legends.Add(legend6);
+            this.chartKH_SoKhach.Location = new System.Drawing.Point(427, 96);
+            this.chartKH_SoKhach.Name = "chartKH_SoKhach";
+            this.chartKH_SoKhach.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartKH_SoKhach.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.Olive,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))))};
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "KhachHang";
+            this.chartKH_SoKhach.Series.Add(series9);
+            this.chartKH_SoKhach.Size = new System.Drawing.Size(800, 276);
+            this.chartKH_SoKhach.TabIndex = 155;
+            this.chartKH_SoKhach.Text = "chart10";
+            title6.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title6.ForeColor = System.Drawing.SystemColors.Window;
+            title6.Name = "Số khách theo thời gian";
+            title6.Text = "Số khách theo thời gian";
+            this.chartKH_SoKhach.Titles.Add(title6);
+            // 
+            // chartKH_TopChiTieu
+            // 
+            this.chartKH_TopChiTieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea7.Name = "ChartArea1";
+            this.chartKH_TopChiTieu.ChartAreas.Add(chartArea7);
+            legend7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend7.ForeColor = System.Drawing.Color.White;
+            legend7.IsTextAutoFit = false;
+            legend7.Name = "Legend1";
+            this.chartKH_TopChiTieu.Legends.Add(legend7);
+            this.chartKH_TopChiTieu.Location = new System.Drawing.Point(413, 388);
+            this.chartKH_TopChiTieu.Name = "chartKH_TopChiTieu";
+            this.chartKH_TopChiTieu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartKH_TopChiTieu.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.DarkGoldenrod,
+        System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
+            series10.ChartArea = "ChartArea1";
+            series10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series10.LabelForeColor = System.Drawing.Color.White;
+            series10.Legend = "Legend1";
+            series10.LegendText = "Đồng";
+            series10.MarkerColor = System.Drawing.Color.White;
+            series10.Name = "Dong";
+            this.chartKH_TopChiTieu.Series.Add(series10);
+            this.chartKH_TopChiTieu.Size = new System.Drawing.Size(806, 270);
+            this.chartKH_TopChiTieu.TabIndex = 154;
+            this.chartKH_TopChiTieu.Text = "chart10";
+            title7.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title7.ForeColor = System.Drawing.SystemColors.Window;
+            title7.Name = "Top 5 khách hàng chi tiêu nhiều nhất";
+            title7.Text = "Top 5 khách hàng chi tiêu nhiều nhất";
+            this.chartKH_TopChiTieu.Titles.Add(title7);
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Transparent;
+            this.panel14.Controls.Add(this.lblKH_TopDat_Ten);
+            this.panel14.Controls.Add(this.lblKH_TopDat_SoLan);
+            this.panel14.Controls.Add(this.lblKH_TopDat_Title);
+            this.panel14.Location = new System.Drawing.Point(19, 467);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(363, 132);
+            this.panel14.TabIndex = 152;
+            // 
+            // lblKH_TopDat_Ten
+            // 
+            this.lblKH_TopDat_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopDat_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopDat_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopDat_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopDat_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblKH_TopDat_Ten.Name = "lblKH_TopDat_Ten";
+            this.lblKH_TopDat_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblKH_TopDat_Ten.TabIndex = 116;
+            this.lblKH_TopDat_Ten.Text = "Tên khách";
+            this.lblKH_TopDat_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopDat_SoLan
+            // 
+            this.lblKH_TopDat_SoLan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopDat_SoLan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblKH_TopDat_SoLan.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopDat_SoLan.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopDat_SoLan.Location = new System.Drawing.Point(0, 75);
+            this.lblKH_TopDat_SoLan.Name = "lblKH_TopDat_SoLan";
+            this.lblKH_TopDat_SoLan.Size = new System.Drawing.Size(363, 57);
+            this.lblKH_TopDat_SoLan.TabIndex = 115;
+            this.lblKH_TopDat_SoLan.Text = "1,000,000,000";
+            this.lblKH_TopDat_SoLan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopDat_Title
+            // 
+            this.lblKH_TopDat_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopDat_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopDat_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopDat_Title.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopDat_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblKH_TopDat_Title.Name = "lblKH_TopDat_Title";
+            this.lblKH_TopDat_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblKH_TopDat_Title.TabIndex = 114;
+            this.lblKH_TopDat_Title.Text = "Khách đặt phòng nhiều nhất";
+            this.lblKH_TopDat_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopChiTieu_Title
+            // 
+            this.lblKH_TopChiTieu_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopChiTieu_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopChiTieu_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopChiTieu_Title.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopChiTieu_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblKH_TopChiTieu_Title.Name = "lblKH_TopChiTieu_Title";
+            this.lblKH_TopChiTieu_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblKH_TopChiTieu_Title.TabIndex = 114;
+            this.lblKH_TopChiTieu_Title.Text = "Khách chi tiêu nhiều nhất";
+            this.lblKH_TopChiTieu_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopChiTieu_GiaTri
+            // 
+            this.lblKH_TopChiTieu_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopChiTieu_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblKH_TopChiTieu_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopChiTieu_GiaTri.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopChiTieu_GiaTri.Location = new System.Drawing.Point(0, 75);
+            this.lblKH_TopChiTieu_GiaTri.Name = "lblKH_TopChiTieu_GiaTri";
+            this.lblKH_TopChiTieu_GiaTri.Size = new System.Drawing.Size(363, 57);
+            this.lblKH_TopChiTieu_GiaTri.TabIndex = 115;
+            this.lblKH_TopChiTieu_GiaTri.Text = "1,000,000,000";
+            this.lblKH_TopChiTieu_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopChiTieu_Ten
+            // 
+            this.lblKH_TopChiTieu_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopChiTieu_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopChiTieu_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopChiTieu_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopChiTieu_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblKH_TopChiTieu_Ten.Name = "lblKH_TopChiTieu_Ten";
+            this.lblKH_TopChiTieu_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblKH_TopChiTieu_Ten.TabIndex = 116;
+            this.lblKH_TopChiTieu_Ten.Text = "Tên phòng";
+            this.lblKH_TopChiTieu_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.Transparent;
+            this.panel15.Controls.Add(this.lblKH_TopChiTieu_Ten);
+            this.panel15.Controls.Add(this.lblKH_TopChiTieu_GiaTri);
+            this.panel15.Controls.Add(this.lblKH_TopChiTieu_Title);
+            this.panel15.Location = new System.Drawing.Point(19, 304);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(363, 132);
+            this.panel15.TabIndex = 149;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.Transparent;
+            this.panel16.Controls.Add(this.lblKH_TongKhach_GiaTri);
+            this.panel16.Controls.Add(this.lblKH_TongKhach_Title);
+            this.panel16.Location = new System.Drawing.Point(27, 148);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(363, 132);
+            this.panel16.TabIndex = 150;
+            // 
+            // lblKH_TongKhach_GiaTri
+            // 
+            this.lblKH_TongKhach_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TongKhach_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblKH_TongKhach_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TongKhach_GiaTri.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TongKhach_GiaTri.Location = new System.Drawing.Point(0, 58);
+            this.lblKH_TongKhach_GiaTri.Name = "lblKH_TongKhach_GiaTri";
+            this.lblKH_TongKhach_GiaTri.Size = new System.Drawing.Size(363, 74);
+            this.lblKH_TongKhach_GiaTri.TabIndex = 115;
+            this.lblKH_TongKhach_GiaTri.Text = "1,000,000,000";
+            this.lblKH_TongKhach_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TongKhach_Title
+            // 
+            this.lblKH_TongKhach_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TongKhach_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TongKhach_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TongKhach_Title.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TongKhach_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblKH_TongKhach_Title.Name = "lblKH_TongKhach_Title";
+            this.lblKH_TongKhach_Title.Size = new System.Drawing.Size(363, 75);
+            this.lblKH_TongKhach_Title.TabIndex = 114;
+            this.lblKH_TongKhach_Title.Text = "Tổng số khách hàng";
+            this.lblKH_TongKhach_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpNgayKT
+            // 
+            this.dtpNgayKT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpNgayKT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.dtpNgayKT.BorderSize = 2;
+            this.dtpNgayKT.CustomFormat = "MMM dd, yyyy";
+            this.dtpNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dtpNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayKT.Location = new System.Drawing.Point(225, 12);
+            this.dtpNgayKT.MinimumSize = new System.Drawing.Size(0, 35);
+            this.dtpNgayKT.Name = "dtpNgayKT";
+            this.dtpNgayKT.Size = new System.Drawing.Size(135, 35);
+            this.dtpNgayKT.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
+            this.dtpNgayKT.TabIndex = 3;
+            this.dtpNgayKT.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            // 
+            // dtpNgayBD
+            // 
+            this.dtpNgayBD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpNgayBD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.dtpNgayBD.BorderSize = 2;
+            this.dtpNgayBD.CustomFormat = "MMM dd, yyyy";
+            this.dtpNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dtpNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayBD.Location = new System.Drawing.Point(53, 14);
+            this.dtpNgayBD.MinimumSize = new System.Drawing.Size(0, 35);
+            this.dtpNgayBD.Name = "dtpNgayBD";
+            this.dtpNgayBD.Size = new System.Drawing.Size(135, 35);
+            this.dtpNgayBD.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
+            this.dtpNgayBD.TabIndex = 3;
+            this.dtpNgayBD.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            // 
+            // ctPanel23
+            // 
+            this.ctPanel23.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel23.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel23.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel23.BorderRadius = 30;
+            this.ctPanel23.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel23.GradientAngle = 90F;
+            this.ctPanel23.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel23.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel23.Location = new System.Drawing.Point(16, 136);
+            this.ctPanel23.Name = "ctPanel23";
+            this.ctPanel23.Size = new System.Drawing.Size(383, 147);
+            this.ctPanel23.TabIndex = 161;
+            // 
+            // ctPanel10
+            // 
+            this.ctPanel10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel10.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel10.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel10.BorderRadius = 30;
+            this.ctPanel10.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel10.GradientAngle = 90F;
+            this.ctPanel10.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel10.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel10.Location = new System.Drawing.Point(409, 381);
+            this.ctPanel10.Name = "ctPanel10";
+            this.ctPanel10.Size = new System.Drawing.Size(825, 290);
+            this.ctPanel10.TabIndex = 157;
+            // 
+            // ctPanel20
+            // 
+            this.ctPanel20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel20.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel20.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel20.BorderRadius = 30;
+            this.ctPanel20.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel20.GradientAngle = 90F;
+            this.ctPanel20.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel20.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel20.Location = new System.Drawing.Point(413, 87);
+            this.ctPanel20.Name = "ctPanel20";
+            this.ctPanel20.Size = new System.Drawing.Size(819, 289);
+            this.ctPanel20.TabIndex = 159;
+            // 
+            // ctPanel21
+            // 
+            this.ctPanel21.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel21.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel21.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel21.BorderRadius = 30;
+            this.ctPanel21.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel21.GradientAngle = 90F;
+            this.ctPanel21.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel21.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel21.Location = new System.Drawing.Point(15, 461);
+            this.ctPanel21.Name = "ctPanel21";
+            this.ctPanel21.Size = new System.Drawing.Size(377, 147);
+            this.ctPanel21.TabIndex = 153;
+            // 
+            // ctPanel22
+            // 
+            this.ctPanel22.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel22.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel22.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel22.BorderRadius = 30;
+            this.ctPanel22.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel22.GradientAngle = 90F;
+            this.ctPanel22.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel22.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel22.Location = new System.Drawing.Point(15, 298);
+            this.ctPanel22.Name = "ctPanel22";
+            this.ctPanel22.Size = new System.Drawing.Size(383, 147);
+            this.ctPanel22.TabIndex = 151;
+            // 
+            // ctPanel14
+            // 
+            this.ctPanel14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel14.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel14.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel14.BorderRadius = 30;
+            this.ctPanel14.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel14.GradientAngle = 90F;
+            this.ctPanel14.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel14.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel14.Location = new System.Drawing.Point(450, 409);
+            this.ctPanel14.Name = "ctPanel14";
+            this.ctPanel14.Size = new System.Drawing.Size(784, 262);
+            this.ctPanel14.TabIndex = 157;
+            // 
+            // ctPanel15
+            // 
+            this.ctPanel15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel15.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel15.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel15.BorderRadius = 30;
+            this.ctPanel15.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel15.GradientAngle = 90F;
+            this.ctPanel15.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel15.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel15.Location = new System.Drawing.Point(7, 286);
+            this.ctPanel15.Name = "ctPanel15";
+            this.ctPanel15.Size = new System.Drawing.Size(432, 385);
+            this.ctPanel15.TabIndex = 158;
+            // 
+            // ctPanel16
+            // 
+            this.ctPanel16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel16.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel16.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel16.BorderRadius = 30;
+            this.ctPanel16.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel16.GradientAngle = 90F;
+            this.ctPanel16.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel16.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel16.Location = new System.Drawing.Point(450, 163);
+            this.ctPanel16.Name = "ctPanel16";
+            this.ctPanel16.Size = new System.Drawing.Size(784, 240);
+            this.ctPanel16.TabIndex = 159;
+            // 
+            // ctPanel17
+            // 
+            this.ctPanel17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel17.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel17.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel17.BorderRadius = 30;
+            this.ctPanel17.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel17.GradientAngle = 90F;
+            this.ctPanel17.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel17.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel17.Location = new System.Drawing.Point(855, 9);
+            this.ctPanel17.Name = "ctPanel17";
+            this.ctPanel17.Size = new System.Drawing.Size(377, 147);
+            this.ctPanel17.TabIndex = 153;
+            // 
+            // ctPanel18
+            // 
+            this.ctPanel18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel18.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel18.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel18.BorderRadius = 30;
+            this.ctPanel18.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel18.GradientAngle = 90F;
+            this.ctPanel18.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel18.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel18.Location = new System.Drawing.Point(450, 9);
+            this.ctPanel18.Name = "ctPanel18";
+            this.ctPanel18.Size = new System.Drawing.Size(383, 147);
+            this.ctPanel18.TabIndex = 151;
             // 
             // ctPanel11
             // 
@@ -1776,227 +1874,11 @@
             this.ctPanel5.Size = new System.Drawing.Size(853, 246);
             this.ctPanel5.TabIndex = 121;
             // 
-            // ctPanel22
-            // 
-            this.ctPanel22.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel22.BackColor = System.Drawing.Color.White;
-            this.ctPanel22.BorderRadius = 15;
-            this.ctPanel22.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel22.GradientAngle = 90F;
-            this.ctPanel22.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel22.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel22.Location = new System.Drawing.Point(10, 316);
-            this.ctPanel22.Name = "ctPanel22";
-            this.ctPanel22.Size = new System.Drawing.Size(539, 91);
-            this.ctPanel22.TabIndex = 125;
-            // 
-            // ctPanel26
-            // 
-            this.ctPanel26.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel26.BackColor = System.Drawing.Color.White;
-            this.ctPanel26.BorderRadius = 15;
-            this.ctPanel26.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel26.GradientAngle = 90F;
-            this.ctPanel26.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel26.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel26.Location = new System.Drawing.Point(10, 212);
-            this.ctPanel26.Name = "ctPanel26";
-            this.ctPanel26.Size = new System.Drawing.Size(540, 98);
-            this.ctPanel26.TabIndex = 124;
-            // 
-            // ctPanel27
-            // 
-            this.ctPanel27.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel27.BackColor = System.Drawing.Color.White;
-            this.ctPanel27.BorderRadius = 15;
-            this.ctPanel27.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel27.GradientAngle = 90F;
-            this.ctPanel27.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel27.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel27.Location = new System.Drawing.Point(13, 108);
-            this.ctPanel27.Name = "ctPanel27";
-            this.ctPanel27.Size = new System.Drawing.Size(537, 98);
-            this.ctPanel27.TabIndex = 123;
-            // 
-            // ctPanel29
-            // 
-            this.ctPanel29.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel29.BackColor = System.Drawing.Color.White;
-            this.ctPanel29.BorderRadius = 15;
-            this.ctPanel29.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel29.GradientAngle = 90F;
-            this.ctPanel29.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel29.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel29.Location = new System.Drawing.Point(556, 108);
-            this.ctPanel29.Name = "ctPanel29";
-            this.ctPanel29.Size = new System.Drawing.Size(674, 350);
-            this.ctPanel29.TabIndex = 120;
-            // 
-            // ctPanel30
-            // 
-            this.ctPanel30.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel30.BackColor = System.Drawing.Color.White;
-            this.ctPanel30.BorderRadius = 15;
-            this.ctPanel30.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel30.GradientAngle = 90F;
-            this.ctPanel30.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel30.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel30.Location = new System.Drawing.Point(555, 463);
-            this.ctPanel30.Name = "ctPanel30";
-            this.ctPanel30.Size = new System.Drawing.Size(675, 208);
-            this.ctPanel30.TabIndex = 121;
-            // 
-            // ctPanel31
-            // 
-            this.ctPanel31.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel31.BackColor = System.Drawing.Color.White;
-            this.ctPanel31.BorderRadius = 15;
-            this.ctPanel31.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel31.GradientAngle = 90F;
-            this.ctPanel31.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel31.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel31.Location = new System.Drawing.Point(12, 413);
-            this.ctPanel31.Name = "ctPanel31";
-            this.ctPanel31.Size = new System.Drawing.Size(537, 258);
-            this.ctPanel31.TabIndex = 122;
-            // 
-            // dtpNgayKT
-            // 
-            this.dtpNgayKT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpNgayKT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.dtpNgayKT.BorderSize = 2;
-            this.dtpNgayKT.CustomFormat = "MMM dd, yyyy";
-            this.dtpNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.dtpNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayKT.Location = new System.Drawing.Point(225, 12);
-            this.dtpNgayKT.MinimumSize = new System.Drawing.Size(0, 35);
-            this.dtpNgayKT.Name = "dtpNgayKT";
-            this.dtpNgayKT.Size = new System.Drawing.Size(135, 35);
-            this.dtpNgayKT.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.dtpNgayKT.TabIndex = 3;
-            this.dtpNgayKT.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            // 
-            // dtpNgayBD
-            // 
-            this.dtpNgayBD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtpNgayBD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.dtpNgayBD.BorderSize = 2;
-            this.dtpNgayBD.CustomFormat = "MMM dd, yyyy";
-            this.dtpNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.dtpNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayBD.Location = new System.Drawing.Point(53, 14);
-            this.dtpNgayBD.MinimumSize = new System.Drawing.Size(0, 35);
-            this.dtpNgayBD.Name = "dtpNgayBD";
-            this.dtpNgayBD.Size = new System.Drawing.Size(135, 35);
-            this.dtpNgayBD.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.dtpNgayBD.TabIndex = 3;
-            this.dtpNgayBD.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            // 
-            // ctPanel10
-            // 
-            this.ctPanel10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel10.BackColor = System.Drawing.Color.White;
-            this.ctPanel10.BorderRadius = 15;
-            this.ctPanel10.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel10.GradientAngle = 90F;
-            this.ctPanel10.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel10.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel10.Location = new System.Drawing.Point(10, 316);
-            this.ctPanel10.Name = "ctPanel10";
-            this.ctPanel10.Size = new System.Drawing.Size(539, 91);
-            this.ctPanel10.TabIndex = 125;
-            // 
-            // ctPanel19
-            // 
-            this.ctPanel19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel19.BackColor = System.Drawing.Color.White;
-            this.ctPanel19.BorderRadius = 15;
-            this.ctPanel19.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel19.GradientAngle = 90F;
-            this.ctPanel19.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel19.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel19.Location = new System.Drawing.Point(10, 212);
-            this.ctPanel19.Name = "ctPanel19";
-            this.ctPanel19.Size = new System.Drawing.Size(540, 98);
-            this.ctPanel19.TabIndex = 124;
-            // 
-            // ctPanel20
-            // 
-            this.ctPanel20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel20.BackColor = System.Drawing.Color.White;
-            this.ctPanel20.BorderRadius = 15;
-            this.ctPanel20.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel20.GradientAngle = 90F;
-            this.ctPanel20.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel20.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel20.Location = new System.Drawing.Point(13, 108);
-            this.ctPanel20.Name = "ctPanel20";
-            this.ctPanel20.Size = new System.Drawing.Size(537, 98);
-            this.ctPanel20.TabIndex = 123;
-            // 
-            // ctPanel21
-            // 
-            this.ctPanel21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.ctPanel21.BorderRadius = 15;
-            this.ctPanel21.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel21.GradientAngle = 90F;
-            this.ctPanel21.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(201)))), ((int)(((byte)(103)))));
-            this.ctPanel21.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(201)))), ((int)(((byte)(103)))));
-            this.ctPanel21.Location = new System.Drawing.Point(834, 10);
-            this.ctPanel21.Name = "ctPanel21";
-            this.ctPanel21.Size = new System.Drawing.Size(396, 92);
-            this.ctPanel21.TabIndex = 111;
-            // 
-            // ctPanel23
-            // 
-            this.ctPanel23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel23.BackColor = System.Drawing.Color.White;
-            this.ctPanel23.BorderRadius = 15;
-            this.ctPanel23.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel23.GradientAngle = 90F;
-            this.ctPanel23.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel23.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel23.Location = new System.Drawing.Point(556, 108);
-            this.ctPanel23.Name = "ctPanel23";
-            this.ctPanel23.Size = new System.Drawing.Size(674, 350);
-            this.ctPanel23.TabIndex = 120;
-            // 
-            // ctPanel24
-            // 
-            this.ctPanel24.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel24.BackColor = System.Drawing.Color.White;
-            this.ctPanel24.BorderRadius = 15;
-            this.ctPanel24.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel24.GradientAngle = 90F;
-            this.ctPanel24.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel24.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel24.Location = new System.Drawing.Point(555, 463);
-            this.ctPanel24.Name = "ctPanel24";
-            this.ctPanel24.Size = new System.Drawing.Size(675, 208);
-            this.ctPanel24.TabIndex = 121;
-            // 
-            // ctPanel25
-            // 
-            this.ctPanel25.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel25.BackColor = System.Drawing.Color.White;
-            this.ctPanel25.BorderRadius = 15;
-            this.ctPanel25.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel25.GradientAngle = 90F;
-            this.ctPanel25.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel25.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(184)))), ((int)(((byte)(184)))));
-            this.ctPanel25.Location = new System.Drawing.Point(12, 413);
-            this.ctPanel25.Name = "ctPanel25";
-            this.ctPanel25.Size = new System.Drawing.Size(537, 258);
-            this.ctPanel25.TabIndex = 122;
-            // 
             // FormThongKe
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
-            this.Controls.Add(this.pnlPhong);
-            this.Controls.Add(this.pnlTongQuan);
             this.Controls.Add(this.btnTongQuan);
             this.Controls.Add(this.btnKhach);
             this.Controls.Add(this.btnDichVu);
@@ -2013,14 +1895,22 @@
             this.Controls.Add(this.dtpNgayKT);
             this.Controls.Add(this.dtpNgayBD);
             this.Controls.Add(this.LabelThongKe);
-            this.Controls.Add(this.pnlDichVu);
             this.Controls.Add(this.pnlKhach);
+            this.Controls.Add(this.pnlDichVu);
+            this.Controls.Add(this.pnlPhong);
+            this.Controls.Add(this.pnlTongQuan);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormThongKe";
             this.Text = "FormThongKe";
             ((System.ComponentModel.ISupportInitialize)(this.Printer_ThongKe)).EndInit();
             this.pnlPhong.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_TyTrong)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Horizontal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Line)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartSoPhongDat)).EndInit();
             this.pnlTongQuan.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -2030,28 +1920,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThuTong)).EndInit();
             this.pnlTDT.ResumeLayout(false);
             this.pnlKhach.ResumeLayout(false);
-            this.pnlKhach.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart9)).EndInit();
             this.pnlDichVu.ResumeLayout(false);
-            this.pnlDichVu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chart6)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Line)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_Horizontal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPhong_TyTrong)).EndInit();
-            this.panel7.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartDV_Pie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDV_Top5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDV_Line)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_SoKhach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_TopChiTieu)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2083,53 +1966,7 @@
         private CTPanel.CTPanel ctPanel2;
         private System.Windows.Forms.Panel pnlTongQuan;
         private System.Windows.Forms.Panel pnlKhach;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.PictureBox pictureBox16;
-        private System.Windows.Forms.PictureBox pictureBox17;
-        private System.Windows.Forms.PictureBox pictureBox18;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private CTPanel.CTPanel ctPanel22;
-        private CTPanel.CTPanel ctPanel26;
-        private CTPanel.CTPanel ctPanel27;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart7;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart8;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart9;
-        private CTPanel.CTPanel ctPanel29;
-        private CTPanel.CTPanel ctPanel30;
-        private CTPanel.CTPanel ctPanel31;
         private System.Windows.Forms.Panel pnlDichVu;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private CTPanel.CTPanel ctPanel10;
-        private CTPanel.CTPanel ctPanel19;
-        private CTPanel.CTPanel ctPanel20;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart5;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private CTPanel.CTPanel ctPanel21;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart6;
-        private CTPanel.CTPanel ctPanel23;
-        private CTPanel.CTPanel ctPanel24;
-        private CTPanel.CTPanel ctPanel25;
         private CTPanel.CTPanel ctPanel6;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartDoanhThuTong;
         private CTPanel.CTPanel ctPanel7;
@@ -2165,5 +2002,45 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label4;
         private CTPanel.CTPanel ctPanel13;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDV_Pie;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDV_Top5;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartDV_Line;
+        private CTPanel.CTPanel ctPanel14;
+        private CTPanel.CTPanel ctPanel15;
+        private CTPanel.CTPanel ctPanel16;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label lblDV_TopSL_Ten;
+        private System.Windows.Forms.Label lblDV_TopSL_SoLan;
+        private System.Windows.Forms.Label lblDV_TopSL_Title;
+        private CTPanel.CTPanel ctPanel17;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label lblDV_TopDT_Ten;
+        private System.Windows.Forms.Label lblDV_TopDT_GiaTri;
+        private System.Windows.Forms.Label lblDV_TopDT_Title;
+        private CTPanel.CTPanel ctPanel18;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartKH_SoKhach;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartKH_TopChiTieu;
+        private CTPanel.CTPanel ctPanel20;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label lblKH_TopDat_Ten;
+        private System.Windows.Forms.Label lblKH_TopDat_SoLan;
+        private System.Windows.Forms.Label lblKH_TopDat_Title;
+        private CTPanel.CTPanel ctPanel21;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Label lblKH_TongKhach_GiaTri;
+        private System.Windows.Forms.Label lblKH_TongKhach_Title;
+        private CTPanel.CTPanel ctPanel23;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label lblKH_TopChiTieu_Ten;
+        private System.Windows.Forms.Label lblKH_TopChiTieu_GiaTri;
+        private System.Windows.Forms.Label lblKH_TopChiTieu_Title;
+        private CTPanel.CTPanel ctPanel22;
+        private CTPanel.CTPanel ctPanel10;
     }
 }
