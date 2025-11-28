@@ -1,20 +1,14 @@
-﻿ using HotelManagement.BUS;
+﻿using HotelManagement.BUS;
 using HotelManagement.CTControls;
-using HotelManagement.DAO;
 using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HotelManagement.GUI
 {
@@ -26,8 +20,7 @@ namespace HotelManagement.GUI
         private List<CTDV> dichVusDaDat = new List<CTDV>();
         private List<int?> SLDVConLai = new List<int?>();
         private List<int> SLDVDaDat = new List<int>();
-        /*        private List<CTDV> dichVusdadatBanDau = new List<CTDV>();
-                private List<DichVu> dichVusBanDau = new List<DichVu>();*/
+
         //Fields
         private int borderRadius = 20;
         private int borderSize = 2;
@@ -35,6 +28,7 @@ namespace HotelManagement.GUI
         private DichVu dichVu;
         FormDanhSachDichVu formDanhSachDichVu;
         private CTDP ctdp;
+
         //Constructor
         public FormThemDichVuVaoPhong()
         {
@@ -48,9 +42,9 @@ namespace HotelManagement.GUI
             this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Padding = new Padding(borderSize);
-          //  this.dichVu = dichVu;
+            //  this.dichVu = dichVu;
             this.ctdp = cTDP;
-           // this.formDanhSachDichVu = formDanhSachDichVu;
+            // this.formDanhSachDichVu = formDanhSachDichVu;
             InitializeComponent();
             LoadGridDaChonLanDau();
             LoadGridDichVuLanDau();
@@ -64,8 +58,7 @@ namespace HotelManagement.GUI
         {
             try
             {
-               // this.hoadon = ctdp.HoaDons.Single();
-                 List<CTDV>cTDVs = CTDV_BUS.Instance.FindCTDV(this.ctdp.MaCTDP);
+                List<CTDV> cTDVs = CTDV_BUS.Instance.FindCTDV(this.ctdp.MaCTDP);
                 if (cTDVs != null)
                 {
                     foreach (CTDV cTDV in cTDVs)
@@ -78,7 +71,7 @@ namespace HotelManagement.GUI
                 }
                 LoadGridDaChon();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 CTMessageBox.Show(ex.Message);
             }
@@ -96,7 +89,7 @@ namespace HotelManagement.GUI
                         DichVu dichVu = DichVuBUS.Instance.FindDichVu(v.MaDV);
                         dgvDVDaChon.Rows.Add(dichVu.TenDV, v.SL, v.ThanhTien.ToString("#,#"), Del);
                     }
-                }  
+                }
             }
             catch (Exception ex)
             {
@@ -112,16 +105,16 @@ namespace HotelManagement.GUI
             {
                 List<DichVu> dichVus;
                 dichVus = DichVuBUS.Instance.GetDichVus();
-                foreach(DichVu dichVu in dichVus)
+                foreach (DichVu dichVu in dichVus)
                 {
                     this.dichVus.Add(new DichVu(dichVu));
                     this.SLDVConLai.Add(dichVu.SLConLai);
-                }    
+                }
                 LoadGridDichVu();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);    
+                MessageBox.Show(ex.Message);
             }
         }
         private void LoadGridDichVu()
@@ -322,22 +315,22 @@ namespace HotelManagement.GUI
                 try
                 {
                     decimal dongia = decimal.Parse(gridDichVu.Rows[y].Cells[1].Value.ToString().Trim(','));
-                    DichVu dichVu = dichVus.Where(p=>p.TenDV==gridDichVu.Rows[y].Cells[0].Value.ToString() && p.DonGia == dongia).SingleOrDefault();
+                    DichVu dichVu = dichVus.Where(p => p.TenDV == gridDichVu.Rows[y].Cells[0].Value.ToString() && p.DonGia == dongia).SingleOrDefault();
                     if (dichVu.SLConLai >= 1)
                     {
                         dichVu.SLConLai--;
-                        gridDichVu.Rows[y].Cells[2].Value=dichVu.SLConLai;
+                        gridDichVu.Rows[y].Cells[2].Value = dichVu.SLConLai;
                     }
                     else if (dichVu.SLConLai == 0)
                         CTMessageBox.Show("Số lượng hàng trong kho đã hết!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     else if (dichVu.SLConLai == -1)
-                    { }    
+                    { }
 
-                    foreach(DataGridViewRow dataRow in dgvDVDaChon.Rows)
+                    foreach (DataGridViewRow dataRow in dgvDVDaChon.Rows)
                     {
-                        if (dataRow.Cells[0].Value.ToString() == dichVu.TenDV && (decimal.Parse(dataRow.Cells[2].Value.ToString().Trim(',')) / int.Parse(dataRow.Cells[1].Value.ToString()))==dichVu.DonGia)
+                        if (dataRow.Cells[0].Value.ToString() == dichVu.TenDV && (decimal.Parse(dataRow.Cells[2].Value.ToString().Trim(',')) / int.Parse(dataRow.Cells[1].Value.ToString())) == dichVu.DonGia)
                         {
-                            CTDV cTDV = dichVusDaDat.Where(p=>p.MaDV==dichVu.MaDV&&p.DonGia==dichVu.DonGia).FirstOrDefault();
+                            CTDV cTDV = dichVusDaDat.Where(p => p.MaDV == dichVu.MaDV).FirstOrDefault();
                             dataRow.Cells[1].Value = ++cTDV.SL;
                             cTDV.ThanhTien = cTDV.DonGia * cTDV.SL;
                             dataRow.Cells[2].Value = cTDV.ThanhTien.ToString("#,#");
@@ -345,16 +338,16 @@ namespace HotelManagement.GUI
                         }
                     }
                     CTDV cTDV1 = new CTDV();
-                    cTDV1.DonGia=dichVu.DonGia;
+                    cTDV1.DonGia = dichVu.DonGia;
                     cTDV1.DaXoa = false;
                     cTDV1.ThanhTien = dichVu.DonGia;
-                    cTDV1.MaDV=dichVu.MaDV;
+                    cTDV1.MaDV = dichVu.MaDV;
                     cTDV1.MaCTDP = ctdp.MaCTDP;
                     cTDV1.SL = 1;
                     dichVusDaDat.Add(cTDV1);
                     this.LoadGridDaChon();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -370,8 +363,8 @@ namespace HotelManagement.GUI
                 CTDV_BUS.Instance.InsertOrUpdateList(dichVusDaDat);
                 this.Close();
             }
-            catch(Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
         }
@@ -485,19 +478,27 @@ namespace HotelManagement.GUI
             dgvDVDaChon.Cursor = Cursors.Default;
         }
 
-      private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
-      {
-            string keyword = CTTextBoxTimTheoTenDV.Text.Trim().ToLower();
+        private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
+        {
+            CTTextBox txt = sender as CTTextBox;   // <-- QUAN TRỌNG
+            if (txt == null) return;
 
-            // Lọc trực tiếp trên danh sách dịch vụ đang dùng
-            var filtered = dichVus
-                .Where(x => x.TenDV.ToLower().Contains(keyword))
-                .ToList();   
+            string keyword = txt.Texts;
 
-            // Xóa lưới
+            // Nếu textbox mất focus (người dùng xóa text bằng code), load lại toàn bộ
+            if (!txt.Focused)
+            {
+                LoadGridDichVu();
+                return;
+            }
+
+            // Lọc trên danh sách dịch vụ hiện tại
+                 var filtered = dichVus
+                .Where(x => x.TenDV.Contains(keyword))
+                .ToList();
+
             gridDichVu.Rows.Clear();
 
-            // Đổ danh sách đã lọc
             foreach (DichVu v in filtered)
             {
                 if (v.SLConLai == -1)
@@ -506,5 +507,5 @@ namespace HotelManagement.GUI
                     gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), v.SLConLai, Add);
             }
         }
-}
+    }
 }

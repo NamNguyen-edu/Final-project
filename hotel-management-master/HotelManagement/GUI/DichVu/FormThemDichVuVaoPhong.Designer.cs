@@ -180,6 +180,7 @@
             this.CTTextBoxTimTheoTenDV.Texts = "";
             this.CTTextBoxTimTheoTenDV.UnderlineedStyle = false;
             this.CTTextBoxTimTheoTenDV._TextChanged += new System.EventHandler(this.CTTextBoxTimTheoTenDV__TextChanged);
+            
             // 
             // dgvDVDaChon
             // 
