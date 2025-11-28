@@ -262,5 +262,10 @@ namespace HotelManagement.GUI
         {
             this.ActiveControl = LabelSuaTienNghi;
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

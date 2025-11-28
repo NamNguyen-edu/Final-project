@@ -492,5 +492,76 @@ INSERT INTO NhanVien (MaNV,TenNV,NgaySinh,DiaChi, GioiTinh,Luong,ChucVu,CCCD,SDT
 	INSERT INTO HoaDon("MaHD","NgHD","MaNV","MaCTDP","TrangThai","TriGia") VALUES('HD025','19/01/2023','NV001','CTDP020',N'Đã thanh toán','0')
 	INSERT INTO HoaDon("MaHD","NgHD","MaNV","MaCTDP","TrangThai","TriGia") VALUES('HD026','25/01/2023','NV001','CTDP020',N'Đã thanh toán','0')
 
+	/* Thêm cột trước nha */
+ALTER TABLE CTDP
+ADD TienDatCoc money NOT NULL DEFAULT 0;
+
+--Thêm trigger
+
+USE [HotelManagement1]
+GO
+/****** Object:  Trigger [dbo].[CapNhatGiaCTDP]    Script Date: 27/11/2025 2:09:55 CH ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- Trigger Update Giá phòng
+ALTER TRIGGER [dbo].[CapNhatGiaCTDP] ON [dbo].[CTDP] FOR INSERT,UPDATE
+AS
+BEGIN
+	DECLARE @MaPhong NVARCHAR(5)
+	SET @MaPhong = (SELECT MaPH FROM inserted)
+	DECLARE @MaCTDP NVARCHAR(7)
+	SET @MaCTDP = (SELECT MaCTDP FROM inserted)
+	DECLARE @GiaNgay MONEY
+	SET @GiaNgay = (SELECT  LoaiPhong.GiaNgay
+					FROM Phong JOIN LoaiPhong ON Phong.MaLPH=LoaiPhong.MaLPH
+					WHERE Phong.MaPH=@MaPhong
+					)
+	DECLARE @GiaGio MONEY
+	SET @GiaGio = (SELECT  LoaiPhong.GiaGio
+					FROM Phong JOIN LoaiPhong ON Phong.MaLPH=LoaiPhong.MaLPH
+					WHERE Phong.MaPH=@MaPhong
+					)
+	DECLARE @CheckIn SMALLDATETIME, @CheckOut SMALLDATETIME,@KhoangTGNgay INT, @KhoangTGGio INT, @TienDatCoc money
+	SET @CheckIn = (SELECT CheckIn FROM inserted)
+	SET @CheckOut = (SELECT CheckOut FROM inserted)
+	SET @KhoangTGNgay=  (SELECT DATEDIFF(DAY, @CheckIn, @CheckOut))
+	SET @TienDatCoc = (SELECT TienDatCoc FROM inserted where MaCTDP = @MaCTDP)
+	IF @KhoangTGNgay < 1
+	BEGIN
+	SET @KhoangTGGio=  (SELECT DATEDIFF(HOUR, @CheckIn, @CheckOut))		
+		IF @KhoangTGGio < 4
+			BEGIN
+				DECLARE @DonGia MONEY
+				SET @DonGia = (SELECT GiaGio FROM LoaiPhong JOIN Phong ON LoaiPhong.MaLPH = Phong.MaLPH JOIN CTDP ON CTDP.MaPH=Phong.MaPH WHERE CTDP.MaCTDP=@MaCTDP) 
+				UPDATE CTDP
+				SET "ThanhTien"= (@KhoangTGGio * @GiaGio) - @TienDatCoc
+				WHERE @MaCTDP = MaCTDP
+				UPDATE CTDP
+				SET "TheoGio"= 1
+				WHERE @MaCTDP = MaCTDP
+				UPDATE CTDP
+				SET "DonGia"= @DonGia
+				WHERE @MaCTDP = MaCTDP
+			END
+		ELSE
+			BEGIN
+				UPDATE CTDP
+				SET "ThanhTien"= @GiaNgay - @TienDatCoc
+				WHERE @MaCTDP = MaCTDP
+			END
+	END
+	ELSE
+	BEGIN
+		UPDATE CTDP
+		SET "DonGia"= @GiaNgay
+		WHERE @MaCTDP = MaCTDP
+		UPDATE CTDP
+		SET "ThanhTien"= @KhoangTGNgay * @GiaNgay -@TienDatCoc
+		WHERE @MaCTDP = MaCTDP
+	END
+END
+-- Trigger update Gia CTDV
 
 
