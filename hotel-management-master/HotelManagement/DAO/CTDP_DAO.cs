@@ -178,7 +178,7 @@ namespace HotelManagement.DAO
                 return db.CTDPs.Any(p =>
                      p.DaXoa == false
                 && p.MaPH == maPhong
-                && (p.TrangThai == "Đang thuê" || p.TrangThai == "Đã đặt")
+                && (p.TrangThai == "Đang thuê" || p.TrangThai == "Đã cọc")
                 && now < p.CheckOut
                 );
             }
@@ -190,7 +190,7 @@ namespace HotelManagement.DAO
                 // Lấy các phiếu "Đã đặt" còn tồn tại
                 var list = db.CTDPs
                              .Where(p => p.DaXoa == false
-                                      && p.TrangThai == "Đã đặt")
+                                      && p.TrangThai == "Đã cọc")
                              .ToList();
 
                 foreach (var c in list)

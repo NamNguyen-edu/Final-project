@@ -37,12 +37,9 @@ namespace HotelManagement.GUI
 
         private Panel panelNotify;
         private Label lblThongBao;
-        private Panel notiItem1;
-        private Panel notiItem2;
-        private Label lblNoti1Title;
-        private Label lblNoti1Sub;
         private Label lblNoti2Title;
-        private Label lblNoti2Sub;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelCSKH;
+
 
         private Timer timerDateTime;
 
@@ -63,6 +60,9 @@ namespace HotelManagement.GUI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTop = new System.Windows.Forms.Panel();
             this.lblDate = new System.Windows.Forms.Label();
             this.btnDatPhong = new System.Windows.Forms.Button();
@@ -91,16 +91,18 @@ namespace HotelManagement.GUI
             this.lblUserPhone = new System.Windows.Forms.Label();
             this.lblUserMail = new System.Windows.Forms.Label();
             this.panelNotify = new System.Windows.Forms.Panel();
-            this.lblThongBao = new System.Windows.Forms.Label();
-            this.notiItem1 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.lblNoti1Title = new System.Windows.Forms.Label();
-            this.lblNoti1Sub = new System.Windows.Forms.Label();
-            this.notiItem2 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblNoti2Title = new System.Windows.Forms.Label();
-            this.lblNoti2Sub = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.lblNoti1Title = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.gridCheckin = new System.Windows.Forms.DataGridView();
+            this.ColPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Colgio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCheckin = new System.Windows.Forms.DataGridViewImageColumn();
+            this.lblThongBao = new System.Windows.Forms.Label();
+            this.flowLayoutPanelCSKH = new System.Windows.Forms.FlowLayoutPanel();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
+            this.ctPanel1 = new CTPanel.CTPanel();
             this.panelTop.SuspendLayout();
             this.panelOverview.SuspendLayout();
             this.ovItem1.SuspendLayout();
@@ -114,10 +116,9 @@ namespace HotelManagement.GUI
             this.panelUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
             this.panelNotify.SuspendLayout();
-            this.notiItem1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.notiItem2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCheckin)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -128,7 +129,7 @@ namespace HotelManagement.GUI
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1200, 74);
+            this.panelTop.Size = new System.Drawing.Size(1226, 74);
             this.panelTop.TabIndex = 3;
             this.panelTop.SizeChanged += new System.EventHandler(this.panelTop_SizeChanged);
             // 
@@ -168,7 +169,7 @@ namespace HotelManagement.GUI
             this.panelOverview.Controls.Add(this.ovItem4);
             this.panelOverview.Location = new System.Drawing.Point(40, 80);
             this.panelOverview.Name = "panelOverview";
-            this.panelOverview.Size = new System.Drawing.Size(336, 514);
+            this.panelOverview.Size = new System.Drawing.Size(1157, 195);
             this.panelOverview.TabIndex = 2;
             // 
             // lblTongQuan
@@ -176,7 +177,7 @@ namespace HotelManagement.GUI
             this.lblTongQuan.AutoSize = true;
             this.lblTongQuan.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
             this.lblTongQuan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(90)))), ((int)(((byte)(40)))));
-            this.lblTongQuan.Location = new System.Drawing.Point(28, 29);
+            this.lblTongQuan.Location = new System.Drawing.Point(28, 18);
             this.lblTongQuan.Name = "lblTongQuan";
             this.lblTongQuan.Size = new System.Drawing.Size(167, 41);
             this.lblTongQuan.TabIndex = 0;
@@ -188,14 +189,11 @@ namespace HotelManagement.GUI
             this.ovItem1.Controls.Add(this.pictureBox1);
             this.ovItem1.Controls.Add(this.lblOv1Title);
             this.ovItem1.Controls.Add(this.lblOv1Value);
-            this.ovItem1.Location = new System.Drawing.Point(25, 91);
+            this.ovItem1.Location = new System.Drawing.Point(39, 71);
             this.ovItem1.Name = "ovItem1";
-            this.ovItem1.Size = new System.Drawing.Size(281, 84);
+            this.ovItem1.Size = new System.Drawing.Size(229, 84);
             this.ovItem1.TabIndex = 1;
-            this.ovItem1.Click += new EventHandler(this.ovItem1_Click);
-            this.lblOv1Title.Click += new EventHandler(this.ovItem1_Click);
-            this.lblOv1Value.Click += new EventHandler(this.ovItem1_Click);
-
+            this.ovItem1.Click += new System.EventHandler(this.ovItem1_Click);
             // 
             // pictureBox1
             // 
@@ -215,6 +213,7 @@ namespace HotelManagement.GUI
             this.lblOv1Title.Size = new System.Drawing.Size(108, 28);
             this.lblOv1Title.TabIndex = 0;
             this.lblOv1Title.Text = "Đang thuê";
+            this.lblOv1Title.Click += new System.EventHandler(this.ovItem1_Click);
             // 
             // lblOv1Value
             // 
@@ -225,6 +224,7 @@ namespace HotelManagement.GUI
             this.lblOv1Value.Size = new System.Drawing.Size(82, 25);
             this.lblOv1Value.TabIndex = 1;
             this.lblOv1Value.Text = "3 phòng";
+            this.lblOv1Value.Click += new System.EventHandler(this.ovItem1_Click);
             // 
             // ovItem2
             // 
@@ -232,14 +232,11 @@ namespace HotelManagement.GUI
             this.ovItem2.Controls.Add(this.pictureBox2);
             this.ovItem2.Controls.Add(this.lblOv2Title);
             this.ovItem2.Controls.Add(this.lblOv2Value);
-            this.ovItem2.Location = new System.Drawing.Point(25, 195);
+            this.ovItem2.Location = new System.Drawing.Point(325, 71);
             this.ovItem2.Name = "ovItem2";
-            this.ovItem2.Size = new System.Drawing.Size(281, 80);
+            this.ovItem2.Size = new System.Drawing.Size(229, 84);
             this.ovItem2.TabIndex = 2;
-            this.ovItem2.Click += new EventHandler(this.ovItem2_Click);
-            this.lblOv2Title.Click += new EventHandler(this.ovItem2_Click);
-            this.lblOv2Value.Click += new EventHandler(this.ovItem2_Click);
-
+            this.ovItem2.Click += new System.EventHandler(this.ovItem2_Click);
             // 
             // pictureBox2
             // 
@@ -259,6 +256,7 @@ namespace HotelManagement.GUI
             this.lblOv2Title.Size = new System.Drawing.Size(71, 28);
             this.lblOv2Title.TabIndex = 0;
             this.lblOv2Title.Text = "Đã đặt";
+            this.lblOv2Title.Click += new System.EventHandler(this.ovItem2_Click);
             // 
             // lblOv2Value
             // 
@@ -269,6 +267,7 @@ namespace HotelManagement.GUI
             this.lblOv2Value.Size = new System.Drawing.Size(82, 25);
             this.lblOv2Value.TabIndex = 1;
             this.lblOv2Value.Text = "5 phòng";
+            this.lblOv2Value.Click += new System.EventHandler(this.ovItem2_Click);
             // 
             // ovItem3
             // 
@@ -276,13 +275,11 @@ namespace HotelManagement.GUI
             this.ovItem3.Controls.Add(this.pictureBox3);
             this.ovItem3.Controls.Add(this.lblOv3Title);
             this.ovItem3.Controls.Add(this.lblOv3Value);
-            this.ovItem3.Location = new System.Drawing.Point(25, 294);
+            this.ovItem3.Location = new System.Drawing.Point(612, 71);
             this.ovItem3.Name = "ovItem3";
-            this.ovItem3.Size = new System.Drawing.Size(281, 81);
+            this.ovItem3.Size = new System.Drawing.Size(229, 84);
             this.ovItem3.TabIndex = 3;
-            this.ovItem3.Click += new EventHandler(this.ovItem3_Click);
-            this.lblOv3Title.Click += new EventHandler(this.ovItem3_Click);
-            this.lblOv3Value.Click += new EventHandler(this.ovItem3_Click);
+            this.ovItem3.Click += new System.EventHandler(this.ovItem3_Click);
             // 
             // pictureBox3
             // 
@@ -302,6 +299,7 @@ namespace HotelManagement.GUI
             this.lblOv3Title.Size = new System.Drawing.Size(100, 28);
             this.lblOv3Title.TabIndex = 0;
             this.lblOv3Title.Text = "Chưa dọn";
+            this.lblOv3Title.Click += new System.EventHandler(this.ovItem3_Click);
             // 
             // lblOv3Value
             // 
@@ -312,6 +310,7 @@ namespace HotelManagement.GUI
             this.lblOv3Value.Size = new System.Drawing.Size(82, 25);
             this.lblOv3Value.TabIndex = 1;
             this.lblOv3Value.Text = "5 phòng";
+            this.lblOv3Value.Click += new System.EventHandler(this.ovItem3_Click);
             // 
             // ovItem4
             // 
@@ -319,13 +318,11 @@ namespace HotelManagement.GUI
             this.ovItem4.Controls.Add(this.pictureBox4);
             this.ovItem4.Controls.Add(this.lblOv4Title);
             this.ovItem4.Controls.Add(this.lblOv4Value);
-            this.ovItem4.Location = new System.Drawing.Point(25, 393);
+            this.ovItem4.Location = new System.Drawing.Point(894, 71);
             this.ovItem4.Name = "ovItem4";
-            this.ovItem4.Size = new System.Drawing.Size(281, 80);
+            this.ovItem4.Size = new System.Drawing.Size(229, 84);
             this.ovItem4.TabIndex = 4;
-            this.ovItem4.Click += new EventHandler(this.ovItem4_Click);
-            this.lblOv4Title.Click += new EventHandler(this.ovItem4_Click);
-            this.lblOv4Value.Click += new EventHandler(this.ovItem4_Click);
+            this.ovItem4.Click += new System.EventHandler(this.ovItem4_Click);
             // 
             // pictureBox4
             // 
@@ -345,6 +342,7 @@ namespace HotelManagement.GUI
             this.lblOv4Title.Size = new System.Drawing.Size(146, 28);
             this.lblOv4Title.TabIndex = 0;
             this.lblOv4Title.Text = "Đang sửa chữa";
+            this.lblOv4Title.Click += new System.EventHandler(this.ovItem4_Click);
             // 
             // lblOv4Value
             // 
@@ -355,6 +353,7 @@ namespace HotelManagement.GUI
             this.lblOv4Value.Size = new System.Drawing.Size(82, 25);
             this.lblOv4Value.TabIndex = 1;
             this.lblOv4Value.Text = "1 phòng";
+            this.lblOv4Value.Click += new System.EventHandler(this.ovItem4_Click);
             // 
             // panelUser
             // 
@@ -364,15 +363,15 @@ namespace HotelManagement.GUI
             this.panelUser.Controls.Add(this.lblUserRole);
             this.panelUser.Controls.Add(this.lblUserPhone);
             this.panelUser.Controls.Add(this.lblUserMail);
-            this.panelUser.Location = new System.Drawing.Point(402, 80);
+            this.panelUser.Location = new System.Drawing.Point(41, 302);
             this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(748, 230);
+            this.panelUser.Size = new System.Drawing.Size(387, 433);
             this.panelUser.TabIndex = 1;
             // 
             // picAvatar
             // 
             this.picAvatar.BackColor = System.Drawing.Color.LightGray;
-            this.picAvatar.Location = new System.Drawing.Point(50, 50);
+            this.picAvatar.Location = new System.Drawing.Point(117, 37);
             this.picAvatar.Name = "picAvatar";
             this.picAvatar.Size = new System.Drawing.Size(130, 130);
             this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -383,17 +382,18 @@ namespace HotelManagement.GUI
             // 
             this.lblUserName.AutoSize = true;
             this.lblUserName.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
-            this.lblUserName.Location = new System.Drawing.Point(217, 29);
+            this.lblUserName.Location = new System.Drawing.Point(40, 194);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(305, 46);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "Nguyễn Phúc Bình";
+            this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUserRole
             // 
             this.lblUserRole.AutoSize = true;
             this.lblUserRole.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblUserRole.Location = new System.Drawing.Point(220, 90);
+            this.lblUserRole.Location = new System.Drawing.Point(43, 259);
             this.lblUserRole.Name = "lblUserRole";
             this.lblUserRole.Size = new System.Drawing.Size(100, 28);
             this.lblUserRole.TabIndex = 2;
@@ -403,7 +403,7 @@ namespace HotelManagement.GUI
             // 
             this.lblUserPhone.AutoSize = true;
             this.lblUserPhone.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblUserPhone.Location = new System.Drawing.Point(220, 125);
+            this.lblUserPhone.Location = new System.Drawing.Point(43, 303);
             this.lblUserPhone.Name = "lblUserPhone";
             this.lblUserPhone.Size = new System.Drawing.Size(163, 28);
             this.lblUserPhone.TabIndex = 3;
@@ -413,7 +413,7 @@ namespace HotelManagement.GUI
             // 
             this.lblUserMail.AutoSize = true;
             this.lblUserMail.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblUserMail.Location = new System.Drawing.Point(220, 155);
+            this.lblUserMail.Location = new System.Drawing.Point(43, 348);
             this.lblUserMail.Name = "lblUserMail";
             this.lblUserMail.Size = new System.Drawing.Size(216, 28);
             this.lblUserMail.TabIndex = 4;
@@ -422,13 +422,140 @@ namespace HotelManagement.GUI
             // panelNotify
             // 
             this.panelNotify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
+            this.panelNotify.Controls.Add(this.lblNoti2Title);
+            this.panelNotify.Controls.Add(this.pictureBox6);
+            this.panelNotify.Controls.Add(this.lblNoti1Title);
+            this.panelNotify.Controls.Add(this.pictureBox5);
+            this.panelNotify.Controls.Add(this.gridCheckin);
+            this.panelNotify.Controls.Add(this.ctPanel1);
             this.panelNotify.Controls.Add(this.lblThongBao);
-            this.panelNotify.Controls.Add(this.notiItem1);
-            this.panelNotify.Controls.Add(this.notiItem2);
-            this.panelNotify.Location = new System.Drawing.Point(402, 330);
+            this.panelNotify.Controls.Add(this.flowLayoutPanelCSKH);
+            this.panelNotify.Location = new System.Drawing.Point(452, 302);
             this.panelNotify.Name = "panelNotify";
-            this.panelNotify.Size = new System.Drawing.Size(748, 264);
+            this.panelNotify.Size = new System.Drawing.Size(748, 433);
             this.panelNotify.TabIndex = 0;
+            // 
+            // lblNoti2Title
+            // 
+            this.lblNoti2Title.AutoSize = true;
+            this.lblNoti2Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblNoti2Title.Location = new System.Drawing.Point(490, 79);
+            this.lblNoti2Title.Name = "lblNoti2Title";
+            this.lblNoti2Title.Size = new System.Drawing.Size(212, 28);
+            this.lblNoti2Title.TabIndex = 0;
+            this.lblNoti2Title.Text = "Chăm sóc khách hàng";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.CSKH1;
+            this.pictureBox6.Location = new System.Drawing.Point(407, 64);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(58, 55);
+            this.pictureBox6.TabIndex = 7;
+            this.pictureBox6.TabStop = false;
+            // 
+            // lblNoti1Title
+            // 
+            this.lblNoti1Title.AutoSize = true;
+            this.lblNoti1Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblNoti1Title.Location = new System.Drawing.Point(111, 79);
+            this.lblNoti1Title.Name = "lblNoti1Title";
+            this.lblNoti1Title.Size = new System.Drawing.Size(241, 28);
+            this.lblNoti1Title.TabIndex = 0;
+            this.lblNoti1Title.Text = "Thông báo giờ check - in";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::HotelManagement.Properties.Resources.NhacLich1;
+            this.pictureBox5.Location = new System.Drawing.Point(47, 64);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(58, 55);
+            this.pictureBox5.TabIndex = 6;
+            this.pictureBox5.TabStop = false;
+            // 
+            // gridCheckin
+            // 
+            this.gridCheckin.AllowUserToAddRows = false;
+            this.gridCheckin.AllowUserToDeleteRows = false;
+            this.gridCheckin.AllowUserToResizeColumns = false;
+            this.gridCheckin.AllowUserToResizeRows = false;
+            this.gridCheckin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gridCheckin.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(245)))), ((int)(((byte)(235)))));
+            this.gridCheckin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.gridCheckin.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.gridCheckin.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCheckin.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridCheckin.ColumnHeadersHeight = 50;
+            this.gridCheckin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.gridCheckin.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColPhong,
+            this.Colgio,
+            this.ColCheckin});
+            this.gridCheckin.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridCheckin.DefaultCellStyle = dataGridViewCellStyle2;
+            this.gridCheckin.EnableHeadersVisualStyles = false;
+            this.gridCheckin.Location = new System.Drawing.Point(48, 149);
+            this.gridCheckin.MultiSelect = false;
+            this.gridCheckin.Name = "gridCheckin";
+            this.gridCheckin.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridCheckin.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.gridCheckin.RowHeadersVisible = false;
+            this.gridCheckin.RowHeadersWidth = 40;
+            this.gridCheckin.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.gridCheckin.RowTemplate.Height = 40;
+            this.gridCheckin.RowTemplate.ReadOnly = true;
+            this.gridCheckin.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gridCheckin.Size = new System.Drawing.Size(318, 252);
+            this.gridCheckin.TabIndex = 12;
+            // 
+            // ColPhong
+            // 
+            this.ColPhong.FillWeight = 97.26121F;
+            this.ColPhong.HeaderText = "Số phòng";
+            this.ColPhong.MinimumWidth = 6;
+            this.ColPhong.Name = "ColPhong";
+            this.ColPhong.ReadOnly = true;
+            this.ColPhong.Width = 113;
+            // 
+            // Colgio
+            // 
+            this.Colgio.FillWeight = 97.26121F;
+            this.Colgio.HeaderText = "Giờ";
+            this.Colgio.MinimumWidth = 6;
+            this.Colgio.Name = "Colgio";
+            this.Colgio.ReadOnly = true;
+            this.Colgio.Width = 112;
+            // 
+            // ColCheckin
+            // 
+            this.ColCheckin.FillWeight = 80F;
+            this.ColCheckin.HeaderText = "Check-in";
+            this.ColCheckin.MinimumWidth = 6;
+            this.ColCheckin.Name = "ColCheckin";
+            this.ColCheckin.ReadOnly = true;
+            this.ColCheckin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColCheckin.Width = 93;
             // 
             // lblThongBao
             // 
@@ -441,96 +568,37 @@ namespace HotelManagement.GUI
             this.lblThongBao.TabIndex = 0;
             this.lblThongBao.Text = "Thông báo";
             // 
-            // notiItem1
+            // flowLayoutPanelCSKH
             // 
-            this.notiItem1.BackColor = System.Drawing.Color.White;
-            this.notiItem1.Controls.Add(this.pictureBox5);
-            this.notiItem1.Controls.Add(this.lblNoti1Title);
-            this.notiItem1.Controls.Add(this.lblNoti1Sub);
-            this.notiItem1.Location = new System.Drawing.Point(40, 70);
-            this.notiItem1.Name = "notiItem1";
-            this.notiItem1.Size = new System.Drawing.Size(690, 82);
-            this.notiItem1.TabIndex = 1;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::HotelManagement.Properties.Resources.NhacLich1;
-            this.pictureBox5.Location = new System.Drawing.Point(17, 13);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(58, 55);
-            this.pictureBox5.TabIndex = 6;
-            this.pictureBox5.TabStop = false;
-            // 
-            // lblNoti1Title
-            // 
-            this.lblNoti1Title.AutoSize = true;
-            this.lblNoti1Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblNoti1Title.Location = new System.Drawing.Point(84, 9);
-            this.lblNoti1Title.Name = "lblNoti1Title";
-            this.lblNoti1Title.Size = new System.Drawing.Size(241, 28);
-            this.lblNoti1Title.TabIndex = 0;
-            this.lblNoti1Title.Text = "Thông báo giờ check - in";
-            // 
-            // lblNoti1Sub
-            // 
-            this.lblNoti1Sub.AutoSize = true;
-            this.lblNoti1Sub.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblNoti1Sub.Location = new System.Drawing.Point(84, 43);
-            this.lblNoti1Sub.Name = "lblNoti1Sub";
-            this.lblNoti1Sub.Size = new System.Drawing.Size(295, 25);
-            this.lblNoti1Sub.TabIndex = 1;
-            this.lblNoti1Sub.Text = "Phòng 101 sắp đến giờ Check - in";
-            // 
-            // notiItem2
-            // 
-            this.notiItem2.BackColor = System.Drawing.Color.White;
-            this.notiItem2.Controls.Add(this.pictureBox6);
-            this.notiItem2.Controls.Add(this.lblNoti2Title);
-            this.notiItem2.Controls.Add(this.lblNoti2Sub);
-            this.notiItem2.Location = new System.Drawing.Point(40, 158);
-            this.notiItem2.Name = "notiItem2";
-            this.notiItem2.Size = new System.Drawing.Size(690, 83);
-            this.notiItem2.TabIndex = 2;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.CSKH1;
-            this.pictureBox6.Location = new System.Drawing.Point(17, 15);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(58, 55);
-            this.pictureBox6.TabIndex = 7;
-            this.pictureBox6.TabStop = false;
-            // 
-            // lblNoti2Title
-            // 
-            this.lblNoti2Title.AutoSize = true;
-            this.lblNoti2Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblNoti2Title.Location = new System.Drawing.Point(84, 11);
-            this.lblNoti2Title.Name = "lblNoti2Title";
-            this.lblNoti2Title.Size = new System.Drawing.Size(212, 28);
-            this.lblNoti2Title.TabIndex = 0;
-            this.lblNoti2Title.Text = "Chăm sóc khách hàng";
-            // 
-            // lblNoti2Sub
-            // 
-            this.lblNoti2Sub.AutoSize = true;
-            this.lblNoti2Sub.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblNoti2Sub.Location = new System.Drawing.Point(84, 48);
-            this.lblNoti2Sub.Name = "lblNoti2Sub";
-            this.lblNoti2Sub.Size = new System.Drawing.Size(408, 25);
-            this.lblNoti2Sub.TabIndex = 1;
-            this.lblNoti2Sub.Text = "Khách hàng phòng 102 yêu cầu thêm khăn tắm";
+            this.flowLayoutPanelCSKH.Location = new System.Drawing.Point(407, 149);
+            this.flowLayoutPanelCSKH.Name = "flowLayoutPanelCSKH";
+            this.flowLayoutPanelCSKH.Size = new System.Drawing.Size(291, 265);
+            this.flowLayoutPanelCSKH.TabIndex = 31;
             // 
             // timerDateTime
             // 
             this.timerDateTime.Interval = 60000;
             this.timerDateTime.Tick += new System.EventHandler(this.timerDateTime_Tick);
             // 
+            // ctPanel1
+            // 
+            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel1.BackColor = System.Drawing.Color.White;
+            this.ctPanel1.BorderRadius = 50;
+            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel1.GradientAngle = 90F;
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.Location = new System.Drawing.Point(40, 131);
+            this.ctPanel1.Name = "ctPanel1";
+            this.ctPanel1.Size = new System.Drawing.Size(334, 283);
+            this.ctPanel1.TabIndex = 30;
+            // 
             // FormTC
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(245)))), ((int)(((byte)(235)))));
-            this.ClientSize = new System.Drawing.Size(1200, 650);
+            this.ClientSize = new System.Drawing.Size(1226, 747);
             this.Controls.Add(this.panelNotify);
             this.Controls.Add(this.panelUser);
             this.Controls.Add(this.panelOverview);
@@ -560,12 +628,9 @@ namespace HotelManagement.GUI
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
             this.panelNotify.ResumeLayout(false);
             this.panelNotify.PerformLayout();
-            this.notiItem1.ResumeLayout(false);
-            this.notiItem1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.notiItem2.ResumeLayout(false);
-            this.notiItem2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCheckin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -576,7 +641,13 @@ namespace HotelManagement.GUI
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
         private PictureBox pictureBox6;
+        private DataGridView gridCheckin;
+        private CTPanel.CTPanel ctPanel1;
+        private Label lblNoti1Title;
+        private PictureBox pictureBox5;
+        private DataGridViewTextBoxColumn ColPhong;
+        private DataGridViewTextBoxColumn Colgio;
+        private DataGridViewImageColumn ColCheckin;
     }
 }

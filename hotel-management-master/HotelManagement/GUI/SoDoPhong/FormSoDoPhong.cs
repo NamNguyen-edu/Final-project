@@ -58,7 +58,7 @@ namespace HotelManagement.GUI
             try
             {
                 CTDP_BUS.Instance.UpdateTrangThaiQuaHan(DateTime.Now);
-                //this.ctDatePicker1.Value = DateTime.Now;
+                this.ctDatePicker1.Value = DateTime.Now;
                 phongs = PhongBUS.Instance.GetAllPhong();
                 LoadPhong(phongs);
             }
@@ -558,6 +558,50 @@ namespace HotelManagement.GUI
             this.label1.Show();
             this.panelSoDoPhong.Show();
             LoadPhong(phongs);
+        }
+
+        public void OpenPhongDaDatNhanh(string maPhong)
+        {
+            if (string.IsNullOrWhiteSpace(maPhong))
+                return;
+
+            CTRoomDaDat target = null;
+
+            // duyệt qua các dãy P1, P2, P3, P4, P5
+            FlowLayoutPanel[] flows =
+            {
+        flowLayoutPanel1,
+        flowLayoutPanel2,
+        flowLayoutPanel3,
+        flowLayoutPanel4,
+        flowLayoutPanel5
+    };
+
+            foreach (var fl in flows)
+            {
+                target = fl.Controls
+                           .OfType<CTRoomDaDat>()
+                           .FirstOrDefault(r => r.MaPhong == maPhong);
+
+                if (target != null)
+                    break;
+            }
+
+            if (target != null)
+            {
+                // gọi hàm mở chi tiết trong CTRoomDaDat
+                target.OpenDetail();
+            }
+            else
+            {
+                // nếu không tìm thấy thì báo nhẹ cho biết
+                CTMessageBox.Show(
+                    $"Không tìm thấy phòng đã đặt với mã {maPhong} trên sơ đồ.",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
         }
 
     }

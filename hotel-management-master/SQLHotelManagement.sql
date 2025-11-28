@@ -428,6 +428,30 @@ INSERT INTO NhanVien (MaNV,TenNV,NgaySinh,DiaChi, GioiTinh,Luong,ChucVu,CCCD,SDT
 	INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut","TrangThai","ThanhTien","DonGia",SoNguoi) VALUES('CTDP024','PT019','P303','15/01/2023','17/01/2023', N'Đã xong',1200000,400000,2) -- Đang đặt trước
 	INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut","TrangThai","ThanhTien","DonGia",SoNguoi) VALUES('CTDP025','PT020','P401','17/01/2023','19/01/2023', N'Đã xong',1200000,400000,2) -- Đang đặt trước
 	INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut","TrangThai","ThanhTien","DonGia",SoNguoi) VALUES('CTDP026','PT021','P302','20/01/2023','25/01/2023', N'Đã xong',1200000,400000,2) -- Đang đặt trước
+-- đang thuê từ hôm nay (dùng PT023 cho nhanh)
+INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut",
+                 "TrangThai","ThanhTien","DonGia",SoNguoi)
+VALUES('CTDP100','PT023','P101','2025-11-28','2025-12-02',
+       N'Đang thuê',0,300000,2);
+
+-- đã đặt, check-in ngày mai
+INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut",
+                 "TrangThai","ThanhTien","DonGia",SoNguoi)
+VALUES('CTDP101','PT023','P102','2025-11-29','2025-12-03',
+       N'Đã đặt',0,300000,2);
+update CTDP set "TrangThai" = N'Đã cọc' where MaCTDP = 'CTDP101';
+update CTDP set "CheckIn" = '2025-11-28 12:45:00' where MaCTDP = 'CTDP101';
+
+INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut",
+                 "TrangThai","ThanhTien","DonGia",SoNguoi)
+VALUES('CTDP102','PT023','P103','2025-11-28 13:00:00','2025-12-03',
+       N'Đã đặt',0,300000,2);
+	   INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut",
+                 "TrangThai","ThanhTien","DonGia",SoNguoi) VALUES('CTDP103','PT023','P104','2025-11-28 13:00:00','2025-12-03',
+       N'Đã đặt',0,300000,2);
+
+	   update CTDP set "TrangThai" = N'Đã cọc' where MaCTDP = 'CTDP102';
+	   update CTDP set "TrangThai" = N'Đã cọc' where MaCTDP = 'CTDP103';
 
 
 
