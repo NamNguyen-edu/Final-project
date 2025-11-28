@@ -480,7 +480,11 @@ namespace HotelManagement.GUI
                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogresult == DialogResult.Yes)
             {
-                double amount = (double)ctdp.ThanhTien;
+                decimal tienPhong = ctdp.ThanhTien;
+                decimal tienDV = CTDV_BUS.Instance.TinhTongTienDichVu(ctdp.MaCTDP);
+
+                decimal tongTien = tienPhong + tienDV;
+                double amount = (double)tongTien;
                 string description = "Thanh toan phong " + phong.MaPH;
                 FormBackground formBackground = new FormBackground(formMain);
                 using (FormThanhToan frm = new FormThanhToan(amount, description))

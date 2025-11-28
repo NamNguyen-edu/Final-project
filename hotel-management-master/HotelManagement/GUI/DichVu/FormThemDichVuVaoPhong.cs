@@ -89,6 +89,7 @@ namespace HotelManagement.GUI
                     {
                         DichVu dichVu = DichVuBUS.Instance.FindDichVu(v.MaDV);
                         dgvDVDaChon.Rows.Add(dichVu.TenDV, v.SL, v.ThanhTien.ToString("#,#"), Del);
+
                     }
                 }  
             }
@@ -449,6 +450,8 @@ namespace HotelManagement.GUI
         {
             //gridDichVu.ColumnHeadersDefaultCellStyle.Font = new Font(gridDichVu.Font, FontStyle.Bold);
             //dgvDVDaChon.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDVDaChon.Font, FontStyle.Bold);
+            HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.gridDichVu);
+            HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.dgvDVDaChon);
         }
 
         private void gridDichVu_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
