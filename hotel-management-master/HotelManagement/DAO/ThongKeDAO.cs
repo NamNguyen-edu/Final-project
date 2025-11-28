@@ -40,12 +40,14 @@ namespace HotelManagement.DAO
         public List<DoanhThuTheoNgay> DoanhThuVipDoiList { get; set; }
         public List<DoanhThuTheoNgay> DoanhThuDichVuList { get; set; }
         public List<SoPhongTheoNgay> SoPhongDatList { get; set; }
+        public List<DoanhThuTheoNgay> DoanhThuTongList { get; set; }
         public decimal TongDoanhThuThuongDon { get; set; }
         public decimal TongDoanhThuThuongDoi { get; set; }
         public decimal TongDoanhThuVipDon { get; set; }
         public decimal TongDoanhThuVipDoi { get; set; }
         public decimal TongDoanhThuThue { get; set; }
         public decimal TongDoanhThuDichVu { get; set; }
+        public decimal TongDoanhThuTong { get; set; }
         public int SoPhongDat { get; set; }
 
         public string TenLoaiPhongDoanhThuCaoNhat { get; set; }
@@ -75,6 +77,7 @@ namespace HotelManagement.DAO
                 GetDoanhThuVipDon();
                 GetDoanhThuVipDoi();
                 GetDoanhThuThue();
+                GetDoanhThuTongHop();
                 GetDoanhThuDichVu();
                 GetSoPhongDat();
                 GetDichVuBieuDo();
@@ -745,6 +748,33 @@ namespace HotelManagement.DAO
                     reader.Close();
                 }
             }
+        }
+        private void GetDoanhThuTongHop()
+        {
+            DoanhThuTongList = new List<DoanhThuTheoNgay>();
+            TongDoanhThuTong = 0;
+
+            // Gom toàn bộ ngày có trong phòng
+            var all = new List<DoanhThuTheoNgay>();
+
+            all.AddRange(DoanhThuThuongDonList);
+            all.AddRange(DoanhThuThuongDoiList);
+            all.AddRange(DoanhThuVipDonList);
+            all.AddRange(DoanhThuVipDoiList);
+
+            // GROUP THEO NGÀY (giống mấy hàm kia)
+            var group = from x in all
+                        group x by x.Date into g
+                        select new DoanhThuTheoNgay
+                        {
+                            Date = g.Key,
+                            TotalAmount = g.Sum(v => v.TotalAmount)
+                        };
+
+            DoanhThuTongList = group.ToList();
+
+            // Tổng doanh thu = phòng + dịch vụ
+            TongDoanhThuTong = TongDoanhThuThue + TongDoanhThuDichVu;
         }
     }
 }

@@ -22,16 +22,13 @@ namespace HotelManagement.GUI
         private Image delete = Properties.Resources.delete;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
-        public FormDanhSachPhong()
-        {
-            InitializeComponent();
-        }
 
         public FormDanhSachPhong(FormMain formMain,TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan = taiKhoan;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         private void CTButtonThemPhong_Click(object sender, EventArgs e)
@@ -67,7 +64,6 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachPhong_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
             LoadFullDataGrid();
 
             /*grid.Rows.Add(new object[] { PH, "PH001", "Trống", "Đang dọn dẹp", "Phòng đơn", edit, delete });

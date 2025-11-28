@@ -24,30 +24,24 @@ namespace HotelManagement.GUI
         //Fields
         private int borderRadius = 20;
         private int borderSize = 2;
-        private Color borderColor = Color.White;
+        private Color borderColor = AppTheme.PopupMainBackground;
         private DichVu dichVu;
         FormDanhSachDichVu formDanhSachDichVu;
         private CTDP ctdp;
 
         //Constructor
-        public FormThemDichVuVaoPhong()
-        {
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Padding = new Padding(borderSize);
-            InitializeComponent();
-        }
+
         public FormThemDichVuVaoPhong(CTDP cTDP)
         {
             this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Padding = new Padding(borderSize);
-            //  this.dichVu = dichVu;
             this.ctdp = cTDP;
-            // this.formDanhSachDichVu = formDanhSachDichVu;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToRoomPopup(this);
             InitializeComponent();
             LoadGridDaChonLanDau();
             LoadGridDichVuLanDau();
+            
         }
         private void LoadLanDau()
         {
@@ -446,8 +440,8 @@ namespace HotelManagement.GUI
 
         private void FormThemDichVuVaoPhong_Load(object sender, EventArgs e)
         {
-            gridDichVu.ColumnHeadersDefaultCellStyle.Font = new Font(gridDichVu.Font, FontStyle.Bold);
-            dgvDVDaChon.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDVDaChon.Font, FontStyle.Bold);
+            //gridDichVu.ColumnHeadersDefaultCellStyle.Font = new Font(gridDichVu.Font, FontStyle.Bold);
+            //dgvDVDaChon.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDVDaChon.Font, FontStyle.Bold);
         }
 
         private void gridDichVu_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)

@@ -20,15 +20,12 @@ namespace HotelManagement.GUI
         private Image delete = Properties.Resources.delete;
         private List<TaiKhoan> taiKhoans;
         private FormMain formMain;
-        public FormDanhSachTaiKhoan()
-        {
-            InitializeComponent();
-        }
 
         public FormDanhSachTaiKhoan(FormMain formMain)
         {
             InitializeComponent();
             this.formMain = formMain;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         private void CTButtonThemTaiKhoan_Click(object sender, EventArgs e)
@@ -59,8 +56,6 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachTaiKhoan_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
-
             LoadAllGrid();
            /* grid.Rows.Add(new object[] { TK, "admin", "Phan Tuấn Thành", "1", edit, delete });
             grid.Rows.Add(new object[] { TK, "admin2", "Phan Tuấn Thành", "2", edit, delete });

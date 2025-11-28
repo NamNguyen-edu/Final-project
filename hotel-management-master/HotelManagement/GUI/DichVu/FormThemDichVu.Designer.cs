@@ -112,13 +112,13 @@
             this.LabelThemDichVu.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelThemDichVu.Location = new System.Drawing.Point(173, 9);
             this.LabelThemDichVu.Name = "LabelThemDichVu";
-            this.LabelThemDichVu.Size = new System.Drawing.Size(188, 37);
+            this.LabelThemDichVu.Size = new System.Drawing.Size(233, 46);
             this.LabelThemDichVu.TabIndex = 0;
             this.LabelThemDichVu.Text = "Thêm dịch vụ";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -174,7 +174,7 @@
             // 
             // ctTextBoxTenDV
             // 
-            this.ctTextBoxTenDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ctTextBoxTenDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctTextBoxTenDV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.ctTextBoxTenDV.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxTenDV.BorderRadius = 0;
@@ -190,7 +190,7 @@
             this.ctTextBoxTenDV.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxTenDV.PlaceholderText = "Tên dịch vụ";
             this.ctTextBoxTenDV.ReadOnly = false;
-            this.ctTextBoxTenDV.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxTenDV.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxTenDV.TabIndex = 4;
             this.ctTextBoxTenDV.Texts = "";
             this.ctTextBoxTenDV.UnderlineedStyle = true;
@@ -198,7 +198,7 @@
             // 
             // CTTextBoxDonGia
             // 
-            this.CTTextBoxDonGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxDonGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxDonGia.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxDonGia.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxDonGia.BorderRadius = 0;
@@ -214,7 +214,7 @@
             this.CTTextBoxDonGia.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxDonGia.PlaceholderText = "Đơn giá";
             this.CTTextBoxDonGia.ReadOnly = false;
-            this.CTTextBoxDonGia.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxDonGia.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxDonGia.TabIndex = 5;
             this.CTTextBoxDonGia.Texts = "";
             this.CTTextBoxDonGia.UnderlineedStyle = true;
@@ -222,7 +222,7 @@
             // 
             // CTTextBoxSoLuong
             // 
-            this.CTTextBoxSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxSoLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxSoLuong.BorderRadius = 0;
@@ -238,7 +238,7 @@
             this.CTTextBoxSoLuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxSoLuong.PlaceholderText = "Số lượng còn lại";
             this.CTTextBoxSoLuong.ReadOnly = false;
-            this.CTTextBoxSoLuong.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxSoLuong.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxSoLuong.TabIndex = 6;
             this.CTTextBoxSoLuong.Texts = "";
             this.CTTextBoxSoLuong.UnderlineedStyle = true;
@@ -246,7 +246,7 @@
             // 
             // ctTextBoxMoTa
             // 
-            this.ctTextBoxMoTa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ctTextBoxMoTa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctTextBoxMoTa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.ctTextBoxMoTa.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxMoTa.BorderRadius = 0;
@@ -262,7 +262,7 @@
             this.ctTextBoxMoTa.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxMoTa.PlaceholderText = "Mô tả";
             this.ctTextBoxMoTa.ReadOnly = false;
-            this.ctTextBoxMoTa.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxMoTa.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxMoTa.TabIndex = 7;
             this.ctTextBoxMoTa.Texts = "";
             this.ctTextBoxMoTa.UnderlineedStyle = true;

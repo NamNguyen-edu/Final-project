@@ -19,6 +19,7 @@ namespace HotelManagement.CTControls
         private int borderSize = 3;
         private Color borderColor = Color.FromArgb(182, 103, 36);
         private Color primaryColor = Color.FromArgb(182, 103, 36);
+        private Color secondColor = Color.FromArgb(254, 241, 214);
         //Properties
         public Color PrimaryColor
         {
@@ -183,7 +184,8 @@ namespace HotelManagement.CTControls
                     button2.Location = new Point(xCenter + (button2.Width / 2) + 5, yCenter);
                     button2.Text = "Không";
                     button2.DialogResult = DialogResult.No;//Set DialogResult
-                    button2.BackColor = Color.FromArgb(252, 87, 83);
+                    button2.BackColor = secondColor;
+                    button2.BorderColor = primaryColor;
 
                     //Set Default Button
                     if (defaultButton != MessageBoxDefaultButton.Button3)//There are only 2 buttons, so the Default Button cannot be Button3
@@ -202,7 +204,8 @@ namespace HotelManagement.CTControls
                     button2.Location = new Point(xCenter, yCenter);
                     button2.Text = "Không";
                     button2.DialogResult = DialogResult.No;//Set DialogResult
-                    button2.BackColor = Color.FromArgb(252, 87, 83);
+                    button2.BackColor = secondColor;
+                    button2.BorderColor = borderColor;
 
                     //Cancel Button
                     button3.Visible = true;
@@ -234,7 +237,8 @@ namespace HotelManagement.CTControls
                     button3.Location = new Point(xCenter + button2.Width + 5, yCenter);
                     button3.Text = "Bỏ qua";
                     button3.DialogResult = DialogResult.Ignore;//Set DialogResult
-                    button3.BackColor = Color.FromArgb(252, 87, 83);
+                    button3.BackColor = Color.FromArgb(254, 241, 214);
+                    button3.BorderColor = borderColor;
 
                     //Set Default Button
                     SetDefaultButton(defaultButton);

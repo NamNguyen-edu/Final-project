@@ -24,22 +24,16 @@ namespace HotelManagement.GUI
         private DateTime dateTime = DateTime.Now;
         private string cccd = null;
 
-        public FormDanhSachHoaDon()
-        {
-            InitializeComponent();
-            LoadAllDataGrid();
-        }
-
         public FormDanhSachHoaDon(FormMain formMain)
         {
             InitializeComponent();
             LoadAllDataGrid();
             this.formMain = formMain;
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
         private void FormDanhSachHoaDon_Load(object sender, EventArgs e)
         {
-            grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
             /*  //Test 
               grid.Rows.Add(new object[] { HD, "HD001", "11/10/2003 19:45:00", "Nguyễn Văn A", "Phan Tuấn Thành", "0", "Chưa thanh toán", details});
               grid.Rows.Add(new object[] { HD, "HD002", "11/10/2003 19:45:00", "Nguyễn Văn B", "Phan Tuấn Thành", "100,000", "Đã thanh toán", details});
