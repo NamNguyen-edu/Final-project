@@ -39,13 +39,11 @@ namespace HotelManagement.DAO
         }
         public void UpdateOrInsert(NhanVien nhanVien)
         {
-            // Kiểm tra trước khi insert vào db
             int age = DateTime.Now.Year - nhanVien.NgaySinh.Year;
             if (nhanVien.NgaySinh > DateTime.Now.AddYears(-age))
             {
-                age--; // Điều chỉnh nếu chưa tới ngày sinh trong năm nay
+                age--; 
             }
-            // Check tuổi < 18
             if (age < 18)
             {
                 throw new Exception("Nhân viên phải từ 18 tuổi trở lên.");
