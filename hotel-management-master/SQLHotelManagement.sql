@@ -464,7 +464,7 @@ INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut",
 VALUES('CTDP101','PT023','P102','2025-11-29','2025-12-03',
        N'Đã đặt',0,300000,2);
 update CTDP set "TrangThai" = N'Đã cọc' where MaCTDP = 'CTDP101';
-update CTDP set "CheckIn" = '2025-11-28 23:10:00' where MaCTDP = 'CTDP101';
+update CTDP set "CheckIn" = '2025-11-29 23:10:00' where MaCTDP = 'CTDP101';
 
 INSERT INTO CTDP("MaCTDP","MaPT","MaPH","CheckIn","CheckOut",
                  "TrangThai","ThanhTien","DonGia",SoNguoi)
