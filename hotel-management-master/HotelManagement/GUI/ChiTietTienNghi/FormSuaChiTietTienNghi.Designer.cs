@@ -124,13 +124,13 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(38, 70);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(416, 317);
+            this.panel1.Size = new System.Drawing.Size(416, 329);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::HotelManagement.Properties.Resources.note;
-            this.pictureBox4.Location = new System.Drawing.Point(84, 217);
+            this.pictureBox4.Location = new System.Drawing.Point(58, 256);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +140,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.SoLuong;
-            this.pictureBox3.Location = new System.Drawing.Point(84, 125);
+            this.pictureBox3.Location = new System.Drawing.Point(58, 175);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -156,7 +156,7 @@
             this.CTTextBoxSoLuong.BorderSize = 2;
             this.CTTextBoxSoLuong.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxSoLuong.IsFocused = false;
-            this.CTTextBoxSoLuong.Location = new System.Drawing.Point(121, 125);
+            this.CTTextBoxSoLuong.Location = new System.Drawing.Point(95, 165);
             this.CTTextBoxSoLuong.Margin = new System.Windows.Forms.Padding(4);
             this.CTTextBoxSoLuong.Multiline = false;
             this.CTTextBoxSoLuong.Name = "CTTextBoxSoLuong";
@@ -180,7 +180,7 @@
             this.ctTextBoxGhiChu.BorderSize = 2;
             this.ctTextBoxGhiChu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxGhiChu.IsFocused = false;
-            this.ctTextBoxGhiChu.Location = new System.Drawing.Point(121, 217);
+            this.ctTextBoxGhiChu.Location = new System.Drawing.Point(95, 246);
             this.ctTextBoxGhiChu.Margin = new System.Windows.Forms.Padding(4);
             this.ctTextBoxGhiChu.Multiline = false;
             this.ctTextBoxGhiChu.Name = "ctTextBoxGhiChu";
@@ -203,7 +203,7 @@
             this.ctTextBoxTenTienNghi.BorderSize = 2;
             this.ctTextBoxTenTienNghi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxTenTienNghi.IsFocused = false;
-            this.ctTextBoxTenTienNghi.Location = new System.Drawing.Point(121, 39);
+            this.ctTextBoxTenTienNghi.Location = new System.Drawing.Point(95, 83);
             this.ctTextBoxTenTienNghi.Margin = new System.Windows.Forms.Padding(4);
             this.ctTextBoxTenTienNghi.Multiline = false;
             this.ctTextBoxTenTienNghi.Name = "ctTextBoxTenTienNghi";
@@ -220,7 +220,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.DichVu;
-            this.pictureBox1.Location = new System.Drawing.Point(84, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(58, 93);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

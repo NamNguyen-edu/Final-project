@@ -23,8 +23,7 @@ namespace HotelManagement.GUI
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
-
-        //Constructor
+       //Constructor
         public FormThemDichVu()
         {
             this.DoubleBuffered = true;
@@ -40,10 +39,6 @@ namespace HotelManagement.GUI
             this.formDanhSachDichVu = formDanhSachDichVu;
             InitializeComponent();
         }
-        //Control Box
-
-        //Form Move
-
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -54,13 +49,10 @@ namespace HotelManagement.GUI
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
-
-        //Private Methods
-        //Private Methods
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -187,7 +179,6 @@ namespace HotelManagement.GUI
         {
             this.Invalidate();
         }
-
         private void FormThemDichVu_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -210,7 +201,6 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
-
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             if (this.ctTextBoxTenDV.Texts == "" || this.CTTextBoxSoLuong.Texts == ""  || this.ctTextBoxMoTa.Texts == "")
@@ -244,7 +234,6 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void CTTextBoxDonGia__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxDonGia = sender as TextBox;
@@ -252,50 +241,37 @@ namespace HotelManagement.GUI
             TextBoxType.Instance.CurrencyType(textBoxDonGia, e);
 
         }
-
         private void TextBoxDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
-
-
         private void CTTextBoxSoLuong__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxSL = sender as TextBox;
             textBoxSL.KeyPress += TextBoxSL_KeyPress;
         }
-
         private void TextBoxSL_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
-
         private void ctTextBoxTenDV__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxTenDV = sender as TextBox;
             textBoxTenDV.KeyPress += TextBoxTenDV_KeyPress;
         }
-
-
-
         private void TextBoxTenDV_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
         private void ctTextBoxMoTa__TextChanged(object sender, EventArgs e)
         {
-
             TextBox textBoxThemDV = sender as TextBox;
             textBoxThemDV.KeyPress += TextBoxThemDV_KeyPress;
         }
-
         private void TextBoxThemDV_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
-
         }
-
         private void FormThemDichVu_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemDichVu;

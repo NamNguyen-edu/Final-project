@@ -43,10 +43,8 @@ namespace HotelManagement.GUI
             LoadDV();
 
         }
-
         public void LoadDV()
-        {
-            
+        { 
             this.CTTextBoxDonGia.RemovePlaceholder();
             this.ctTextBoxTenDV.RemovePlaceholder();
             this.ctTextBoxMoTa.RemovePlaceholder();
@@ -57,11 +55,6 @@ namespace HotelManagement.GUI
             this.CTTextBoxSoLuong.Texts = dichVu.SLConLai.ToString();
 
         }
-
-        //Control Box
-
-        //Form Move
-
         //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -76,9 +69,6 @@ namespace HotelManagement.GUI
                 return cp;
             }
         }
-
-        //Private Methods
-        //Private Methods
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();

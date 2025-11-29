@@ -193,7 +193,7 @@ namespace HotelManagement.GUI
                             CTMessageBox.Show("Xóa thông tin thành công.", "Thông báo",
                                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
                             CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);

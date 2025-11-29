@@ -175,7 +175,7 @@ namespace HotelManagement.CTControls
                     }
                 }
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 CTMessageBox.Show("Bị lỗi", "Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
@@ -194,7 +194,7 @@ namespace HotelManagement.CTControls
                         textBox1.UseSystemPasswordChar = true;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     CTMessageBox.Show("Bị lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
