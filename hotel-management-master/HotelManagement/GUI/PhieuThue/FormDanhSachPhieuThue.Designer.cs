@@ -50,7 +50,7 @@
             // ctTextBox1
             // 
             this.ctTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.ctTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctTextBox1.BorderColor = System.Drawing.Color.Gray;
             this.ctTextBox1.BorderFocusColor = System.Drawing.Color.Black;
             this.ctTextBox1.BorderRadius = 5;
@@ -114,7 +114,7 @@
             this.grid.AllowUserToResizeRows = false;
             this.grid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -220,8 +220,8 @@
             this.ctPanel1.BorderRadius = 50;
             this.ctPanel1.ForeColor = System.Drawing.Color.Black;
             this.ctPanel1.GradientAngle = 90F;
-            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
             this.ctPanel1.Location = new System.Drawing.Point(45, 95);
             this.ctPanel1.Name = "ctPanel1";
             this.ctPanel1.Size = new System.Drawing.Size(1142, 704);
@@ -254,7 +254,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.grid);

@@ -85,13 +85,13 @@
             this.LabelSuaNhanVien.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSuaNhanVien.Location = new System.Drawing.Point(349, 10);
             this.LabelSuaNhanVien.Name = "LabelSuaNhanVien";
-            this.LabelSuaNhanVien.Size = new System.Drawing.Size(245, 46);
+            this.LabelSuaNhanVien.Size = new System.Drawing.Size(196, 37);
             this.LabelSuaNhanVien.TabIndex = 16;
             this.LabelSuaNhanVien.Text = "Sửa nhân viên";
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.panel4.Controls.Add(this.cbChucVu);
             this.panel4.Controls.Add(this.ComboBoxGioiTinh);
             this.panel4.Controls.Add(this.LabelNgaySinh);
@@ -118,7 +118,7 @@
             // 
             // cbChucVu
             // 
-            this.cbChucVu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.cbChucVu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.cbChucVu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.cbChucVu.BorderSize = 2;
             this.cbChucVu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -141,7 +141,7 @@
             // 
             // ComboBoxGioiTinh
             // 
-            this.ComboBoxGioiTinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ComboBoxGioiTinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ComboBoxGioiTinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.ComboBoxGioiTinh.BorderSize = 2;
             this.ComboBoxGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -168,7 +168,7 @@
             this.LabelNgaySinh.ForeColor = System.Drawing.Color.Black;
             this.LabelNgaySinh.Location = new System.Drawing.Point(585, 33);
             this.LabelNgaySinh.Name = "LabelNgaySinh";
-            this.LabelNgaySinh.Size = new System.Drawing.Size(86, 23);
+            this.LabelNgaySinh.Size = new System.Drawing.Size(66, 17);
             this.LabelNgaySinh.TabIndex = 8;
             this.LabelNgaySinh.Text = "Ngày sinh";
             // 
@@ -182,7 +182,7 @@
             this.ctDatePicker1.MinimumSize = new System.Drawing.Size(4, 35);
             this.ctDatePicker1.Name = "ctDatePicker1";
             this.ctDatePicker1.Size = new System.Drawing.Size(234, 35);
-            this.ctDatePicker1.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ctDatePicker1.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctDatePicker1.TabIndex = 5;
             this.ctDatePicker1.TextColor = System.Drawing.Color.Black;
             // 
@@ -256,7 +256,7 @@
             // 
             // ctTextBoxEmail
             // 
-            this.ctTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ctTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.ctTextBoxEmail.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxEmail.BorderRadius = 0;
@@ -272,14 +272,14 @@
             this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxEmail.PlaceholderText = "Nhập email";
             this.ctTextBoxEmail.ReadOnly = false;
-            this.ctTextBoxEmail.Size = new System.Drawing.Size(234, 40);
+            this.ctTextBoxEmail.Size = new System.Drawing.Size(234, 35);
             this.ctTextBoxEmail.TabIndex = 8;
             this.ctTextBoxEmail.Texts = "";
             this.ctTextBoxEmail.UnderlineedStyle = true;
             // 
             // CTTextBoxDiaChi
             // 
-            this.CTTextBoxDiaChi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxDiaChi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxDiaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxDiaChi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxDiaChi.BorderRadius = 0;
@@ -295,14 +295,14 @@
             this.CTTextBoxDiaChi.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxDiaChi.PlaceholderText = "Nhập địa chỉ";
             this.CTTextBoxDiaChi.ReadOnly = false;
-            this.CTTextBoxDiaChi.Size = new System.Drawing.Size(234, 40);
+            this.CTTextBoxDiaChi.Size = new System.Drawing.Size(234, 35);
             this.CTTextBoxDiaChi.TabIndex = 7;
             this.CTTextBoxDiaChi.Texts = "";
             this.CTTextBoxDiaChi.UnderlineedStyle = true;
             // 
             // CTTextBoxNhapCCCD
             // 
-            this.CTTextBoxNhapCCCD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxNhapCCCD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxNhapCCCD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxNhapCCCD.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapCCCD.BorderRadius = 0;
@@ -318,7 +318,7 @@
             this.CTTextBoxNhapCCCD.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapCCCD.PlaceholderText = "Nhập số CCCD";
             this.CTTextBoxNhapCCCD.ReadOnly = false;
-            this.CTTextBoxNhapCCCD.Size = new System.Drawing.Size(234, 40);
+            this.CTTextBoxNhapCCCD.Size = new System.Drawing.Size(234, 35);
             this.CTTextBoxNhapCCCD.TabIndex = 6;
             this.CTTextBoxNhapCCCD.Texts = "";
             this.CTTextBoxNhapCCCD.UnderlineedStyle = true;
@@ -327,7 +327,7 @@
             // 
             // CTTextBoxNhapHoTen
             // 
-            this.CTTextBoxNhapHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxNhapHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxNhapHoTen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxNhapHoTen.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapHoTen.BorderRadius = 0;
@@ -344,7 +344,7 @@
             this.CTTextBoxNhapHoTen.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapHoTen.PlaceholderText = "Nhập họ tên nhân viên";
             this.CTTextBoxNhapHoTen.ReadOnly = false;
-            this.CTTextBoxNhapHoTen.Size = new System.Drawing.Size(234, 40);
+            this.CTTextBoxNhapHoTen.Size = new System.Drawing.Size(234, 35);
             this.CTTextBoxNhapHoTen.TabIndex = 1;
             this.CTTextBoxNhapHoTen.Texts = "";
             this.CTTextBoxNhapHoTen.UnderlineedStyle = true;
@@ -372,7 +372,7 @@
             // 
             // ctTextBoxSDT
             // 
-            this.ctTextBoxSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ctTextBoxSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctTextBoxSDT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.ctTextBoxSDT.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxSDT.BorderRadius = 0;
@@ -388,7 +388,7 @@
             this.ctTextBoxSDT.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxSDT.PlaceholderText = "Số điện thoại";
             this.ctTextBoxSDT.ReadOnly = false;
-            this.ctTextBoxSDT.Size = new System.Drawing.Size(234, 40);
+            this.ctTextBoxSDT.Size = new System.Drawing.Size(234, 35);
             this.ctTextBoxSDT.TabIndex = 4;
             this.ctTextBoxSDT.Texts = "";
             this.ctTextBoxSDT.UnderlineedStyle = true;
@@ -396,7 +396,7 @@
             // 
             // CTTextBoxLuong
             // 
-            this.CTTextBoxLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxLuong.BorderRadius = 0;
@@ -412,7 +412,7 @@
             this.CTTextBoxLuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxLuong.PlaceholderText = "Lương";
             this.CTTextBoxLuong.ReadOnly = false;
-            this.CTTextBoxLuong.Size = new System.Drawing.Size(234, 40);
+            this.CTTextBoxLuong.Size = new System.Drawing.Size(234, 35);
             this.CTTextBoxLuong.TabIndex = 3;
             this.CTTextBoxLuong.Texts = "";
             this.CTTextBoxLuong.UnderlineedStyle = true;
