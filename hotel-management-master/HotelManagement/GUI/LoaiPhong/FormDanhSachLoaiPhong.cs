@@ -15,45 +15,23 @@ namespace HotelManagement.GUI
 {
     public partial class FormDanhSachLoaiPhong : Form
     {
+        // Khai báo các biến ban đầu
         private Image LP = Properties.Resources.LoaiPhong;
         private Image edit = Properties.Resources.edit;
-        //private Image delete = Properties.Resources.delete;
         private Image details = Properties.Resources.details;
         private List<LoaiPhong> loaiPhongs;
         private FormMain formMain;
         private TaiKhoan taiKhoan1;
-
-
-
+        // Hàm khởi tạo Form
         public FormDanhSachLoaiPhong(FormMain formMain,TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan1 = taiKhoan;
-            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this); // Áp dụng UI đẹp hơn 
         }
 
-        /*private void CTButtonThemLoaiPhong_Click(object sender, EventArgs e)
-        {
-            FormBackground formBackground = new FormBackground(formMain);
-            try
-            {
-                using (FormThemLoaiPhong formThemLoaiPhong = new FormThemLoaiPhong())
-                {
-                    formBackground.Owner = formMain;
-                    formBackground.Show();
-                    formThemLoaiPhong.Owner = formBackground;
-                    formThemLoaiPhong.ShowDialog();
-                    formBackground.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "THÔNG BÁO");
-            }
-            finally { formBackground.Dispose(); }
-        }*/
-
+        // Hiển thị các loại phòng có sẵn
         private void FormDanhSachLoaiPhong_Load(object sender, EventArgs e)
         {
             //grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
@@ -62,7 +40,8 @@ namespace HotelManagement.GUI
             grid.Rows.Add(new object[] { LP, "LP002", "Phòng đôi", "2", "4", "200,000", "100,000", edit, delete });
             grid.Rows.Add(new object[] { LP, "LP003", "Phòng VIP", "3", "8", "400,000", "200,000", edit, delete });*/
         }
-
+        
+        // Xử lý việc lấy và hiển thị tất cả loại phòng
         public void LoadAllDataGrid()
         {
             try
@@ -75,7 +54,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Xử lý việc lấy và hiển thị danh sách loại phòng
         private void LoadDataGrid()
         {
             try
@@ -91,6 +70,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }    
+        // Xuất danh sách các loại phòng sang Excel
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -103,14 +83,14 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Get Header text of Column
+                    // Lấy tiêu đề cột 
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Get data of cells
+                    // Lấy dữ liệu theo từng ô
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
