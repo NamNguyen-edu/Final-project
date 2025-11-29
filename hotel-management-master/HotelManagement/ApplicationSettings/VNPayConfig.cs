@@ -7,6 +7,7 @@ using HotelManagement.Properties;
 
 namespace HotelManagement.ApplicationSettings
 {
+    // Lấy dữ liệu các tham số bí mật từ Config của dự án 
     class VNPayConfig
     {
         public static string Vnp_Url => Settings.Default.Vnp_Url;

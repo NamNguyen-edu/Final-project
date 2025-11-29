@@ -24,12 +24,7 @@ namespace HotelManagement.GUI
         private List<Phong> phongs;
         private TaiKhoan taiKhoan;
         private DateTime dateTime = DateTime.Now;
-
-        public FormSoDoPhong()
-        {
-            InitializeComponent();
-        }
-
+        // Hàm khởi tạo 
         public FormSoDoPhong(FormMain formMain,TaiKhoan taiKhoan)
         {
             InitializeComponent();

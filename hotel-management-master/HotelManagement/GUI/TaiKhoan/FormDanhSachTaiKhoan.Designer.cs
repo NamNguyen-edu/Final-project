@@ -53,6 +53,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.search;
             this.pictureBox1.Location = new System.Drawing.Point(51, 34);
             this.pictureBox1.Name = "pictureBox1";
@@ -85,7 +86,7 @@
             // CTTextBoxTimTheoTenTaiKhoan
             // 
             this.CTTextBoxTimTheoTenTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CTTextBoxTimTheoTenTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.CTTextBoxTimTheoTenTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxTimTheoTenTaiKhoan.BorderColor = System.Drawing.Color.Gray;
             this.CTTextBoxTimTheoTenTaiKhoan.BorderFocusColor = System.Drawing.Color.Black;
             this.CTTextBoxTimTheoTenTaiKhoan.BorderRadius = 5;

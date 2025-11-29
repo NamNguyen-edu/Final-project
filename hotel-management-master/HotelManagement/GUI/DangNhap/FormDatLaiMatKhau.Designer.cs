@@ -54,8 +54,8 @@
             // 
             // ButtonOK
             // 
-            this.ButtonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
-            this.ButtonOK.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.ButtonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
+            this.ButtonOK.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
             this.ButtonOK.BorderColor = System.Drawing.Color.White;
             this.ButtonOK.BorderRadius = 15;
             this.ButtonOK.BorderSize = 0;

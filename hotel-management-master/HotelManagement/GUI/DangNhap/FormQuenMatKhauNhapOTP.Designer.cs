@@ -41,8 +41,8 @@
             // 
             // ButtonContinue
             // 
-            this.ButtonContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
-            this.ButtonContinue.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.ButtonContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
+            this.ButtonContinue.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
             this.ButtonContinue.BorderColor = System.Drawing.Color.White;
             this.ButtonContinue.BorderRadius = 20;
             this.ButtonContinue.BorderSize = 0;
@@ -85,8 +85,8 @@
             // 
             // ButtonResend
             // 
-            this.ButtonResend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
-            this.ButtonResend.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.ButtonResend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
+            this.ButtonResend.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
             this.ButtonResend.BorderColor = System.Drawing.Color.White;
             this.ButtonResend.BorderRadius = 20;
             this.ButtonResend.BorderSize = 0;

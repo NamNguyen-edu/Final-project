@@ -68,7 +68,6 @@
             this.ctPanel3 = new CTPanel.CTPanel();
             this.PanelBackgroundTop = new System.Windows.Forms.Panel();
             this.LabelMaPhong = new System.Windows.Forms.Label();
-            this.CTButtonCoc = new HotelManagement.CTControls.CTButton();
             this.PanelBackground.SuspendLayout();
             this.PanelChuaButtonThemDichVu.SuspendLayout();
             this.PanelChuaButtonThanhToan.SuspendLayout();
@@ -497,7 +496,6 @@
             this.LabelThoiGianThue.Size = new System.Drawing.Size(137, 28);
             this.LabelThoiGianThue.TabIndex = 3;
             this.LabelThoiGianThue.Text = "Thời gian thuê";
-            this.LabelThoiGianThue.Click += new System.EventHandler(this.LabelThoiGianThue_Click);
             // 
             // LabelNgayCheckin
             // 
@@ -605,22 +603,6 @@
             this.LabelMaPhong.TabIndex = 4;
             this.LabelMaPhong.Text = "Mã Phòng";
             // 
-            // CTButtonCoc
-            // 
-            this.CTButtonCoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.CTButtonCoc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.CTButtonCoc.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.CTButtonCoc.BorderRadius = 20;
-            this.CTButtonCoc.BorderSize = 0;
-            this.CTButtonCoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CTButtonCoc.ForeColor = System.Drawing.Color.White;
-            this.CTButtonCoc.Location = new System.Drawing.Point(0, 0);
-            this.CTButtonCoc.Name = "CTButtonCoc";
-            this.CTButtonCoc.Size = new System.Drawing.Size(150, 40);
-            this.CTButtonCoc.TabIndex = 0;
-            this.CTButtonCoc.TextColor = System.Drawing.Color.White;
-            this.CTButtonCoc.UseVisualStyleBackColor = false;
-            // 
             // FormThongTinPhong
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -686,7 +668,6 @@
         private CTPanel.CTPanel ctPanel2;
         private System.Windows.Forms.TextBox TextBoxGhiChu;
         private CTPanel.CTPanel ctPanel3;
-        private CTControls.CTButton CTButtonCoc;
         private System.Windows.Forms.Panel PanelChuaButtonThemDichVu;
         private CTControls.CTButton CTButtonThemDichVu;
         private System.Windows.Forms.Panel PanelChuaButtonThanhToan;
