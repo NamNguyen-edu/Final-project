@@ -18,25 +18,28 @@ namespace HotelManagement.DAO
             private set { instance = value; }
         }
         private PhongDAO() { }
+        // Lấy tất cả phòng chưa bị xóa
         public List<Phong> GetAllPhongs()
         {
 
             return db.Phongs.Where(p => p.DaXoa == false).ToList();
 
         }
+        // Tìm phòng theo mã (PK)
         public Phong FindPhong(string MaPh)
         {
 
             return db.Phongs.Find(MaPh);
 
         }
+        // Tìm phòng theo mã, dùng LIKE (Contains)
         public List<Phong> FindPhongWithMaPH(string MaPh)
         {
 
             return db.Phongs.Where(p => p.MaPH.Contains(MaPh) && p.DaXoa == false).ToList();
 
         }
-
+        // Thêm hoặc cập nhật phòng (set lại loại phòng, không xóa)
         public void UpdateOrAdd(Phong phong)
         {
 
@@ -46,6 +49,7 @@ namespace HotelManagement.DAO
             db.SaveChanges();
 
         }
+        // Xóa mềm phòng (DaXoa = true)
         public void RemovePhong(string maPH)
         {
             Phong phong = db.Phongs.Find(maPH);
@@ -53,11 +57,10 @@ namespace HotelManagement.DAO
             db.Phongs.AddOrUpdate(phong);
             db.SaveChanges();
         }
+        // Tìm các phòng trống theo khoảng thời gian Check-in / Check-out
         public List<Phong> FindPhongTrong(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
-
             List<CTDP> cTDPs = CTDP_DAO.Instance.getCTDPonTime(Checkin, Checkout, DSPhongThem).Where(p => p.TrangThai != "Đã hủy" || p.TrangThai != "Đã xong").ToList();
-            //List<Phong> PhongKhongTrong = new List<Phong>();
             var MaPh = cTDPs.Select(p => p.Phong.MaPH).ToList();
             List<Phong> phongs = db.Phongs.Where(p => p.DaXoa == false).ToList();
             List<Phong> phongtrong = new List<Phong>();
@@ -77,6 +80,7 @@ namespace HotelManagement.DAO
             return phongtrong;
 
         }
+        // Kiểm tra 1 phòng cụ thể có trống trong khoảng CheckIn/CheckOut hay không
         public bool FindPhongTrong(CTDP room)
         {
 
@@ -106,6 +110,7 @@ namespace HotelManagement.DAO
             return false;
 
         }
+        // Sinh mã phòng mới theo tầng (P201, P202,...)
         public string GenerateNextRoomCode(int tang)
         {
             var codes = db.Phongs

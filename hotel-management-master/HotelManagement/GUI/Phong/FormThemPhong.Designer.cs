@@ -295,7 +295,6 @@
             this.ctTextBoxGhiChu.TabIndex = 6;
             this.ctTextBoxGhiChu.Texts = "";
             this.ctTextBoxGhiChu.UnderlineedStyle = true;
-            this.ctTextBoxGhiChu._TextChanged += new System.EventHandler(this.ctTextBox4__TextChanged);
             // 
             // FormThemPhong
             // 
