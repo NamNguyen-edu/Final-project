@@ -11,7 +11,6 @@ namespace HotelManagement.DTO
             : base("name=HotelDTO")
         {
         }
-
         public virtual DbSet<CTDP> CTDPs { get; set; }
         public virtual DbSet<CTDV> CTDVs { get; set; }
         public virtual DbSet<CTTN> CTTNs { get; set; }

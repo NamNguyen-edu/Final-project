@@ -20,12 +20,12 @@ namespace HotelManagement.GUI
     {
         #region Custom UI
 
-        //Fields
+        // Khai biến tất cả các biến 
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
 
-        //Constructor
+        // Hàm khởi tạo Form
         public FormKetNoiCSDL()
         {
             this.DoubleBuffered = true;
@@ -34,7 +34,6 @@ namespace HotelManagement.GUI
             InitializeComponent();
         }
 
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -44,13 +43,12 @@ namespace HotelManagement.GUI
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
 
-        //Private Methods
-        //Private Methods
+        // Hàm xử lý hiển thị
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -150,27 +148,21 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
+        // Hàm xử lý sự kiện
         private void FormKetNoiCSDL_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormKetNoiCSDL_Resize(object sender, EventArgs e)
@@ -201,21 +193,18 @@ namespace HotelManagement.GUI
         {
             ctClose.turnOn();
             ctMinimize.turnOn();
-            //ctMaximize.turnOn();
         }
 
         private void panelControlBox_MouseLeave(object sender, EventArgs e)
         {
             ctClose.turnOff();
             ctMinimize.turnOff();
-            //ctMaximize.turnOff();
         }
 
         private void panelControlBox_MouseMove(object sender, MouseEventArgs e)
         {
             ctClose.turnOn();
             ctMinimize.turnOn();
-            //ctMaximize.turnOn();
         }
         #endregion
 

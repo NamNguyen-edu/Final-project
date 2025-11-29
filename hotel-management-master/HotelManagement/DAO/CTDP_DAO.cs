@@ -16,11 +16,13 @@ namespace HotelManagement.DAO
             private set { instance = value; }
         }
         private CTDP_DAO() { }
+
         public List<CTDP> GetCTDPs()
         {
             HotelDTO db = new HotelDTO();
             return db.CTDPs.ToList();
         }   
+        // Khoảng thời gian đặt phòng theo ngày 
         public int getKhoangTGTheoNgay(string MaCTDP)
         {
             CTDP ctdp;
@@ -40,6 +42,7 @@ namespace HotelManagement.DAO
                 }
               return timeSpan.Days;
         }
+        // Khoảng thời gian đặt phòng theo giờ
         public int getKhoangTGTheoGio(string MaCTDP)
         {
             CTDP ctdp;
@@ -59,6 +62,7 @@ namespace HotelManagement.DAO
             }
             return timeSpan.Hours;
         }
+        // Tìm chi tiết đặt phòng theo mã phòng
         public CTDP FindCTDP(string MaPhong, DateTime currentTime)
         {
                 HotelDTO db = new HotelDTO();
@@ -67,6 +71,7 @@ namespace HotelManagement.DAO
                 return ctdp;
             
         }
+        // Chi tiết đặt phòng theo giờ 
         public List<CTDP> getCTDPonTime(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
                 
@@ -90,6 +95,7 @@ namespace HotelManagement.DAO
                 return ctdpList;
             
         }
+        // Quy định mã chi tiết đặt phòng tiếp theo
         public string getNextCTDP()
         {
                 List<CTDP> cTDPs;
@@ -110,6 +116,7 @@ namespace HotelManagement.DAO
                 return "CTDP" + max.ToString();
            
         }
+        // Thêm hoặc cập nhật chi tiết đặt phòng
         public void UpdateOrAddCTDP(CTDP ctdp)
         {
             try
@@ -131,6 +138,7 @@ namespace HotelManagement.DAO
                
             }
         }
+        // Xóa chi tiết đặt phòng
         public void RemoveCTDP(CTDP cTDP)
         {
             HotelDTO db = new HotelDTO();
@@ -140,6 +148,7 @@ namespace HotelManagement.DAO
                 db.SaveChanges();
 
         }
+        // Lấy chi tiết đặt phòng tiếp theo trên danh sách
         public string getNextCTDPwithList(List<CTDP> list)
         {
             List<CTDP> cTDPs;
@@ -155,7 +164,7 @@ namespace HotelManagement.DAO
                 }
                 string MaMax = cTDPs[cTDPs.Count - 1].MaCTDP.ToString();
                 MaMax = MaMax.Substring(MaMax.Length - 3, 3);
-                int max = int.Parse(MaMax);
+                int max = int.Parse(MaMax); // Lấy mã đặt phòng lớn nhất
                 max++;
                 if (max < 10)
                 {
@@ -167,6 +176,7 @@ namespace HotelManagement.DAO
                 }
                 return "CTDP" + max.ToString();      
         }
+        // Kiểm tra phòng có lịch đặt trong tương lai không
         public bool HasFutureBookingForRoom(string maPhong, DateTime now)
         {
             using (var db = new HotelDTO())
@@ -179,7 +189,7 @@ namespace HotelManagement.DAO
                 );
             }
         }
-
+        // Kiểm tra trạng thái qua giờ check in của phòng đặt
         public void UpdateTrangThaiQuaHan(DateTime now)
         {
             using (var db = new HotelDTO())
