@@ -851,7 +851,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
+        // Hàm gửi Email 
         private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
         {
             try

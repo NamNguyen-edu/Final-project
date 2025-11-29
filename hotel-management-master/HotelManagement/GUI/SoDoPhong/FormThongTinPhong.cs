@@ -446,6 +446,7 @@ namespace HotelManagement.GUI
                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogresult == DialogResult.Yes)
             {
+                // Logic xử lý thanh toán
                 // Lấy tổng tiền phòng còn lại 
                 decimal tienPhong = ctdp.ThanhTien;
                 decimal tienDV = CTDV_BUS.Instance.TinhTongTienDichVu(ctdp.MaCTDP);
