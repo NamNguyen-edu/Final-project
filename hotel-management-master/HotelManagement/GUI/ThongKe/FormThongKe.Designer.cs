@@ -504,7 +504,6 @@
             title1.Name = "Tỷ trong đặt phòng";
             title1.Text = "Tỷ trọng đặt phòng";
             this.chartPhong_TyTrong.Titles.Add(title1);
-            this.chartPhong_TyTrong.Click += new System.EventHandler(this.chartPhong_TyTrong_Click);
             // 
             // chartPhong_Horizontal
             // 
@@ -607,7 +606,6 @@
             title3.Name = "Doanh thu theo thời gian";
             title3.Text = "Doanh thu theo thời gian";
             this.chartPhong_Line.Titles.Add(title3);
-            this.chartPhong_Line.Click += new System.EventHandler(this.chartPhong_Line_Click);
             // 
             // panel6
             // 
@@ -741,7 +739,7 @@
             title4.Name = "Title1";
             title4.Text = "Số phòng được đặt";
             this.chartSoPhongDat.Titles.Add(title4);
-            this.chartSoPhongDat.Click += new System.EventHandler(this.chartSoPhongDat_Click);
+ 
             // 
             // pnlTongQuan
             // 
@@ -971,7 +969,6 @@
             this.lblTongDoanhThu.TabIndex = 144;
             this.lblTongDoanhThu.Text = "Tổng doanh thu";
             this.lblTongDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTongDoanhThu.Click += new System.EventHandler(this.lblTongDoanhThu_Click);
             // 
             // pnlKhach
             // 
@@ -1733,7 +1730,6 @@
             this.ctPanel12.Name = "ctPanel12";
             this.ctPanel12.Size = new System.Drawing.Size(432, 385);
             this.ctPanel12.TabIndex = 158;
-            this.ctPanel12.Load += new System.EventHandler(this.ctPanel12_Load);
             // 
             // ctPanel13
             // 

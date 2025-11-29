@@ -1,5 +1,4 @@
-﻿
-using ApplicationSettings;
+﻿using ApplicationSettings;
 using HotelManagement.CTControls;
 using HotelManagement.DTO;
 using HotelManagement.GUI;
@@ -20,36 +19,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-
-
 namespace HotelManagement
 {
     public partial class FormMain : Form
     {
         private bool _isKhachMode = false;
-        //Fields
+
+        // Biến dùng cho cấu hình form và phân quyền
         int LoaiTK;
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.FromArgb(72, 145, 153);
         private TaiKhoan taiKhoan;
         private bool isMusicPlaying = false; // Biến để theo dõi trạng thái nhạc
-        private SoundPlayer player; // Để phát âm thanh
+        private SoundPlayer player;          // Đối tượng phát âm thanh
 
-
-        // Ở trên cùng class FormMain
-        private bool isCollapsed = false;      // đang thu nhỏ hay không
-        private Timer sidebarTimer;
-        private int sidebarExpandedWidth = 262;
-        private int sidebarCollapsedWidth = 65;
-        private int sidebarStep = 10;          // mỗi tick thay đổi bao nhiêu pixel
-
-
-
-
-
-        //Constructor
+        // Hàm khởi tạo FormMain, thiết lập style form và phân quyền theo tài khoản đăng nhập
         public FormMain(TaiKhoan taiKhoan)
         {
             this.DoubleBuffered = true;
@@ -64,129 +49,22 @@ namespace HotelManagement
                 LoadFormQuanLy();
             else if (this.LoaiTK == 3)
                 LoadFormForAdmin();
-            //else if (this.LoaiTK == 4)
-            //    LoadFormForKhach();
-            //customDesign();
-
-
-            ////  TIMER CHO ANIMATION SIDEBAR
-            //sidebarTimer = new Timer();
-            //sidebarTimer.Interval = 10;               
-            //sidebarTimer.Tick += SidebarTimer_Tick;
-
-
         }
 
+        // Thuộc tính trả về tài khoản đang đăng nhập
         public TaiKhoan TaiKhoanDangNhap
         {
             get { return taiKhoan; }
         }
 
-
-
-        //private void SidebarTimer_Tick(object sender, EventArgs e)
-        //{
-        //    if (isCollapsed)
-        //    {
-        //        // Đang thu nhỏ -> mở rộng ra
-        //        Sidebar.Width += sidebarStep;
-        //        if (Sidebar.Width >= sidebarExpandedWidth)
-        //        {
-        //            // dừng tại kích thước tối đa
-        //            Sidebar.Width = sidebarExpandedWidth;
-        //            sidebarTimer.Stop();
-        //            isCollapsed = false;
-
-        //            // hiện lại text menu
-        //            DisplayTextMenu();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        // Đang mở -> thu nhỏ lại
-        //        Sidebar.Width -= sidebarStep;
-        //        if (Sidebar.Width <= sidebarCollapsedWidth)
-        //        {
-        //            // dừng tại kích thước nhỏ nhất
-        //            Sidebar.Width = sidebarCollapsedWidth;
-        //            sidebarTimer.Stop();
-        //            isCollapsed = true;
-
-        //            // ẩn text menu cho gọn
-        //            NotDisplayTextMenu();
-        //        }
-        //    }
-        //}
-
-
+        // Cấu hình giao diện và menu dành cho tài khoản Admin
         private void LoadFormForAdmin()
         {
             _isKhachMode = false;
             this.ButtonTrangChu.Hide();
-            //this.ButtonDatPhong.Hide();
-            //this.ButtonThanhToan.Hide();
-            //this.ButtonQLLD.Hide();
-            //this.ButtonCSKH.Hide();
-            //this.ButtonQLTK.Hide();           
         }
 
-        //private void LoadFormForKhach()
-        //{
-        //    _isKhachMode = true;
-        //    this.ButtonSoDoPhong.Hide();
-        //    this.ButtonPhong.Hide();
-        //    this.ButtonLoaiPhong.Hide();
-        //    this.ButtonDanhSachDatPhong.Hide();
-        //    this.ButtonDanhSachHoaDon.Hide();
-        //    this.ButtonDanhSachDichVu.Hide();
-        //    this.ButtonDanhSachKhachHang.Hide();
-        //    this.ButtonDanhSachTienNghi.Hide();
-        //    this.ButtonDanhSachTaiKhoan.Hide();
-        //    this.ButtonDanhSachNhanVien.Hide();
-        //    this.ButtonThongKe.Hide();
-        //    ApplyThemeForKhach();
-        //    SetColorButtonTrangChu();
-
-
-        //}
-
-        private void ApplyThemeForKhach()
-        {
-            // Màu nhẹ hơn, tone pastel cho khách
-            Color mainColor = Color.FromArgb(230, 245, 245);   // Toàn màn hình
-            Color headerColor = Color.FromArgb(249, 165, 105); // Thanh tên KS
-            Color sidebarColor = Color.FromArgb(249, 165, 105); // Sidebar
-            Color infoColor = Color.FromArgb(249, 165, 105);   // Thanh thông tin dưới
-
-            // Panel tổng
-            this.PanelBackground.BackColor = mainColor;
-
-            // Thanh top
-            this.panelName.BackColor = headerColor;
-            this.panelControlBox.BackColor = headerColor;
-
-            // Sidebar
-            this.Sidebar.BackColor = sidebarColor;
-            this.PanelUser.BackColor = sidebarColor;
-
-            // Panel hiển thị child
-            this.panelMainChildForm.BackColor = mainColor;
-
-            // Panel cuối
-            this.panelInfomation.BackColor = infoColor;
-
-            // Avatar nền khách
-            this.PictureBoxUser.BackColor = Color.Transparent;
-
-            // Đổi màu chữ
-            this.labelTenKhachSan.ForeColor = Color.White;
-            this.LabelTenNguoiDung.ForeColor = Color.Black;
-
-            // Nếu bạn có button custom, có thể đổi màu luôn
-        }
-
-
-
+        // Cấu hình giao diện và menu dành cho tài khoản Nhân viên
         private void LoadFormForNhanVien()
         {
             _isKhachMode = false;
@@ -195,43 +73,34 @@ namespace HotelManagement
             this.ButtonDanhSachNhanVien.Hide();
             this.ButtonThongKe.Hide();
             this.ButtonLoaiPhong.Hide();
-            //this.ButtonDatPhong.Hide();
-            //this.ButtonThanhToan.Hide();
-            //this.ButtonQLLD.Hide();
-            //this.ButtonCSKH.Hide();
-            //this.ButtonQLTK.Hide();
         }
+
+        // Cấu hình giao diện và menu dành cho tài khoản Quản lý
         private void LoadFormQuanLy()
         {
             _isKhachMode = false;
             this.ButtonDanhSachTaiKhoan.Hide();
-            //this.ButtonDatPhong.Hide();
-            //this.ButtonThanhToan.Hide();
-            //this.ButtonQLLD.Hide();
-            //this.ButtonCSKH.Hide();
-            //this.ButtonQLTK.Hide();
         }
-        //Control Box
 
-        //Form Move
-
-        //Drag Form
+        // Khai báo hàm WinAPI hỗ trợ kéo form không viền
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
+        // Khai báo hàm WinAPI gửi thông điệp đến Windows (dùng để di chuyển form)
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        // Ghi đè CreateParams để cho phép form không viền vẫn có thể thu nhỏ từ taskbar
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; // Cho phép thu nhỏ form không viền từ thanh taskbar
                 return cp;
             }
         }
 
-        //Private Methods
-        //Private Methods
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -256,44 +125,14 @@ namespace HotelManagement
             }
         }
 
-        //private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
-        //{
-        //    if (this.WindowState != FormWindowState.Minimized)
-        //    {
-        //        using (GraphicsPath roundPath = GetRoundedPath(form.ClientRectangle, radius))
-        //        using (Pen penBorder = new Pen(borderColor, borderSize))
-        //        using (Matrix transform = new Matrix())
-        //        {
-        //            graph.SmoothingMode = SmoothingMode.AntiAlias;
-        //            form.Region = new Region(roundPath);
-        //            if (borderSize >= 1)
-        //            {
-        //                Rectangle rect = form.ClientRectangle;
-        //                float scaleX = 1.0F - ((borderSize + 1) / rect.Width);
-        //                float scaleY = 1.0F - ((borderSize + 1) / rect.Height);
-        //                transform.Scale(scaleX, scaleY);
-        //                transform.Translate(borderSize / 1.6F, borderSize / 1.6F);
-        //                graph.Transform = transform;
-        //                graph.DrawPath(penBorder, roundPath);
-        //            }
-        //        }
-        //    }
-        //}
-
-
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
             {
-                // Loại bỏ phần bo góc, chỉ vẽ viền bình thường
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
                     graph.SmoothingMode = SmoothingMode.AntiAlias;
-
-                    // Tạo một vùng (region) hình chữ nhật bình thường, không có bo góc
                     form.Region = new Region(form.ClientRectangle);
-
-                    // Vẽ viền xung quanh form nếu borderSize >= 1
                     if (borderSize >= 1)
                     {
                         graph.DrawRectangle(penBorder, form.ClientRectangle);
@@ -318,6 +157,7 @@ namespace HotelManagement
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
+
         private FormBoundsColors GetFormBoundsColors()
         {
             var fbColor = new FormBoundsColors();
@@ -325,22 +165,22 @@ namespace HotelManagement
             using (Graphics graph = Graphics.FromImage(bmp))
             {
                 Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
+
                 rectBmp.X = this.Bounds.X - 1;
                 rectBmp.Y = this.Bounds.Y;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
+
                 rectBmp.X = this.Bounds.Right;
                 rectBmp.Y = this.Bounds.Y;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
+
                 rectBmp.X = this.Bounds.X;
                 rectBmp.Y = this.Bounds.Bottom;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
+
                 rectBmp.X = this.Bounds.Right;
                 rectBmp.Y = this.Bounds.Bottom;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
@@ -348,6 +188,7 @@ namespace HotelManagement
             }
             return fbColor;
         }
+
 
         private FormBoundsColors SameColor()
         {
@@ -359,32 +200,35 @@ namespace HotelManagement
             return fbColor;
         }
 
-        //Event Methods
+
         private void FormMain_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
-            //var fbColors = SameColor();
+
+
             var fbColors = GetFormBoundsColors();
-            //Top Left
+
+
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
+
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
+
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
+
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
+
+
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
 
-        //Chỉnh padding
+        // Sự kiện Resize của form, điều chỉnh Padding khi phóng to/ thu nhỏ
         private void FormMain_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
@@ -394,33 +238,37 @@ namespace HotelManagement
 
             this.Invalidate();
         }
+
+        // Sự kiện thay đổi kích thước form, yêu cầu vẽ lại giao diện
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
+        // Sự kiện form được kích hoạt, yêu cầu vẽ lại giao diện
         private void FormMain_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
         }
+
+        // Sự kiện vẽ panel nền, áp dụng bo góc và viền cho PanelBackground
         private void PanelBackground_Paint(object sender, PaintEventArgs e)
         {
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
         }
+
+        // Sự kiện Load của form, thiết lập giao diện ban đầu và mở form con tương ứng với quyền
         private void FormMain_Load(object sender, EventArgs e)
         {
-          
-            // hiệu ứng mở form
             int time = 300;
             WinAPI.AnimateWindow(this.Handle, time, WinAPI.CENTER);
 
-            // tên người dùng trên thanh top
             this.LabelTenNguoiDung.Text = taiKhoan.NhanVien.TenNV;
 
             if (LoaiTK == 1) // Nhân viên
             {
-                ButtonTrangChu.Show();          
-                SetColorButtonTrangChu();      
+                ButtonTrangChu.Show();
+                SetColorButtonTrangChu();
                 openChildForm(new FormTC(this));
             }
             else
@@ -440,13 +288,14 @@ namespace HotelManagement
             //PlayMusic();
         }
 
+        // Phát nhạc nền dạng lặp lại nếu tồn tại file âm thanh trong Resources
         private void PlayMusic()
         {
-            if (Properties.Resources.audiotrangchu != null) // Kiểm tra xem file âm thanh có tồn tại trong Resources không
+            if (Properties.Resources.audiotrangchu != null)
             {
-                player = new SoundPlayer(Properties.Resources.audiotrangchu); // Đọc file âm thanh từ Resources
-                player.PlayLooping(); // Phát nhạc liên tục (lặp lại)
-                isMusicPlaying = true; // Đánh dấu là nhạc đang phát
+                player = new SoundPlayer(Properties.Resources.audiotrangchu);
+                player.PlayLooping();
+                isMusicPlaying = true;
             }
             else
             {
@@ -454,8 +303,9 @@ namespace HotelManagement
             }
         }
 
-
         private Form activeForm = null;
+
+        // Mở form con trong panelMainChildForm, đảm bảo chỉ có một form con hiển thị
         public void openChildForm(Form childForm)
         {
             if (activeForm != null)
@@ -470,15 +320,17 @@ namespace HotelManagement
             childForm.Show();
         }
 
-        /*private void customDesign()
-      
-*/
-
+        // Sự kiện click nút thu nhỏ form
         private void ctMinimize1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void ctMaximize1_Click(object sender, EventArgs e) => this.WindowState = (this.WindowState == FormWindowState.Normal) ? FormWindowState.Maximized : FormWindowState.Normal;
+
+        // Sự kiện click nút phóng to / khôi phục kích thước form
+        private void ctMaximize1_Click(object sender, EventArgs e) =>
+            this.WindowState = (this.WindowState == FormWindowState.Normal) ? FormWindowState.Maximized : FormWindowState.Normal;
+
+        // Sự kiện rê chuột vào khu vực control box, bật hiệu ứng cho các nút
         private void panelControlBox_MouseHover(object sender, EventArgs e)
         {
             ctClose1.turnOn();
@@ -486,6 +338,7 @@ namespace HotelManagement
             ctMaximize1.turnOn();
         }
 
+        // Sự kiện rời chuột khỏi khu vực control box, tắt hiệu ứng cho các nút
         private void panelControlBox_MouseLeave(object sender, EventArgs e)
         {
             ctClose1.turnOff();
@@ -493,6 +346,7 @@ namespace HotelManagement
             ctMaximize1.turnOff();
         }
 
+        // Sự kiện di chuyển chuột trong khu vực control box, bật hiệu ứng cho các nút
         private void panelControlBox_MouseMove(object sender, MouseEventArgs e)
         {
             ctClose1.turnOn();
@@ -500,25 +354,20 @@ namespace HotelManagement
             ctMaximize1.turnOn();
         }
 
+        // Sự kiện giữ chuột trên panel tiêu đề, cho phép kéo di chuyển form
         private void panelName_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-        //Button color change
-
-        private void SetColorButtonTrangChu()
+         private void SetColorButtonTrangChu()
         {
             ButtonTrangChu.BackColor = Color.FromArgb(182, 103, 36);
             ButtonTrangChu.ForeColor = Color.White;
         }
 
-        private void SetAllButtonNormalColor()
+         private void SetAllButtonNormalColor()
         {
             Color normalColor = Color.FromArgb(182, 103, 36);
             ButtonSoDoPhong.BackColor = normalColor;
@@ -532,153 +381,158 @@ namespace HotelManagement
             ButtonDanhSachTaiKhoan.BackColor = normalColor;
             ButtonDanhSachNhanVien.BackColor = normalColor;
             ButtonThongKe.BackColor = normalColor;
-
         }
 
         public static Color Select = Color.FromArgb(221, 173, 127);
-        //Nội bộ
-        private void ButtonDanhSachDatPhong_Click(object sender, EventArgs e)
+
+         private void ButtonDanhSachDatPhong_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
-            SetAllButtonNormalColor();
+             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachDatPhong.BackColor = Select;
             ButtonDanhSachDatPhong.ForeColor = Color.White;
-            //Open Child Form
-            openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
+
+             openChildForm(new FormDanhSachPhieuThue(this, taiKhoan));
         }
+
 
         private void ButtonSoDoPhong_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonSoDoPhong.BackColor = Color.FromArgb(233, 117, 32);
             ButtonSoDoPhong.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormSoDoPhong(this, taiKhoan));
         }
 
 
         private void ButtonDanhSachHoaDon_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachHoaDon.BackColor = Color.FromArgb(233, 117, 32);
             ButtonDanhSachHoaDon.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormDanhSachHoaDon(this));
         }
 
+
         private void ButtonTrangChu_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
-
 
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonTrangChu.BackColor = Color.FromArgb(233, 117, 32);
             ButtonTrangChu.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormTC(this));
-
-
-
         }
+
 
         private void ButtonDanhSachKhachHang_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachKhachHang.BackColor = Color.FromArgb(233, 117, 32);
             ButtonDanhSachKhachHang.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormDanhSachKhachHang(this, this.taiKhoan));
         }
 
         private void ButtonPhong_Click(object sender, EventArgs e)
-        {   //Change color button on side bar
+        {
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonPhong.BackColor = Color.FromArgb(233, 117, 32);
             ButtonPhong.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormDanhSachPhong(this, this.taiKhoan));
         }
 
+
         private void ButtonLoaiPhong_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonLoaiPhong.BackColor = Color.FromArgb(233, 117, 32);
             ButtonLoaiPhong.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormDanhSachLoaiPhong(this, this.taiKhoan));
         }
+
+
         private void ButtonDanhSachDichVu_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachDichVu.BackColor = Color.FromArgb(233, 117, 32);
             ButtonDanhSachDichVu.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormDanhSachDichVu(this, this.taiKhoan));
         }
 
+
         private void ButtonDanhSachTienNghi_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachTienNghi.BackColor = Color.FromArgb(233, 117, 32);
             ButtonDanhSachTienNghi.ForeColor = Color.White;
-            //Open Child Form
-            openChildForm(new FormDanhSachTienNghi(this, this.taiKhoan));
 
+            openChildForm(new FormDanhSachTienNghi(this, this.taiKhoan));
         }
+
 
         private void ButtonDanhSachTaiKhoan_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachTaiKhoan.BackColor = Color.FromArgb(233, 117, 32);
             ButtonDanhSachTaiKhoan.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormDanhSachTaiKhoan(this));
         }
 
+
         private void ButtonDanhSachNhanVien_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachNhanVien.BackColor = Color.FromArgb(233, 117, 32);
             ButtonDanhSachNhanVien.ForeColor = Color.White;
-            //Open Child Form
+
             openChildForm(new FormDanhSachNhanVien(this, this.taiKhoan));
         }
 
+        // Sự kiện click nút đóng, đóng form chính của ứng dụng
         private void ctClose1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+
         private void ButtonThongKe_Click(object sender, EventArgs e)
         {
-            //Change color button on side bar
+
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonThongKe.BackColor = Color.FromArgb(233, 117, 32);
 
-            //Open Child Form
-            openChildForm(new HotelManagement.GUI.ThongKe.FormThongKe(this));
 
+            openChildForm(new HotelManagement.GUI.ThongKe.FormThongKe(this));
         }
+
+        // Hiển thị chữ cho menu bên trái, kích hoạt panel thông tin người dùng
         private void DisplayTextMenu()
         {
             ButtonTrangChu.Text = "    Trang chủ";
@@ -695,6 +549,8 @@ namespace HotelManagement
             ButtonThongKe.Text = "    Thống kê";
             PanelUser.Visible = true;
         }
+
+        // Ẩn chữ trên menu bên trái, ẩn panel thông tin người dùng
         private void NotDisplayTextMenu()
         {
             ButtonTrangChu.Text = "";
@@ -711,7 +567,10 @@ namespace HotelManagement
             ButtonThongKe.Text = "";
             PanelUser.Visible = false;
         }
+
         private bool isDisplayed = true;
+
+        // Sự kiện click icon menu, thu gọn hoặc mở rộng thanh Sidebar
         private void PictureBoxMenu_Click(object sender, EventArgs e)
         {
             if (isDisplayed == true)
@@ -721,13 +580,6 @@ namespace HotelManagement
                 NotDisplayTextMenu();
                 Sidebar.Size = size;
             }
-            //else  // Không cho spam click khi đang chạy animation
-            // if (!sidebarTimer.Enabled)
-            //{
-            //    if (!isCollapsed)
-            //        NotDisplayTextMenu();
-            //    sidebarTimer.Start();
-            //}
             else
             {
                 isDisplayed = true;
@@ -737,6 +589,7 @@ namespace HotelManagement
             }
         }
 
+        // Sự kiện click link Đăng xuất, quay lại form đăng nhập và đóng form chính
         private void linkLabelDangXuat_Click(object sender, EventArgs e)
         {
             using (FormLogin formLogin = new FormLogin())
@@ -747,11 +600,13 @@ namespace HotelManagement
             }
         }
 
+        // Sự kiện di chuyển chuột qua icon menu, đổi màu nền để tạo hiệu ứng hover
         private void PictureBoxMenu_MouseMove(object sender, MouseEventArgs e)
         {
             PictureBoxMenu.BackColor = Color.FromArgb(58, 130, 137);
         }
 
+        // Sự kiện rời chuột khỏi icon menu, trả về màu nền trong suốt
         private void PictureBoxMenu_MouseLeave(object sender, EventArgs e)
         {
             PictureBoxMenu.BackColor = Color.Transparent;

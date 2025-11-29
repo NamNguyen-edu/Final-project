@@ -23,11 +23,13 @@ namespace HotelManagement.GUI
         private FormLogin formLoginParent;
         private TaiKhoan taiKhoan;
         int time = 60;
+        // Constructor: chỉ nhận form cha (không có email)
         public FormQuenMatKhauNhapOTP(FormLogin formMain)
         { 
             this.formLoginParent = formMain;
              InitializeComponent();
         }
+        // Constructor: nhận form cha + email + tài khoản → gửi OTP ngay
         public FormQuenMatKhauNhapOTP(FormLogin formMain,string emailto=null, TaiKhoan taiKhoan=null)
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace HotelManagement.GUI
             this.taiKhoan=taiKhoan;
             LoadOTP();
         }
+        // Tạo OTP mới, gửi email OTP và bắt đầu đếm ngược resend
         void LoadOTP()
         {
             time = 60;
@@ -71,6 +74,7 @@ namespace HotelManagement.GUI
    
 
         }
+        // Kiểm tra OTP nhập vào có đúng không
         private bool checkOTPCorrect()
         {
             if (this.textBoxOTP.Texts == OTP)
@@ -79,6 +83,7 @@ namespace HotelManagement.GUI
             }
             return false;
         }
+        // Khi nhấn "Continue": nếu OTP đúng → mở form đặt lại mật khẩu
         private void ButtonContinue_Click(object sender, EventArgs e)
         {
             try
@@ -97,17 +102,17 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Quay lại bước nhập email lấy OTP
         private void PictureBoxBack_Click(object sender, EventArgs e)
         {
             formLoginParent.openChildForm(new FormQuenMatKhauLayOTP(formLoginParent));
         }
-
+        // Nhấn resend OTP → gửi OTP mới
         private void ButtonResend_Click(object sender, EventArgs e)
         {
             LoadOTP();
         }
-
+        // Timer đếm ngược 60s để cho phép resend OTP
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.ButtonResend.Text = time.ToString();

@@ -24,7 +24,6 @@ using System.Runtime.InteropServices;
 
 namespace HotelManagement.GUI.ThongKe
 {
-   
     public partial class FormThongKe : Form
     {
         private FormMain formMain;
@@ -37,7 +36,6 @@ namespace HotelManagement.GUI.ThongKe
         {
             InitializeComponent();
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
-
         }
         public FormThongKe(FormMain formMain)
         {
@@ -56,7 +54,7 @@ namespace HotelManagement.GUI.ThongKe
             LoadData();
             ChonTab(btnTongQuan, pnlTongQuan);
         }
-
+        // Reset màu và trạng thái tất cả nút lọc thời gian về mặc định
         private void setButtonNormal()
         {
             ButtonTuyChon.BackColor
@@ -71,6 +69,7 @@ namespace HotelManagement.GUI.ThongKe
                 = Button30Ngay.ForeColor
                 = Button6Thang.ForeColor = Color.Black;
         }
+        // Chọn chế độ Tùy chọn (cho phép chỉnh ngày), highlight nút, load dữ liệu
         private void ButtonTuyChon_Click(object sender, EventArgs e)
         {
             setButtonNormal();
@@ -79,7 +78,7 @@ namespace HotelManagement.GUI.ThongKe
             ButtonTuyChon.ForeColor = Color.White;
             LoadData();
         }
-
+        // Lọc dữ liệu theo ngày hôm nay
         private void ButtonHomNay_Click(object sender, EventArgs e)
         {
             setButtonNormal();
@@ -90,7 +89,7 @@ namespace HotelManagement.GUI.ThongKe
             dtpNgayKT.Value = DateTime.Now.Date;
             LoadData();
         }
-
+        // Lọc dữ liệu 7 ngày gần nhất
         private void Button7Ngay_Click(object sender, EventArgs e)
         {
             setButtonNormal();
@@ -101,7 +100,7 @@ namespace HotelManagement.GUI.ThongKe
             dtpNgayKT.Value = DateTime.Now;
             LoadData();
         }
-
+        // Lọc dữ liệu 30 ngày gần nhất
         private void Button30Ngay_Click(object sender, EventArgs e)
         {
             setButtonNormal();
@@ -112,7 +111,7 @@ namespace HotelManagement.GUI.ThongKe
             dtpNgayKT.Value = DateTime.Now;
             LoadData();
         }
-
+        // Lọc dữ liệu 6 tháng gần nhất
         private void Button6Thang_Click(object sender, EventArgs e)
         {
             setButtonNormal();
@@ -123,7 +122,7 @@ namespace HotelManagement.GUI.ThongKe
             dtpNgayKT.Value = DateTime.Now;
             LoadData();
         }
-
+        // Xác nhận lọc bằng ngày tùy chọn
         private void ButtonOK_Click(object sender, EventArgs e)
         {
             setButtonNormal();
@@ -131,7 +130,7 @@ namespace HotelManagement.GUI.ThongKe
             ButtonTuyChon.ForeColor = Color.White;
             LoadData();
         }
-
+        // Gọi DAO để tải dữ liệu theo khoảng ngày → cập nhật UI 4 tab
         private void LoadData()
         {
             try
@@ -149,6 +148,7 @@ namespace HotelManagement.GUI.ThongKe
                 CTMessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Cập nhật KPI + biểu đồ tổng quan (doanh thu, phòng đặt)
         private void UpdateUI_TongQuan()
         {
             TongDoanhThuTong.Text = thongKe.TongDoanhThuTong.ToString("#,#");
@@ -165,16 +165,14 @@ namespace HotelManagement.GUI.ThongKe
             chartSoPhongDat.Series[0].YValueMembers = "TotalAmount";
             chartSoPhongDat.DataBind();
         }
+        // Cập nhật KPI + biểu đồ liên quan đến loại phòng
         private void UpdateUI_Phong()
         {
             lblPhong_TopDoanhThu_Ten.Text = thongKe.TenLoaiPhongDoanhThuCaoNhat;
             lblPhong_TopDoanhThu_GiaTri.Text = thongKe.DoanhThuLoaiPhongCaoNhat.ToString("#,#");
-
-            // B. KPI – Đặt nhiều nhất
             lblPhong_TopDat_Ten.Text = thongKe.TenLoaiPhongDuocDatNhieuNhat;
             lblPhong_TopDat_SoLan.Text = thongKe.SoLanLoaiPhongDatNhieuNhat.ToString();
 
-            // C. Line Chart – Doanh thu từng loại phòng
             chartPhong_Line.Series["Thường đơn"].Points.Clear();
             chartPhong_Line.Series["Thường đôi"].Points.Clear();
             chartPhong_Line.Series["VIP đơn"].Points.Clear();
@@ -192,8 +190,6 @@ namespace HotelManagement.GUI.ThongKe
             foreach (var x in thongKe.DoanhThuVipDoiList)
                 chartPhong_Line.Series["VIP đôi"].Points.AddXY(x.Date, x.TotalAmount);
 
-
-            // D. Pie Chart – Tỷ trọng đặt phòng
             chartPhong_TyTrong.Series["TyTrong"].Points.Clear();
 
             foreach (var item in thongKe.TyTrongDatPhongList)
@@ -209,18 +205,16 @@ namespace HotelManagement.GUI.ThongKe
                     .Points.AddXY(item.TenLoaiPhong, item.TongTien);
             }
         }
+        // Cập nhật KPI + biểu đồ liên quan đến dịch vụ
         private void UpdateUI_DichVu()
         {
-            // Dịch vụ doanh thu cao nhất
             lblDV_TopDT_Ten.Text = thongKe.TenDichVuDoanhThuCaoNhat;
             lblDV_TopDT_GiaTri.Text = thongKe.DoanhThuDichVuCaoNhat.ToString("#,#");
 
-            // Dịch vụ được sử dụng nhiều nhất
             lblDV_TopSL_Ten.Text = thongKe.TenDichVuSuDungNhieuNhat;
             lblDV_TopSL_SoLan.Text = thongKe.SoLanDichVuSuDungNhieuNhat.ToString();
 
             chartDV_Line.Series["Doanh Thu Dịch Vụ"].Points.Clear();
-
             foreach (var item in thongKe.DoanhThuDichVuTheoNgayList)
             {
                 chartDV_Line.Series["Doanh Thu Dịch Vụ"]
@@ -239,13 +233,10 @@ namespace HotelManagement.GUI.ThongKe
                 chartDV_Pie.Series["TyTrong"]
                     .Points.AddXY(dv.Key, dv.Value);
             }
-
         }
+        // Cập nhật KPI + biểu đồ liên quan đến khách hàng
         private void UpdateUI_Khach()
         {
-
-
-            // KPI
             lblKH_TongKhach_GiaTri.Text = thongKe.TongSoKhach.ToString();
             lblKH_TopDat_Ten.Text = thongKe.TenKhachDatNhieuNhat;
             lblKH_TopDat_SoLan.Text = thongKe.SoLanKhachDatNhieuNhat.ToString();
@@ -253,20 +244,18 @@ namespace HotelManagement.GUI.ThongKe
             lblKH_TopChiTieu_GiaTri.Text = thongKe.TienKhachChiNhieuNhat.ToString("#,#");
 
             chartKH_TopChiTieu.Series["Dong"].Points.Clear();
-
             foreach (var kh in thongKe.Top5KhachChiTieuList)
             {
                 chartKH_TopChiTieu.Series["Dong"].Points.AddXY(kh.TenKhach, kh.TongTien);
             }
-            chartKH_SoKhach.Series["KhachHang"].Points.Clear();
 
+            chartKH_SoKhach.Series["KhachHang"].Points.Clear();
             foreach (var item in thongKe.SoKhachTheoNgayList)
             {
                 chartKH_SoKhach.Series["KhachHang"].Points.AddXY(item.Date, item.TotalAmount);
             }
-
         }
-
+        // Chụp toàn bộ form và mở Print Preview để xem trước khi in
         private void Printer_ThongKe_Click(object sender, EventArgs e)
         {
             try
@@ -288,7 +277,7 @@ namespace HotelManagement.GUI.ThongKe
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Dùng WinAPI để chụp ảnh toàn bộ form (kể cả ngoài màn hình)
         private Bitmap CaptureFormWithPrintWindow(Control form)
         {
             {
@@ -301,33 +290,34 @@ namespace HotelManagement.GUI.ThongKe
                 }
                 return bmp;
             }
-
         }
+        // Vẽ hình dashboard vào trang in
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(_dashboardBitmap, e.MarginBounds);
             e.HasMorePages = false;
         }
-
+        // Mở tab Tổng quan
         private void btnTongQuan_Click(object sender, EventArgs e)
         {
             ChonTab(btnTongQuan, pnlTongQuan);
         }
-
+        // Mở tab Phòng
         private void btnPhong_Click(object sender, EventArgs e)
         {
             ChonTab(btnPhong, pnlPhong);
         }
-
+        // Mở tab Dịch vụ
         private void btnDichVu_Click(object sender, EventArgs e)
         {
             ChonTab(btnDichVu, pnlDichVu);
         }
-
+        // Mở tab Khách hàng
         private void btnKhach_Click(object sender, EventArgs e)
         {
             ChonTab(btnKhach, pnlKhach);
         }
+        // Đổi màu nút tab + ẩn các panel khác + hiện panel được chọn
         private void ChonTab(System.Windows.Forms.Button btnDangChon, Control pnlDangChon)
         {
             var allButtons = new System.Windows.Forms.Button[] { btnTongQuan, btnPhong, btnDichVu, btnKhach };
@@ -348,36 +338,6 @@ namespace HotelManagement.GUI.ThongKe
 
             pnlDangChon.Visible = true;
             pnlDangChon.BringToFront();
-        }
-
-        private void label36_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chartSoPhongDat_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblTongDoanhThu_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chartPhong_TyTrong_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chartPhong_Line_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ctPanel12_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

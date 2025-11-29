@@ -11,19 +11,23 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.BUS;
 
-
 namespace HotelManagement.GUI
 {
     public partial class FormDanhSachKhachHang : Form
     {
+        // Danh sách khách hàng hiện đang được hiển thị trên grid
         List<KhachHang> khachHangs;
+
         private Image KH = Properties.Resources.KhachHang;
         private Image edit = Properties.Resources.edit;
         private Image delete = Properties.Resources.delete;
+
+        // Tham chiếu đến form chính và tài khoản hiện đang đăng nhập
         private FormMain formMain;
         private TaiKhoan taiKhoan;
 
-        public FormDanhSachKhachHang(FormMain formMain,TaiKhoan taiKhoan)
+        // Hàm khởi tạo, nhận formMain và tài khoản đăng nhập, load dữ liệu và áp theme
+        public FormDanhSachKhachHang(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
             LoadAllGrid();
@@ -32,6 +36,7 @@ namespace HotelManagement.GUI
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
+        // Sự kiện click nút Thêm khách hàng, mở form thêm khách hàng trên nền FormBackground
         private void CTButtonThemKhachHang_Click(object sender, EventArgs e)
         {
             LoadGrid();
@@ -55,13 +60,12 @@ namespace HotelManagement.GUI
             finally { formBackground.Dispose(); }
         }
 
+        // Sự kiện Load form danh sách khách hàng 
         private void FormDanhSachKhachHang_Load(object sender, EventArgs e)
         {
-            /*grid.Rows.Add(new object[] { KH, "KH001", "Phan Tuấn Thành", "123456789101", "0956093276", "Việt Nam", "Nam", edit, delete });
-            grid.Rows.Add(new object[] { KH, "KH002", "Trần Văn C", "123456789101", "0956093276", "Singapore", "Nữ", edit, delete });
-            grid.Rows.Add(new object[] { KH, "KH003", "Nguyễn Thị B", "123456789101", "0956093276", "Thái Lan", "Nữ", edit, delete });
-            grid.Rows.Add(new object[] { KH, "KH004", "Nguyễn Văn A", "123456789101", "0956093276", "Mỹ", "Nam", edit, delete });*/
         }
+
+        // Tải toàn bộ danh sách khách hàng từ BUS và hiển thị lên grid
         public void LoadAllGrid()
         {
             try
@@ -74,7 +78,9 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }    
+        }
+
+        // Đổ dữ liệu danh sách khách hàng hiện có trong khachHangs lên grid
         private void LoadGrid()
         {
             try
@@ -82,14 +88,18 @@ namespace HotelManagement.GUI
                 grid.Rows.Clear();
                 foreach (KhachHang khachHang in khachHangs)
                 {
-                    grid.Rows.Add(this.KH, khachHang.MaKH, khachHang.TenKH, khachHang.CCCD_Passport, khachHang.SDT, khachHang.QuocTich, khachHang.GioiTinh, khachHang.Email, edit, delete);
-                }    
+                    grid.Rows.Add(this.KH, khachHang.MaKH, khachHang.TenKH, khachHang.CCCD_Passport,
+                                  khachHang.SDT, khachHang.QuocTich, khachHang.GioiTinh, khachHang.Email,
+                                  edit, delete);
+                }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        // Tìm kiếm khách hàng theo tên (hoặc tiêu chí được BUS xử lý) và load lại grid
         private void LoadGridWithCCCD()
         {
             try
@@ -102,8 +112,9 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }    
+        }
 
+        // Xuất danh sách khách hàng ra file Excel bằng Interop
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -116,14 +127,14 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Get Header text of Column
+                    // Ghi header cột (bỏ cột hình và 2 cột cuối là edit/delete)
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Get data of cells
+                    // Ghi dữ liệu từng ô
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
@@ -148,18 +159,20 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Xử lý click trên grid: mở form sửa hoặc xóa khách hàng tùy theo cột được click
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // Khi nhấn Update
+                // Khi nhấn vào cột sửa (edit)
                 if (x == 8)
                 {
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using( FormSuaKhachHang formSuaKhachHang = new FormSuaKhachHang(KhachHangBUS.Instance.FindKhachHang(grid.Rows[y].Cells[1].Value.ToString()),this))
+                        using (FormSuaKhachHang formSuaKhachHang =
+                               new FormSuaKhachHang(KhachHangBUS.Instance.FindKhachHang(grid.Rows[y].Cells[1].Value.ToString()), this))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -175,21 +188,27 @@ namespace HotelManagement.GUI
                     }
                     finally { formBackground.Dispose(); }
                 }
+
+                // Khi nhấn vào cột xóa (delete)
                 if (x == 9)
                 {
-                    if(taiKhoan.CapDoQuyen==1)
+                    // Kiểm tra quyền, nhân viên (CapDoQuyen = 1) không được phép xóa
+                    if (taiKhoan.CapDoQuyen == 1)
                     {
-                        CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
-                    }    
-                    //If click Delete button 
-                    DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", 
+                    }
+
+                    // Hỏi xác nhận xóa
+                    DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo",
                                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogresult == DialogResult.Yes)
                     {
                         try
                         {
-                            KhachHangBUS.Instance.RemoveKH(KhachHangBUS.Instance.FindKhachHang(grid.Rows[y].Cells[1].Value.ToString()));
+                            KhachHangBUS.Instance.RemoveKH(
+                                KhachHangBUS.Instance.FindKhachHang(grid.Rows[y].Cells[1].Value.ToString()));
                             LoadAllGrid();
                             CTMessageBox.Show("Xóa thông tin thành công.", "Thông báo",
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -202,15 +221,17 @@ namespace HotelManagement.GUI
                         finally
                         {
                         }
-                    }                    
+                    }
                 }
             }
         }
 
+        // Sự kiện Load của CTTextBox tìm khách hàng theo tên (chưa sử dụng)
         private void CTTextBoxTimKhachHangTheoTen_Load(object sender, EventArgs e)
         {
         }
 
+        // Sự kiện TextChanged của ô tìm kiếm theo tên, lọc danh sách khi đang focus, trả về toàn bộ khi mất focus
         private void CTTextBoxTimKhachHangTheoTen__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxFindName = sender as TextBox;
@@ -219,11 +240,12 @@ namespace HotelManagement.GUI
                 LoadAllGrid();
                 return;
             }
+
             this.khachHangs = KhachHangBUS.Instance.FindKhachHangWithName(textBoxFindName.Text);
             LoadGrid();
-
         }
 
+        // Sự kiện MouseMove trên grid, thay đổi con trỏ chuột thành bàn tay ở các cột có thao tác
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -233,12 +255,13 @@ namespace HotelManagement.GUI
             if (Array.IndexOf(arrX, x) != -1)
                 isExists = true;
 
-            if (y >= 0 && x == 7 || y >= 0 && x == 8 ||y == -1 && isExists)
+            if (y >= 0 && x == 7 || y >= 0 && x == 8 || y == -1 && isExists)
                 grid.Cursor = Cursors.Hand;
             else
                 grid.Cursor = Cursors.Default;
         }
 
+        // Sự kiện MouseLeave trên grid, trả con trỏ chuột về mặc định
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;

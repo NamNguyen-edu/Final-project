@@ -21,20 +21,23 @@ namespace HotelManagement.GUI
         string emailto;
         Random random = new Random();
         private FormLogin formLoginParent;
+        // Constructor: nhận form cha (FormLogin)
         public FormQuenMatKhauLayOTP(FormLogin formMain)
         {
             InitializeComponent();
             this.formLoginParent = formMain;
          }
-
+        // Nút quay lại màn hình đăng nhập
         private void PictureBoxBack_Click(object sender, EventArgs e)
         {
             formLoginParent.openChildForm(new FormDangNhap(formLoginParent));
         }
+        // Kiểm tra username & email (placeholder – luôn trả true)
         bool checkUsernameAndEmail()
         {
             return true;
         }
+        // Xác thực email + username → nếu hợp lệ thì mở form nhập OTP
         private void ButtonLayOTP_Click(object sender, EventArgs e)
         {
             try
