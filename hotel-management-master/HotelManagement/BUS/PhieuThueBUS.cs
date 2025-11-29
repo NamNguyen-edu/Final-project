@@ -29,14 +29,17 @@ namespace HotelManagement.BUS
         {
             return PhieuThueDAO.Instance.GetPhieuThue(MaPT);
         }
+        // Thêm hoặc cập nhật phiếu thuê
         public void AddOrUpdatePhieuThue(PhieuThue phieuThue)
         {
             PhieuThueDAO.Instance.UpdatePhieuThue(phieuThue);
         }
+        // Lấy tất cả phiếu thuê kèm theo tên khách hàng
         public List<PhieuThue> GetPhieuThuesWithNameCus(string name)
         {
             return PhieuThueDAO.Instance.GetPhieuThuesWithNameCus(name);
         }
+        // Lấy mã phiếu thuê tiếp theo
         public string GetMaPTNext()
         {
             return PhieuThueDAO.Instance.GetMaPTNext();
