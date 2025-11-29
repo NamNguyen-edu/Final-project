@@ -475,9 +475,14 @@ namespace HotelManagement.GUI
         private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
         {
             CTTextBox txt = sender as CTTextBox;   // <-- QUAN TRỌNG
-            if (txt == null) return;
+            if (txt == null)
+            {
+                LoadGridDichVu();
+                 return;
+            } 
+                
 
-            string keyword = txt.Texts;
+            string keyword = txt.Texts.Trim().ToLower();
 
             // Nếu textbox mất focus (người dùng xóa text bằng code), load lại toàn bộ
             if (!txt.Focused)
