@@ -1,26 +1,18 @@
 ﻿using HotelManagement.BUS;
 using HotelManagement.CTControls;
-using HotelManagement.DAO;
 using HotelManagement.DTO;
-using HotelManagement.GUI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HotelManagement.GUI
 {
     public partial class FormThongTinPhong : Form
     {
-        //Fields
-
+        // Khai báo các biến cần thiết
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = AppTheme.PopupMainBackground;
@@ -29,14 +21,7 @@ namespace HotelManagement.GUI
         private TaiKhoan taiKhoan;
         private string TTPhong = "";
         private FormMain formMain;
-        //Constructor
-        public FormThongTinPhong()
-        {
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Padding = new Padding(borderSize);
-            InitializeComponent();
-        }
+        // Hàm khởi tạo Form
         public FormThongTinPhong(FormMain formMain, string Case, CTDP cTDP = null, Phong phong = null,TaiKhoan taiKhoan = null)
         {
             this.DoubleBuffered = true;
@@ -49,15 +34,10 @@ namespace HotelManagement.GUI
             this.formMain = formMain;
             InitializeComponent();
             HotelManagement.CTControls.ThemeManager.ApplyThemeToRoomPopup(this);
-            LoadPage();
-            this.CTButtonCoc.Hide();
+            LoadPage(); // Chạy các hàm hiển thị phòng
         }
 
-        //Control Box
 
-        //Form Move
-
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -67,14 +47,12 @@ namespace HotelManagement.GUI
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000;
                 return cp;
             }
         }
 
-        //Private Methods
-
-        //Private Methods
+        // Các hàm xử lý việc hiển thị 
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -142,22 +120,18 @@ namespace HotelManagement.GUI
             using (Graphics graph = Graphics.FromImage(bmp))
             {
                 Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
                 rectBmp.X = this.Bounds.X - 1;
                 rectBmp.Y = this.Bounds.Y;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
                 rectBmp.X = this.Bounds.Right;
                 rectBmp.Y = this.Bounds.Y;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
                 rectBmp.X = this.Bounds.X;
                 rectBmp.Y = this.Bounds.Bottom;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
                 rectBmp.X = this.Bounds.Right;
                 rectBmp.Y = this.Bounds.Bottom;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
@@ -166,27 +140,21 @@ namespace HotelManagement.GUI
             return fbColor;
         }
 
-        //Event Methods
+        // Các hàm xử lý việc hiển thị
         private void FormThongTinPhong_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetFormBoundsColors();
-            //Top Left
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormThongTinPhong_Resize(object sender, EventArgs e)
@@ -224,7 +192,8 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
-        #region Display room 
+        #region Hiển thị phòng 
+        // Hiển thị các phòng đã đặt
         private void LoadPhongDaDat()
         {
             try
@@ -250,7 +219,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Hiển thị các phòng đang thuê
         private void LoadPhongDangThue()
         {
             try
@@ -286,7 +255,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Hiển thị các phòng đang sửa 
         private void LoadPhongDangSua()
         { 
             gridDichVu.Rows.Clear();
@@ -306,7 +275,7 @@ namespace HotelManagement.GUI
             this.PanelChuaButtonNhanPhong.Hide();
            
         }
-
+        // Hiển thị các phòng trống
         private void LoadPhongTrong()
         {
             gridDichVu.Rows.Clear();
@@ -325,6 +294,7 @@ namespace HotelManagement.GUI
             this.PanelChuaButtonNhanPhong.Hide();
             
         }
+        // Xử lý việc chuyển đổi các 
         private void LoadPage()
         {
             
@@ -360,11 +330,7 @@ namespace HotelManagement.GUI
             this.ActiveControl = LabelMaPhong;
         }
 
-        private void LabelThoiGianThue_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // Hàm lưu thông tin phòng được chỉnh
         private void CTButtonLuu_Click(object sender, EventArgs e)
         {
             try
@@ -395,7 +361,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Hàm thêm dịch vụ vào phòng đang thuê
         private void CTButtonThemDichVu_Click(object sender, EventArgs e)
         {
             FormBackground formBackground = new FormBackground(formMain);
@@ -421,7 +387,7 @@ namespace HotelManagement.GUI
                 formBackground.Dispose(); 
             } 
         }
-
+        // Hàm nhận phòng
         private void CTButtonNhanPhong_Click(object sender, EventArgs e)
         {
             try
@@ -473,16 +439,16 @@ namespace HotelManagement.GUI
                 this.Close();
             }
         }
-
+        // Hàm Xử lý thanh toán
         private void CTButtonThanhToan_Click(object sender, EventArgs e)
         {
             DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn thanh toán phòng này không?", "Thông báo",
                                             MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogresult == DialogResult.Yes)
             {
+                // Lấy tổng tiền phòng còn lại 
                 decimal tienPhong = ctdp.ThanhTien;
                 decimal tienDV = CTDV_BUS.Instance.TinhTongTienDichVu(ctdp.MaCTDP);
-
                 decimal tongTien = tienPhong + tienDV;
                 double amount = (double)tongTien;
                 string description = "Thanh toan phong " + phong.MaPH;
@@ -503,6 +469,7 @@ namespace HotelManagement.GUI
                 }
             }
         }
+        // Lưu hóa đơn khi đã thanh toán tất cả tiền phòng
         private void LuuHDsauTT()
         {
             HoaDon hd = new HoaDon();

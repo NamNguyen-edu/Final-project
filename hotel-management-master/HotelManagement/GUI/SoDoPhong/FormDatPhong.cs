@@ -710,7 +710,7 @@ namespace HotelManagement.GUI
                 foreach (CTDP ctdp in listPhongDaDat)
                 {
                     ctdp.MaPT = phieuThue.MaPT;
-                    ctdp.TrangThai = "Đã Cọc";
+                    ctdp.TrangThai = "Đã cọc";
                     ctdp.DaXoa = false;
                     ctdp.TienDatCoc = (decimal)PhongBUS.Instance.FindePhong(ctdp.MaPH).LoaiPhong.GiaNgay * 0.3m;
                     CTDP_BUS.Instance.UpdateOrAddCTDP(ctdp);

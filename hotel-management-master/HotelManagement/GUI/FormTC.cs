@@ -1,4 +1,4 @@
-﻿using HotelManagement.CTControls;
+﻿ using HotelManagement.CTControls;
 using HotelManagement.DAO;   
 using HotelManagement.DTO;
 using System;

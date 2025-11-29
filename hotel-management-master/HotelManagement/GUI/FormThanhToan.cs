@@ -3,7 +3,6 @@ using HotelManagement.CTControls;
 using HotelManagement.ApplicationSettings;
 using Microsoft.Web.WebView2.Core;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Net;
 
@@ -12,10 +11,10 @@ namespace HotelManagement.GUI
 {
     public partial class FormThanhToan : Form
     {
-
-        private double PayAmount;
+        // Khai báo các biến số tiền và mô tả việc thanh toán
+        private double PayAmount; 
         private string Description;
-
+        // Khởi tạo Form
         public FormThanhToan(double amount, string description)
         {
             InitializeComponent();
@@ -27,7 +26,7 @@ namespace HotelManagement.GUI
         {
             await InitializeWebView();
         }
-
+        // Hàm xử lý load WebView
         private async System.Threading.Tasks.Task InitializeWebView()
         {
             try
@@ -49,7 +48,7 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show("Lỗi khởi tạo cổng thanh toán: " + ex.Message);
             }
         }
-
+        // Hàm tạo URL thanh toán
         private string BuildVnPayUrl(double amount, string description)
         {
             VnPayLibrary vnpay = new VnPayLibrary();
@@ -71,7 +70,7 @@ namespace HotelManagement.GUI
             vnpay.AddRequestData("vnp_TxnRef", DateTime.Now.Ticks.ToString());
             return vnpay.CreateRequestUrl(VNPayConfig.Vnp_Url, VNPayConfig.Vnp_HashSecret);
         }
-
+        // Hàm xử lý kết quả thanh toán
         private void CoreWebView2_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
         {
 

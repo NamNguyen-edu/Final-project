@@ -13,11 +13,14 @@ namespace HotelManagement.Utils
 {
     public static class EmailHelper
     {
+        #region Cấu hình SMTP 
         private static readonly string SmtpHost = "smtp.gmail.com";
         private static readonly int SmtpPort = 587;
-        private static readonly string SmtpUser = "ngynam05@gmail.com";
-        private static readonly string SmtpPass = "lmyarytfnihtcqps";
+        private static readonly string SmtpUser = Settings.Default.SmtpUser;
+        private static readonly string SmtpPass = Settings.Default.SmtpPass;
+        #endregion
 
+        // Xử lý việc gửi Email
         public static bool SendEmail(string toEmail, string subject, string body)
         {
             try
@@ -43,7 +46,7 @@ namespace HotelManagement.Utils
                 return false;
             }
         }
-
+        // Lấy nội dung Email từ Resource và thay dữ liệu tham số 
         public static string GetBookingEmailBody(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
         {
             StringBuilder sbRows = new StringBuilder();

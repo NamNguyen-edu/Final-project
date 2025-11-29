@@ -12,12 +12,12 @@ namespace HotelManagement.UTILS
     public class VnPayLibrary
     {
         private SortedList<string, string> _requestData = new SortedList<string, string>(new VnPayCompare());
-
+        // Thêm dữ liệu vào từng dòng
         public void AddRequestData(string key, string value)
         {
             if (!String.IsNullOrEmpty(value)) _requestData.Add(key, value);
         }
-
+        // Tạo URL yêu cầu thanh toán
         public string CreateRequestUrl(string baseUrl, string vnp_HashSecret)
         {
             StringBuilder data = new StringBuilder();
@@ -44,7 +44,7 @@ namespace HotelManagement.UTILS
 
             return baseUrl + "?" + query.ToString() + "&vnp_SecureHash=" + vnp_SecureHash;
         }
-
+        // Hàm mã hóa dữ liệu truyền đến cổng thanh toán
         private string HmacSHA512(string key, string inputData)
         {
             var hash = new StringBuilder();
@@ -58,7 +58,7 @@ namespace HotelManagement.UTILS
             return hash.ToString();
         }
     }
-
+   
     public class VnPayCompare : IComparer<string>
     {
         public int Compare(string x, string y)

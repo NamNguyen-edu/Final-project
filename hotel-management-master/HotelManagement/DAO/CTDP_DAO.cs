@@ -3,11 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HotelManagement.CTControls;
-using System.Security.Cryptography;
-using System.Windows.Forms;
+
 
 namespace HotelManagement.DAO
 {
@@ -183,6 +179,7 @@ namespace HotelManagement.DAO
                 );
             }
         }
+
         public void UpdateTrangThaiQuaHan(DateTime now)
         {
             using (var db = new HotelDTO())
