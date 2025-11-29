@@ -30,7 +30,7 @@ namespace HotelManagement.GUI
             this.taiKhoan = taiKhoan;
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
-
+        // Nút thêm phòng – mở form thêm phòng (kèm overlay mờ)
         private void CTButtonThemPhong_Click(object sender, EventArgs e)
         {
             if (taiKhoan.CapDoQuyen == 1)
@@ -61,17 +61,12 @@ namespace HotelManagement.GUI
                 formBackground.Dispose(); 
             }
         }
-
+        // Khi load form → load toàn bộ danh sách phòng
         private void FormDanhSachPhong_Load(object sender, EventArgs e)
         {
             LoadFullDataGrid();
-
-            /*grid.Rows.Add(new object[] { PH, "PH001", "Trống", "Đang dọn dẹp", "Phòng đơn", edit, delete });
-            grid.Rows.Add(new object[] { PH, "PH002", "Đang thuê", "Đã dọn dẹp", "Phòng đơn", edit, delete });
-            grid.Rows.Add(new object[] { PH, "PH003", "Trống", "Đang dọn dẹp", "Phòng đôi", edit, delete });
-            grid.Rows.Add(new object[] { PH, "PH004", "Đã đặt", "Đang dọn dẹp", "Phòng VIP", edit, delete });*/
         }
-
+        // Load toàn bộ phòng từ DB và đưa vào DataGrid
         public void LoadFullDataGrid()
         {
             try
@@ -84,6 +79,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
+        // Đổ danh sách phòng vào DataGridView
         private void LoadDataGrid()
         {
             try
@@ -99,6 +95,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
+        // Xuất danh sách phòng ra file Excel
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -111,14 +108,12 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Get Header text of Column
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Get data of cells
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
@@ -142,13 +137,12 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Xử lý click vào từng ô trong DataGrid (Sửa / Xóa)
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // If click Update button 
                 if (x == 6)
                 {
                     if (taiKhoan.CapDoQuyen == 1)
@@ -182,8 +176,6 @@ namespace HotelManagement.GUI
                 }
                 if (x == 7)
                 {
-
-                    // If click delete button
                     if (taiKhoan.CapDoQuyen == 1)
                     {
                         CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -220,7 +212,7 @@ namespace HotelManagement.GUI
                 }
             }
         }
-
+        // Thay đổi con trỏ chuột khi hover vào cột Edit / Delete
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -235,7 +227,7 @@ namespace HotelManagement.GUI
             else
                 grid.Cursor = Cursors.Default;
         }
-
+        // Tìm phòng theo mã khi nhập vào textbox tìm kiếm
         private void CTTextBoxTimPhongTheoMa__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxPhong = sender as TextBox;
@@ -248,8 +240,7 @@ namespace HotelManagement.GUI
             this.phongs = PhongBUS.Instance.FindPhongWithMaPH(textBoxPhong.Text);
             LoadDataGrid();
         }
-
-
+        // Trả con trỏ chuột về mặc định khi rời khỏi cell
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;

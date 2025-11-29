@@ -22,18 +22,19 @@ namespace HotelManagement.GUI
             InitializeComponent();
             this.formLoginParent = formMain;
         }
+        // Constructor: mở form với tài khoản cần đổi mật khẩu
         public FormDatLaiMatKhau(FormLogin formMain,TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formLoginParent = formMain;
             this.taiKhoan = taiKhoan;
         }
-
+        // Quay lại bước nhập OTP
         private void PictureBoxBack_Click(object sender, EventArgs e)
         {
             formLoginParent.openChildForm(new FormQuenMatKhauNhapOTP(formLoginParent));
         }
-        
+        // Xác nhận đổi mật khẩu → kiểm tra input → lưu mật khẩu mới → quay về màn hình đăng nhập
         private void ButtonOK_Click(object sender, EventArgs e)
         {
             if(this.textBoxPassword.Texts == "" || this.textBoxPassConfirm.Texts=="")
@@ -62,38 +63,23 @@ namespace HotelManagement.GUI
 
             }
         }
-
+        // Nếu có ký tự trong password → bật chế độ ẩn mật khẩu
         private void textBoxPassword__TextChanged(object sender, EventArgs e)
         {
             if (textBoxPassword.Texts.Length > 0 && ctEyePassword1.IsShow == false)
             {
                 textBoxPassword.PasswordChar = true;
             }
-            /*TextBox textBoxPassword = sender as TextBox;
-            if (textBoxPassword.Focused == false)
-            {
-                textBoxPassword.UseSystemPasswordChar = false;
-            }
-            else
-                textBoxPassword.UseSystemPasswordChar = true;*/
         }
-
-
+        // Nếu có ký tự trong confirm password → bật chế độ ẩn mật khẩu
         private void textBoxPassConfirm__TextChanged(object sender, EventArgs e)
         {
             if (textBoxPassConfirm.Texts.Length > 0 && ctEyePassword2.IsShow == false)
             {
                 textBoxPassConfirm.PasswordChar = true;
             }
-            /*TextBox textBoxPasswordConfirm = sender as TextBox;
-            if (textBoxPasswordConfirm.Focused == false)
-            {
-                textBoxPasswordConfirm.UseSystemPasswordChar = false;
-            }
-            else
-                textBoxPasswordConfirm.UseSystemPasswordChar = true;*/
         }
-
+        // Toggle hiện/ẩn mật khẩu của textboxPassword
         private void ctEyePassword1_Click(object sender, EventArgs e)
         {
             if (ctEyePassword1.IsShow == false)
@@ -112,7 +98,7 @@ namespace HotelManagement.GUI
                 ctEyePassword1.BackgroundImage = Properties.Resources.show;
             }
         }
-
+        // Toggle hiện/ẩn mật khẩu của textboxConfirmPassword
         private void ctEyePassword2_Click(object sender, EventArgs e)
         {
             if (ctEyePassword2.IsShow == false)

@@ -13,10 +13,12 @@ namespace HotelManagement.DAO
 {
     internal class ThongKeDAO
     {
+        // Lấy chuỗi kết nối từ file cấu hình
         private string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["HotelDTO"].ConnectionString;
         }
+        // Tạo connection SQL mới
         private SqlConnection GetConnection()
         {
             return new SqlConnection(GetConnectionString());
@@ -107,7 +109,8 @@ namespace HotelManagement.DAO
         {
 
         }
-
+        // Load toàn bộ dữ liệu thống kê theo khoảng ngày
+        // Gọi tất cả các hàm GET bên dưới
         public bool LoadData(DateTime ngayBD, DateTime ngayKT)
         {
             ngayBD = new DateTime(ngayBD.Year, ngayBD.Month, ngayBD.Day, 0, 0, 0);
@@ -151,6 +154,7 @@ namespace HotelManagement.DAO
                 return false;
             }
         }
+        // Tính tổng doanh thu dịch vụ
         private void GetDoanhThuDichVu()
         {
             DoanhThuDichVuList = new List<DoanhThuTheoNgay>();
@@ -181,6 +185,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
+        // Lấy doanh thu phòng Thường đơn → gom theo giờ/ngày/tuần/tháng/năm
         private void GetDoanhThuThuongDon()
         {
             DoanhThuThuongDonList = new List<DoanhThuTheoNgay>();
@@ -280,6 +285,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
+        // Lấy doanh thu phòng Thường đôi → gom theo thời gian
         private void GetDoanhThuThuongDoi()
         {
             DoanhThuThuongDoiList = new List<DoanhThuTheoNgay>();
@@ -379,6 +385,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
+        // Lấy doanh thu phòng VIP đơn → gom theo thời gian
         private void GetDoanhThuVipDon()
         {
             DoanhThuVipDonList = new List<DoanhThuTheoNgay>();
@@ -478,6 +485,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
+        // Lấy doanh thu phòng VIP đôi → gom theo thời gian
         private void GetDoanhThuVipDoi()
         {
             DoanhThuVipDoiList = new List<DoanhThuTheoNgay>();
@@ -577,10 +585,12 @@ namespace HotelManagement.DAO
                 }
             }
         }
+        // Tổng doanh thu phòng = cộng 4 loại phòng
         private void GetDoanhThuThue()
         {
             TongDoanhThuThue = TongDoanhThuThuongDon + TongDoanhThuThuongDoi + TongDoanhThuVipDoi + TongDoanhThuVipDon;
         }
+        // Doanh thu dịch vụ theo từng ngày (vẽ line chart)
         private void GetDoanhThuDichVuTheoNgay()
         {
             DoanhThuDichVuTheoNgayList = new List<DoanhThuDichVuTheoNgay>();
@@ -617,6 +627,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
+        // Lấy TOP 5 dịch vụ theo doanh thu
         private void GetTop5DichVu()
         {
             TopDichVuList = new List<KeyValuePair<string, decimal>>();
@@ -655,6 +666,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
+        // Lấy tỷ trọng doanh thu dịch vụ để vẽ biểu đồ tròn
         private void GetTyTrongDoanhThuDV()
         {
             TyTrongDoanhThuDVList = new List<KeyValuePair<string, decimal>>();
@@ -690,7 +702,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
-
+        // Lấy số phòng đặt theo ngày và tổng số phòng đặt
         private void GetSoPhongDat()
         {
             SoPhongDat = 0;
@@ -786,7 +798,7 @@ namespace HotelManagement.DAO
                 }
             }
         }
-
+        // Lấy loại phòng có doanh thu cao nhất
         private void GetLoaiPhongDoanhThuCaoNhat()
         {
             TenLoaiPhongDoanhThuCaoNhat = "";
@@ -802,17 +814,17 @@ namespace HotelManagement.DAO
                     command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = ngayBD;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = ngayKT;
                     command.CommandText = @"  SELECT TOP 1 
-       TenLPH,
-       SUM(CTDP.DonGia) AS DoanhThu
-FROM HoaDon 
-INNER JOIN CTDP ON HoaDon.MaCTDP = CTDP.MaCTDP
-INNER JOIN Phong ON Phong.MaPH = CTDP.MaPH
-INNER JOIN LoaiPhong ON LoaiPhong.MaLPH = Phong.MaLPH
-WHERE HoaDon.DaXoa = 0
-  AND NgHD BETWEEN @fromDate AND @toDate
-  AND HoaDon.TrangThai = N'Đã thanh toán'
-GROUP BY TenLPH
-ORDER BY DoanhThu DESC";
+                                                       TenLPH,
+                                                       SUM(CTDP.DonGia) AS DoanhThu
+                                                FROM HoaDon 
+                                                INNER JOIN CTDP ON HoaDon.MaCTDP = CTDP.MaCTDP
+                                                INNER JOIN Phong ON Phong.MaPH = CTDP.MaPH
+                                                INNER JOIN LoaiPhong ON LoaiPhong.MaLPH = Phong.MaLPH
+                                                WHERE HoaDon.DaXoa = 0
+                                                  AND NgHD BETWEEN @fromDate AND @toDate
+                                                  AND HoaDon.TrangThai = N'Đã thanh toán'
+                                                GROUP BY TenLPH
+                                                ORDER BY DoanhThu DESC";
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -823,6 +835,7 @@ ORDER BY DoanhThu DESC";
                 }
             }
         }
+        // Lấy dịch vụ có doanh thu cao nhất
         private void GetDichVuDoanhThuCaoNhat()
         {
             TenDichVuDoanhThuCaoNhat = "";
@@ -855,6 +868,7 @@ ORDER BY DoanhThu DESC";
                 }
             }
         }
+        // Lấy loại phòng được đặt nhiều nhất
         private void GetLoaiPhongDatNhieuNhat()
         {
             TenLoaiPhongDuocDatNhieuNhat = "";
@@ -889,20 +903,18 @@ ORDER BY DoanhThu DESC";
                 }
             }
         }
+        // Tổng hợp doanh thu tất cả loại phòng → dùng cho chart Tổng doanh thu
         private void GetDoanhThuTongHop()
         {
             DoanhThuTongList = new List<DoanhThuTheoNgay>();
             TongDoanhThuTong = 0;
 
-            // Gom toàn bộ ngày có trong phòng
             var all = new List<DoanhThuTheoNgay>();
 
             all.AddRange(DoanhThuThuongDonList);
             all.AddRange(DoanhThuThuongDoiList);
             all.AddRange(DoanhThuVipDonList);
             all.AddRange(DoanhThuVipDoiList);
-
-            // GROUP THEO NGÀY (giống mấy hàm kia)
             var group = from x in all
                         group x by x.Date into g
                         select new DoanhThuTheoNgay
@@ -912,10 +924,9 @@ ORDER BY DoanhThu DESC";
                         };
 
             DoanhThuTongList = group.ToList();
-
-            // Tổng doanh thu = phòng + dịch vụ
             TongDoanhThuTong = TongDoanhThuThue + TongDoanhThuDichVu;
         }
+        // Lấy tỷ trọng đặt phòng theo loại phòng
         private void GetTyTrongDatPhong()
         {
             TyTrongDatPhongList = new List<DatPhongTheoLoai>();
@@ -954,6 +965,7 @@ ORDER BY DoanhThu DESC";
                 }
             }
         }
+        // Lấy doanh thu từng loại phòng → vẽ horizontal bar chart
         private void GetDoanhThuTheoLoaiPhong()
         {
             DoanhThuLoaiPhongList = new List<DoanhThuTheoLoaiPhong>();
@@ -994,6 +1006,7 @@ ORDER BY DoanhThu DESC";
                 }
             }
         }
+        // Lấy dịch vụ được sử dụng nhiều nhất (theo SL)
         private void GetDichVuSuDungNhieuNhat()
         {
             TenDichVuSuDungNhieuNhat = "";
@@ -1032,6 +1045,7 @@ ORDER BY DoanhThu DESC";
                 }
             }
         }
+        // Lấy tổng số khách trong hệ thống
         private void GetTongSoKhach()
         {
             using (var con = GetConnection())
@@ -1045,33 +1059,33 @@ ORDER BY DoanhThu DESC";
                 }
             }
         }
-
+        // Lấy TOP 5 khách chi tiêu nhiều nhất
         private void GetTop5KhachChiTieu()
         {
             Top5KhachChiTieuList = new List<KhachChiTieu>();
 
- using (var connection = GetConnection())
-    {
-        connection.Open();
-        using (var command = new SqlCommand())
+            using (var connection = GetConnection())
         {
-            command.Connection = connection;
-            command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = ngayBD;
-            command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = ngayKT;
+            connection.Open();
+            using (var command = new SqlCommand())
+            {
+                command.Connection = connection;
+                command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = ngayBD;
+                command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = ngayKT;
 
-            command.CommandText =
-                @"SELECT TOP 5 
-    KhachHang.TenKH, 
-    SUM(HoaDon.TriGia) AS TongChi
-FROM KhachHang
-INNER JOIN PhieuThue ON PhieuThue.MaKH = KhachHang.MaKH
-INNER JOIN CTDP ON CTDP.MaPT = PhieuThue.MaPT
-INNER JOIN HoaDon ON HoaDon.MaCTDP = CTDP.MaCTDP
-WHERE HoaDon.DaXoa = 0
-  AND HoaDon.TrangThai = N'Đã thanh toán'
-  AND HoaDon.NgHD BETWEEN @fromDate AND @toDate
-GROUP BY KhachHang.TenKH
-ORDER BY SUM(HoaDon.TriGia) DESC";
+                command.CommandText =
+                                        @"SELECT TOP 5 
+                                            KhachHang.TenKH, 
+                                            SUM(HoaDon.TriGia) AS TongChi
+                                        FROM KhachHang
+                                        INNER JOIN PhieuThue ON PhieuThue.MaKH = KhachHang.MaKH
+                                        INNER JOIN CTDP ON CTDP.MaPT = PhieuThue.MaPT
+                                        INNER JOIN HoaDon ON HoaDon.MaCTDP = CTDP.MaCTDP
+                                        WHERE HoaDon.DaXoa = 0
+                                          AND HoaDon.TrangThai = N'Đã thanh toán'
+                                          AND HoaDon.NgHD BETWEEN @fromDate AND @toDate
+                                        GROUP BY KhachHang.TenKH
+                                        ORDER BY SUM(HoaDon.TriGia) DESC";
 
                     var reader = command.ExecuteReader();
                     while (reader.Read())
@@ -1086,9 +1100,7 @@ ORDER BY SUM(HoaDon.TriGia) DESC";
                 }
             }
         }
-
-
-
+        // Lấy khách có tổng chi tiêu cao nhất
         private void GetKhachChiTieuNhieuNhat()
         {
             using (var con = GetConnection())
@@ -1122,6 +1134,7 @@ ORDER BY SUM(HoaDon.TriGia) DESC";
                 }
             }
         }
+        // Lấy số lượng khách theo ngày để vẽ biểu đồ line
         private void GetSoKhachTheoNgay()
         {
             SoKhachTheoNgayList = new List<SoLuongTheoNgay>();
@@ -1158,7 +1171,7 @@ ORDER BY SUM(HoaDon.TriGia) DESC";
                 }
             }
         }
-
+        // Lấy TOP khách đặt phòng nhiều nhất + thiết lập KPI
         private void GetTopKhachDatNhieuNhat()
         {
             TopKhachDatList = new List<KeyValuePair<string, int>>();
@@ -1191,16 +1204,11 @@ ORDER BY SUM(HoaDon.TriGia) DESC";
                     rd.Close();
                 }
             }
-
-            // set KPI khách đặt nhiều nhất
             if (TopKhachDatList.Count > 0)
             {
                 TenKhachDatNhieuNhat = TopKhachDatList[0].Key;
                 SoLanKhachDatNhieuNhat = TopKhachDatList[0].Value;
             }
         }
-
-
-
     }
 }
