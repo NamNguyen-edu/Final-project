@@ -25,13 +25,12 @@ namespace HotelManagement.GUI
         private Image Del = Properties.Resources.delete1;
         private KhachHang khachHang = new KhachHang();
         private int caseForm = 0;
-        private int flagHoTen = 0;        // =1: đang sử dụng khách cũ, =0: khách mới
+        private int flagHoTen = 0;     
         private TaiKhoan taiKhoan;
         private PhieuThue phieuThue;
         private DateTime CheckIn = DateTime.Now;  // flag = 1
         private DateTime CheckOut = DateTime.Now; // flag = 2
         private decimal TienCoc;
-
         //Constructor
         public FormDatPhong()
         {
@@ -220,7 +219,6 @@ namespace HotelManagement.GUI
             this.Close();
         }
         #endregion
-
         // Hàm load thời gian mặc định cho 4 combo box (giờ + AM/PM)
         // Lấy giờ hệ thống, chuyển 24h → 12h, format HH:mm và gán vào UI
         private void setLoadComboBox()
@@ -253,8 +251,7 @@ namespace HotelManagement.GUI
             cbBoxGioKetThuc.Texts = strHour + ':' + strMinute;
             cbBoxLetterKetThuc.Texts = letter;
         }
-
-
+        // Khởi tạo dữ liệu và giao diện khi form load
         private void FormDatPhong_Load(object sender, EventArgs e)
         {
             try
@@ -335,7 +332,7 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show(ex.Message);
             }
         }
-
+        // Chọn phòng trống để thêm vào danh sách phòng đã đặt
         private void gridPhongTrong_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
@@ -346,7 +343,6 @@ namespace HotelManagement.GUI
                     //Set Date and Time for check in
                     setDate(CTDatePickerNgayBD.Value, 1);
                     setTime(cbBoxGioBatDau.Texts, cbBoxLetterBatDau.Texts, 1);
-
                     //Set Date and Time for check out
                     setDate(CTDatePickerNgayKT.Value, 2);
                     setTime(cbBoxGioKetThuc.Texts, cbBoxLetterKetThuc.Texts, 2);
@@ -385,6 +381,7 @@ namespace HotelManagement.GUI
         }
 
         #region Remove Room
+        // Gán lại mã CTDP theo thứ tự mới sau khi thêm/xóa
         private void SetMaCTDP(List<CTDP> list)
         {
             try
@@ -413,6 +410,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
+        // Xóa phòng đã chọn khỏi danh sách khi bấm nút xóa (cột 4)
         private void gridPhongDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
@@ -571,7 +569,6 @@ namespace HotelManagement.GUI
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
             // Kiểm tra nhập liệu cơ bản
             if (this.CTTextBoxNhapCCCD.Texts != "" &&
                 this.CTTextBoxNhapDiaChi.Texts != "" &&
@@ -585,7 +582,6 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-
                 // Kiểm tra SĐT
                 if (CTTextBoxNhapSDT.Texts.Length < 9)
                 {
@@ -593,7 +589,6 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-
                 // Kiểm tra email
                 if (!CTTextBoxNhapEmail.Texts.Contains("@") ||
                     !CTTextBoxNhapEmail.Texts.Contains("."))
@@ -602,7 +597,6 @@ namespace HotelManagement.GUI
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-
                 // Hỏi khách có muốn thanh toán cọc không
                 DialogResult ask = CTMessageBox.Show(
                     "Bạn có muốn thanh toán tiền đặt cọc ngay bây giờ?",
@@ -610,10 +604,7 @@ namespace HotelManagement.GUI
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
                 );
-
-                if (ask == DialogResult.No)
-                    return; // Không đặt cọc → thoát luôn
-
+                if (ask == DialogResult.No) return; 
                 // Tính tổng tiền đặt cọc (30% giá phòng)
                 foreach (CTDP ctdp in listPhongDaDat)
                 {
@@ -621,7 +612,6 @@ namespace HotelManagement.GUI
                         (decimal)PhongBUS.Instance.FindePhong(ctdp.MaPH).LoaiPhong.GiaNgay * 0.3m;
                     TienCoc += tiendatcoc;
                 }
-
                 // Mở form thanh toán đặt cọc
                 FormDatCoc f = new FormDatCoc(TienCoc, "Tien dat coc phong");
                 var result = f.ShowDialog();
@@ -633,15 +623,13 @@ namespace HotelManagement.GUI
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 // Thanh toán OK → tiến hành lưu dữ liệu
                 try
                 {
-                    CreateKH();          // Lưu,cập nhật khách hàng
-                    CreatePhieuThue();   // Tạo phiếu thuê
-                    CreateCTDP();        // Lưu chi tiết đặt phòng
-                    CreateHoaDon();      // Tạo hóa đơn đặt cọc
-
+                    CreateKH();          
+                    CreatePhieuThue();   
+                    CreateCTDP();       
+                    CreateHoaDon();      
                     // Gửi email xác nhận
                     bool EmailSent = SendBookingEmail(khachHang, phieuThue, listPhongDaDat);
                     if (EmailSent)
@@ -658,12 +646,11 @@ namespace HotelManagement.GUI
                 }
                 catch (Exception ex)
                 {
-                    // Bắt lỗi khi lưu dữ liệu
                     CTMessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
-                    this.Close(); // Đóng form sau khi hoàn tất
+                    this.Close(); 
                 }
             }
             else
@@ -673,7 +660,6 @@ namespace HotelManagement.GUI
                      MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         // Tạo hoặc cập nhật thông tin khách hàng (KH cũ → update, KH mới → tạo mã mới)
         private void CreateKH()
         {
@@ -682,7 +668,6 @@ namespace HotelManagement.GUI
                 // Nếu chưa có mã khách → khách mới → tạo mã mới
                 if (string.IsNullOrEmpty(khachHang.MaKH))
                     khachHang.MaKH = KhachHangBUS.Instance.GetMaKHNext();
-
                 // Gán thông tin khách từ form
                 khachHang.TenKH = CTTextBoxNhapHoTen.Texts;
                 khachHang.CCCD_Passport = CTTextBoxNhapCCCD.Texts;
@@ -690,7 +675,6 @@ namespace HotelManagement.GUI
                 khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
                 khachHang.GioiTinh = ComboBoxGioiTinh.Texts.Trim();
                 khachHang.Email = CTTextBoxNhapEmail.Texts;
-
                 // Lưu vào DB (tự nhận biết → thêm mới hoặc update)
                 KhachHangBUS.Instance.UpdateOrAdd(khachHang);
             }
@@ -707,11 +691,11 @@ namespace HotelManagement.GUI
                 try
                 {
                     phieuThue = new PhieuThue();
-                    phieuThue.MaPT = PhieuThueBUS.Instance.GetMaPTNext(); // Mã PT mới
-                    phieuThue.MaNV = taiKhoan.MaNV;                       // Nhân viên tạo
+                    phieuThue.MaPT = PhieuThueBUS.Instance.GetMaPTNext(); 
+                    phieuThue.MaNV = taiKhoan.MaNV;                     
                     phieuThue.DaXoa = false;
-                    phieuThue.MaKH = khachHang.MaKH;                      // Gắn khách hàng
-                    phieuThue.NgPT = DateTime.Now;                        // Ngày lập PT
+                    phieuThue.MaKH = khachHang.MaKH;                     
+                    phieuThue.NgPT = DateTime.Now;                        
 
                     PhieuThueBUS.Instance.AddOrUpdatePhieuThue(phieuThue);
                 }
@@ -721,7 +705,6 @@ namespace HotelManagement.GUI
                 }
             }
         }
-
         // Tạo chi tiết đặt phòng (CTDP) cho từng phòng được chọn
         void CreateCTDP()
         {
@@ -732,11 +715,9 @@ namespace HotelManagement.GUI
                     ctdp.MaPT = phieuThue.MaPT;      // Gắn vào phiếu thuê vừa tạo
                     ctdp.TrangThai = "Đã cọc";       // Trạng thái trước khi check-in
                     ctdp.DaXoa = false;
-
                     // Ghi số tiền đặt cọc (30% giá phòng)
                     ctdp.TienDatCoc =
                         (decimal)PhongBUS.Instance.FindePhong(ctdp.MaPH).LoaiPhong.GiaNgay * 0.3m;
-
                     // Lưu vào DB
                     CTDP_BUS.Instance.UpdateOrAddCTDP(ctdp);
                 }
@@ -754,18 +735,13 @@ namespace HotelManagement.GUI
                 try
                 {
                     Phong phong = PhongBUS.Instance.FindePhong(ctdp.MaPH);
-
                     HoaDon hd = new HoaDon();
-                    hd.MaHD = HoaDonBUS.Instance.getMaHDNext();   // Mã hóa đơn mới
-                    hd.MaCTDP = ctdp.MaCTDP;                      // Gắn CTDP tương ứng
-                    hd.MaNV = taiKhoan.MaNV;                      // Nhân viên lập hóa đơn
-                    hd.NgHD = DateTime.Now;                       // Ngày tạo hóa đơn
+                    hd.MaHD = HoaDonBUS.Instance.getMaHDNext();   
+                    hd.MaCTDP = ctdp.MaCTDP;                     
+                    hd.MaNV = taiKhoan.MaNV;                     
+                    hd.NgHD = DateTime.Now;                       
                     hd.TrangThai = "Đã Đặt Cọc";
-
-                    // Lưu hóa đơn vào DB
-                    HoaDonBUS.Instance.ThanhToanHD(hd);
-
-                    // Không đổi trạng thái phòng vì chưa check-in
+                    HoaDonBUS.Instance.ThanhToanHD(hd);                   
                 }
                 catch (Exception ex)
                 {
@@ -777,7 +753,6 @@ namespace HotelManagement.GUI
                     );
                 }
             }
-
             // TB sau khi tạo xong tất cả hóa đơn
             CTMessageBox.Show(
                 "Tạo hóa đơn đặt cọc thành công!",
@@ -786,34 +761,25 @@ namespace HotelManagement.GUI
                 MessageBoxIcon.Information
             );
         }
-
         private void CTTextBoxNhapHoTen__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxNotNumber = sender as TextBox;
             textBoxNotNumber.KeyPress += TextBoxNotNumber_KeyPress;
         }
-
         private void TextBoxNotNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
-
         private void CTTextBoxNhapCCCD__TextChanged(object sender, EventArgs e)
         {
             TextBox txt = sender as TextBox;
             txt.MaxLength = 12;
             txt.KeyPress += TextBoxOnlyNumber_KeyPress;
-
             string cccd = txt.Text.Trim();
-
             // Chỉ kiểm tra khi nhập đủ 9–12 số
-            if (cccd.Length < 9)
-                return;
-
+            if (cccd.Length < 9) return;
             KhachHang khInDb = KhachHangBUS.Instance.FindKHWithCCCD(cccd);
-
-            // ➤ TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
+            // TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
             if (khInDb != null)
             {
                 // Gán vào biến toàn cục
@@ -822,27 +788,23 @@ namespace HotelManagement.GUI
                 CTTextBoxNhapSDT.RemovePlaceholder();
                 CTTextBoxNhapDiaChi.RemovePlaceholder();
                 CTTextBoxNhapEmail.RemovePlaceholder();
-
                 // Tự động fill
                 CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
                 CTTextBoxNhapSDT.Texts = khachHang.SDT;
                 CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
                 ComboBoxGioiTinh.Texts = "  " + khachHang.GioiTinh;
                 CTTextBoxNhapEmail.Texts = khachHang.Email;
-
                 // Khóa không cho chỉnh sửa
                 CTTextBoxNhapHoTen.Enabled = false;
                 CTTextBoxNhapSDT.Enabled = false;
                 CTTextBoxNhapDiaChi.Enabled = false;
                 ComboBoxGioiTinh.Enabled = false;
                 CTTextBoxNhapEmail.Enabled = false;
-
                 flagHoTen = 1;   // đang dùng KH cũ
             }
             else
             {
                 // ➤ TRƯỜNG HỢP 2: KH MỚI
-
                 // Mở khóa các trường
                 CTTextBoxNhapHoTen.Enabled = true;
                 CTTextBoxNhapSDT.Enabled = true;
@@ -874,12 +836,10 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
-
         private void CTTextBoxNhapDiaChi_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
         private bool SendBookingEmail(KhachHang kh, PhieuThue phieuThue, List<CTDP> listPhong)
         {
             try

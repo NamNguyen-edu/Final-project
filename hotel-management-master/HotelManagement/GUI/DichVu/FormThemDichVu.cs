@@ -201,6 +201,7 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
+        // Nút thêm dịch vụ
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             if (this.ctTextBoxTenDV.Texts == "" || this.CTTextBoxSoLuong.Texts == ""  || this.ctTextBoxMoTa.Texts == "")
@@ -209,7 +210,6 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             try
             {
                 DichVu dichVu = new DichVu();
@@ -222,7 +222,6 @@ namespace HotelManagement.GUI
                     dichVu.LoaiDV = this.ctTextBoxMoTa.Texts;
                     dichVu.MaDV = DichVuBUS.Instance.GetMaDVNext();
                     DichVuBUS.Instance.UpdateORAdd(dichVu);
-
                 CTMessageBox.Show("Thêm thông tin thành công.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.formDanhSachDichVu.LoadALLDV();
@@ -234,12 +233,12 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Format tiền + giới hạn ký tự
         private void CTTextBoxDonGia__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxDonGia = sender as TextBox;
             textBoxDonGia.KeyPress += TextBoxDonGia_KeyPress;
             TextBoxType.Instance.CurrencyType(textBoxDonGia, e);
-
         }
         private void TextBoxDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {

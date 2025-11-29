@@ -77,8 +77,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxLuong.Texts = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C0}", this.nhanVien.Luong).Trim('$');
             this.cbChucVu.Texts = " " + this.nhanVien.ChucVu;
         }
-        //Private Methods
-        //Private Methods
+
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -178,27 +177,24 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
+       // Phương thức sự kiện
         private void FormSuaNhanVien_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
+            
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
-            DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
+            
+            DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);         
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
-            DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
+            DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);          
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
-            DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
+            DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);            
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
+
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormSuaNhanVien_Resize(object sender, EventArgs e)

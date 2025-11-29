@@ -467,6 +467,7 @@ namespace HotelManagement.GUI
                 #endregion
             }
         }
+        // Thay đổi con trỏ chuột thành hình bàn tay khi di chuột vào cột 3 của gridDichVu
         private void gridDichVu_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -475,12 +476,13 @@ namespace HotelManagement.GUI
             else
                 gridDichVu.Cursor = Cursors.Default;
         }
-
+        // Khi chuột rời khỏi ô → trả con trỏ về mặc định
         private void gridDichVu_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             gridDichVu.Cursor = Cursors.Default;
         }
 
+        // Thay đổi con trỏ chuột thành hình bàn tay khi di chuột vào cột 3 của dgvDVDaChon
         private void dgvDVDaChon_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -489,7 +491,7 @@ namespace HotelManagement.GUI
             else
                 dgvDVDaChon.Cursor = Cursors.Default;
         }
-
+        // Khi chuột rời khỏi ô → trả con trỏ về mặc định
         private void dgvDVDaChon_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             dgvDVDaChon.Cursor = Cursors.Default;

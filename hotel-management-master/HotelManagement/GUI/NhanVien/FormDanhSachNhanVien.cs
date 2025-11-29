@@ -22,15 +22,15 @@ namespace HotelManagement.GUI
         private FormMain formMain;
         private TaiKhoan taiKhoan1;
         List<NhanVien> nhanViens;
-        
+        // Khởi tạo form danh sách nhân viên
         public FormDanhSachNhanVien(FormMain formMain,TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan1 = taiKhoan;
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
-        }   
-
+        }
+        // Mở form thêm nhân viên
         private void CTButtonThemNhanVien_Click(object sender, EventArgs e)
         {
             FormBackground formBackground = new FormBackground(formMain);
@@ -56,15 +56,12 @@ namespace HotelManagement.GUI
                 formBackground.Dispose(); 
             }
         }
-
+        // Load danh sách khi mở form
         private void FormDanhSachNhanVien_Load(object sender, EventArgs e)
         {
             LoadAllGrid();
-            /* grid.Rows.Add(new object[] { NV, "NV001", "Phan Tuấn Thành", "Giám đốc", "11/10/2003", "Nam", "0123456789", "thanhpt1110@gmail.com", edit, delete });
-             grid.Rows.Add(new object[] { NV, "NV001", "Phan Tuấn Thành", "Quản lý", "11/10/2003", "Nam", "0123456789", "thanhpt1110@gmail.com", edit, delete });
-             grid.Rows.Add(new object[] { NV, "NV001", "Phan Tuấn Thành", "Nhân viên", "11/10/2003", "Nam", "0123456789", "thanhpt1110@gmail.com", edit, delete });
-             grid.Rows.Add(new object[] { NV, "NV001", "Phan Tuấn Thành", "Giám đốc", "11/10/2003", "Nam", "0123456789", "thanhpt1110@gmail.com", edit, delete });*/
         }
+        // Load tất cả nhân viên vào danh sách
         public void LoadAllGrid()
         {
             try
@@ -80,6 +77,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
+        // Load danh sách nhân viên lên grid
         private void LoadGrid()
         {
             try
@@ -96,6 +94,7 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Xuất danh sách ra Excel
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -104,18 +103,13 @@ namespace HotelManagement.GUI
                 {
                     Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
                     XcelApp.Application.Workbooks.Add(Type.Missing);
-
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
-
-                    // Get Header text of Column
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
-
-                    // Get data of cells
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
@@ -123,7 +117,6 @@ namespace HotelManagement.GUI
                             XcelApp.Cells[i + 2, j] = grid.Rows[i].Cells[j].Value.ToString();
                         }
                     }
-
                     XcelApp.Columns.AutoFit();
                     XcelApp.Visible = true;
                 }
@@ -139,14 +132,11 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
-            {
-                // If click Update button 
-                
+            {              
                 if (x == 8)
                 {
                     if (taiKhoan1.CapDoQuyen == 2 && this.grid.Rows[y].Cells[1].Value.ToString().StartsWith("QL"))
@@ -174,7 +164,6 @@ namespace HotelManagement.GUI
                     }
                     finally { formBackground.Dispose(); }
                 }
-                // If click delete
                 if (x == 9)
                 {
                     if (taiKhoan1.CapDoQuyen == 2 && this.grid.Rows[y].Cells[1].Value.ToString().StartsWith("QL"))
@@ -198,15 +187,11 @@ namespace HotelManagement.GUI
                             CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        finally
-                        {
-                        }
                     }
 
                 }
                 if (x >= 0 && x <= 7)
                 {
-                    // If click Info
                     if (taiKhoan1.CapDoQuyen == 2 && this.grid.Rows[y].Cells[1].Value.ToString().StartsWith("QL"))
                     {
                         CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -214,8 +199,7 @@ namespace HotelManagement.GUI
                     }
                     FormBackground formBackground = new FormBackground(formMain);
                     try
-                    {
-                        
+                    {                        
                         using (FormThongTinNhanVien formThongTinNhanVien = new FormThongTinNhanVien(NhanVienBUS.Instance.GetNhanVien(grid.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
@@ -234,22 +218,20 @@ namespace HotelManagement.GUI
                 }
             }
         }
-
+        // Đổi icon con trỏ khi hover vào ô
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
             int[] arrX = { 1, 3, 5 };
             bool isExists = false;
-
             if (Array.IndexOf(arrX, x) != -1)
                 isExists = true;
-
             if (y >= 0 && x >= 0 || y == -1 && isExists)
                 grid.Cursor = Cursors.Hand;
             else
                 grid.Cursor = Cursors.Default;
         }
-
+        // Tìm kiếm nhân viên theo tên
         private void CTTextBoxTimTheoTenNhanVien__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxNhanVien = sender as TextBox;
@@ -263,9 +245,9 @@ namespace HotelManagement.GUI
                 this.nhanViens = NhanVienBUS.Instance.GetNhanViensWithName(textBoxNhanVien.Text).Where(p=>!p.MaNV.StartsWith("AD")).ToList();
             else
                 this.nhanViens = NhanVienBUS.Instance.GetNhanViensWithName(textBoxNhanVien.Text);
-
             LoadGrid();
         }
+        // Reset con trỏ chuột
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;

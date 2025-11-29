@@ -20,22 +20,21 @@ namespace HotelManagement.DAO
             private set { instance = value; }
         }
         private CTDP_DAO() { }
+        // Lấy toàn bộ CTDP trong DB
         public List<CTDP> GetCTDPs()
         {
             HotelDTO db = new HotelDTO();
             return db.CTDPs.ToList();
-        }   
+        }
+        // Tính số ngày giữa CheckIn – CheckOut của một CTDP
         public int getKhoangTGTheoNgay(string MaCTDP)
         {
             CTDP ctdp;
             TimeSpan timeSpan = new TimeSpan();
-            HotelDTO db = new HotelDTO();
-            
-                ctdp = db.CTDPs.Find(MaCTDP);
-            
-            DateTime checkin = new DateTime();
-                DateTime checkout = new DateTime();
-               
+            HotelDTO db = new HotelDTO();         
+                ctdp = db.CTDPs.Find(MaCTDP);       
+                DateTime checkin = new DateTime();
+                DateTime checkout = new DateTime();              
                 if (ctdp != null)
                 {
                     checkin = ctdp.CheckIn;
@@ -44,17 +43,15 @@ namespace HotelManagement.DAO
                 }
               return timeSpan.Days;
         }
+        // Tính số giờ giữa CheckIn – CheckOut của một CTDP
         public int getKhoangTGTheoGio(string MaCTDP)
         {
             CTDP ctdp;
             TimeSpan timeSpan = new TimeSpan();
             HotelDTO db = new HotelDTO();
-
             ctdp = db.CTDPs.Find(MaCTDP);
-
             DateTime checkin = new DateTime();
             DateTime checkout = new DateTime();
-
             if (ctdp != null)
             {
                 checkin = ctdp.CheckIn;
@@ -63,17 +60,17 @@ namespace HotelManagement.DAO
             }
             return timeSpan.Hours;
         }
+        // Tìm CTDP đang hiệu lực theo phòng và thời điểm hiện tại
         public CTDP FindCTDP(string MaPhong, DateTime currentTime)
         {
                 HotelDTO db = new HotelDTO();
                 CTDP ctdp;
                 ctdp = db.CTDPs.Where(p => p.MaPH == MaPhong && ((p.CheckIn <= currentTime && currentTime <= p.CheckOut) || p.CheckIn == currentTime) && p.TrangThai != "Đã xong" && p.TrangThai != "Đã hủy").SingleOrDefault();            
-                return ctdp;
-            
+                return ctdp;    
         }
+        // Lấy danh sách CTDP bị trùng thời gian với khoảng Checkin–Checkout
         public List<CTDP> getCTDPonTime(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
-        {
-                
+        {               
                 List<CTDP> listCTDP;
                 HotelDTO db = new HotelDTO();
                 listCTDP= db.CTDPs.Where(p=>p.DaXoa==false).ToList();
@@ -94,6 +91,7 @@ namespace HotelManagement.DAO
                 return ctdpList;
             
         }
+        // Sinh mã CTDP kế tiếp (CTDP001 → CTDP002…)
         public string getNextCTDP()
         {
                 List<CTDP> cTDPs;
@@ -114,6 +112,7 @@ namespace HotelManagement.DAO
                 return "CTDP" + max.ToString();
            
         }
+        // Thêm hoặc cập nhật CTDP (gắn Phiếu thuê + Phòng), không xóa mềm
         public void UpdateOrAddCTDP(CTDP ctdp)
         {
             try
@@ -135,6 +134,7 @@ namespace HotelManagement.DAO
                
             }
         }
+        // Xóa mềm CTDP
         public void RemoveCTDP(CTDP cTDP)
         {
             HotelDTO db = new HotelDTO();
@@ -144,6 +144,7 @@ namespace HotelManagement.DAO
                 db.SaveChanges();
 
         }
+        // Sinh mã CTDP mới dựa trên cả DB + list hiện tại trên form
         public string getNextCTDPwithList(List<CTDP> list)
         {
             List<CTDP> cTDPs;
@@ -171,6 +172,7 @@ namespace HotelManagement.DAO
                 }
                 return "CTDP" + max.ToString();      
         }
+        // Kiểm tra phòng có booking tương lai (chưa checkout) hay không
         public bool HasFutureBookingForRoom(string maPhong, DateTime now)
         {
             using (var db = new HotelDTO())
@@ -183,11 +185,11 @@ namespace HotelManagement.DAO
                 );
             }
         }
+        // Tự động cập nhật CTDP quá hạn CheckIn thành “Đã xong”
         public void UpdateTrangThaiQuaHan(DateTime now)
         {
             using (var db = new HotelDTO())
             {
-                // Lấy các phiếu "Đã đặt" còn tồn tại
                 var list = db.CTDPs
                              .Where(p => p.DaXoa == false
                                       && p.TrangThai == "Đã đặt")
@@ -195,7 +197,6 @@ namespace HotelManagement.DAO
 
                 foreach (var c in list)
                 {
-                    // Nếu đã qua 3 giờ kể từ CheckIn mà vẫn chỉ là "Đã đặt"
                     if (c.CheckIn.AddMinutes(1) <= now)
                     {
                         c.TrangThai = "Đã xong";
