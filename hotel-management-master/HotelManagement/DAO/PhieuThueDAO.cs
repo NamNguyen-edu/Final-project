@@ -17,10 +17,9 @@ namespace HotelManagement.DAO
             get { if (instance == null) instance = new PhieuThueDAO(); return instance; }
             private set { instance = value; }
         }
-
         private PhieuThueDAO() { }
 
-        // GET ALL – luôn tạo context mới + Include
+        // Lấy tất cả – luôn tạo context mới + Include
         public List<PhieuThue> GetPhieuThues()
         {
             using (var db = new HotelDTO())
@@ -31,8 +30,7 @@ namespace HotelManagement.DAO
                          .ToList();
             }
         }
-
-        // GET by ID – luôn fresh từ DB
+        // Lấy phiếu thuê theo ID – luôn fresh từ DB
         public PhieuThue GetPhieuThue(string MaPT)
         {
             using (var db = new HotelDTO())
@@ -43,8 +41,7 @@ namespace HotelManagement.DAO
                          .SingleOrDefault(p => p.MaPT == MaPT);
             }
         }
-
-        // UPDATE – đảm bảo KH & NV được load mới 
+        // Cập nhật – đảm bảo KH & NV được load mới 
         public void UpdatePhieuThue(PhieuThue phieuThue)
         {
             try
@@ -52,10 +49,8 @@ namespace HotelManagement.DAO
                 using (var db = new HotelDTO())
                 {
                     phieuThue.DaXoa = false;
-
                     phieuThue.KhachHang = db.KhachHangs.Find(phieuThue.MaKH);
                     phieuThue.NhanVien = db.NhanViens.Find(phieuThue.MaNV);
-
                     db.PhieuThues.AddOrUpdate(phieuThue);
                     db.SaveChanges();
                 }
@@ -65,8 +60,7 @@ namespace HotelManagement.DAO
                 MessageBox.Show(ex.Message);
             }
         }
-
-        // SEARCH theo tên
+        // Tìm kiếm theo tên
         public List<PhieuThue> GetPhieuThuesWithNameCus(string name)
         {
             using (var db = new HotelDTO())
@@ -78,24 +72,20 @@ namespace HotelManagement.DAO
                          .ToList();
             }
         }
-
-        // LẤY MÃ NEXT
+        // Sinh mã phiếu thuê tiếp theo
         public string GetMaPTNext()
         {
             using (var db = new HotelDTO())
             {
                 var list = db.PhieuThues.ToList();
                 if (list.Count == 0) return "PT001";
-
                 string MaMax = list[list.Count - 1].MaPT;
                 int num = int.Parse(MaMax.Substring(2));
                 num++;
-
                 return "PT" + num.ToString("000");
             }
         }
-
-        // DELETE 
+        // Xóa phiếu thuê với mã khách hàng
         public void RemoveAllPhieuThueWithMaKH(List<PhieuThue> phieuThues)
         {
             using (var db = new HotelDTO())

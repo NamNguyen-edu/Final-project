@@ -21,33 +21,25 @@ namespace HotelManagement.DAO
         // Lấy tất cả phòng chưa bị xóa
         public List<Phong> GetAllPhongs()
         {
-
             return db.Phongs.Where(p => p.DaXoa == false).ToList();
-
         }
         // Tìm phòng theo mã (PK)
         public Phong FindPhong(string MaPh)
         {
-
             return db.Phongs.Find(MaPh);
-
         }
         // Tìm phòng theo mã, dùng LIKE (Contains)
         public List<Phong> FindPhongWithMaPH(string MaPh)
         {
-
             return db.Phongs.Where(p => p.MaPH.Contains(MaPh) && p.DaXoa == false).ToList();
-
         }
         // Thêm hoặc cập nhật phòng (set lại loại phòng, không xóa)
         public void UpdateOrAdd(Phong phong)
         {
-
             phong.LoaiPhong = db.LoaiPhongs.Find(phong.MaLPH);
             phong.DaXoa = false;
             db.Phongs.AddOrUpdate(phong);
             db.SaveChanges();
-
         }
         // Xóa mềm phòng (DaXoa = true)
         public void RemovePhong(string maPH)
@@ -78,7 +70,6 @@ namespace HotelManagement.DAO
                 }
             }
             return phongtrong;
-
         }
         // Kiểm tra 1 phòng cụ thể có trống trong khoảng CheckIn/CheckOut hay không
         public bool FindPhongTrong(CTDP room)
@@ -107,7 +98,6 @@ namespace HotelManagement.DAO
                     return true;
             }
             return false;
-
         }
         // Sinh mã phòng mới theo tầng (P201, P202,...)
         public string GenerateNextRoomCode(int tang)
@@ -116,7 +106,6 @@ namespace HotelManagement.DAO
                           .Where(p => p.Tang == tang && p.DaXoa == false)
                           .Select(p => p.MaPH)
                           .ToList();
-
             int maxNum = tang * 100;
             foreach (var c in codes)
             {
@@ -125,11 +114,9 @@ namespace HotelManagement.DAO
                     if (n / 100 == tang && n > maxNum) maxNum = n;
                 }
             }
-
             int next = (maxNum % 100) + 1;   // số thứ tự kế tiếp trong tầng
             int num = tang * 100 + next;    // VD: tầng 2 → 200 + 1 = 201
             return "P" + num.ToString("000"); // "P201"
         }
-
     }
 }

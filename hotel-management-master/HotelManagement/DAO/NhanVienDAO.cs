@@ -18,25 +18,22 @@ namespace HotelManagement.DAO
             private set { instance = value; }
         }
         private NhanVienDAO() { }
-
+        // Lấy toàn bộ nhân viên (trả về cả nhân viên đã xóa)
         public List<NhanVien> GetAllNhanViens()
         {
-
             return db.NhanViens.ToList();
-
         }
+        // Lấy toàn bộ nhân viên (không trả về nhân viên đã xóa)
         public List<NhanVien> GetNhanViens()
         {
-
             return db.NhanViens.Where(p => p.DaXoa == false).ToList();
-
         }
+        // Lấy nhân viên theo mã nhân viên
         public NhanVien GetNhanVien(string MaNV)
         {
-
             return db.NhanViens.Find(MaNV);
-
         }
+        // Thêm hoặc cập nhật nhân viên với các điều kiện kiểm tra
         public void UpdateOrInsert(NhanVien nhanVien)
         {
             int age = DateTime.Now.Year - nhanVien.NgaySinh.Year;
@@ -63,23 +60,18 @@ namespace HotelManagement.DAO
             nhanVien.DaXoa = false;
             db.NhanViens.AddOrUpdate(nhanVien);
             db.SaveChanges();
-
         }
-
+        // Xóa mềm nhân viên (gán DaXoa = true)
         public void RemoveNhanVien(NhanVien nhanVien)
         {
-
             nhanVien.DaXoa = true;
             db.NhanViens.AddOrUpdate(nhanVien);
             db.SaveChanges();
-
         }
         // Tìm nhân viên theo tên (không trả về nhân viên đã xóa)
         public List<NhanVien> GetNhanViensWithName(string tenNV)
         {
-
             return db.NhanViens.Where(p => p.TenNV.Contains(tenNV) && p.DaXoa == false).ToList();
-
         }
         // Sinh mã nhân viên tiếp theo (NV001 → NV002 )
         public string GetMaNVNext()
@@ -98,7 +90,7 @@ namespace HotelManagement.DAO
                 return "NV0" + max.ToString();
             }
             return "NV" + max.ToString();
-        }
+       }
         public List<NhanVien> FindNhanVienWithName(string TenNV)
         {
             return db.NhanViens.Where(p => p.TenNV.Contains(TenNV) && p.DaXoa == false).ToList();

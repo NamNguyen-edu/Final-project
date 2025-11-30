@@ -26,7 +26,8 @@ namespace HotelManagement.BUS
         {
             return TienNghiDAO.Instance.FindTienNghi(MaTN);
         }
-        public void RemoveTN(TienNghi tienNghi) // try catch th có phòng có mã tiện nghi đó
+        // Xóa tiện nghi
+        public void RemoveTN(TienNghi tienNghi)
         {
             TienNghiDAO.Instance.RemoveTN(tienNghi);
         }
