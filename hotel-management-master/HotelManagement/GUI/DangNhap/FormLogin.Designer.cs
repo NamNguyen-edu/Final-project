@@ -120,6 +120,7 @@ namespace HotelManagement
             this.ctMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMaximize1.Enabled = false;
             this.ctMaximize1.Location = new System.Drawing.Point(10, 7);
+            this.ctMaximize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMaximize1.Name = "ctMaximize1";
             this.ctMaximize1.Size = new System.Drawing.Size(15, 15);
             this.ctMaximize1.TabIndex = 2;
@@ -131,6 +132,7 @@ namespace HotelManagement
             this.ctMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMinimize1.Enabled = false;
             this.ctMinimize1.Location = new System.Drawing.Point(40, 6);
+            this.ctMinimize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMinimize1.Name = "ctMinimize1";
             this.ctMinimize1.Size = new System.Drawing.Size(15, 15);
             this.ctMinimize1.TabIndex = 1;
@@ -142,6 +144,7 @@ namespace HotelManagement
             this.ctClose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctClose1.BackgroundImage")));
             this.ctClose1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctClose1.Location = new System.Drawing.Point(71, 6);
+            this.ctClose1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctClose1.Name = "ctClose1";
             this.ctClose1.Size = new System.Drawing.Size(15, 15);
             this.ctClose1.TabIndex = 0;
@@ -154,7 +157,7 @@ namespace HotelManagement
             this.labelCorporation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(152)))), ((int)(((byte)(162)))));
             this.labelCorporation.Location = new System.Drawing.Point(224, 508);
             this.labelCorporation.Name = "labelCorporation";
-            this.labelCorporation.Size = new System.Drawing.Size(155, 21);
+            this.labelCorporation.Size = new System.Drawing.Size(197, 28);
             this.labelCorporation.TabIndex = 4;
             this.labelCorporation.Text = "TBT CORPORATION";
             // 
@@ -162,11 +165,11 @@ namespace HotelManagement
             // 
             this.pictureBoxIcon.BackColor = System.Drawing.Color.White;
             this.pictureBoxIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxIcon.Image = global::HotelManagement.Properties.Resources.pictureIcon;
+            this.pictureBoxIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxIcon.Image")));
             this.pictureBoxIcon.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxIcon.Name = "pictureBoxIcon";
             this.pictureBoxIcon.Size = new System.Drawing.Size(516, 538);
-            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxIcon.TabIndex = 12;
             this.pictureBoxIcon.TabStop = false;
             this.pictureBoxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxIcon_MouseDown);

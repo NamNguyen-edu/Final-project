@@ -34,6 +34,8 @@
             this.CTButtonThoat = new HotelManagement.CTControls.CTButton();
             this.CTButtonCapNhat = new HotelManagement.CTControls.CTButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.ctTextBoxEmail = new HotelManagement.CTControls.CTTextBox();
             this.comboBoxGioiTinh = new HotelManagement.CTControls.CTComboBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -43,26 +45,25 @@
             this.ctTextBoxQuocTich = new HotelManagement.CTControls.CTTextBox();
             this.ctTextBoxSDT = new HotelManagement.CTControls.CTTextBox();
             this.ctTextBoxCCCD = new HotelManagement.CTControls.CTTextBox();
-            this.ctTextBoxEmail = new HotelManagement.CTControls.CTTextBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.PanelBackground.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // ctTextBoxName
             // 
-            this.ctTextBoxName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.ctTextBoxName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
+            this.ctTextBoxName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxName.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxName.BorderRadius = 0;
             this.ctTextBoxName.BorderSize = 2;
             this.ctTextBoxName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTextBoxName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(101)))), ((int)(((byte)(34)))));
             this.ctTextBoxName.IsFocused = false;
             this.ctTextBoxName.Location = new System.Drawing.Point(106, 23);
             this.ctTextBoxName.Margin = new System.Windows.Forms.Padding(4);
@@ -83,6 +84,7 @@
             // 
             this.labelSuaKhachHang.AutoSize = true;
             this.labelSuaKhachHang.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSuaKhachHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(101)))), ((int)(((byte)(34)))));
             this.labelSuaKhachHang.Location = new System.Drawing.Point(153, 9);
             this.labelSuaKhachHang.Name = "labelSuaKhachHang";
             this.labelSuaKhachHang.Size = new System.Drawing.Size(271, 46);
@@ -91,6 +93,7 @@
             // 
             // PanelBackground
             // 
+            this.PanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
             this.PanelBackground.Controls.Add(this.CTButtonThoat);
             this.PanelBackground.Controls.Add(this.CTButtonCapNhat);
             this.PanelBackground.Controls.Add(this.labelSuaKhachHang);
@@ -148,7 +151,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.ctTextBoxEmail);
             this.panel1.Controls.Add(this.comboBoxGioiTinh);
@@ -167,14 +170,48 @@
             this.panel1.Size = new System.Drawing.Size(431, 483);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
+            this.pictureBox6.Location = new System.Drawing.Point(69, 328);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox6.TabIndex = 8;
+            this.pictureBox6.TabStop = false;
+            // 
+            // ctTextBoxEmail
+            // 
+            this.ctTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
+            this.ctTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.ctTextBoxEmail.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
+            this.ctTextBoxEmail.BorderRadius = 0;
+            this.ctTextBoxEmail.BorderSize = 2;
+            this.ctTextBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTextBoxEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(101)))), ((int)(((byte)(34)))));
+            this.ctTextBoxEmail.IsFocused = false;
+            this.ctTextBoxEmail.Location = new System.Drawing.Point(108, 318);
+            this.ctTextBoxEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.ctTextBoxEmail.Multiline = false;
+            this.ctTextBoxEmail.Name = "ctTextBoxEmail";
+            this.ctTextBoxEmail.Padding = new System.Windows.Forms.Padding(7);
+            this.ctTextBoxEmail.PasswordChar = false;
+            this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
+            this.ctTextBoxEmail.PlaceholderText = "Nhập Email";
+            this.ctTextBoxEmail.ReadOnly = false;
+            this.ctTextBoxEmail.Size = new System.Drawing.Size(250, 40);
+            this.ctTextBoxEmail.TabIndex = 7;
+            this.ctTextBoxEmail.Texts = "";
+            this.ctTextBoxEmail.UnderlineedStyle = true;
+            // 
             // comboBoxGioiTinh
             // 
-            this.comboBoxGioiTinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.comboBoxGioiTinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.comboBoxGioiTinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
+            this.comboBoxGioiTinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.comboBoxGioiTinh.BorderSize = 2;
             this.comboBoxGioiTinh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxGioiTinh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxGioiTinh.ForeColor = System.Drawing.Color.Black;
+            this.comboBoxGioiTinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(101)))), ((int)(((byte)(34)))));
             this.comboBoxGioiTinh.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.comboBoxGioiTinh.Items.AddRange(new object[] {
             "  Nam",
@@ -218,9 +255,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::HotelManagement.Properties.Resources.CCCD;
-            this.pictureBox2.Location = new System.Drawing.Point(57, 94);
+            this.pictureBox2.Location = new System.Drawing.Point(59, 102);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
@@ -235,12 +273,13 @@
             // 
             // ctTextBoxQuocTich
             // 
-            this.ctTextBoxQuocTich.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.ctTextBoxQuocTich.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxQuocTich.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
+            this.ctTextBoxQuocTich.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxQuocTich.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxQuocTich.BorderRadius = 0;
             this.ctTextBoxQuocTich.BorderSize = 2;
             this.ctTextBoxQuocTich.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTextBoxQuocTich.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(101)))), ((int)(((byte)(34)))));
             this.ctTextBoxQuocTich.IsFocused = false;
             this.ctTextBoxQuocTich.Location = new System.Drawing.Point(108, 240);
             this.ctTextBoxQuocTich.Margin = new System.Windows.Forms.Padding(4);
@@ -259,12 +298,13 @@
             // 
             // ctTextBoxSDT
             // 
-            this.ctTextBoxSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.ctTextBoxSDT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
+            this.ctTextBoxSDT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxSDT.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxSDT.BorderRadius = 0;
             this.ctTextBoxSDT.BorderSize = 2;
             this.ctTextBoxSDT.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTextBoxSDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(101)))), ((int)(((byte)(34)))));
             this.ctTextBoxSDT.IsFocused = false;
             this.ctTextBoxSDT.Location = new System.Drawing.Point(108, 160);
             this.ctTextBoxSDT.Margin = new System.Windows.Forms.Padding(4);
@@ -283,12 +323,13 @@
             // 
             // ctTextBoxCCCD
             // 
-            this.ctTextBoxCCCD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.ctTextBoxCCCD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxCCCD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(242)))), ((int)(((byte)(214)))));
+            this.ctTextBoxCCCD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxCCCD.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxCCCD.BorderRadius = 0;
             this.ctTextBoxCCCD.BorderSize = 2;
             this.ctTextBoxCCCD.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctTextBoxCCCD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(101)))), ((int)(((byte)(34)))));
             this.ctTextBoxCCCD.IsFocused = false;
             this.ctTextBoxCCCD.Location = new System.Drawing.Point(106, 84);
             this.ctTextBoxCCCD.Margin = new System.Windows.Forms.Padding(4);
@@ -304,38 +345,6 @@
             this.ctTextBoxCCCD.Texts = "";
             this.ctTextBoxCCCD.UnderlineedStyle = true;
             this.ctTextBoxCCCD._TextChanged += new System.EventHandler(this.ctTextBox2__TextChanged);
-            // 
-            // ctTextBoxEmail
-            // 
-            this.ctTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
-            this.ctTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
-            this.ctTextBoxEmail.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
-            this.ctTextBoxEmail.BorderRadius = 0;
-            this.ctTextBoxEmail.BorderSize = 2;
-            this.ctTextBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ctTextBoxEmail.IsFocused = false;
-            this.ctTextBoxEmail.Location = new System.Drawing.Point(108, 318);
-            this.ctTextBoxEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.ctTextBoxEmail.Multiline = false;
-            this.ctTextBoxEmail.Name = "ctTextBoxEmail";
-            this.ctTextBoxEmail.Padding = new System.Windows.Forms.Padding(7);
-            this.ctTextBoxEmail.PasswordChar = false;
-            this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
-            this.ctTextBoxEmail.PlaceholderText = "Nhập Email";
-            this.ctTextBoxEmail.ReadOnly = false;
-            this.ctTextBoxEmail.Size = new System.Drawing.Size(250, 40);
-            this.ctTextBoxEmail.TabIndex = 7;
-            this.ctTextBoxEmail.Texts = "";
-            this.ctTextBoxEmail.UnderlineedStyle = true;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
-            this.pictureBox6.Location = new System.Drawing.Point(69, 328);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox6.TabIndex = 8;
-            this.pictureBox6.TabStop = false;
             // 
             // FormSuaKhachHang
             // 
@@ -359,12 +368,13 @@
             this.PanelBackground.ResumeLayout(false);
             this.PanelBackground.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
