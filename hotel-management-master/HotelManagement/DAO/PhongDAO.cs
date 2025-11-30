@@ -85,7 +85,6 @@ namespace HotelManagement.DAO
         {
 
             List<CTDP> cTDPs = CTDP_DAO.Instance.getCTDPonTime(room.CheckIn, room.CheckOut, null);
-            //List<Phong> PhongKhongTrong = new List<Phong>();
             var MaPh = cTDPs.Select(p => p.Phong.MaPH).ToList();
             List<Phong> phongs = db.Phongs.Where(p => p.TTDD != "Đang sửa chữa").ToList();
             List<Phong> phongtrong = new List<Phong>();

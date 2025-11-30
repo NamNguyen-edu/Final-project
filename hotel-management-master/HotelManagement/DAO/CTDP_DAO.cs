@@ -187,7 +187,6 @@ namespace HotelManagement.DAO
         {
             using (var db = new HotelDTO())
             {
-                // Lấy các phiếu "Đã đặt" còn tồn tại
                 var list = db.CTDPs
                              .Where(p => p.DaXoa == false
                                       && p.TrangThai == "Đã cọc")
@@ -195,13 +194,11 @@ namespace HotelManagement.DAO
 
                 foreach (var c in list)
                 {
-                    // Nếu đã qua 3 giờ kể từ CheckIn mà vẫn chỉ là "Đã đặt"
-                    if (c.CheckIn.AddMinutes(1) <= now)
+                    if (c.CheckIn.AddHours(3) <= now)
                     {
                         c.TrangThai = "Đã xong";
                     }
                 }
-
                 db.SaveChanges();
             }
         }
