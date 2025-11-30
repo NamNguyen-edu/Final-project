@@ -261,25 +261,6 @@ namespace HotelManagement.CTControls
         }
         private void CTRoomDaDat_Click(object sender, EventArgs e)
         {
-            //FormBackground formBackground = new FormBackground(formMain);
-            //try
-            //{
-            //    using (FormThongTinPhong formThongTinPhong = new FormThongTinPhong(formMain, this.LabelTrangThaiLon.Text, ctdp, BUS.PhongBUS.Instance.FindePhong(ctdp.MaPH), taiKhoan))
-            //    {
-            //        formBackground.Owner = formMain;
-            //        formBackground.Show();
-            //        formThongTinPhong.Owner = formBackground;
-            //        formThongTinPhong.ShowDialog();
-            //        this.SoDoPhong.LoadLanDau();
-            //        formBackground.Dispose();
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-            //                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //finally { formBackground.Dispose(); }
             OpenDetail();
         }
         private void setColorMove(Color colorTop, Color colorBack)

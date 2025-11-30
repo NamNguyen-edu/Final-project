@@ -7,6 +7,7 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace HotelManagement.GUI
 {
@@ -68,6 +69,10 @@ namespace HotelManagement.GUI
 
             Colgio.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColCheckin.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            System.Drawing.Drawing2D.GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(picAvatar.ClientRectangle);   
+            picAvatar.Region = new Region(gp);
         }
 
         private void timerDateTime_Tick(object sender, EventArgs e)
@@ -127,7 +132,6 @@ namespace HotelManagement.GUI
         {
             DateTime today = DateTime.Today;
 
-            // Cập nhật lại các CTDP quá hạn "Đã đặt" → "Đã xong"
             CTDP_DAO.Instance.UpdateTrangThaiQuaHan(today);
 
             // Lấy toàn bộ CTDP còn hiệu lực
@@ -220,17 +224,8 @@ namespace HotelManagement.GUI
                     AutoEllipsis = false
                 };
 
-                Label lblTime = new Label
-                {
-                    AutoSize = true,
-                    Font = new Font("Segoe UI", 9F, FontStyle.Italic),
-                    ForeColor = Color.Gray,
-                    Location = new Point(15, lblNoiDung.Bottom + 4),
-                    Text = tb.ThoiGianGui.ToString("HH:mm dd/MM/yyyy")
-                };
-
+              
                 p.Controls.Add(lblNoiDung);
-                p.Controls.Add(lblTime);
 
                 flowLayoutPanelCSKH.Controls.Add(p);
             }
@@ -255,7 +250,6 @@ namespace HotelManagement.GUI
         {
             DateTime now = DateTime.Now;
 
-            // Cập nhật lại các CTDP quá hạn "Đã đặt"
             CTDP_DAO.Instance.UpdateTrangThaiQuaHan(now);
 
             // Lấy tất cả phòng "Đã đặt" trong hôm nay, đã tới giờ check-in
