@@ -186,6 +186,8 @@
     <None Include="Resources\iconthue.png" />
     <None Include="Resources\NhacLich.png" />
     <None Include="Resources\NhacLich-Photoroom.png" />
+    <None Include="Resources\Sound %282%29.png" />
+    <None Include="Resources\Mute %283%29.png" />
     <Content Include="Resources\tick.png" />
     <Content Include="Resources\tickblack.png" />
     <None Include="Resources\error.png" />

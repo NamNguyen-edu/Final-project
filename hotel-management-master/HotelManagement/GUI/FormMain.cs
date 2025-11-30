@@ -42,6 +42,8 @@ namespace HotelManagement
             this.taiKhoan = taiKhoan;
             this.LoaiTK = taiKhoan.CapDoQuyen;
             InitializeComponent();
+
+
             if (this.LoaiTK == 1)
                 LoadFormForNhanVien();
             else if (this.LoaiTK == 2)
@@ -264,6 +266,7 @@ namespace HotelManagement
             }
 
             PlayMusic();
+            SetMusicButtonIcon();
         }
 
         private void PlayMusic()
@@ -278,6 +281,56 @@ namespace HotelManagement
             {
                 MessageBox.Show("Không tìm thấy file âm thanh trong Resources!");
             }
+        }
+        private void BtnSound_Click(object sender, EventArgs e)
+        {
+            ToggleMusic();
+        }
+
+        private void ToggleMusic()
+        {
+            // Nếu chưa khởi tạo player mà bấm nút thì cho chạy nhạc luôn
+            if (player == null)
+            {
+                PlayMusic();
+                SetMusicButtonIcon();
+                return;
+            }
+
+            if (isMusicPlaying)
+            {
+                // Đang phát -> thì dừng
+                player.Stop();
+                isMusicPlaying = false;
+            }
+            else
+            {
+                // Đang tắt -> bật lại, phát lặp
+                player.PlayLooping();
+                isMusicPlaying = true;
+            }
+
+            SetMusicButtonIcon();
+        }
+        private void SetMusicButtonIcon()
+        {
+            if (isMusicPlaying)
+            {
+                // Hình khi đang bật nhạc
+                BtnSound.Image = Properties.Resources.Soundbtn;
+            }
+            else
+            {
+                // Hình khi đang tắt nhạc
+                BtnSound.Image = Properties.Resources.Mutebtn;
+            }
+            BtnSound.FlatStyle = FlatStyle.Flat;
+            BtnSound.FlatAppearance.BorderSize = 0;
+            BtnSound.TabStop = false;
+            BtnSound.UseVisualStyleBackColor = false;
+            BtnSound.FlatAppearance.MouseOverBackColor = BtnSound.BackColor;
+            BtnSound.FlatAppearance.MouseDownBackColor = BtnSound.BackColor;
+            BtnSound.FlatAppearance.CheckedBackColor = BtnSound.BackColor;
         }
 
         private Form activeForm = null;
@@ -582,5 +635,7 @@ namespace HotelManagement
         {
             PictureBoxMenu.BackColor = Color.Transparent;
         }
+
+
     }
 }
