@@ -128,7 +128,7 @@
             this.LabelThemDichVuVaoPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelThemDichVuVaoPhong.Location = new System.Drawing.Point(245, 9);
             this.LabelThemDichVuVaoPhong.Name = "LabelThemDichVuVaoPhong";
-            this.LabelThemDichVuVaoPhong.Size = new System.Drawing.Size(411, 46);
+            this.LabelThemDichVuVaoPhong.Size = new System.Drawing.Size(332, 37);
             this.LabelThemDichVuVaoPhong.TabIndex = 1;
             this.LabelThemDichVuVaoPhong.Text = "Thêm dịch vụ vào phòng";
             // 
@@ -176,7 +176,7 @@
             this.CTTextBoxTimTheoTenDV.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimTheoTenDV.PlaceholderText = "Nhập tên dịch vụ cần tìm";
             this.CTTextBoxTimTheoTenDV.ReadOnly = false;
-            this.CTTextBoxTimTheoTenDV.Size = new System.Drawing.Size(289, 40);
+            this.CTTextBoxTimTheoTenDV.Size = new System.Drawing.Size(247, 35);
             this.CTTextBoxTimTheoTenDV.TabIndex = 34;
             this.CTTextBoxTimTheoTenDV.Texts = "";
             this.CTTextBoxTimTheoTenDV.UnderlineedStyle = false;
@@ -291,9 +291,9 @@
             this.ctPanel2.BorderRadius = 50;
             this.ctPanel2.ForeColor = System.Drawing.Color.Black;
             this.ctPanel2.GradientAngle = 90F;
-            this.ctPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.ctPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.ctPanel2.Location = new System.Drawing.Point(419, 104);
+            this.ctPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel2.Location = new System.Drawing.Point(416, 80);
             this.ctPanel2.Name = "ctPanel2";
             this.ctPanel2.Size = new System.Drawing.Size(341, 236);
             this.ctPanel2.TabIndex = 32;
@@ -407,9 +407,9 @@
             this.ctPanel1.BorderRadius = 50;
             this.ctPanel1.ForeColor = System.Drawing.Color.Black;
             this.ctPanel1.GradientAngle = 90F;
-            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.ctPanel1.Location = new System.Drawing.Point(17, 109);
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.Location = new System.Drawing.Point(17, 85);
             this.ctPanel1.Name = "ctPanel1";
             this.ctPanel1.Size = new System.Drawing.Size(369, 231);
             this.ctPanel1.TabIndex = 32;
@@ -420,7 +420,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(477, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 37);
+            this.label1.Size = new System.Drawing.Size(172, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Dịch vụ đã chọn";
             // 
@@ -430,13 +430,13 @@
             this.LabelDanhSachDichVu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDanhSachDichVu.Location = new System.Drawing.Point(75, 64);
             this.LabelDanhSachDichVu.Name = "LabelDanhSachDichVu";
-            this.LabelDanhSachDichVu.Size = new System.Drawing.Size(246, 37);
+            this.LabelDanhSachDichVu.Size = new System.Drawing.Size(192, 30);
             this.LabelDanhSachDichVu.TabIndex = 1;
             this.LabelDanhSachDichVu.Text = "Danh sách dịch vụ";
             // 
             // FormThemDichVuVaoPhong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(860, 478);

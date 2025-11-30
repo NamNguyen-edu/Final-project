@@ -17,12 +17,9 @@ namespace HotelManagement.GUI
 {
     public partial class FormThemPhong : Form
     {
-        //Fields
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
-
-        //Constructor
         public FormThemPhong()
         {
             this.DoubleBuffered = true;
@@ -30,11 +27,6 @@ namespace HotelManagement.GUI
             this.Padding = new Padding(borderSize);
             InitializeComponent();
         }
-        //Control Box
-
-        //Form Move
-
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -44,13 +36,10 @@ namespace HotelManagement.GUI
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000;
                 return cp;
             }
         }
-
-        //Private Methods
-        //Private Methods
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -118,22 +107,18 @@ namespace HotelManagement.GUI
             using (Graphics graph = Graphics.FromImage(bmp))
             {
                 Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
                 rectBmp.X = this.Bounds.X - 1;
                 rectBmp.Y = this.Bounds.Y;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
                 rectBmp.X = this.Bounds.Right;
                 rectBmp.Y = this.Bounds.Y;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
                 rectBmp.X = this.Bounds.X;
                 rectBmp.Y = this.Bounds.Bottom;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
                 fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
                 rectBmp.X = this.Bounds.Right;
                 rectBmp.Y = this.Bounds.Bottom;
                 graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
@@ -150,39 +135,30 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
         private void FormThemPhong_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormThemPhong_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
         }
-
         private void FormThemPhong_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
-
         private void FormThemPhong_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -197,23 +173,19 @@ namespace HotelManagement.GUI
             Graphics g = e.Graphics;
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), g, borderColor);
         }
+        // Nút thoát form
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private void ctTextBox4__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // Load form: focus vào tiêu đề và load danh sách tầng
         private void FormThemPhong_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemPhong;
             comboBoxTang.Items.Clear();
             comboBoxTang.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
         }
-
+        // Lưu thông tin phòng và thêm mới phòng vào database
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             try

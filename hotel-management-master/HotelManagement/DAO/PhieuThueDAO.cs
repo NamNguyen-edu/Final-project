@@ -20,9 +20,7 @@ namespace HotelManagement.DAO
 
         private PhieuThueDAO() { }
 
-        // ==========================================
         // GET ALL – luôn tạo context mới + Include
-        // ==========================================
         public List<PhieuThue> GetPhieuThues()
         {
             using (var db = new HotelDTO())
@@ -34,9 +32,7 @@ namespace HotelManagement.DAO
             }
         }
 
-        // ==========================================
         // GET by ID – luôn fresh từ DB
-        // ==========================================
         public PhieuThue GetPhieuThue(string MaPT)
         {
             using (var db = new HotelDTO())
@@ -48,9 +44,7 @@ namespace HotelManagement.DAO
             }
         }
 
-        // ==========================================
         // UPDATE – đảm bảo KH & NV được load mới 
-        // ==========================================
         public void UpdatePhieuThue(PhieuThue phieuThue)
         {
             try
@@ -72,9 +66,7 @@ namespace HotelManagement.DAO
             }
         }
 
-        // ==========================================
         // SEARCH theo tên
-        // ==========================================
         public List<PhieuThue> GetPhieuThuesWithNameCus(string name)
         {
             using (var db = new HotelDTO())
@@ -87,9 +79,7 @@ namespace HotelManagement.DAO
             }
         }
 
-        // ==========================================
         // LẤY MÃ NEXT
-        // ==========================================
         public string GetMaPTNext()
         {
             using (var db = new HotelDTO())
@@ -105,9 +95,7 @@ namespace HotelManagement.DAO
             }
         }
 
-        // ==========================================
         // DELETE 
-        // ==========================================
         public void RemoveAllPhieuThueWithMaKH(List<PhieuThue> phieuThues)
         {
             using (var db = new HotelDTO())

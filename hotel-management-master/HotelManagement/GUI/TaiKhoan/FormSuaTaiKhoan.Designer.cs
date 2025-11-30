@@ -34,6 +34,7 @@
             this.CTButtonThoat = new HotelManagement.CTControls.CTButton();
             this.CTButtonCapNhat = new HotelManagement.CTControls.CTButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ctEyePassword1 = new HotelManagement.CTControls.CTEyePassword();
             this.comboBoxCapDoQuyen = new HotelManagement.CTControls.CTComboBox();
             this.ctTextBoxMaNV = new HotelManagement.CTControls.CTTextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -42,7 +43,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.CTTextBoxNhapMatKhau = new HotelManagement.CTControls.CTTextBox();
             this.CTTextBoxNhapTenTaiKhoan = new HotelManagement.CTControls.CTTextBox();
-            this.ctEyePassword1 = new HotelManagement.CTControls.CTEyePassword();
             this.PanelBackground.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -121,7 +121,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.panel1.Controls.Add(this.ctEyePassword1);
             this.panel1.Controls.Add(this.comboBoxCapDoQuyen);
             this.panel1.Controls.Add(this.ctTextBoxMaNV);
@@ -136,9 +136,23 @@
             this.panel1.Size = new System.Drawing.Size(418, 370);
             this.panel1.TabIndex = 0;
             // 
+            // ctEyePassword1
+            // 
+            this.ctEyePassword1.BackColor = System.Drawing.Color.Transparent;
+            this.ctEyePassword1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctEyePassword1.BackgroundImage")));
+            this.ctEyePassword1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ctEyePassword1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ctEyePassword1.IsShow = false;
+            this.ctEyePassword1.Location = new System.Drawing.Point(326, 208);
+            this.ctEyePassword1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctEyePassword1.Name = "ctEyePassword1";
+            this.ctEyePassword1.Size = new System.Drawing.Size(25, 20);
+            this.ctEyePassword1.TabIndex = 7;
+            this.ctEyePassword1.Click += new System.EventHandler(this.ctEyePassword1_Click);
+            // 
             // comboBoxCapDoQuyen
             // 
-            this.comboBoxCapDoQuyen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.comboBoxCapDoQuyen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.comboBoxCapDoQuyen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.comboBoxCapDoQuyen.BorderSize = 2;
             this.comboBoxCapDoQuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -160,7 +174,7 @@
             // 
             // ctTextBoxMaNV
             // 
-            this.ctTextBoxMaNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.ctTextBoxMaNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ctTextBoxMaNV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.ctTextBoxMaNV.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxMaNV.BorderRadius = 0;
@@ -219,7 +233,7 @@
             // 
             // CTTextBoxNhapMatKhau
             // 
-            this.CTTextBoxNhapMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxNhapMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxNhapMatKhau.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxNhapMatKhau.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapMatKhau.BorderRadius = 0;
@@ -243,7 +257,7 @@
             // 
             // CTTextBoxNhapTenTaiKhoan
             // 
-            this.CTTextBoxNhapTenTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.CTTextBoxNhapTenTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.CTTextBoxNhapTenTaiKhoan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
             this.CTTextBoxNhapTenTaiKhoan.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapTenTaiKhoan.BorderRadius = 0;
@@ -263,20 +277,6 @@
             this.CTTextBoxNhapTenTaiKhoan.TabIndex = 5;
             this.CTTextBoxNhapTenTaiKhoan.Texts = "";
             this.CTTextBoxNhapTenTaiKhoan.UnderlineedStyle = true;
-            // 
-            // ctEyePassword1
-            // 
-            this.ctEyePassword1.BackColor = System.Drawing.Color.Transparent;
-            this.ctEyePassword1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctEyePassword1.BackgroundImage")));
-            this.ctEyePassword1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ctEyePassword1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ctEyePassword1.IsShow = false;
-            this.ctEyePassword1.Location = new System.Drawing.Point(326, 208);
-            this.ctEyePassword1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctEyePassword1.Name = "ctEyePassword1";
-            this.ctEyePassword1.Size = new System.Drawing.Size(25, 20);
-            this.ctEyePassword1.TabIndex = 7;
-            this.ctEyePassword1.Click += new System.EventHandler(this.ctEyePassword1_Click);
             // 
             // FormSuaTaiKhoan
             // 

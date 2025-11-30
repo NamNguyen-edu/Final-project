@@ -3,11 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HotelManagement.CTControls;
-using System.Security.Cryptography;
-using System.Windows.Forms;
+
 
 namespace HotelManagement.DAO
 {
@@ -160,7 +156,7 @@ namespace HotelManagement.DAO
                 }
                 string MaMax = cTDPs[cTDPs.Count - 1].MaCTDP.ToString();
                 MaMax = MaMax.Substring(MaMax.Length - 3, 3);
-                int max = int.Parse(MaMax);
+                int max = int.Parse(MaMax); // Lấy mã đặt phòng lớn nhất
                 max++;
                 if (max < 10)
                 {
@@ -180,7 +176,7 @@ namespace HotelManagement.DAO
                 return db.CTDPs.Any(p =>
                      p.DaXoa == false
                 && p.MaPH == maPhong
-                && (p.TrangThai == "Đang thuê" || p.TrangThai == "Đã đặt")
+                && (p.TrangThai == "Đang thuê" || p.TrangThai == "Đã cọc")
                 && now < p.CheckOut
                 );
             }
@@ -192,7 +188,7 @@ namespace HotelManagement.DAO
             {
                 var list = db.CTDPs
                              .Where(p => p.DaXoa == false
-                                      && p.TrangThai == "Đã đặt")
+                                      && p.TrangThai == "Đã cọc")
                              .ToList();
 
                 foreach (var c in list)

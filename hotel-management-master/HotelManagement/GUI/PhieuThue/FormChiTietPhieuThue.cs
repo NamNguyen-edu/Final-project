@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.DTO;
 using HotelManagement.BUS;
-using HotelManagement.DAO;
 using HotelManagement.CTControls;
 using System.Globalization;
 
@@ -19,20 +15,13 @@ namespace HotelManagement.GUI
 {
     public partial class FormChiTietPhieuThue : Form
     {
-        //Fields
+        // Các biến khởi tạo
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
         private Image delete = Properties.Resources.delete;
         private PhieuThue phieuThue;
-        //Constructor
-        public FormChiTietPhieuThue()
-        {
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.Padding = new Padding(borderSize);
-            InitializeComponent();
-        }
+        // Hàm khởi tạo Form
         public FormChiTietPhieuThue(PhieuThue phieuThue)
         {
             this.DoubleBuffered = true;
@@ -41,11 +30,6 @@ namespace HotelManagement.GUI
             this.phieuThue = phieuThue;
             InitializeComponent();
         }
-        //Control Box
-
-        //Form Move
-
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -60,9 +44,8 @@ namespace HotelManagement.GUI
             }
         }
 
-        //Private Methods
-        //Private Methods
-        #region Draw Form
+
+        #region Hiển thị phòng 
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -221,6 +204,7 @@ namespace HotelManagement.GUI
             this.Close();
         }
         #endregion
+        // Hiển thị chi tiết phiếu thuê 
         private void FormChiTietPhieuThue_Load(object sender, EventArgs e)
         {
             grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
@@ -234,6 +218,7 @@ namespace HotelManagement.GUI
             this.LabelThoiGianLapPhieu.Text = this.phieuThue.NgPT.ToString("dd/MM/yyyy hh:mm:ss"); // chỉnh định dạng dd/MM/yyy là xóa đc lịch thuê
             LoadGrid();
         }
+        // Hiển thị các trạng thái của từng phiếu thuê
         private void LoadGrid()
         {
             grid.Rows.Clear();
@@ -270,7 +255,7 @@ namespace HotelManagement.GUI
             int y = e.RowIndex, x = e.ColumnIndex;
             if (y >= 0 && x == 4)
             {
-                // If click Delete button
+                // Khi nhấn nút xóa phiếu thuê
                 DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo",
                                              MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogresult == DialogResult.Yes)
@@ -300,14 +285,10 @@ namespace HotelManagement.GUI
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    finally
-                    {
-
-                    }
                 }
             }
         }
-
+        // Thêm phiếu thuê
         private void CTButtonThemPT_Click(object sender, EventArgs e)
         {
             try
@@ -321,9 +302,6 @@ namespace HotelManagement.GUI
             {
                 CTMessageBox.Show(ex.Message, "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
             }
         }
 

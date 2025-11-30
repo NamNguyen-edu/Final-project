@@ -86,6 +86,7 @@ namespace HotelManagement.GUI
                         DichVu dichVu = DichVuBUS.Instance.FindDichVu(v.MaDV);
                         // Thêm dòng vào grid: Tên – SL – Thành tiền – Icon Xóa
                         dgvDVDaChon.Rows.Add(dichVu.TenDV, v.SL, v.ThanhTien.ToString("#,#"), Del);
+
                     }
                 }
             }
@@ -466,6 +467,14 @@ namespace HotelManagement.GUI
                 }
                 #endregion
             }
+        }
+
+        private void FormThemDichVuVaoPhong_Load(object sender, EventArgs e)
+        {
+            //gridDichVu.ColumnHeadersDefaultCellStyle.Font = new Font(gridDichVu.Font, FontStyle.Bold);
+            //dgvDVDaChon.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDVDaChon.Font, FontStyle.Bold);
+            HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.gridDichVu);
+            HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.dgvDVDaChon);
         }
         // Thay đổi con trỏ chuột thành hình bàn tay khi di chuột vào cột 3 của gridDichVu
         private void gridDichVu_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)

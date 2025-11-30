@@ -39,6 +39,7 @@ namespace HotelManagement.DAO
             return tns;
 
         }
+        // Tìm tiện nghi theo mã 
         public TienNghi FindTienNghi(string MaTN)
         {
             return db.TienNghis.Find(MaTN);
@@ -66,6 +67,7 @@ namespace HotelManagement.DAO
             }
             db.SaveChanges();
         }
+        // Thêm hoặc cập nhật tiện nghi
         public void InsertOrUpdate(TienNghi tienNghi)
         {
 
@@ -74,20 +76,22 @@ namespace HotelManagement.DAO
             db.SaveChanges();
 
         }
+        // Tìm tiện nghi với tên tiện nghi 
         public List<TienNghi> FindTienNghiWithName(string name)
         {
 
             return db.TienNghis.Where(p => p.TenTN.Contains(name) && p.DaXoa == false).ToList();
 
         }
+        // Lấy mã tiện nghi tiếp theo
         public string GetMaTNNext()
         {
 
 
             List<TienNghi> TN = db.TienNghis.ToList();
             string MaMax = TN[TN.Count - 1].MaTN.ToString();
-            MaMax = MaMax.Substring(MaMax.Length - 3, 3);
-            int max = int.Parse(MaMax);
+            MaMax = MaMax.Substring(MaMax.Length - 3, 3); // Lấy mã tiện nghi lớn nhất
+            int max = int.Parse(MaMax); 
             max++;
             if (max < 10)
             {

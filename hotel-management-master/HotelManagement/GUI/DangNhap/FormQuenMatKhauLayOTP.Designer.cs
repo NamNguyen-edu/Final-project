@@ -51,8 +51,8 @@
             // 
             // ButtonLayOTP
             // 
-            this.ButtonLayOTP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
-            this.ButtonLayOTP.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(188)))), ((int)(((byte)(188)))));
+            this.ButtonLayOTP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
+            this.ButtonLayOTP.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(173)))), ((int)(((byte)(127)))));
             this.ButtonLayOTP.BorderColor = System.Drawing.Color.White;
             this.ButtonLayOTP.BorderRadius = 25;
             this.ButtonLayOTP.BorderSize = 0;

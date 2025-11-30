@@ -22,7 +22,7 @@ namespace HotelManagement.GUI
             InitializeComponent();
             formLoginParent = formMain;
         }
-
+        // Mở form quên mật khẩu (Lấy OTP)
         private void labelForgotPassword_Click(object sender, EventArgs e)
         {
             try
@@ -35,7 +35,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Xử lý đăng nhập: kiểm tra tài khoản + mở form theo cấp độ quyền
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             if (TaiKhoanBUS.Instance.checkLogin(this.textBoxUsername.Texts, textBoxPassword.Texts))
@@ -45,27 +45,26 @@ namespace HotelManagement.GUI
                 HotelDTO db = new HotelDTO();
                 TaiKhoan taiKhoan = db.TaiKhoans.Find(account);
 
-                // Lấy cấp độ quyền
-                int quyen = taiKhoan.CapDoQuyen;   // 1=NV,2=QL,3=Admin,4=Khách
+                int quyen = taiKhoan.CapDoQuyen;   
 
                 Form formToOpen;
 
                 switch (quyen)
                 {
                     case 1:
-                        formToOpen = new FormMain(taiKhoan);   // Nhân viên
+                        formToOpen = new FormMain(taiKhoan);  
                         break;
 
                     case 2:
-                        formToOpen = new FormMain(taiKhoan);   // Quản lý
+                        formToOpen = new FormMain(taiKhoan);  
                         break;
 
                     case 3:
-                        formToOpen = new FormMain(taiKhoan);   // Admin
+                        formToOpen = new FormMain(taiKhoan); 
                         break;
 
                     case 4:
-                        formToOpen = new FormMain(taiKhoan);  // KHÁCH HÀNG
+                        formToOpen = new FormMain(taiKhoan); 
                         break;
 
                     default:
@@ -74,7 +73,6 @@ namespace HotelManagement.GUI
                         return;
                 }
 
-                // Ẩn form login & mở form phân quyền đúng
                 formLoginParent.Hide();
                 formToOpen.ShowDialog();
                 formLoginParent.Close();
@@ -85,8 +83,7 @@ namespace HotelManagement.GUI
                                   "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
+        // Khi text password thay đổi → bật chế độ PasswordChar nếu cần
         private void textBoxPassword__TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -96,7 +93,7 @@ namespace HotelManagement.GUI
                 textBoxPassword.PasswordChar = true;
             }
         }
-
+        // Ngăn tab khi password đang trống
         private void TextBox_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyData == Keys.Tab && textBoxPassword.Texts.Length == 0)
@@ -104,7 +101,7 @@ namespace HotelManagement.GUI
                 e.IsInputKey = false;
             }
         }
-
+        // Nút mắt (Show/Hide password)
         private void ctEyePassword1_Click(object sender, EventArgs e)
         {
             if (ctEyePassword1.IsShow == false)

@@ -36,10 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.buttonExport = new HotelManagement.CTControls.CTButton();
-            this.ctPanel1 = new CTPanel.CTPanel();
-            this.CTButtonThemPhong = new HotelManagement.CTControls.CTButton();
-            this.CTTextBoxTimPhongTheoMa = new HotelManagement.CTControls.CTTextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +44,10 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buttonExport = new HotelManagement.CTControls.CTButton();
+            this.ctPanel1 = new CTPanel.CTPanel();
+            this.CTButtonThemPhong = new HotelManagement.CTControls.CTButton();
+            this.CTTextBoxTimPhongTheoMa = new HotelManagement.CTControls.CTTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +70,7 @@
             this.grid.AllowUserToResizeRows = false;
             this.grid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -127,91 +127,6 @@
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             this.grid.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellMouseLeave);
             this.grid.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grid_CellMouseMove);
-            // 
-            // buttonExport
-            // 
-            this.buttonExport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
-            this.buttonExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
-            this.buttonExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
-            this.buttonExport.BorderRadius = 10;
-            this.buttonExport.BorderSize = 0;
-            this.buttonExport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonExport.FlatAppearance.BorderSize = 0;
-            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExport.ForeColor = System.Drawing.Color.Black;
-            this.buttonExport.Location = new System.Drawing.Point(855, 30);
-            this.buttonExport.Name = "buttonExport";
-            this.buttonExport.Size = new System.Drawing.Size(150, 40);
-            this.buttonExport.TabIndex = 32;
-            this.buttonExport.Text = "Xuất file Excel";
-            this.buttonExport.TextColor = System.Drawing.Color.Black;
-            this.buttonExport.UseVisualStyleBackColor = false;
-            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
-            // 
-            // ctPanel1
-            // 
-            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel1.BackColor = System.Drawing.Color.White;
-            this.ctPanel1.BorderRadius = 50;
-            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel1.GradientAngle = 90F;
-            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            this.ctPanel1.Location = new System.Drawing.Point(45, 95);
-            this.ctPanel1.Name = "ctPanel1";
-            this.ctPanel1.Size = new System.Drawing.Size(1142, 704);
-            this.ctPanel1.TabIndex = 30;
-            // 
-            // CTButtonThemPhong
-            // 
-            this.CTButtonThemPhong.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CTButtonThemPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.CTButtonThemPhong.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.CTButtonThemPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.CTButtonThemPhong.BorderRadius = 10;
-            this.CTButtonThemPhong.BorderSize = 0;
-            this.CTButtonThemPhong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CTButtonThemPhong.FlatAppearance.BorderSize = 0;
-            this.CTButtonThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CTButtonThemPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTButtonThemPhong.ForeColor = System.Drawing.Color.White;
-            this.CTButtonThemPhong.Location = new System.Drawing.Point(1026, 30);
-            this.CTButtonThemPhong.Name = "CTButtonThemPhong";
-            this.CTButtonThemPhong.Size = new System.Drawing.Size(160, 40);
-            this.CTButtonThemPhong.TabIndex = 10;
-            this.CTButtonThemPhong.Text = "Thêm phòng";
-            this.CTButtonThemPhong.TextColor = System.Drawing.Color.White;
-            this.CTButtonThemPhong.UseVisualStyleBackColor = false;
-            this.CTButtonThemPhong.Click += new System.EventHandler(this.CTButtonThemPhong_Click);
-            // 
-            // CTTextBoxTimPhongTheoMa
-            // 
-            this.CTTextBoxTimPhongTheoMa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CTTextBoxTimPhongTheoMa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.CTTextBoxTimPhongTheoMa.BorderColor = System.Drawing.Color.Gray;
-            this.CTTextBoxTimPhongTheoMa.BorderFocusColor = System.Drawing.Color.Black;
-            this.CTTextBoxTimPhongTheoMa.BorderRadius = 5;
-            this.CTTextBoxTimPhongTheoMa.BorderSize = 1;
-            this.CTTextBoxTimPhongTheoMa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTTextBoxTimPhongTheoMa.ForeColor = System.Drawing.Color.DimGray;
-            this.CTTextBoxTimPhongTheoMa.IsFocused = false;
-            this.CTTextBoxTimPhongTheoMa.Location = new System.Drawing.Point(45, 30);
-            this.CTTextBoxTimPhongTheoMa.Margin = new System.Windows.Forms.Padding(4);
-            this.CTTextBoxTimPhongTheoMa.Multiline = false;
-            this.CTTextBoxTimPhongTheoMa.Name = "CTTextBoxTimPhongTheoMa";
-            this.CTTextBoxTimPhongTheoMa.Padding = new System.Windows.Forms.Padding(40, 7, 7, 7);
-            this.CTTextBoxTimPhongTheoMa.PasswordChar = false;
-            this.CTTextBoxTimPhongTheoMa.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.CTTextBoxTimPhongTheoMa.PlaceholderText = "Nhập mã phòng cần tìm";
-            this.CTTextBoxTimPhongTheoMa.ReadOnly = false;
-            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 43);
-            this.CTTextBoxTimPhongTheoMa.TabIndex = 8;
-            this.CTTextBoxTimPhongTheoMa.TabStop = false;
-            this.CTTextBoxTimPhongTheoMa.Texts = "";
-            this.CTTextBoxTimPhongTheoMa.UnderlineedStyle = false;
-            this.CTTextBoxTimPhongTheoMa._TextChanged += new System.EventHandler(this.CTTextBoxTimPhongTheoMa__TextChanged);
             // 
             // Column1
             // 
@@ -283,11 +198,96 @@
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // buttonExport
+            // 
+            this.buttonExport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonExport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonExport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonExport.BorderRadius = 10;
+            this.buttonExport.BorderSize = 0;
+            this.buttonExport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonExport.FlatAppearance.BorderSize = 0;
+            this.buttonExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExport.ForeColor = System.Drawing.Color.Black;
+            this.buttonExport.Location = new System.Drawing.Point(855, 30);
+            this.buttonExport.Name = "buttonExport";
+            this.buttonExport.Size = new System.Drawing.Size(150, 40);
+            this.buttonExport.TabIndex = 32;
+            this.buttonExport.Text = "Xuất file Excel";
+            this.buttonExport.TextColor = System.Drawing.Color.Black;
+            this.buttonExport.UseVisualStyleBackColor = false;
+            this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
+            // 
+            // ctPanel1
+            // 
+            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel1.BackColor = System.Drawing.Color.White;
+            this.ctPanel1.BorderRadius = 50;
+            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel1.GradientAngle = 90F;
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.Location = new System.Drawing.Point(45, 95);
+            this.ctPanel1.Name = "ctPanel1";
+            this.ctPanel1.Size = new System.Drawing.Size(1142, 704);
+            this.ctPanel1.TabIndex = 30;
+            // 
+            // CTButtonThemPhong
+            // 
+            this.CTButtonThemPhong.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CTButtonThemPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.CTButtonThemPhong.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.CTButtonThemPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.CTButtonThemPhong.BorderRadius = 10;
+            this.CTButtonThemPhong.BorderSize = 0;
+            this.CTButtonThemPhong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CTButtonThemPhong.FlatAppearance.BorderSize = 0;
+            this.CTButtonThemPhong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CTButtonThemPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTButtonThemPhong.ForeColor = System.Drawing.Color.White;
+            this.CTButtonThemPhong.Location = new System.Drawing.Point(1026, 30);
+            this.CTButtonThemPhong.Name = "CTButtonThemPhong";
+            this.CTButtonThemPhong.Size = new System.Drawing.Size(160, 40);
+            this.CTButtonThemPhong.TabIndex = 10;
+            this.CTButtonThemPhong.Text = "Thêm phòng";
+            this.CTButtonThemPhong.TextColor = System.Drawing.Color.White;
+            this.CTButtonThemPhong.UseVisualStyleBackColor = false;
+            this.CTButtonThemPhong.Click += new System.EventHandler(this.CTButtonThemPhong_Click);
+            // 
+            // CTTextBoxTimPhongTheoMa
+            // 
+            this.CTTextBoxTimPhongTheoMa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CTTextBoxTimPhongTheoMa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
+            this.CTTextBoxTimPhongTheoMa.BorderColor = System.Drawing.Color.Gray;
+            this.CTTextBoxTimPhongTheoMa.BorderFocusColor = System.Drawing.Color.Black;
+            this.CTTextBoxTimPhongTheoMa.BorderRadius = 5;
+            this.CTTextBoxTimPhongTheoMa.BorderSize = 1;
+            this.CTTextBoxTimPhongTheoMa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTTextBoxTimPhongTheoMa.ForeColor = System.Drawing.Color.DimGray;
+            this.CTTextBoxTimPhongTheoMa.IsFocused = false;
+            this.CTTextBoxTimPhongTheoMa.Location = new System.Drawing.Point(45, 30);
+            this.CTTextBoxTimPhongTheoMa.Margin = new System.Windows.Forms.Padding(4);
+            this.CTTextBoxTimPhongTheoMa.Multiline = false;
+            this.CTTextBoxTimPhongTheoMa.Name = "CTTextBoxTimPhongTheoMa";
+            this.CTTextBoxTimPhongTheoMa.Padding = new System.Windows.Forms.Padding(40, 7, 7, 7);
+            this.CTTextBoxTimPhongTheoMa.PasswordChar = false;
+            this.CTTextBoxTimPhongTheoMa.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.CTTextBoxTimPhongTheoMa.PlaceholderText = "Nhập mã phòng cần tìm";
+            this.CTTextBoxTimPhongTheoMa.ReadOnly = false;
+            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 36);
+            this.CTTextBoxTimPhongTheoMa.TabIndex = 8;
+            this.CTTextBoxTimPhongTheoMa.TabStop = false;
+            this.CTTextBoxTimPhongTheoMa.Texts = "";
+            this.CTTextBoxTimPhongTheoMa.UnderlineedStyle = false;
+            this.CTTextBoxTimPhongTheoMa._TextChanged += new System.EventHandler(this.CTTextBoxTimPhongTheoMa__TextChanged);
+            // 
             // FormDanhSachPhong
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.grid);

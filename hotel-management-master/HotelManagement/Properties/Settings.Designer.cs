@@ -58,5 +58,23 @@ namespace HotelManagement.Properties {
                 return ((string)(this["Vnp_ReturnUrl"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ngynam05@gmail.com")]
+        public string SmtpUser {
+            get {
+                return ((string)(this["SmtpUser"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("lmyarytfnihtcqps")]
+        public string SmtpPass {
+            get {
+                return ((string)(this["SmtpPass"]));
+            }
+        }
     }
 }

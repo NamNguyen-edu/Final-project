@@ -16,17 +16,14 @@ namespace HotelManagement.GUI
 {
     public partial class FormDanhSachTienNghi : Form
     {
+        // Khai báo các biến ban đầu 
         List<TienNghi> tienNghis;
         private Image TN = Properties.Resources.TienNghi;
         private Image edit = Properties.Resources.edit;
         private Image delete = Properties.Resources.delete;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
-        public FormDanhSachTienNghi()
-        {
-            InitializeComponent();
-        }
-
+        // Khởi tạo cái Form
         public FormDanhSachTienNghi(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
@@ -70,7 +67,7 @@ namespace HotelManagement.GUI
             grid.Rows.Add(new object[] {TN, "TN003", "Máy sấy", edit, delete });*/
             LoadAllData();
         }
-
+        // Hiển thị tất cả tiện nghi 
         public void LoadAllData()
         {
             try
@@ -83,7 +80,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Hiển thị danh sách tiện nghi phù hợp 
         private void LoadData()
         {
             try
@@ -100,7 +97,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Xuất danh sách tiện nghi ra Excel
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -113,14 +110,14 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Get Header text of Column
+                    // Lấy tiêu đề cột
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Get data of cells
+                    // Lấy dữ liệu của cột 
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
@@ -143,13 +140,13 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // If click Update button 
+                // Khi nhấn cập nhật
                 if (x == 4)
                 {
                     if (taiKhoan.CapDoQuyen == 1)
@@ -179,7 +176,7 @@ namespace HotelManagement.GUI
                 }
                 if (x == 5)
                 {
-                    // If click Delete button 
+                    // Khi nhấn xóa tiện nghi
                     if (taiKhoan.CapDoQuyen == 1)
                     {
                         CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
