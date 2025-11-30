@@ -101,7 +101,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(841, 459);
             this.panel1.TabIndex = 2;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // cbChucVu
             // 
@@ -268,7 +267,6 @@
             this.ctTextBoxSDT.Texts = "";
             this.ctTextBoxSDT.UnderlineedStyle = true;
             this.ctTextBoxSDT._TextChanged += new System.EventHandler(this.ctTextBoxSDT__TextChanged);
-            this.ctTextBoxSDT.Load += new System.EventHandler(this.ctTextBoxSDT_Load);
             // 
             // ctTextBoxEmail
             // 

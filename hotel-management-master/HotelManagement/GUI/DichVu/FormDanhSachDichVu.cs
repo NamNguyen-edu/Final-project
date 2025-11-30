@@ -22,7 +22,7 @@ namespace HotelManagement.GUI
         private List<DichVu> dichVus;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
-
+        // Khởi tạo form danh sách dịch vụ
         public FormDanhSachDichVu(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace HotelManagement.GUI
             this.taiKhoan = taiKhoan;
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
-
+        // Mở form thêm dịch vụ
         private void CTButtonThemDichVu_Click(object sender, EventArgs e)
         {
             if (taiKhoan.CapDoQuyen == 1)
@@ -56,18 +56,12 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Khi form load, load toàn bộ dịch vụ
         private void FormDanhSachDichVu_Load(object sender, EventArgs e)
         {
-           
             LoadALLDV();
-
-           /* grid.Rows.Add(new object[] { this.DV, "DV001", "Pepsi", "10,000", "100", edit, delete });
-            grid.Rows.Add(new object[] { DV, "DV002", "Mì xào", "20,000", "55", edit, delete });
-            grid.Rows.Add(new object[] { DV, "DV003", "Bún bò", "25,000", "20", edit, delete });
-            grid.Rows.Add(new object[] { DV, "DV004", "Karaoke", "300,000", "10", edit, delete });*/
         }
-
+        // Load dữ liệu dịch vụ lên grid
         private void LoadDV()
         {
             try
@@ -88,12 +82,14 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }    
+        }
+        // Load danh sách tất cả dịch vụ
         public void LoadALLDV()
         {
             this.dichVus = DichVuBUS.Instance.GetDichVus();
             LoadDV();    
         }
+        // Xuất danh sách dịch vụ ra Excel
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -102,18 +98,15 @@ namespace HotelManagement.GUI
                 {
                     Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
                     XcelApp.Application.Workbooks.Add(Type.Missing);
-
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
-
-                    // Get Header text of Column
+                    // Lấy tiêu đề của các cột
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
-
-                    // Get data of cells
+                    // Lấy dữ liệu cho các hàng
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
@@ -121,7 +114,6 @@ namespace HotelManagement.GUI
                             XcelApp.Cells[i + 2, j] = grid.Rows[i].Cells[j].Value.ToString();
                         }
                     }
-
                     XcelApp.Columns.AutoFit();
                     XcelApp.Visible = true;
                 }
@@ -137,13 +129,12 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Xử lý click vào icon sửa / xóa trong grid
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // If click Update button 
                 if (x == 5)
                 {
                     if (taiKhoan.CapDoQuyen == 1)
@@ -170,8 +161,7 @@ namespace HotelManagement.GUI
                     }
                 }
                 if (x == 6)
-                {
-                    // If click Delete button 
+                {               
                     if (taiKhoan.CapDoQuyen == 1)
                     {
                         CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -194,11 +184,10 @@ namespace HotelManagement.GUI
                                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-
                 }
             }
         }
-
+        // Đổi con trỏ chuột thành bàn tay khi hover icon
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -207,7 +196,7 @@ namespace HotelManagement.GUI
             else
                 grid.Cursor = Cursors.Default;
         }
-
+        // Không cho nhập số
         private void CTTextBoxTimPhongTheoMa__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxTimTheoMaPhong = sender as TextBox;
@@ -221,13 +210,12 @@ namespace HotelManagement.GUI
             this.dichVus = DichVuBUS.Instance.FindDichVuWithName(textBoxTimTheoMaPhong.Text);
             LoadDV();
         }
-
-
+        // Không cho nhập số
         private void TextBoxTimTheoMaPhong_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
+        // Reset con trỏ chuột khi rời khỏi ô
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;

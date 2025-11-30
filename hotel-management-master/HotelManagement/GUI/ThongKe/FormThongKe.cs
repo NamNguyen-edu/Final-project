@@ -19,8 +19,6 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing.Printing;
-using System.Runtime.InteropServices;
-
 
 namespace HotelManagement.GUI.ThongKe
 {
@@ -42,7 +40,7 @@ namespace HotelManagement.GUI.ThongKe
             InitializeComponent();
             this.formMain = formMain;
             _printDocument = new PrintDocument();
-            _printDocument.DefaultPageSettings.Landscape = true; // A4 ngang cho giống màn hình
+            _printDocument.DefaultPageSettings.Landscape = true;
             _printDocument.PrintPage += PrintDocument_PrintPage;
             dtpNgayBD.Value = DateTime.Today.AddDays(-7);
             dtpNgayKT.Value = DateTime.Now;
@@ -255,6 +253,21 @@ namespace HotelManagement.GUI.ThongKe
                 chartKH_SoKhach.Series["KhachHang"].Points.AddXY(item.Date, item.TotalAmount);
             }
         }
+       
+        // Dùng WinAPI để chụp ảnh toàn bộ form (kể cả ngoài màn hình)
+        private Bitmap CaptureFormWithPrintWindow(Control form)
+        {
+            {
+                Bitmap bmp = new Bitmap(form.Width, form.Height);
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    IntPtr hdc = g.GetHdc();
+                    PrintWindow(form.Handle, hdc, 0);
+                    g.ReleaseHdc(hdc);
+                }
+                return bmp;
+            }
+        }
         // Chụp toàn bộ form và mở Print Preview để xem trước khi in
         private void Printer_ThongKe_Click(object sender, EventArgs e)
         {
@@ -275,20 +288,6 @@ namespace HotelManagement.GUI.ThongKe
             {
                 CTMessageBox.Show(ex.Message, "Lỗi in thống kê",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        // Dùng WinAPI để chụp ảnh toàn bộ form (kể cả ngoài màn hình)
-        private Bitmap CaptureFormWithPrintWindow(Control form)
-        {
-            {
-                Bitmap bmp = new Bitmap(form.Width, form.Height);
-                using (Graphics g = Graphics.FromImage(bmp))
-                {
-                    IntPtr hdc = g.GetHdc();
-                    PrintWindow(form.Handle, hdc, 0);
-                    g.ReleaseHdc(hdc);
-                }
-                return bmp;
             }
         }
         // Vẽ hình dashboard vào trang in

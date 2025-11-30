@@ -18,7 +18,7 @@ namespace HotelManagement.DAO
             private set { instance = value; }
         }
         private TaiKhoanDAO() { }
-
+        // Kiểm tra thông tin đăng nhập
         public bool CheckLogin(string username, string password)
         {
 
@@ -28,6 +28,7 @@ namespace HotelManagement.DAO
                 return true;
             
         }
+        // Kiểm tra quyền truy cập để trả về cấp độ
         public int GetQuyenTruyCap(string username)
         {
 
@@ -35,18 +36,21 @@ namespace HotelManagement.DAO
                 return tk.CapDoQuyen;
             
         }
+        // Lấy danh sách tất cả tài khoản
         public List<TaiKhoan> GetTaiKhoans()
         {
 
                 return db.TaiKhoans.Where(p=>p.DaXoa==false).ToList();
             
         }
+        // Lấy danh sách các tài khoản với tên người dùng
         public List<TaiKhoan> GetTaiKhoansWithUserName(string username)
         {
 
                 return db.TaiKhoans.Where(p => p.TenTK.Contains(username)).ToList();
             
         }    
+        // Lấy tên tài khoản đăng nhập 
         public TaiKhoan GetTKDangNhap(string username)
         {
             HotelDTO db = new HotelDTO();
@@ -55,6 +59,7 @@ namespace HotelManagement.DAO
             return tk;
             
         }
+        // Thêm hoặc cập nhật thông tin tài khoản
         public void AddOrUpdateTK(TaiKhoan taiKhoan)
         {
             try
@@ -71,15 +76,17 @@ namespace HotelManagement.DAO
             }
             
         }
+        // Xóa tài khoản
         public void RemoveTk(TaiKhoan taiKhoan)
         {
 
-                taiKhoan.DaXoa = true;
+                taiKhoan.DaXoa = true; // Đổi tình trạng đã xóa của tài khoản thành True
                 db.TaiKhoans.AddOrUpdate(taiKhoan);
                 db.SaveChanges();
                 instance = null;
 
         }
+        // Kiểm tra việc đúng sai của việc đăng nhập
         public TaiKhoan CheckLegit(string username,string email)
         {
 
@@ -88,4 +95,5 @@ namespace HotelManagement.DAO
         }
         
     }
+
 }

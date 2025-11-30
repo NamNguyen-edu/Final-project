@@ -19,12 +19,11 @@ namespace HotelManagement.GUI
     public partial class FormThemDichVu : Form
     {
         FormDanhSachDichVu formDanhSachDichVu;
-        //Fields
+
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
 
-        //Constructor
         public FormThemDichVu()
         {
             this.DoubleBuffered = true;
@@ -39,12 +38,7 @@ namespace HotelManagement.GUI
             this.Padding = new Padding(borderSize);
             this.formDanhSachDichVu = formDanhSachDichVu;
             InitializeComponent();
-        }
-        //Control Box
-
-        //Form Move
-
-        //Drag Form
+        }    
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -54,13 +48,10 @@ namespace HotelManagement.GUI
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
-
-        //Private Methods
-        //Private Methods
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -160,34 +151,26 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
         private void FormThemDichVu_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormThemDichVu_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
         }
-
         private void FormThemDichVu_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -210,7 +193,7 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
-
+        // Nút thêm dịch vụ
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             if (this.ctTextBoxTenDV.Texts == "" || this.CTTextBoxSoLuong.Texts == ""  || this.ctTextBoxMoTa.Texts == "")
@@ -219,7 +202,6 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             try
             {
                 DichVu dichVu = new DichVu();
@@ -232,7 +214,6 @@ namespace HotelManagement.GUI
                     dichVu.LoaiDV = this.ctTextBoxMoTa.Texts;
                     dichVu.MaDV = DichVuBUS.Instance.GetMaDVNext();
                     DichVuBUS.Instance.UpdateORAdd(dichVu);
-
                 CTMessageBox.Show("Thêm thông tin thành công.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.formDanhSachDichVu.LoadALLDV();
@@ -244,58 +225,44 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Format tiền + chỉ cho nhập số
         private void CTTextBoxDonGia__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxDonGia = sender as TextBox;
             textBoxDonGia.KeyPress += TextBoxDonGia_KeyPress;
             TextBoxType.Instance.CurrencyType(textBoxDonGia, e);
-
         }
-
         private void TextBoxDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
-
-
         private void CTTextBoxSoLuong__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxSL = sender as TextBox;
             textBoxSL.KeyPress += TextBoxSL_KeyPress;
         }
-
         private void TextBoxSL_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
-
         private void ctTextBoxTenDV__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxTenDV = sender as TextBox;
             textBoxTenDV.KeyPress += TextBoxTenDV_KeyPress;
         }
-
-
-
         private void TextBoxTenDV_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
         private void ctTextBoxMoTa__TextChanged(object sender, EventArgs e)
         {
-
             TextBox textBoxThemDV = sender as TextBox;
             textBoxThemDV.KeyPress += TextBoxThemDV_KeyPress;
         }
-
         private void TextBoxThemDV_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
-
         }
-
         private void FormThemDichVu_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemDichVu;

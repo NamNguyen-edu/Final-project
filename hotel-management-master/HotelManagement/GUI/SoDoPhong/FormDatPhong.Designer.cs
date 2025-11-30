@@ -169,7 +169,7 @@ namespace HotelManagement.GUI
             this.pictureBox6.Image = global::HotelManagement.Properties.Resources.email;
             this.pictureBox6.Location = new System.Drawing.Point(38, 263);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(34, 43);
+            this.pictureBox6.Size = new System.Drawing.Size(30, 43);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 36;
             this.pictureBox6.TabStop = false;
@@ -383,6 +383,7 @@ namespace HotelManagement.GUI
             // 
             this.gridPhongTrong.AllowUserToAddRows = false;
             this.gridPhongTrong.AllowUserToDeleteRows = false;
+            this.gridPhongTrong.AllowUserToOrderColumns = true;
             this.gridPhongTrong.AllowUserToResizeColumns = false;
             this.gridPhongTrong.AllowUserToResizeRows = false;
             this.gridPhongTrong.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -465,6 +466,7 @@ namespace HotelManagement.GUI
             // 
             this.gridPhongDaChon.AllowUserToAddRows = false;
             this.gridPhongDaChon.AllowUserToDeleteRows = false;
+            this.gridPhongDaChon.AllowUserToOrderColumns = true;
             this.gridPhongDaChon.AllowUserToResizeColumns = false;
             this.gridPhongDaChon.AllowUserToResizeRows = false;
             this.gridPhongDaChon.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -601,14 +603,14 @@ namespace HotelManagement.GUI
             this.PictureBoxCCCD.Location = new System.Drawing.Point(38, 144);
             this.PictureBoxCCCD.Name = "PictureBoxCCCD";
             this.PictureBoxCCCD.Size = new System.Drawing.Size(30, 35);
-            this.PictureBoxCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBoxCCCD.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxCCCD.TabIndex = 24;
             this.PictureBoxCCCD.TabStop = false;
             // 
             // PictureBoxGioiTinh
             // 
             this.PictureBoxGioiTinh.Image = global::HotelManagement.Properties.Resources.Gender;
-            this.PictureBoxGioiTinh.Location = new System.Drawing.Point(42, 404);
+            this.PictureBoxGioiTinh.Location = new System.Drawing.Point(38, 404);
             this.PictureBoxGioiTinh.Name = "PictureBoxGioiTinh";
             this.PictureBoxGioiTinh.Size = new System.Drawing.Size(30, 33);
             this.PictureBoxGioiTinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -620,7 +622,7 @@ namespace HotelManagement.GUI
             this.PictureBoxDiaChi.Image = global::HotelManagement.Properties.Resources.Address;
             this.PictureBoxDiaChi.Location = new System.Drawing.Point(38, 337);
             this.PictureBoxDiaChi.Name = "PictureBoxDiaChi";
-            this.PictureBoxDiaChi.Size = new System.Drawing.Size(34, 43);
+            this.PictureBoxDiaChi.Size = new System.Drawing.Size(30, 43);
             this.PictureBoxDiaChi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxDiaChi.TabIndex = 21;
             this.PictureBoxDiaChi.TabStop = false;
@@ -631,13 +633,14 @@ namespace HotelManagement.GUI
             this.PictureBoxSDT.Location = new System.Drawing.Point(38, 209);
             this.PictureBoxSDT.Name = "PictureBoxSDT";
             this.PictureBoxSDT.Size = new System.Drawing.Size(30, 30);
+            this.PictureBoxSDT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxSDT.TabIndex = 22;
             this.PictureBoxSDT.TabStop = false;
             // 
             // PictureBoxTen
             // 
             this.PictureBoxTen.Image = global::HotelManagement.Properties.Resources.NameKH;
-            this.PictureBoxTen.Location = new System.Drawing.Point(42, 69);
+            this.PictureBoxTen.Location = new System.Drawing.Point(38, 69);
             this.PictureBoxTen.Name = "PictureBoxTen";
             this.PictureBoxTen.Size = new System.Drawing.Size(30, 41);
             this.PictureBoxTen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -660,7 +663,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxNhapDiaChi.Padding = new System.Windows.Forms.Padding(7);
             this.CTTextBoxNhapDiaChi.PasswordChar = false;
             this.CTTextBoxNhapDiaChi.PlaceholderColor = System.Drawing.Color.Gray;
-            this.CTTextBoxNhapDiaChi.PlaceholderText = "Nhập quốc tịch";
+            this.CTTextBoxNhapDiaChi.PlaceholderText = "Nhập địa chỉ";
             this.CTTextBoxNhapDiaChi.ReadOnly = false;
             this.CTTextBoxNhapDiaChi.Size = new System.Drawing.Size(205, 43);
             this.CTTextBoxNhapDiaChi.TabIndex = 4;
@@ -795,6 +798,7 @@ namespace HotelManagement.GUI
             this.PictureBoxNgayKT.Location = new System.Drawing.Point(371, 134);
             this.PictureBoxNgayKT.Name = "PictureBoxNgayKT";
             this.PictureBoxNgayKT.Size = new System.Drawing.Size(35, 35);
+            this.PictureBoxNgayKT.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxNgayKT.TabIndex = 6;
             this.PictureBoxNgayKT.TabStop = false;
             // 
@@ -802,7 +806,7 @@ namespace HotelManagement.GUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(440, 124);
+            this.label2.Location = new System.Drawing.Point(452, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 20);
             this.label2.TabIndex = 4;
@@ -812,7 +816,7 @@ namespace HotelManagement.GUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(440, 57);
+            this.label1.Location = new System.Drawing.Point(454, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 20);
             this.label1.TabIndex = 0;

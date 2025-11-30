@@ -18,13 +18,13 @@ namespace HotelManagement.GUI
 {
     public partial class FormSuaDichVu : Form
     {
-        //Fields
+        // Các biến cho border và radius
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
         private DichVu dichVu;
         FormDanhSachDichVu formDanhSachDichVu;
-        //Constructor
+        // Khởi tạo form sửa dịch vụ
         public FormSuaDichVu()
         {
             this.DoubleBuffered = true;
@@ -32,6 +32,7 @@ namespace HotelManagement.GUI
             this.Padding = new Padding(borderSize);
             InitializeComponent();
         }
+        // Khởi tạo form sửa dịch vụ với dịch vụ cần sửa
         public FormSuaDichVu(DichVu dichVu,FormDanhSachDichVu formDanhSachDichVu)
         {
             this.DoubleBuffered = true;
@@ -43,10 +44,9 @@ namespace HotelManagement.GUI
             LoadDV();
 
         }
-
+        // Load dữ liệu dịch vụ lên form sửa dịch vụ
         public void LoadDV()
-        {
-            
+        { 
             this.CTTextBoxDonGia.RemovePlaceholder();
             this.ctTextBoxTenDV.RemovePlaceholder();
             this.ctTextBoxMoTa.RemovePlaceholder();
@@ -57,12 +57,6 @@ namespace HotelManagement.GUI
             this.CTTextBoxSoLuong.Texts = dichVu.SLConLai.ToString();
 
         }
-
-        //Control Box
-
-        //Form Move
-
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -72,13 +66,10 @@ namespace HotelManagement.GUI
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
-
-        //Private Methods
-        //Private Methods
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -177,28 +168,26 @@ namespace HotelManagement.GUI
             colors.BottomLeftColor = Color.FromArgb(67, 73, 73);
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
-        }
-        //Event Methods
+        }      
         private void FormSuaDichVu_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
+            //Căn Top Left
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
+            //Căn Top Right
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
+            // Căn Bottom Left
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
+            //Căn Bottom Right
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
+            // Cănh viền cho form
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormSuaDichVu_Resize(object sender, EventArgs e)
@@ -228,7 +217,7 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
-
+        // Cập nhật thông tin dịch vụ khi nhấn nút Cập Nhật
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             if (this.ctTextBoxTenDV.Texts == "" || this.CTTextBoxSoLuong.Texts == "" || this.CTTextBoxDonGia.Texts == "" || this.ctTextBoxMoTa.Texts == "")
@@ -255,69 +244,50 @@ namespace HotelManagement.GUI
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Các ràng buộc nhập liệu cho các TextBox
         private void CTTextBoxDonGia__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxDonGia = sender as TextBox;
             textBoxDonGia.KeyPress += TextBoxDonGia_KeyPress;
             textBoxDonGia.TextChanged += TextBoxDonGia_TextChanged;
         }
-
         private void TextBoxDonGia_TextChanged(object sender, EventArgs e)
         {
             TextBoxType.Instance.CurrencyType(sender, e);
         }
-
         private void TextBoxDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
-
         private void CTTextBoxSoLuong__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxSL = sender as TextBox;
             textBoxSL.KeyPress += TextBoxSL_KeyPress;
         }
-
         private void TextBoxSL_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
-
-        private void CTTextBoxDonGia_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ctTextBoxTenDV__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxTenDV = sender as TextBox;
             textBoxTenDV.KeyPress += TextBoxTenDV_KeyPress;
 
         }
-
         private void TextBoxTenDV_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
         private void ctTextBoxMoTa__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxMoTa = sender as TextBox;
             textBoxMoTa.KeyPress += TextBoxMoTa_KeyPress;
         }
-
         private void TextBoxMoTa_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
 
         }
-
-        private void ctTextBoxMoTa_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormSuaDichVu_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelSuaDichVu;

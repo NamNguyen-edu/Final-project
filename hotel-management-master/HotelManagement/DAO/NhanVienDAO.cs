@@ -65,6 +65,7 @@ namespace HotelManagement.DAO
             db.SaveChanges();
 
         }
+
         public void RemoveNhanVien(NhanVien nhanVien)
         {
 
@@ -73,15 +74,16 @@ namespace HotelManagement.DAO
             db.SaveChanges();
 
         }
+        // Tìm nhân viên theo tên (không trả về nhân viên đã xóa)
         public List<NhanVien> GetNhanViensWithName(string tenNV)
         {
 
             return db.NhanViens.Where(p => p.TenNV.Contains(tenNV) && p.DaXoa == false).ToList();
 
         }
+        // Sinh mã nhân viên tiếp theo (NV001 → NV002 )
         public string GetMaNVNext()
         {
-
             List<NhanVien> NV = db.NhanViens.Where(p => p.MaNV.Contains("NV")).ToList();
             string MaMax = NV[NV.Count - 1].MaNV;
             MaMax = MaMax.Substring(MaMax.Length - 3, 3);
@@ -96,9 +98,7 @@ namespace HotelManagement.DAO
                 return "NV0" + max.ToString();
             }
             return "NV" + max.ToString();
-
         }
-
         public List<NhanVien> FindNhanVienWithName(string TenNV)
         {
             return db.NhanViens.Where(p => p.TenNV.Contains(TenNV) && p.DaXoa == false).ToList();
