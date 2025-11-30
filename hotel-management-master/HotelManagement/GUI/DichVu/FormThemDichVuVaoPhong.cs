@@ -14,14 +14,14 @@ namespace HotelManagement.GUI
 {
     public partial class FormThemDichVuVaoPhong : Form
     {
-        private Image Del = Properties.Resources.delete1; // Image for Button Hủy
-        private Image Add = Properties.Resources.Add;     // Image for Button Thêm
+        private Image Del = Properties.Resources.delete1; 
+        private Image Add = Properties.Resources.Add;     
         private List<DichVu> dichVus = new List<DichVu>();
         private List<CTDV> dichVusDaDat = new List<CTDV>();
         private List<int?> SLDVConLai = new List<int?>();
         private List<int> SLDVDaDat = new List<int>();
 
-        //Fields
+        
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = AppTheme.PopupMainBackground;
@@ -29,11 +29,6 @@ namespace HotelManagement.GUI
         FormDanhSachDichVu formDanhSachDichVu;
         private CTDP ctdp;
 
-        // ================== HÀM HỖ TRỢ PARSE TIỀN AN TOÀN ==================
-        /// <summary>
-        /// Parse chuỗi tiền có dấu . , (ví dụ "50.000", "120,000") thành decimal.
-        /// Mặc định giá tiền là số nguyên, không có phần lẻ.
-        /// </summary>
         private decimal ParseMoney(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -47,7 +42,6 @@ namespace HotelManagement.GUI
             return decimal.Parse(digits);
         }
 
-        //Constructor
         public FormThemDichVuVaoPhong(CTDP cTDP)
         {
             this.DoubleBuffered = true;
@@ -60,10 +54,6 @@ namespace HotelManagement.GUI
             LoadGridDichVuLanDau();
         }
 
-        private void LoadLanDau()
-        {
-
-        }
 
         #region Load Grid Checked
         private void LoadGridDaChonLanDau()
@@ -78,7 +68,7 @@ namespace HotelManagement.GUI
                     {
                         // Tạo bản sao (copy) để không ảnh hưởng dữ liệu gốc trong DB khi thao tác tạm
                         CTDV cTDV1 = new CTDV(cTDV);
-                        this.dichVusDaDat.Add(cTDV1); // Thêm vào danh sách hiển thị tạm    
+                        this.dichVusDaDat.Add(cTDV1);     
                         this.SLDVDaDat.Add(cTDV.SL);
                     }
                 }
@@ -99,9 +89,9 @@ namespace HotelManagement.GUI
                 {
                     if (v.SL != 0) // Chỉ hiển thị dịch vụ còn SL > 0
                     {
-                        // Lấy thông tin dịch vụ từ DB theo mã dịch vụ
+
                         DichVu dichVu = DichVuBUS.Instance.FindDichVu(v.MaDV);
-                        // Thêm dòng vào grid: Tên – SL – Thành tiền – Icon Xóa
+
                         dgvDVDaChon.Rows.Add(dichVu.TenDV, v.SL, v.ThanhTien.ToString("#,#"), Del);
                     }
                 }
@@ -161,7 +151,7 @@ namespace HotelManagement.GUI
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
@@ -231,36 +221,7 @@ namespace HotelManagement.GUI
             public Color BottomRightColor;
         }
 
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+     
 
         private FormBoundsColors GetSameDark()
         {
@@ -280,15 +241,15 @@ namespace HotelManagement.GUI
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Căn Top Left
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Căn Top Right
+
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Căn Bottom Left
+
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Căn Bottom Right
+
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
@@ -326,14 +287,14 @@ namespace HotelManagement.GUI
             this.Close();
         }
 
-        // ================== CLICK THÊM DỊCH VỤ TỪ GRID DỊCH VỤ ==================
+        // Chọn thêm dịch vụ từ Grid Dịch vụ
         private void gridDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
 
             if (y >= 0 && x == 3)
             {
-                #region Add Service
+                #region Thêm dịch vụ
                 try
                 {
                     // Lấy đơn giá từ ô cột 1 của dòng (dạng chuỗi có dấu . ,)
@@ -414,7 +375,7 @@ namespace HotelManagement.GUI
             }
         }
 
-        // ================== LƯU DỊCH VỤ VÀO DB ==================
+        // Lưu dịch vụ vào CSDL
         private void CTButtonLuu_Click(object sender, EventArgs e)
         {
             try
@@ -429,13 +390,13 @@ namespace HotelManagement.GUI
             }
         }
 
-        // ================== CLICK XÓA / GIẢM DỊCH VỤ Ở GRID ĐÃ CHỌN ==================
+        // Chọn xóa dịch vụ ở Grid đã chọn 
         private void dgvDVDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0 && x == 3)
             {
-                #region Remove Service
+                #region Xóa dịch vụ
                 try
                 {
                     // Đọc dữ liệu hiện tại trên lưới
@@ -500,13 +461,13 @@ namespace HotelManagement.GUI
                 #endregion
             }
         }
-        // ================== FORM LOAD ==================
+        // Form thêm dịch vụ vào phòng
         private void FormThemDichVuVaoPhong_Load(object sender, EventArgs e)
         {
             HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.gridDichVu);
             HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.dgvDVDaChon);
         }
-        // ================== ĐỔI CON TRỎ CHUỘT ==================
+
         private void gridDichVu_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -535,7 +496,7 @@ namespace HotelManagement.GUI
             dgvDVDaChon.Cursor = Cursors.Default;
         }
 
-        // ================== TÌM DỊCH VỤ THEO TÊN ==================
+        // Tìm dịch vụ theo tên 
         private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
         {
             CTTextBox txt = sender as CTTextBox;

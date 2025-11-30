@@ -343,7 +343,6 @@ namespace HotelManagement.GUI
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "FormQuanLyKhachHang";
-            this.Load += new System.EventHandler(this.FormDanhSachKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);

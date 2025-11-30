@@ -15,18 +15,15 @@ namespace HotelManagement.GUI
 {
     public partial class FormDanhSachKhachHang : Form
     {
-        // Danh sách khách hàng hiện đang được hiển thị trên grid
         List<KhachHang> khachHangs;
 
         private Image KH = Properties.Resources.KhachHang;
         private Image edit = Properties.Resources.edit;
         private Image delete = Properties.Resources.delete;
 
-        // Tham chiếu đến form chính và tài khoản hiện đang đăng nhập
         private FormMain formMain;
         private TaiKhoan taiKhoan;
 
-        // Hàm khởi tạo, nhận formMain và tài khoản đăng nhập, load dữ liệu và áp theme
         public FormDanhSachKhachHang(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
@@ -60,10 +57,7 @@ namespace HotelManagement.GUI
             finally { formBackground.Dispose(); }
         }
 
-        // Sự kiện Load form danh sách khách hàng 
-        private void FormDanhSachKhachHang_Load(object sender, EventArgs e)
-        {
-        }
+
 
         // Tải toàn bộ danh sách khách hàng từ BUS và hiển thị lên grid
         public void LoadAllGrid()
@@ -226,12 +220,10 @@ namespace HotelManagement.GUI
             }
         }
 
-        // Sự kiện Load của CTTextBox tìm khách hàng theo tên (chưa sử dụng)
         private void CTTextBoxTimKhachHangTheoTen_Load(object sender, EventArgs e)
         {
         }
 
-        // Sự kiện TextChanged của ô tìm kiếm theo tên, lọc danh sách khi đang focus, trả về toàn bộ khi mất focus
         private void CTTextBoxTimKhachHangTheoTen__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxFindName = sender as TextBox;
@@ -245,7 +237,6 @@ namespace HotelManagement.GUI
             LoadGrid();
         }
 
-        // Sự kiện MouseMove trên grid, thay đổi con trỏ chuột thành bàn tay ở các cột có thao tác
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -261,7 +252,6 @@ namespace HotelManagement.GUI
                 grid.Cursor = Cursors.Default;
         }
 
-        // Sự kiện MouseLeave trên grid, trả con trỏ chuột về mặc định
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;

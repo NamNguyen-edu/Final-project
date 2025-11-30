@@ -100,32 +100,7 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+      
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -173,19 +148,17 @@ namespace HotelManagement.GUI
             Graphics g = e.Graphics;
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), g, borderColor);
         }
-        // Nút thoát form
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        // Load form: focus vào tiêu đề và load danh sách tầng
         private void FormThemPhong_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemPhong;
             comboBoxTang.Items.Clear();
             comboBoxTang.Items.AddRange(new object[] { "1", "2", "3", "4", "5" });
         }
-        // Lưu thông tin phòng và thêm mới phòng vào database
+        // Lưu thông tin phòng và thêm mới phòng vào CSDL
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             try

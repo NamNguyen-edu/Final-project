@@ -30,7 +30,7 @@ namespace HotelManagement.GUI
             this.taiKhoan = taiKhoan;
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
-        // Nút thêm phòng – mở form thêm phòng (kèm overlay mờ)
+        // Nút thêm phòng, mở form thêm phòng 
         private void CTButtonThemPhong_Click(object sender, EventArgs e)
         {
             if (taiKhoan.CapDoQuyen == 1)
@@ -61,12 +61,12 @@ namespace HotelManagement.GUI
                 formBackground.Dispose(); 
             }
         }
-        // Khi load form → load toàn bộ danh sách phòng
+        // Load toàn bộ danh sách phòng
         private void FormDanhSachPhong_Load(object sender, EventArgs e)
         {
             LoadFullDataGrid();
         }
-        // Load toàn bộ phòng từ DB và đưa vào DataGrid
+        // Load toàn bộ phòng từ CSDL và đưa vào DataGrid
         public void LoadFullDataGrid()
         {
             try
@@ -137,7 +137,7 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // Xử lý click vào từng ô trong DataGrid (Sửa / Xóa)
+        // Xử lý nhấp vào từng ô trong DataGrid (Sửa / Xóa)
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
@@ -212,7 +212,6 @@ namespace HotelManagement.GUI
                 }
             }
         }
-        // Thay đổi con trỏ chuột khi hover vào cột Edit / Delete
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -240,7 +239,6 @@ namespace HotelManagement.GUI
             this.phongs = PhongBUS.Instance.FindPhongWithMaPH(textBoxPhong.Text);
             LoadDataGrid();
         }
-        // Trả con trỏ chuột về mặc định khi rời khỏi cell
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;

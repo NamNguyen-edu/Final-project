@@ -329,7 +329,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "FormDanhSachHoaDon";
-            this.Load += new System.EventHandler(this.FormDanhSachHoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);

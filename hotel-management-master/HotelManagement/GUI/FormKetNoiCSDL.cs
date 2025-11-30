@@ -18,7 +18,7 @@ namespace HotelManagement.GUI
 {
     public partial class FormKetNoiCSDL : Form
     {
-        #region Custom UI
+        #region Thiết kế giao diện
 
         // Khai biến tất cả các biến 
         private int borderRadius = 20;
@@ -109,36 +109,6 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -208,7 +178,7 @@ namespace HotelManagement.GUI
         }
         #endregion
 
-        #region Button mouse effect
+        #region Hiệu ứng nút
         private void buttonDefault_MouseMove(object sender, MouseEventArgs e)
         {
             buttonDefault.BackColor = Color.FromArgb(255, 205, 0);
@@ -235,7 +205,7 @@ namespace HotelManagement.GUI
 
         #endregion
         
-        #region Process events
+        #region Xử lý sự kiện
         private void ctClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -245,7 +215,7 @@ namespace HotelManagement.GUI
         {
             this.ActiveControl = labelTitle;
 
-            #region Check DB file exists or not to load textbox
+            #region Kiểm tra file CSDL trước khi load dữ liệu vào textbox.
             try
             {
                 if (File.Exists("DBConnection.txt"))
@@ -272,12 +242,12 @@ namespace HotelManagement.GUI
         {
             string server = textBoxServer.Texts;
             string db = textBoxDB.Texts;
-            #region Check CheckBox status to save new or not
-            if (checkBoxLuu.Checked) // Overwrite old file
+            #region Kiểm tra CheckBox để biết có lưu dữ liệu mới không
+            if (checkBoxLuu.Checked) 
             {
                 try
                 {
-                    // Check file exist or not
+                    
                     if (!File.Exists("DBConnection.txt"))
                     {
                         File.Create("DBConnection.txt").Close();
@@ -313,7 +283,7 @@ namespace HotelManagement.GUI
                 return;
             }
 
-            #region Check DB Connection
+            #region Kiểm tra kết nối CSDL
             string connectionString = string.Format("Data source = {0}; Initial Catalog = {1}; Integrated security = True; MultipleActiveResultSets = True;App = EntityFramework", server, db);
             try
             {
@@ -323,7 +293,7 @@ namespace HotelManagement.GUI
                     ConnectDB connectDB = new ConnectDB();
                     connectDB.ReloadFileConfig("HotelDTO", connectionString);
 
-                    CTMessageBox.Show("Kết nối cơ sở dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CTMessageBox.Show("Kết nối CSDL thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FormLogin formLogin = new FormLogin();                    
                         this.Hide();
                         formLogin.ShowDialog();
@@ -345,7 +315,7 @@ namespace HotelManagement.GUI
 
         private void buttonDefault_Click(object sender, EventArgs e)
         {
-            #region Check DB Connection 
+            #region Kiểm tra kết nối CSDL 
             string connectionString = @"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\Database\HotelManagement.mdf;integrated security=True;connect timeout=30;MultipleActiveResultSets=True;App=EntityFramework";
             try
             {
@@ -354,7 +324,7 @@ namespace HotelManagement.GUI
                 {
                     ConnectDB connectDB = new ConnectDB();
                     connectDB.ReloadFileConfig("HotelDTO", connectionString);
-                    CTMessageBox.Show("Kết nối cơ sở dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CTMessageBox.Show("Kết nối CSDL thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     using (FormLogin formLogin = new FormLogin())
                     {
                         this.Hide();
