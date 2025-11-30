@@ -449,7 +449,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormThemDichVuVaoPhong";
             this.Activated += new System.EventHandler(this.FormThemDichVuVaoPhong_Activated);
-            this.Load += new System.EventHandler(this.FormThemDichVuVaoPhong_Load);
             this.SizeChanged += new System.EventHandler(this.FormThemDichVuVaoPhong_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormThemDichVuVaoPhong_Paint);
             this.Resize += new System.EventHandler(this.FormThemDichVuVaoPhong_Resize);

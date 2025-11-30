@@ -228,7 +228,7 @@
             this.CTTextBoxDonGia.Texts = "";
             this.CTTextBoxDonGia.UnderlineedStyle = true;
             this.CTTextBoxDonGia._TextChanged += new System.EventHandler(this.CTTextBoxDonGia__TextChanged);
-            this.CTTextBoxDonGia.Load += new System.EventHandler(this.CTTextBoxDonGia_Load);
+            
             // 
             // CTTextBoxSoLuong
             // 
@@ -277,7 +277,7 @@
             this.ctTextBoxMoTa.Texts = "";
             this.ctTextBoxMoTa.UnderlineedStyle = true;
             this.ctTextBoxMoTa._TextChanged += new System.EventHandler(this.ctTextBoxMoTa__TextChanged);
-            this.ctTextBoxMoTa.Load += new System.EventHandler(this.ctTextBoxMoTa_Load);
+           
             // 
             // FormSuaDichVu
             // 

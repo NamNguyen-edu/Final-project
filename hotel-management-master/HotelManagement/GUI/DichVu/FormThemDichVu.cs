@@ -19,11 +19,11 @@ namespace HotelManagement.GUI
     public partial class FormThemDichVu : Form
     {
         FormDanhSachDichVu formDanhSachDichVu;
-        //Fields
+
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
-       //Constructor
+
         public FormThemDichVu()
         {
             this.DoubleBuffered = true;
@@ -38,8 +38,7 @@ namespace HotelManagement.GUI
             this.Padding = new Padding(borderSize);
             this.formDanhSachDichVu = formDanhSachDichVu;
             InitializeComponent();
-        }
-        //Drag Form
+        }    
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -152,27 +151,20 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
         private void FormThemDichVu_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormThemDichVu_Resize(object sender, EventArgs e)
@@ -233,7 +225,7 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // Format tiền + giới hạn ký tự
+        // Format tiền + chỉ cho nhập số
         private void CTTextBoxDonGia__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxDonGia = sender as TextBox;

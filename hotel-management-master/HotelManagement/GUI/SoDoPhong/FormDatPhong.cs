@@ -599,7 +599,7 @@ namespace HotelManagement.GUI
                 }
                 // Hỏi khách có muốn thanh toán cọc không
                 DialogResult ask = CTMessageBox.Show(
-                    "Bạn có muốn thanh toán tiền đặt cọc ngay bây giờ?",
+                    "Bạn có muốn xác nhận đặt ph?",
                     "Xác nhận đặt cọc",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -615,7 +615,7 @@ namespace HotelManagement.GUI
                 // Mở form thanh toán đặt cọc
                 FormDatCoc f = new FormDatCoc(TienCoc, "Tien dat coc phong");
                 var result = f.ShowDialog();
-
+                    
                 // Nếu thanh toán thất bại hoặc bị hủy
                 if (result != DialogResult.OK)
                 {

@@ -114,7 +114,7 @@ namespace HotelManagement.GUI
 
                     if (phong.TTPH == "Bình thường" && ctdp != null)
                     {
-                        if (ctdp.TrangThai == "Đã Cọc" && (this.CTRadioButtonPhongDaDat.Checked || this.CTRadioButtonTatCaPhong.Checked))
+                        if (ctdp.TrangThai == "Đã cọc" && (this.CTRadioButtonPhongDaDat.Checked || this.CTRadioButtonTatCaPhong.Checked))
                         {
                             CTRoomDaDat room = new CTRoomDaDat(ctdp, this, this.formMain, taiKhoan);
                             if (ctdp.TheoGio == false)
