@@ -35,7 +35,7 @@ namespace HotelManagement.GUI
 
 
         #region Load sơ đồ phòng
-        // Load toàn bộ phòng từ DB và hiển thị trên sơ đồ
+        // Load toàn bộ phòng từ CSDL và hiển thị trên sơ đồ
         public void LoadAllPhong()
         {
             try
@@ -178,23 +178,21 @@ namespace HotelManagement.GUI
         }
 
         #endregion
-        // Textbox tìm kiếm thay đổi → reset timer tìm kiếm
+        // Textbox tìm kiếm thay đổi sẽ reset timer tìm kiếm
         private void ctTextBox1__TextChanged(object sender, EventArgs e)
         {
             if(this.ctTextBox1.Texts!=null)
                 ResetTimer(this.timerSearch);
         }
-        // Reset timer (dùng debounce tránh load quá nhiều)
         private void ResetTimer(Timer timer)
         {
             timer.Stop();
             timer.Start();         
         }
         #region Process event radio button
-        // Khi chọn radio "Phòng trống" → reload danh sách theo trạng thái
+        // Khi chọn radio "Phòng trống" sẽ reload danh sách theo trạng thái
         private void CTRadioButtonPhongTrong_CheckedChanged(object sender, EventArgs e)
         {
-            // SetAppear();
             this.label1.Hide();
             this.panelSoDoPhong.Hide();
             LoadAddLoaiPhong();
@@ -325,7 +323,7 @@ namespace HotelManagement.GUI
         }
         #endregion
 
-        #region Date and time value changed
+        #region Các giá trị ngày giờ thay đổi
         // Gán ngày đang xem
         private void setDate(DateTime dateTime)
         {

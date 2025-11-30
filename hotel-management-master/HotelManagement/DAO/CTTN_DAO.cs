@@ -21,9 +21,7 @@ namespace HotelManagement.DAO
         // Lấy tất cả chi tiết tiện nghi
         public List<CTTN> GetCTTNs()
         {
-
-                return db.CTTNs.Where(p => p.DaXoa == false).ToList();
-            
+                return db.CTTNs.Where(p => p.DaXoa == false).ToList();          
         }
         // Xử lý thêm hoặc cập nhật các chi tiết tiện nghi
         public void UpdateOrInsert(CTTN cTTN)
@@ -31,8 +29,7 @@ namespace HotelManagement.DAO
             try
             {
                 cTTN.DaXoa = false;
-                cTTN.TienNghi = db.TienNghis.Find(cTTN.MaTN);
-                
+                cTTN.TienNghi = db.TienNghis.Find(cTTN.MaTN);               
                 db.CTTNs.AddOrUpdate(cTTN);
                 db.SaveChanges();
                 instance = null;
@@ -41,15 +38,12 @@ namespace HotelManagement.DAO
             {
                 db.CTTNs.Remove(cTTN);
             }
-
-
         }
         // Xử lý xóa chi tiết tiện nghi
         public void RemoveCTTN(CTTN cTTN)
         {
             try
             {
-
                 cTTN.DaXoa = true;
                 db.CTTNs.AddOrUpdate(cTTN);
                 db.SaveChanges();
@@ -64,10 +58,7 @@ namespace HotelManagement.DAO
         // Tìm chi tiết tiện nghi theo mã loại phòng
         public List<CTTN> FindCTTN(string MaLPH)
         {
-
-                return db.CTTNs.Where(p => p.MaLPH == MaLPH && p.DaXoa == false).ToList();
-            
+                return db.CTTNs.Where(p => p.MaLPH == MaLPH && p.DaXoa == false).ToList();          
         }
-
     }
 }

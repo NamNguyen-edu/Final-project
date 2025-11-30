@@ -21,10 +21,12 @@ namespace HotelManagement.GUI
         private Image TN = Properties.Resources.TienNghi;
         private Image edit = Properties.Resources.edit;
         private Image delete = Properties.Resources.delete;
+
         private FormMain formMain;
         private string MaLPH, TenLP;
         private TaiKhoan taiKhoan;
-        //Constructor
+
+        // Hàm khởi tạo mặc định (không truyền tham số)
         public FormDanhSachChiTietTienNghi()
         {
             this.DoubleBuffered = true;
@@ -33,7 +35,8 @@ namespace HotelManagement.GUI
             InitializeComponent();
         }
 
-        public FormDanhSachChiTietTienNghi(string MaLPH, string TenLP, FormMain formMain,TaiKhoan taiKhoan)
+        // Hàm khởi tạo nhận mã loại phòng, tên loại phòng, form chính và tài khoản để hiển thị chi tiết tiện nghi theo loại phòng
+        public FormDanhSachChiTietTienNghi(string MaLPH, string TenLP, FormMain formMain, TaiKhoan taiKhoan)
         {
             this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.None;
@@ -45,34 +48,29 @@ namespace HotelManagement.GUI
             InitializeComponent();
             ThemeManager.ApplyThemeToRoomPopup(this);
         }
-        //Fields
+
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = AppTheme.PopupMainBackground;
 
-        //Control Box
-
-        //Form Move
-
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
 
-        //Private Methods
-        //Private Methods
+        #region Vẽ form bo góc và viền
 
-        #region Draw form
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -85,6 +83,7 @@ namespace HotelManagement.GUI
             path.CloseFigure();
             return path;
         }
+
         private void ControlRegionAndBorder(Control control, float radius, Graphics graph, Color borderColor)
         {
             using (GraphicsPath roundPath = GetRoundedPath(control.ClientRectangle, radius))
@@ -95,6 +94,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
@@ -118,6 +118,7 @@ namespace HotelManagement.GUI
                 }
             }
         }
+
         private void DrawPath(Rectangle rect, Graphics graph, Color color)
         {
             using (GraphicsPath roundPath = GetRoundedPath(rect, borderRadius))
@@ -126,6 +127,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private struct FormBoundsColors
         {
             public Color TopLeftColor;
@@ -133,36 +135,7 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -172,65 +145,72 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
+
         private void FormDanhSachChiTietTienNghi_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
+
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
+
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
+
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
+
+
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
+
+
         private void FormDanhSachChiTietTienNghi_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
         }
+
 
         private void FormDanhSachChiTietTienNghi_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
+
         private void FormDanhSachChiTietTienNghi_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
         }
+
+
         private void PanelBackground_Paint(object sender, PaintEventArgs e)
         {
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
         }
+
+
         private void PanelBackground_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
         #endregion
+
+
         private void FormDanhSachChiTietTienNghi_Load(object sender, EventArgs e)
         {
             this.LabelTenLoaiPhong.Text = TenLP;
             grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
-            //Test 
-            /*grid.Rows.Add(new object[] { "Ti vi", "1", "Sử dụng tốt", edit, delete });
-            grid.Rows.Add(new object[] { "Tủ lạnh", "1", "Đang sửa", edit, delete });
-            grid.Rows.Add(new object[] { "Điều hòa", "2", "Sử dụng tốt", edit, delete });
-            grid.Rows.Add(new object[] { "Máy sấy", "3", "Đang sửa", edit, delete });*/
             LoadAllForm();
         }
 
+        // Tải toàn bộ chi tiết tiện nghi theo mã loại phòng hiện tại và hiển thị lên lưới
         public void LoadAllForm()
         {
             try
@@ -240,10 +220,11 @@ namespace HotelManagement.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);    
+                MessageBox.Show(ex.Message);
             }
         }
 
+        // Đổ dữ liệu chi tiết tiện nghi từ danh sách CTTN lên lưới, đồng thời cập nhật lại tên loại phòng
         private void LoadForm(List<CTTN> cTTNs)
         {
             try
@@ -260,23 +241,31 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        // Xử lý click trên lưới: sửa hoặc xóa chi tiết tiện nghi tùy theo cột
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // If click Update button 
                 if (x == 3)
                 {
                     if (taiKhoan.CapDoQuyen == 1)
                     {
-                        CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        CTTN cTTN = CTTN_BUS.Instance.GetCTTNs().Where(p => p.MaLPH == this.MaLPH && p.TienNghi.TenTN == grid.Rows[y].Cells[0].Value.ToString()).SingleOrDefault();
+                        // Tìm chi tiết tiện nghi theo mã loại phòng và tên tiện nghi hiển thị trên grid
+                        CTTN cTTN = CTTN_BUS.Instance.GetCTTNs()
+                            .Where(p => p.MaLPH == this.MaLPH &&
+                                        p.TienNghi.TenTN == grid.Rows[y].Cells[0].Value.ToString())
+                            .SingleOrDefault();
+
                         using (FormSuaChiTietTienNghi formSuaChiTietTienNghi = new FormSuaChiTietTienNghi(cTTN))
                         {
                             formBackground.Owner = formMain;
@@ -285,55 +274,63 @@ namespace HotelManagement.GUI
                             formSuaChiTietTienNghi.ShowDialog();
                             formBackground.Dispose();
                         }
+
+                        // Sau khi sửa, load lại danh sách
                         this.LoadAllForm();
                     }
                     catch (Exception)
                     {
                         CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally 
-                    { 
+                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
                 if (x == 4)
                 {
-                    // If click delete button
                     if (taiKhoan.CapDoQuyen == 1)
                     {
-                        CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo",
+                                          MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
                     DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo",
-                                                                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                                                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogresult == DialogResult.Yes)
                     {
                         try
                         {
-                            CTTN cTTN = CTTN_BUS.Instance.GetCTTNs().Where(p => p.MaLPH == this.MaLPH && p.TienNghi.TenTN == grid.Rows[y].Cells[0].Value.ToString()).SingleOrDefault();
+                            CTTN cTTN = CTTN_BUS.Instance.GetCTTNs()
+                                .Where(p => p.MaLPH == this.MaLPH &&
+                                            p.TienNghi.TenTN == grid.Rows[y].Cells[0].Value.ToString())
+                                .SingleOrDefault();
+
                             CTTN_DAO.Instance.RemoveCTTN(cTTN);
 
                             LoadAllForm();
                             CTMessageBox.Show("Xóa thông tin thành công.", "Thông báo",
-                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                              MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception)
                         {
                             CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                              MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
         }
 
+        // Sự kiện click nút Thêm chi tiết tiện nghi, mở form thêm mới cho loại phòng hiện tại
         private void CTButtonThemChiTietTienNghi_Click(object sender, EventArgs e)
         {
             if (taiKhoan.CapDoQuyen == 1)
             {
-                CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             FormBackground formBackground = new FormBackground(formMain);
             try
             {
@@ -350,7 +347,7 @@ namespace HotelManagement.GUI
             catch (Exception)
             {
                 CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

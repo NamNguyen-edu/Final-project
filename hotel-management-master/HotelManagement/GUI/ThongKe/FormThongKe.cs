@@ -290,28 +290,23 @@ namespace HotelManagement.GUI.ThongKe
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        // Vẽ hình dashboard vào trang in
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(_dashboardBitmap, e.MarginBounds);
             e.HasMorePages = false;
         }
-        // Mở tab Tổng quan
         private void btnTongQuan_Click(object sender, EventArgs e)
         {
             ChonTab(btnTongQuan, pnlTongQuan);
         }
-        // Mở tab Phòng
         private void btnPhong_Click(object sender, EventArgs e)
         {
             ChonTab(btnPhong, pnlPhong);
         }
-        // Mở tab Dịch vụ
         private void btnDichVu_Click(object sender, EventArgs e)
         {
             ChonTab(btnDichVu, pnlDichVu);
         }
-        // Mở tab Khách hàng
         private void btnKhach_Click(object sender, EventArgs e)
         {
             ChonTab(btnKhach, pnlKhach);

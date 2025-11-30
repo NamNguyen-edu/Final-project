@@ -236,11 +236,7 @@ namespace HotelManagement.GUI
             {
                 CTTextBoxNhapMatKhau.PasswordChar = true;
             }
-            /*TextBox textBoxPasswordConfirm = sender as TextBox;
-            if (textBoxPasswordConfirm.Focused == false)
-                textBoxPasswordConfirm.UseSystemPasswordChar = false;
-            else
-                textBoxPasswordConfirm.UseSystemPasswordChar = true;*/
+
         }
         // Hiển thị mật khẩu
         private void ctEyePassword1_Click(object sender, EventArgs e)

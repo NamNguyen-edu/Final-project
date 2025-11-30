@@ -52,12 +52,13 @@
             this.LabelTenNguoiDung = new System.Windows.Forms.Label();
             this.PictureBoxUser = new System.Windows.Forms.PictureBox();
             this.panelName = new System.Windows.Forms.Panel();
+            this.BtnSound = new System.Windows.Forms.Button();
             this.PictureBoxMenu = new System.Windows.Forms.PictureBox();
             this.panelControlBox = new System.Windows.Forms.Panel();
-            this.labelTenKhachSan = new System.Windows.Forms.Label();
             this.ctMaximize1 = new HotelManagement.CTControls.CTMaximize();
             this.ctMinimize1 = new HotelManagement.CTControls.CTMinimize();
             this.ctClose1 = new HotelManagement.CTControls.CTClose();
+            this.labelTenKhachSan = new System.Windows.Forms.Label();
             this.PanelBackground.SuspendLayout();
             this.panelInfomation.SuspendLayout();
             this.Sidebar.SuspendLayout();
@@ -460,15 +461,29 @@
             // panelName
             // 
             this.panelName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.panelName.Controls.Add(this.BtnSound);
             this.panelName.Controls.Add(this.PictureBoxMenu);
             this.panelName.Controls.Add(this.panelControlBox);
             this.panelName.Controls.Add(this.labelTenKhachSan);
             this.panelName.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelName.Location = new System.Drawing.Point(0, 0);
+            this.panelName.Margin = new System.Windows.Forms.Padding(1);
             this.panelName.Name = "panelName";
             this.panelName.Size = new System.Drawing.Size(1522, 60);
             this.panelName.TabIndex = 4;
             this.panelName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelName_MouseDown);
+            // 
+            // BtnSound
+            // 
+            this.BtnSound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.BtnSound.Image = global::HotelManagement.Properties.Resources.Soundbtn;
+            this.BtnSound.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSound.Location = new System.Drawing.Point(359, 5);
+            this.BtnSound.Name = "BtnSound";
+            this.BtnSound.Size = new System.Drawing.Size(1035, 50);
+            this.BtnSound.TabIndex = 22;
+            this.BtnSound.UseVisualStyleBackColor = false;
+            this.BtnSound.Click += new System.EventHandler(this.BtnSound_Click);
             // 
             // PictureBoxMenu
             // 
@@ -499,25 +514,13 @@
             this.panelControlBox.MouseHover += new System.EventHandler(this.panelControlBox_MouseHover);
             this.panelControlBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelControlBox_MouseMove);
             // 
-            // labelTenKhachSan
-            // 
-            this.labelTenKhachSan.AutoSize = true;
-            this.labelTenKhachSan.BackColor = System.Drawing.Color.Transparent;
-            this.labelTenKhachSan.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTenKhachSan.ForeColor = System.Drawing.Color.White;
-            this.labelTenKhachSan.Location = new System.Drawing.Point(68, 14);
-            this.labelTenKhachSan.Name = "labelTenKhachSan";
-            this.labelTenKhachSan.Size = new System.Drawing.Size(285, 41);
-            this.labelTenKhachSan.TabIndex = 2;
-            this.labelTenKhachSan.Text = "Hotel Management";
-            // 
             // ctMaximize1
             // 
             this.ctMaximize1.BackColor = System.Drawing.Color.Transparent;
             this.ctMaximize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMaximize1.BackgroundImage")));
             this.ctMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMaximize1.Location = new System.Drawing.Point(10, 6);
-            this.ctMaximize1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctMaximize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMaximize1.Name = "ctMaximize1";
             this.ctMaximize1.Size = new System.Drawing.Size(15, 15);
             this.ctMaximize1.TabIndex = 2;
@@ -529,7 +532,7 @@
             this.ctMinimize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMinimize1.BackgroundImage")));
             this.ctMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMinimize1.Location = new System.Drawing.Point(40, 6);
-            this.ctMinimize1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctMinimize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMinimize1.Name = "ctMinimize1";
             this.ctMinimize1.Size = new System.Drawing.Size(15, 15);
             this.ctMinimize1.TabIndex = 1;
@@ -541,11 +544,23 @@
             this.ctClose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctClose1.BackgroundImage")));
             this.ctClose1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctClose1.Location = new System.Drawing.Point(71, 6);
-            this.ctClose1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctClose1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctClose1.Name = "ctClose1";
             this.ctClose1.Size = new System.Drawing.Size(15, 15);
             this.ctClose1.TabIndex = 0;
             this.ctClose1.Click += new System.EventHandler(this.ctClose1_Click);
+            // 
+            // labelTenKhachSan
+            // 
+            this.labelTenKhachSan.AutoSize = true;
+            this.labelTenKhachSan.BackColor = System.Drawing.Color.Transparent;
+            this.labelTenKhachSan.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTenKhachSan.ForeColor = System.Drawing.Color.White;
+            this.labelTenKhachSan.Location = new System.Drawing.Point(68, 14);
+            this.labelTenKhachSan.Name = "labelTenKhachSan";
+            this.labelTenKhachSan.Size = new System.Drawing.Size(285, 41);
+            this.labelTenKhachSan.TabIndex = 2;
+            this.labelTenKhachSan.Text = "Hotel Management";
             // 
             // FormMain
             // 
@@ -619,5 +634,6 @@
         public System.Windows.Forms.Button ButtonQLLD;
         public System.Windows.Forms.Button ButtonThanhToan;
         public System.Windows.Forms.Button ButtonDatPhong;
+        private System.Windows.Forms.Button BtnSound;
     }
 }

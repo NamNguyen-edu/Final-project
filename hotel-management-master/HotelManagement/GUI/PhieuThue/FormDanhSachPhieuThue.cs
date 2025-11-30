@@ -11,12 +11,16 @@ namespace HotelManagement.GUI
     public partial class FormDanhSachPhieuThue : Form
     {
         private Image PT = Properties.Resources.PhieuThueDgv;
+
         private Image details = Properties.Resources.details;
+
         private List<PhieuThue> phieuThues;
+
         private FormMain formMain;
+
         private TaiKhoan taiKhoan;
-        // Khởi tạo Form
-        public FormDanhSachPhieuThue(FormMain formMain,TaiKhoan taiKhoan)
+
+        public FormDanhSachPhieuThue(FormMain formMain, TaiKhoan taiKhoan)
         {
             this.taiKhoan = taiKhoan;
             InitializeComponent();
@@ -24,7 +28,6 @@ namespace HotelManagement.GUI
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
-        // Xử lý việc đặt phòng
         private void CTButtonDatPhong_Click(object sender, EventArgs e)
         {
             FormBackground formBackground = new FormBackground(formMain);
@@ -43,19 +46,18 @@ namespace HotelManagement.GUI
             {
                 MessageBox.Show(ex.Message);
             }
-            finally { formBackground.Dispose(); }
+            finally
+            {
+                formBackground.Dispose();
+            }
         }
 
         private void FormDanhSachPhieuThue_Load(object sender, EventArgs e)
         {
-
-            /*grid.Rows.Add(new object[] { PT, "PT001", "Phan Tuấn Thành", "10/11/2003 15:45:00", "Nguyễn Văn Anh", details});
-            grid.Rows.Add(new object[] { PT, "PT002", "Nguyễn Phúc Bình", "10/11/2003 15:45:00", "Nguyễn Văn Anh",  details});
-            grid.Rows.Add(new object[] {PT, "PT003", "Lê Thanh Tuấn", "10/11/2003 15:45:00", "Nguyễn Văn Anh", details});
-            grid.Rows.Add(new object[] {PT, "PT004", "Phan Tuấn Thành", "10/11/2003 15:45:00", "Nguyễn Văn Anh", details });*/
             LoadFullDataGrid();
         }
-        // Lấy tất cả phiếu thuê
+
+        // Lấy toàn bộ phiếu thuê từ tầng BUS và gán vào lưới hiển thị
         public void LoadFullDataGrid()
         {
             try
@@ -63,12 +65,13 @@ namespace HotelManagement.GUI
                 phieuThues = PhieuThueBUS.Instance.GetPhieuThues();
                 LoadDataGrid();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }    
-        // Lấy phiếu thuê lấp đầy GridView
+        }
+
+        // Đổ dữ liệu danh sách phiếu thuê vào DataGridView theo cấu trúc từng dòng
         public void LoadDataGrid()
         {
             try
@@ -76,15 +79,24 @@ namespace HotelManagement.GUI
                 this.grid.Rows.Clear();
                 foreach (PhieuThue phieuThue in phieuThues)
                 {
-                    grid.Rows.Add(new object[] { PT, phieuThue.MaPT,phieuThue.KhachHang.TenKH,phieuThue.NgPT.ToString("dd/MM/yyyy"),phieuThue.NhanVien.TenNV,details});
+                    grid.Rows.Add(new object[]
+                    {
+                        PT,
+                        phieuThue.MaPT,
+                        phieuThue.KhachHang.TenKH,
+                        phieuThue.NgPT.ToString("dd/MM/yyyy"),
+                        phieuThue.NhanVien.TenNV,
+                        details
+                    });
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }    
-        // Xuất tất cả phiếu thuê ra Excel
+        }
+
+        // Xuất dữ liệu danh sách phiếu thuê ra file Excel với cấu trúc giống DataGridView
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -97,14 +109,14 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Get Header text of Column
+                    // Ghi tiêu đề cột (bỏ cột ảnh đầu tiên)
                     for (int i = 1; i < col - 1 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Get data of cells
+                    // Ghi dữ liệu từng ô vào Excel
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 1; j++)
@@ -128,16 +140,19 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Xử lý click trên từng ô của DataGridView (mở chi tiết phiếu thuê khi bấm nút chi tiết)
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
-            // If click details button
             if (y >= 0 && x == 5)
             {
                 FormBackground formBackground = new FormBackground(formMain);
                 try
                 {
-                    using (FormChiTietPhieuThue formChiTietPhieuThue = new FormChiTietPhieuThue(PhieuThueBUS.Instance.GetPhieuThue(grid.Rows[y].Cells[1].Value.ToString())))
+                    using (FormChiTietPhieuThue formChiTietPhieuThue =
+                           new FormChiTietPhieuThue(
+                               PhieuThueBUS.Instance.GetPhieuThue(
+                                   grid.Rows[y].Cells[1].Value.ToString())))
                     {
                         formBackground.Owner = formMain;
                         formBackground.Show();
@@ -150,7 +165,10 @@ namespace HotelManagement.GUI
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally { formBackground.Dispose(); }
+                finally
+                {
+                    formBackground.Dispose();
+                }
             }
         }
 
@@ -169,6 +187,7 @@ namespace HotelManagement.GUI
                 grid.Cursor = Cursors.Default;
         }
 
+        // Lọc danh sách phiếu thuê theo tên khách hàng dựa trên nội dung textbox tìm kiếm
         private void ctTextBox1__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxPT = sender as TextBox;
@@ -178,13 +197,14 @@ namespace HotelManagement.GUI
                 LoadFullDataGrid();
                 return;
             }
+
             this.phieuThues = PhieuThueBUS.Instance.GetPhieuThuesWithNameCus(textBoxPT.Text);
             LoadDataGrid();
         }
 
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            grid.Cursor = Cursors.Default;      
-        }   
+            grid.Cursor = Cursors.Default;
+        }
     }
 }

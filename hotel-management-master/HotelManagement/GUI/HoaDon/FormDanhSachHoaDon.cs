@@ -18,10 +18,15 @@ namespace HotelManagement.GUI
     {
         private Image HD = Properties.Resources.HoaDon;
         private Image details = Properties.Resources.details;
+
         private FormMain formMain;
+
         private List<HoaDon> hoaDons;
+
         private bool reset = true;
+
         private DateTime dateTime = DateTime.Now;
+
         private string cccd = null;
 
         public FormDanhSachHoaDon(FormMain formMain)
@@ -30,15 +35,6 @@ namespace HotelManagement.GUI
             LoadAllDataGrid();
             this.formMain = formMain;
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
-        }
-
-        private void FormDanhSachHoaDon_Load(object sender, EventArgs e)
-        {
-            /*  //Test 
-              grid.Rows.Add(new object[] { HD, "HD001", "11/10/2003 19:45:00", "Nguyễn Văn A", "Phan Tuấn Thành", "0", "Chưa thanh toán", details});
-              grid.Rows.Add(new object[] { HD, "HD002", "11/10/2003 19:45:00", "Nguyễn Văn B", "Phan Tuấn Thành", "100,000", "Đã thanh toán", details});
-              grid.Rows.Add(new object[] { HD, "HD003", "11/10/2003 19:45:00", "Nguyễn Văn C", "Phan Tuấn Thành", "2,000,000", "Chưa thanh toán", details});
-              grid.Rows.Add(new object[] { HD, "HD004", "11/10/2003 19:45:00", "Nguyễn Văn D", "Phan Tuấn Thành", "0", "Đã thanh toán", details});*/
         }
 
         public void LoadAllDataGrid()
@@ -53,6 +49,8 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
+
+        // Đổ dữ liệu danh sách hóa đơn lên DataGridView, chỉ hiển thị hóa đơn đã thanh toán
         public void LoadDataGrid(List<HoaDon> hoaDons)
         {
             DichVu dichvu;
@@ -61,23 +59,41 @@ namespace HotelManagement.GUI
             {
                 foreach (HoaDon hoadon in hoaDons)
                 {
-                    //  int days = CTDP_BUS.Instance.getKhoangTGTheoNgay(hoadon.MaCTDP);
+                    // Lấy chi tiết đặt phòng tương ứng với hóa đơn
                     CTDP ctdp = CTDP_BUS.Instance.GetCTDPs().Where(p => p.MaCTDP == hoadon.MaCTDP).Single();
                     Phong phong = PhongBUS.Instance.FindePhong(ctdp.MaPH);
                     LoaiPhong loaiphong = LoaiPhongBUS.Instance.getLoaiPhong(phong.MaLPH);
                     string tennv = null;
+
+                    // Lấy danh sách chi tiết dịch vụ của hóa đơn (nếu cần sử dụng)
                     List<CTDV> ctdvs = CTDV_BUS.Instance.FindCTDV(hoadon.MaHD);
                     foreach (CTDV ctdv in ctdvs)
                     {
                         dichvu = DichVuBUS.Instance.FindDichVu(ctdv.MaDV);
                     }
+
+                    // Lấy tên nhân viên lập hóa đơn (nếu có)
                     if (hoadon.MaNV != null)
                         tennv = hoadon.NhanVien.TenNV;
+
+                    // Chỉ hiển thị hóa đơn đã thanh toán
                     if (hoadon.TrangThai == "Đã thanh toán")
                     {
                         PhieuThue phieuThue = PhieuThueBUS.Instance.GetPhieuThue(ctdp.MaPT);
-                        KhachHang khachHang = KhachHangBUS.Instance.GetKhachHangs().Where(p => p.MaKH == phieuThue.MaKH).Single();
-                        grid.Rows.Add(HD, hoadon.MaHD, hoadon.NgHD, tennv, khachHang.TenKH, hoadon.TriGia.ToString("#,#"), hoadon.TrangThai, details);
+                        KhachHang khachHang = KhachHangBUS.Instance.GetKhachHangs()
+                                                                  .Where(p => p.MaKH == phieuThue.MaKH)
+                                                                  .Single();
+
+                        grid.Rows.Add(
+                            HD,
+                            hoadon.MaHD,
+                            hoadon.NgHD,
+                            tennv,
+                            khachHang.TenKH,
+                            hoadon.TriGia.ToString("#,#"),
+                            hoadon.TrangThai,
+                            details
+                        );
                     }
                 }
             }
@@ -87,6 +103,8 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Lọc danh sách hóa đơn theo CCCD khách hàng và hiển thị lên lưới
         void LoadGridWith_CCCD()
         {
             try
@@ -95,15 +113,16 @@ namespace HotelManagement.GUI
                 hoaDons = HoaDonBUS.Instance.FindHoaDonWith_CCCD(cccd);
                 LoadDataGrid(hoaDons);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        // Xuất dữ liệu hóa đơn trên lưới ra file Excel bằng Interop
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
-
             {
                 if (grid.Rows.Count > 0)
                 {
@@ -113,14 +132,14 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Get Header text of Column
+                    // Lấy tiêu đề cột (bỏ cột icon đầu tiên)
                     for (int i = 1; i < col - 1 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Get data of cells
+                    // Đổ dữ liệu từng ô vào Excel
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 1; j++)
@@ -144,16 +163,18 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Xử lý khi click vào một ô trên lưới, mở form chi tiết hóa đơn khi click nút "chi tiết"
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
-            // If click details button
+            // Nếu click vào cột chi tiết (cột 7) và dòng hợp lệ
             if (x == 7 && y >= 0)
             {
                 try
                 {
                     string MaHD = grid.Rows[y].Cells[1].Value.ToString();
                     HoaDon HD = HoaDonBUS.Instance.FindHD(MaHD);
+
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
@@ -179,30 +200,37 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Thay đổi hình dạng con trỏ chuột khi rê vào một số cột đặc biệt (tiêu đề có thể sort / cột nút chi tiết)
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
             int[] arrX = { 1, 2, 5, 6 };
             bool isExists = false;
 
-            if (Array.IndexOf(arrX, x) != -1) 
-                isExists = true; 
+            // Kiểm tra cột có nằm trong danh sách cột đặc biệt không
+            if (Array.IndexOf(arrX, x) != -1)
+                isExists = true;
 
+            // Đổi con trỏ chuột thành dạng "Hand" khi rê vào cột chi tiết hoặc một số tiêu đề cột
             if (y >= 0 && x == 7 || y == -1 && isExists)
                 grid.Cursor = Cursors.Hand;
             else
                 grid.Cursor = Cursors.Default;
         }
 
+        // Khi chuột rời khỏi ô, trả con trỏ về mặc định
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;
         }
 
+        // Xử lý tìm kiếm hóa đơn theo CCCD, kết hợp với trạng thái bộ lọc (theo ngày hoặc không)
         private void CTTextBoxTimTheoCCCD__TextChanged(object sender, EventArgs e)
         {
             cccd = this.CTTextBoxTimTheoCCCD.Texts;
             dateTime = this.ctDatePicker1.Value;
+
+            // reset = true: chỉ lọc theo CCCD
             if (reset)
             {
                 if (cccd != String.Empty)
@@ -211,6 +239,7 @@ namespace HotelManagement.GUI
                     LoadDataGrid(hoaDons);
                 }
             }
+            // reset = false: lọc theo ngày và CCCD (nếu có)
             else
             {
                 if (cccd == String.Empty)
@@ -227,17 +256,20 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Xử lý khi người dùng đổi giá trị DatePicker: kích hoạt chế độ lọc theo ngày (reset = false)
         private void ctDatePicker1_ValueChanged(object sender, EventArgs e)
         {
             reset = false;
             dateTime = this.ctDatePicker1.Value;
             cccd = this.CTTextBoxTimTheoCCCD.Texts;
 
+            // Nếu không nhập CCCD thì chỉ lọc theo ngày
             if (this.CTTextBoxTimTheoCCCD.Texts == string.Empty)
             {
                 hoaDons = HoaDonBUS.Instance.FindHoaDonWith_Date(dateTime);
                 LoadDataGrid(hoaDons);
             }
+            // Nếu có CCCD thì lọc kết hợp ngày + CCCD
             else
             {
                 hoaDons = HoaDonBUS.Instance.FindHoaDonWith_DateAndCCCD(dateTime, cccd);
@@ -245,6 +277,7 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Nút Reset bộ lọc: đưa DatePicker về ngày hiện tại, xóa CCCD, trả về danh sách đầy đủ
         private void buttonReset_Click(object sender, EventArgs e)
         {
             ctDatePicker1.Value = DateTime.Now;

@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 public static class CSKH_ThongBao_DAO
 {
-    // Chuỗi kết nối tới cơ sở dữ liệu, lấy từ file cấu hình với tên connection string "HotelDTO"
+    // Chuỗi kết nối tới CSDL, lấy từ file cấu hình với tên connection string "HotelDTO"
     private static string connectionString =
         ConfigurationManager.ConnectionStrings["HotelDTO"].ConnectionString;
 

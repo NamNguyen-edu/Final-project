@@ -24,8 +24,8 @@ namespace HotelManagement.DAO
         {
 
                 return db.CTDVs.Where(p => p.MaCTDP == MaCTDP && p.DaXoa == false).ToList();           
-        } 
-        
+        }
+        // Thêm hoặc cập nhật danh sách chi tiết dịch vụ
         public void InsertOrUpdateList(List<CTDV> cTDVs)
         {
             using (HotelDTO db = new HotelDTO())
@@ -47,7 +47,6 @@ namespace HotelManagement.DAO
                         db.CTDVs.AddOrUpdate(item);
                     }
                 }
-
                 db.SaveChanges();
             }
             db.Dispose();

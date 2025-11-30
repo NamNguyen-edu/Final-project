@@ -22,17 +22,13 @@ namespace HotelManagement.DAO
         public List<HoaDon> GetHoaDons()
         {
             HotelDTO db = new HotelDTO();
-
-            return db.HoaDons.ToList();
-            
+            return db.HoaDons.ToList();           
         } 
         // Tìm hóa đơn theo mã 
         public HoaDon FindHD(string MaHD)
         {
             HotelDTO db = new HotelDTO();
-
-            return db.HoaDons.Find(MaHD);
-            
+            return db.HoaDons.Find(MaHD);         
         }
         // Thêm hoặc cập nhật hóa đơn
         public void Update_InsertHD(HoaDon HD)
@@ -43,8 +39,7 @@ namespace HotelManagement.DAO
                 HD.NhanVien = db.NhanViens.Find(HD.MaNV);
                 
                 db.HoaDons.AddOrUpdate(HD);
-                db.SaveChanges();
-                
+                db.SaveChanges();               
         }
         // Xử lý để tạo hóa đơn đã được thanh toán
         public void ThanhToanHD(HoaDon HD)
@@ -82,8 +77,6 @@ namespace HotelManagement.DAO
         public string getMaHDNext()
         {
             HotelDTO db = new HotelDTO();
-
-
             List<HoaDon> HD = db.HoaDons.ToList();
                 string MaMax = HD[HD.Count - 1].MaHD.ToString();
                 MaMax = MaMax.Substring(MaMax.Length - 3, 3);
@@ -97,8 +90,7 @@ namespace HotelManagement.DAO
                 {
                     return "HD0" + max.ToString();
                 }
-                return "HD" + max.ToString();
-            
+                return "HD" + max.ToString();          
         }
         // Xóa hóa đơn
         public void RemoveHD(HoaDon hoaDon)
