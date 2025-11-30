@@ -31,34 +31,34 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelBackground = new System.Windows.Forms.Panel();
+            this.CTButtonThoat = new HotelManagement.CTControls.CTButton();
+            this.CTButtonLuu = new HotelManagement.CTControls.CTButton();
             this.LabelThemDichVuVaoPhong = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dgvDVDaChon = new System.Windows.Forms.DataGridView();
-            this.gridDichVu = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LabelDanhSachDichVu = new System.Windows.Forms.Label();
-            this.CTButtonThoat = new HotelManagement.CTControls.CTButton();
-            this.CTButtonLuu = new HotelManagement.CTControls.CTButton();
             this.CTTextBoxTimTheoTenDV = new HotelManagement.CTControls.CTTextBox();
-            this.ctPanel2 = new CTPanel.CTPanel();
-            this.ctPanel1 = new CTPanel.CTPanel();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dgvDVDaChon = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ctPanel2 = new CTPanel.CTPanel();
+            this.gridDichVu = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ctPanel1 = new CTPanel.CTPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LabelDanhSachDichVu = new System.Windows.Forms.Label();
             this.PanelBackground.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +79,48 @@
             this.PanelBackground.TabIndex = 0;
             this.PanelBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelBackground_Paint);
             this.PanelBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBackground_MouseDown);
+            // 
+            // CTButtonThoat
+            // 
+            this.CTButtonThoat.BackColor = System.Drawing.Color.Gray;
+            this.CTButtonThoat.BackgroundColor = System.Drawing.Color.Gray;
+            this.CTButtonThoat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.CTButtonThoat.BorderRadius = 10;
+            this.CTButtonThoat.BorderSize = 0;
+            this.CTButtonThoat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CTButtonThoat.FlatAppearance.BorderSize = 0;
+            this.CTButtonThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CTButtonThoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTButtonThoat.ForeColor = System.Drawing.Color.White;
+            this.CTButtonThoat.Location = new System.Drawing.Point(663, 429);
+            this.CTButtonThoat.Name = "CTButtonThoat";
+            this.CTButtonThoat.Size = new System.Drawing.Size(150, 40);
+            this.CTButtonThoat.TabIndex = 2;
+            this.CTButtonThoat.Text = "Thoát";
+            this.CTButtonThoat.TextColor = System.Drawing.Color.White;
+            this.CTButtonThoat.UseVisualStyleBackColor = false;
+            this.CTButtonThoat.Click += new System.EventHandler(this.CTButtonThoat_Click);
+            // 
+            // CTButtonLuu
+            // 
+            this.CTButtonLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.CTButtonLuu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.CTButtonLuu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
+            this.CTButtonLuu.BorderRadius = 10;
+            this.CTButtonLuu.BorderSize = 0;
+            this.CTButtonLuu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CTButtonLuu.FlatAppearance.BorderSize = 0;
+            this.CTButtonLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CTButtonLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTButtonLuu.ForeColor = System.Drawing.Color.White;
+            this.CTButtonLuu.Location = new System.Drawing.Point(499, 429);
+            this.CTButtonLuu.Name = "CTButtonLuu";
+            this.CTButtonLuu.Size = new System.Drawing.Size(150, 40);
+            this.CTButtonLuu.TabIndex = 3;
+            this.CTButtonLuu.Text = "Lưu";
+            this.CTButtonLuu.TextColor = System.Drawing.Color.White;
+            this.CTButtonLuu.UseVisualStyleBackColor = false;
+            this.CTButtonLuu.Click += new System.EventHandler(this.CTButtonLuu_Click);
             // 
             // LabelThemDichVuVaoPhong
             // 
@@ -115,6 +157,30 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
+            // 
+            // CTTextBoxTimTheoTenDV
+            // 
+            this.CTTextBoxTimTheoTenDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
+            this.CTTextBoxTimTheoTenDV.BorderColor = System.Drawing.SystemColors.AppWorkspace;
+            this.CTTextBoxTimTheoTenDV.BorderFocusColor = System.Drawing.Color.DimGray;
+            this.CTTextBoxTimTheoTenDV.BorderRadius = 5;
+            this.CTTextBoxTimTheoTenDV.BorderSize = 1;
+            this.CTTextBoxTimTheoTenDV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTTextBoxTimTheoTenDV.IsFocused = false;
+            this.CTTextBoxTimTheoTenDV.Location = new System.Drawing.Point(33, 24);
+            this.CTTextBoxTimTheoTenDV.Margin = new System.Windows.Forms.Padding(4);
+            this.CTTextBoxTimTheoTenDV.Multiline = false;
+            this.CTTextBoxTimTheoTenDV.Name = "CTTextBoxTimTheoTenDV";
+            this.CTTextBoxTimTheoTenDV.Padding = new System.Windows.Forms.Padding(40, 7, 7, 7);
+            this.CTTextBoxTimTheoTenDV.PasswordChar = false;
+            this.CTTextBoxTimTheoTenDV.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.CTTextBoxTimTheoTenDV.PlaceholderText = "Nhập tên dịch vụ cần tìm";
+            this.CTTextBoxTimTheoTenDV.ReadOnly = false;
+            this.CTTextBoxTimTheoTenDV.Size = new System.Drawing.Size(247, 40);
+            this.CTTextBoxTimTheoTenDV.TabIndex = 34;
+            this.CTTextBoxTimTheoTenDV.Texts = "";
+            this.CTTextBoxTimTheoTenDV.UnderlineedStyle = false;
+            this.CTTextBoxTimTheoTenDV._TextChanged += new System.EventHandler(this.CTTextBoxTimTheoTenDV__TextChanged);
             // 
             // dgvDVDaChon
             // 
@@ -177,6 +243,61 @@
             this.dgvDVDaChon.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDVDaChon_CellMouseLeave);
             this.dgvDVDaChon.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDVDaChon_CellMouseMove);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.FillWeight = 150F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Dịch vụ";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Số lượng";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn3.FillWeight = 125F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Thành tiền";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Xóa";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // ctPanel2
+            // 
+            this.ctPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel2.BackColor = System.Drawing.Color.White;
+            this.ctPanel2.BorderRadius = 50;
+            this.ctPanel2.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel2.GradientAngle = 90F;
+            this.ctPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel2.Location = new System.Drawing.Point(404, 118);
+            this.ctPanel2.Name = "ctPanel2";
+            this.ctPanel2.Size = new System.Drawing.Size(347, 236);
+            this.ctPanel2.TabIndex = 32;
+            // 
             // gridDichVu
             // 
             this.gridDichVu.AllowUserToAddRows = false;
@@ -238,120 +359,6 @@
             this.gridDichVu.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDichVu_CellMouseLeave);
             this.gridDichVu.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gridDichVu_CellMouseMove);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(464, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 37);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Dịch vụ đã chọn";
-            // 
-            // LabelDanhSachDichVu
-            // 
-            this.LabelDanhSachDichVu.AutoSize = true;
-            this.LabelDanhSachDichVu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelDanhSachDichVu.Location = new System.Drawing.Point(75, 78);
-            this.LabelDanhSachDichVu.Name = "LabelDanhSachDichVu";
-            this.LabelDanhSachDichVu.Size = new System.Drawing.Size(246, 37);
-            this.LabelDanhSachDichVu.TabIndex = 1;
-            this.LabelDanhSachDichVu.Text = "Danh sách dịch vụ";
-            // 
-            // CTButtonThoat
-            // 
-            this.CTButtonThoat.BackColor = System.Drawing.Color.Gray;
-            this.CTButtonThoat.BackgroundColor = System.Drawing.Color.Gray;
-            this.CTButtonThoat.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
-            this.CTButtonThoat.BorderRadius = 10;
-            this.CTButtonThoat.BorderSize = 0;
-            this.CTButtonThoat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CTButtonThoat.FlatAppearance.BorderSize = 0;
-            this.CTButtonThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CTButtonThoat.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTButtonThoat.ForeColor = System.Drawing.Color.White;
-            this.CTButtonThoat.Location = new System.Drawing.Point(663, 429);
-            this.CTButtonThoat.Name = "CTButtonThoat";
-            this.CTButtonThoat.Size = new System.Drawing.Size(150, 40);
-            this.CTButtonThoat.TabIndex = 2;
-            this.CTButtonThoat.Text = "Thoát";
-            this.CTButtonThoat.TextColor = System.Drawing.Color.White;
-            this.CTButtonThoat.UseVisualStyleBackColor = false;
-            this.CTButtonThoat.Click += new System.EventHandler(this.CTButtonThoat_Click);
-            // 
-            // CTButtonLuu
-            // 
-            this.CTButtonLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.CTButtonLuu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.CTButtonLuu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(172)))), ((int)(((byte)(62)))));
-            this.CTButtonLuu.BorderRadius = 10;
-            this.CTButtonLuu.BorderSize = 0;
-            this.CTButtonLuu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CTButtonLuu.FlatAppearance.BorderSize = 0;
-            this.CTButtonLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CTButtonLuu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTButtonLuu.ForeColor = System.Drawing.Color.White;
-            this.CTButtonLuu.Location = new System.Drawing.Point(499, 429);
-            this.CTButtonLuu.Name = "CTButtonLuu";
-            this.CTButtonLuu.Size = new System.Drawing.Size(150, 40);
-            this.CTButtonLuu.TabIndex = 3;
-            this.CTButtonLuu.Text = "Lưu";
-            this.CTButtonLuu.TextColor = System.Drawing.Color.White;
-            this.CTButtonLuu.UseVisualStyleBackColor = false;
-            this.CTButtonLuu.Click += new System.EventHandler(this.CTButtonLuu_Click);
-            // 
-            // CTTextBoxTimTheoTenDV
-            // 
-            this.CTTextBoxTimTheoTenDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxTimTheoTenDV.BorderColor = System.Drawing.SystemColors.AppWorkspace;
-            this.CTTextBoxTimTheoTenDV.BorderFocusColor = System.Drawing.Color.DimGray;
-            this.CTTextBoxTimTheoTenDV.BorderRadius = 5;
-            this.CTTextBoxTimTheoTenDV.BorderSize = 1;
-            this.CTTextBoxTimTheoTenDV.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTTextBoxTimTheoTenDV.IsFocused = false;
-            this.CTTextBoxTimTheoTenDV.Location = new System.Drawing.Point(33, 24);
-            this.CTTextBoxTimTheoTenDV.Margin = new System.Windows.Forms.Padding(4);
-            this.CTTextBoxTimTheoTenDV.Multiline = false;
-            this.CTTextBoxTimTheoTenDV.Name = "CTTextBoxTimTheoTenDV";
-            this.CTTextBoxTimTheoTenDV.Padding = new System.Windows.Forms.Padding(40, 7, 7, 7);
-            this.CTTextBoxTimTheoTenDV.PasswordChar = false;
-            this.CTTextBoxTimTheoTenDV.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.CTTextBoxTimTheoTenDV.PlaceholderText = "Nhập tên dịch vụ cần tìm";
-            this.CTTextBoxTimTheoTenDV.ReadOnly = false;
-            this.CTTextBoxTimTheoTenDV.Size = new System.Drawing.Size(247, 40);
-            this.CTTextBoxTimTheoTenDV.TabIndex = 34;
-            this.CTTextBoxTimTheoTenDV.Texts = "";
-            this.CTTextBoxTimTheoTenDV.UnderlineedStyle = false;
-            this.CTTextBoxTimTheoTenDV._TextChanged += new System.EventHandler(this.CTTextBoxTimTheoTenDV__TextChanged);
-            // 
-            // ctPanel2
-            // 
-            this.ctPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel2.BackColor = System.Drawing.Color.White;
-            this.ctPanel2.BorderRadius = 50;
-            this.ctPanel2.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel2.GradientAngle = 90F;
-            this.ctPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.ctPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.ctPanel2.Location = new System.Drawing.Point(404, 118);
-            this.ctPanel2.Name = "ctPanel2";
-            this.ctPanel2.Size = new System.Drawing.Size(347, 236);
-            this.ctPanel2.TabIndex = 32;
-            // 
-            // ctPanel1
-            // 
-            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel1.BackColor = System.Drawing.Color.White;
-            this.ctPanel1.BorderRadius = 50;
-            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel1.GradientAngle = 90F;
-            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.ctPanel1.Location = new System.Drawing.Point(15, 118);
-            this.ctPanel1.Name = "ctPanel1";
-            this.ctPanel1.Size = new System.Drawing.Size(369, 231);
-            this.ctPanel1.TabIndex = 32;
-            // 
             // Column1
             // 
             this.Column1.FillWeight = 125F;
@@ -393,46 +400,39 @@
             this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // dataGridViewTextBoxColumn1
+            // ctPanel1
             // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 150F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Dịch vụ";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel1.BackColor = System.Drawing.Color.White;
+            this.ctPanel1.BorderRadius = 50;
+            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel1.GradientAngle = 90F;
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.Location = new System.Drawing.Point(15, 118);
+            this.ctPanel1.Name = "ctPanel1";
+            this.ctPanel1.Size = new System.Drawing.Size(369, 231);
+            this.ctPanel1.TabIndex = 32;
             // 
-            // dataGridViewTextBoxColumn2
+            // label1
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Số lượng";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(464, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(220, 37);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Dịch vụ đã chọn";
             // 
-            // dataGridViewTextBoxColumn3
+            // LabelDanhSachDichVu
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn3.FillWeight = 125F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Thành tiền";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Xóa";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.LabelDanhSachDichVu.AutoSize = true;
+            this.LabelDanhSachDichVu.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDanhSachDichVu.Location = new System.Drawing.Point(75, 78);
+            this.LabelDanhSachDichVu.Name = "LabelDanhSachDichVu";
+            this.LabelDanhSachDichVu.Size = new System.Drawing.Size(246, 37);
+            this.LabelDanhSachDichVu.TabIndex = 1;
+            this.LabelDanhSachDichVu.Text = "Danh sách dịch vụ";
             // 
             // FormThemDichVuVaoPhong
             // 
@@ -447,7 +447,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormThemDichVuVaoPhong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "FormThemDichVuVaoPhong";
+            this.Text = "3";
             this.Activated += new System.EventHandler(this.FormThemDichVuVaoPhong_Activated);
             this.SizeChanged += new System.EventHandler(this.FormThemDichVuVaoPhong_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormThemDichVuVaoPhong_Paint);

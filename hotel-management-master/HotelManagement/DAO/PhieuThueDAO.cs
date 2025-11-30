@@ -60,7 +60,6 @@ namespace HotelManagement.DAO
                     // Gán lại điều hướng đến Khách hàng và Nhân viên từ context hiện tại
                     phieuThue.KhachHang = db.KhachHangs.Find(phieuThue.MaKH);
                     phieuThue.NhanVien = db.NhanViens.Find(phieuThue.MaNV);
-
                     db.PhieuThues.AddOrUpdate(phieuThue);
                     db.SaveChanges();
                 }
@@ -91,11 +90,9 @@ namespace HotelManagement.DAO
             {
                 var list = db.PhieuThues.ToList();
                 if (list.Count == 0) return "PT001";
-
                 string MaMax = list[list.Count - 1].MaPT;
                 int num = int.Parse(MaMax.Substring(2));
                 num++;
-
                 return "PT" + num.ToString("000");
             }
         }

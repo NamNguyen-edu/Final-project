@@ -34,7 +34,6 @@ namespace HotelManagement.DAO
 
             // Lấy toàn bộ CTTN chưa xóa (để hạn chế số lượng truy vấn)
             var cttns = db.CTTNs.Where(p => p.DaXoa == false).ToList();
-
             foreach (var tn in tns)
             {
                 // Tổng số lượng của tiện nghi này trong tất cả CTTN
@@ -42,7 +41,6 @@ namespace HotelManagement.DAO
                     .Where(c => c.MaTN == tn.MaTN)
                     .Sum(c => (int?)c.SL) ?? 0;
             }
-
             return tns;
         }
 
@@ -58,7 +56,6 @@ namespace HotelManagement.DAO
             try
             {
                 tienNghi.DaXoa = true;
-
                 db.TienNghis.AddOrUpdate(tienNghi);
                 db.SaveChanges();
             }
