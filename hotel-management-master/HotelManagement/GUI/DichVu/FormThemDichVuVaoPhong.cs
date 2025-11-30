@@ -506,12 +506,6 @@ namespace HotelManagement.GUI
                 return;
             }
             string keyword = txt.Texts.Trim().ToLower();
-            // Nếu textbox mất focus (người dùng xóa text bằng code), load lại toàn bộ
-            if (!txt.Focused)
-            {
-                LoadGridDichVu();
-                return;
-            }
             // Lọc trên danh sách dịch vụ hiện tại (so sánh không phân biệt hoa thường)
             var filtered = dichVus
                 .Where(x => x.TenDV != null && x.TenDV.ToLower().Contains(keyword))

@@ -85,7 +85,7 @@
             this.LabelSuaNhanVien.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSuaNhanVien.Location = new System.Drawing.Point(349, 10);
             this.LabelSuaNhanVien.Name = "LabelSuaNhanVien";
-            this.LabelSuaNhanVien.Size = new System.Drawing.Size(196, 37);
+            this.LabelSuaNhanVien.Size = new System.Drawing.Size(245, 46);
             this.LabelSuaNhanVien.TabIndex = 16;
             this.LabelSuaNhanVien.Text = "Sửa nhân viên";
             // 
@@ -168,7 +168,7 @@
             this.LabelNgaySinh.ForeColor = System.Drawing.Color.Black;
             this.LabelNgaySinh.Location = new System.Drawing.Point(585, 33);
             this.LabelNgaySinh.Name = "LabelNgaySinh";
-            this.LabelNgaySinh.Size = new System.Drawing.Size(66, 17);
+            this.LabelNgaySinh.Size = new System.Drawing.Size(86, 23);
             this.LabelNgaySinh.TabIndex = 8;
             this.LabelNgaySinh.Text = "Ngày sinh";
             // 
@@ -189,10 +189,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.admin;
-            this.pictureBox3.Location = new System.Drawing.Point(70, 139);
+            this.pictureBox3.Location = new System.Drawing.Point(70, 149);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 40);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 6;
             this.pictureBox3.TabStop = false;
             // 
@@ -202,6 +202,7 @@
             this.pictureBox6.Location = new System.Drawing.Point(454, 149);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(42, 30);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox6.TabIndex = 6;
             this.pictureBox6.TabStop = false;
             // 
@@ -218,20 +219,20 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::HotelManagement.Properties.Resources.email;
-            this.pictureBox8.Location = new System.Drawing.Point(457, 332);
+            this.pictureBox8.Location = new System.Drawing.Point(457, 342);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(39, 35);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox8.TabIndex = 6;
             this.pictureBox8.TabStop = false;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::HotelManagement.Properties.Resources.Address;
-            this.pictureBox7.Location = new System.Drawing.Point(454, 236);
+            this.pictureBox7.Location = new System.Drawing.Point(457, 241);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(42, 35);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             // 
@@ -272,7 +273,7 @@
             this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxEmail.PlaceholderText = "Nhập email";
             this.ctTextBoxEmail.ReadOnly = false;
-            this.ctTextBoxEmail.Size = new System.Drawing.Size(234, 35);
+            this.ctTextBoxEmail.Size = new System.Drawing.Size(234, 40);
             this.ctTextBoxEmail.TabIndex = 8;
             this.ctTextBoxEmail.Texts = "";
             this.ctTextBoxEmail.UnderlineedStyle = true;
@@ -295,7 +296,7 @@
             this.CTTextBoxDiaChi.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxDiaChi.PlaceholderText = "Nhập địa chỉ";
             this.CTTextBoxDiaChi.ReadOnly = false;
-            this.CTTextBoxDiaChi.Size = new System.Drawing.Size(234, 35);
+            this.CTTextBoxDiaChi.Size = new System.Drawing.Size(234, 40);
             this.CTTextBoxDiaChi.TabIndex = 7;
             this.CTTextBoxDiaChi.Texts = "";
             this.CTTextBoxDiaChi.UnderlineedStyle = true;
@@ -318,7 +319,7 @@
             this.CTTextBoxNhapCCCD.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapCCCD.PlaceholderText = "Nhập số CCCD";
             this.CTTextBoxNhapCCCD.ReadOnly = false;
-            this.CTTextBoxNhapCCCD.Size = new System.Drawing.Size(234, 35);
+            this.CTTextBoxNhapCCCD.Size = new System.Drawing.Size(234, 40);
             this.CTTextBoxNhapCCCD.TabIndex = 6;
             this.CTTextBoxNhapCCCD.Texts = "";
             this.CTTextBoxNhapCCCD.UnderlineedStyle = true;
@@ -344,7 +345,7 @@
             this.CTTextBoxNhapHoTen.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapHoTen.PlaceholderText = "Nhập họ tên nhân viên";
             this.CTTextBoxNhapHoTen.ReadOnly = false;
-            this.CTTextBoxNhapHoTen.Size = new System.Drawing.Size(234, 35);
+            this.CTTextBoxNhapHoTen.Size = new System.Drawing.Size(234, 40);
             this.CTTextBoxNhapHoTen.TabIndex = 1;
             this.CTTextBoxNhapHoTen.Texts = "";
             this.CTTextBoxNhapHoTen.UnderlineedStyle = true;
@@ -356,7 +357,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(70, 342);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
@@ -388,7 +389,7 @@
             this.ctTextBoxSDT.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxSDT.PlaceholderText = "Số điện thoại";
             this.ctTextBoxSDT.ReadOnly = false;
-            this.ctTextBoxSDT.Size = new System.Drawing.Size(234, 35);
+            this.ctTextBoxSDT.Size = new System.Drawing.Size(234, 40);
             this.ctTextBoxSDT.TabIndex = 4;
             this.ctTextBoxSDT.Texts = "";
             this.ctTextBoxSDT.UnderlineedStyle = true;
@@ -412,7 +413,7 @@
             this.CTTextBoxLuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxLuong.PlaceholderText = "Lương";
             this.CTTextBoxLuong.ReadOnly = false;
-            this.CTTextBoxLuong.Size = new System.Drawing.Size(234, 35);
+            this.CTTextBoxLuong.Size = new System.Drawing.Size(234, 40);
             this.CTTextBoxLuong.TabIndex = 3;
             this.CTTextBoxLuong.Texts = "";
             this.CTTextBoxLuong.UnderlineedStyle = true;
