@@ -42,7 +42,7 @@ namespace HotelManagement.CTControls
             //ComboBox: Dropdown list
             cmbList.BackColor = listBackColor;
             cmbList.Font = new Font(this.Font.Name, 10F);
-            cmbList.Size = new Size(100,50);
+            cmbList.Size = new Size(120,30);
             cmbList.ForeColor = listTextColor;
             cmbList.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);//Default event
             cmbList.TextChanged += new EventHandler(ComboBox_TextChanged);//Refresh text
@@ -86,14 +86,20 @@ namespace HotelManagement.CTControls
         //Private methods
         private void AdjustComboBoxDimensions()
         {
-            cmbList.Width = lblText.Width + btnIcon.Width + 2;
-            cmbList.Location = new Point()
-            {
-                X = this.Width - this.Padding.Right - cmbList.Width + 1,
-                Y = lblText.Bottom - cmbList.Height
-            };
+            // chiều cao chuẩn
+            cmbList.Height = this.Height - this.Padding.Top - this.Padding.Bottom;
+
+            // chiều rộng đủ để chứa dropdown
+            cmbList.Width = this.Width - this.Padding.Right - this.Padding.Left;
+
+            // đặt combobox đúng vị trí, không tràn
+            cmbList.Location = new Point(
+                this.Padding.Left,
+                this.Padding.Top
+            );
         }
-        
+
+
         //Event methods
 
         //-> Default event
