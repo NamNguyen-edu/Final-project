@@ -361,16 +361,13 @@ namespace HotelManagement.GUI
 
         private void Printer_Click(object sender, EventArgs e)
         {
-
             try
             {
                 if (printDialog.ShowDialog() == DialogResult.OK)
                 {
                     HideButton();
                     this.Refresh();
-
                     CaptureScreen();
-
                     // gán document cho preview (nếu chưa gán ở constructor)
                     printPreviewDialog1.Document = printDocument;
                     printPreviewDialog1.WindowState = FormWindowState.Maximized;
@@ -378,10 +375,7 @@ namespace HotelManagement.GUI
 
                     // hiển thị màn hình xem trước
                     printPreviewDialog1.ShowDialog();
-
-
                     printDocument.Print();
-
                     ShowButton();
                     printDialog.Dispose();
                 }
@@ -395,8 +389,6 @@ namespace HotelManagement.GUI
                 ShowButton();
                 printDialog.Dispose();
             }
-
-
         }
         #endregion
     }
