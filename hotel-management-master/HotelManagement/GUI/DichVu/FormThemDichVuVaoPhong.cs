@@ -52,22 +52,24 @@ namespace HotelManagement.GUI
         {
             try
             {
+                // Lấy danh sách dịch vụ mà phòng này đã đặt trước đó từ DB
                 List<CTDV> cTDVs = CTDV_BUS.Instance.FindCTDV(this.ctdp.MaCTDP);
                 if (cTDVs != null)
                 {
                     foreach (CTDV cTDV in cTDVs)
                     {
+                        // Tạo bản sao (copy) để không ảnh hưởng dữ liệu gốc trong DB khi thao tác tạm
                         CTDV cTDV1 = new CTDV(cTDV);
                         //cTDV1 = cTDV;
-                        this.dichVusDaDat.Add(cTDV1);
-                        this.SLDVDaDat.Add(cTDV.SL);
+                        this.dichVusDaDat.Add(cTDV1); // Thêm vào danh sách hiển thị tạm    
+                        this.SLDVDaDat.Add(cTDV.SL); 
                     }
                 }
                 LoadGridDaChon();
             }
             catch (Exception ex)
             {
-                CTMessageBox.Show(ex.Message);
+                CTMessageBox.Show(ex.Message); // Hiển thị lỗi nếu có
             }
         }
 
@@ -75,12 +77,14 @@ namespace HotelManagement.GUI
         {
             try
             {
-                dgvDVDaChon.Rows.Clear();
+                dgvDVDaChon.Rows.Clear();  // Xóa hết để load lại từ đầu
                 foreach (CTDV v in dichVusDaDat)
                 {
-                    if (v.SL != 0)
+                    if (v.SL != 0) // Chỉ hiển thị dịch vụ còn SL > 0
                     {
+                        // Lấy thông tin dịch vụ từ DB theo mã dịch vụ
                         DichVu dichVu = DichVuBUS.Instance.FindDichVu(v.MaDV);
+                        // Thêm dòng vào grid: Tên – SL – Thành tiền – Icon Xóa
                         dgvDVDaChon.Rows.Add(dichVu.TenDV, v.SL, v.ThanhTien.ToString("#,#"), Del);
 
                     }
@@ -102,7 +106,10 @@ namespace HotelManagement.GUI
                 dichVus = DichVuBUS.Instance.GetDichVus();
                 foreach (DichVu dichVu in dichVus)
                 {
+                    // Tạo bản copy để hiển thị và thao tác tạm trên form
                     this.dichVus.Add(new DichVu(dichVu));
+
+                    // Lưu tồn kho ban đầu cho mỗi dịch vụ
                     this.SLDVConLai.Add(dichVu.SLConLai);
                 }
                 LoadGridDichVu();
@@ -117,10 +124,9 @@ namespace HotelManagement.GUI
             gridDichVu.Rows.Clear();
             foreach (DichVu v in dichVus)
             {
-                if (v.SLConLai == -1)
+                if (v.SLConLai == -1) // -1 nghĩa là dịch vụ không giới hạn số lượng
                 {
                     gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), "", Add);
-
                 }
                 else
                     gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), v.SLConLai, Add);
@@ -145,9 +151,6 @@ namespace HotelManagement.GUI
                 return cp;
             }
         }
-
-        //Private Methods
-        //Private Methods
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -303,43 +306,70 @@ namespace HotelManagement.GUI
 
         private void gridDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int x = e.ColumnIndex, y = e.RowIndex;
-            if (y >= 0 && x == 3)
+            int x = e.ColumnIndex, y = e.RowIndex;                   
+
+            if (y >= 0 && x == 3)                                   
             {
                 #region Add Service
                 try
                 {
-                    decimal dongia = decimal.Parse(gridDichVu.Rows[y].Cells[1].Value.ToString().Trim(','));
-                    DichVu dichVu = dichVus.Where(p => p.TenDV == gridDichVu.Rows[y].Cells[0].Value.ToString() && p.DonGia == dongia).SingleOrDefault();
-                    if (dichVu.SLConLai >= 1)
+                    // Lấy đơn giá từ ô cột 1 của dòng (dạng chuỗi có dấu phẩy → Trim để bỏ dấu phẩy)
+                    decimal dongia = decimal.Parse(
+                        gridDichVu.Rows[y].Cells[1].Value.ToString().Trim(',')
+                    );
+
+                    // Tìm đúng dịch vụ trong danh sách "dichVus" theo Tên DV + Đơn Giá
+                    DichVu dichVu = dichVus
+                        .Where(p => p.TenDV == gridDichVu.Rows[y].Cells[0].Value.ToString()
+                                 && p.DonGia == dongia)
+                        .SingleOrDefault();
+
+                    // Xử lý tồn kho dịch vụ (nếu có giới hạn)
+                    if (dichVu.SLConLai >= 1)                           
                     {
-                        dichVu.SLConLai--;
+                        dichVu.SLConLai--;                             
                         gridDichVu.Rows[y].Cells[2].Value = dichVu.SLConLai;
                     }
-                    else if (dichVu.SLConLai == 0)
-                        CTMessageBox.Show("Số lượng hàng trong kho đã hết!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    else if (dichVu.SLConLai == -1)
-                    { }
-
+                    else if (dichVu.SLConLai == 0)                       
+                    {
+                        CTMessageBox.Show("Số lượng hàng trong kho đã hết!!",
+                            "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                
+                   
                     foreach (DataGridViewRow dataRow in dgvDVDaChon.Rows)
                     {
-                        if (dataRow.Cells[0].Value.ToString() == dichVu.TenDV && (decimal.Parse(dataRow.Cells[2].Value.ToString().Trim(',')) / int.Parse(dataRow.Cells[1].Value.ToString())) == dichVu.DonGia)
+                        // Kiểm tra: Tên giống + Đơn giá giống
+                        if (dataRow.Cells[0].Value.ToString() == dichVu.TenDV &&
+                            (decimal.Parse(dataRow.Cells[2].Value.ToString().Trim(','))
+                                / int.Parse(dataRow.Cells[1].Value.ToString())) == dichVu.DonGia)
                         {
-                            CTDV cTDV = dichVusDaDat.Where(p => p.MaDV == dichVu.MaDV).FirstOrDefault();
-                            dataRow.Cells[1].Value = ++cTDV.SL;
-                            cTDV.ThanhTien = cTDV.DonGia * cTDV.SL;
-                            dataRow.Cells[2].Value = cTDV.ThanhTien.ToString("#,#");
-                            return;
+                            // Lấy đúng CTDV đã lưu trong danh sách tạm
+                            CTDV cTDV = dichVusDaDat
+                                .Where(p => p.MaDV == dichVu.MaDV)
+                                .FirstOrDefault();
+
+                            // Cập nhật các giá trị lên lưới và trong danh sách tạm
+                            dataRow.Cells[1].Value = ++cTDV.SL;       
+                            cTDV.ThanhTien = cTDV.DonGia * cTDV.SL;     
+                            dataRow.Cells[2].Value = cTDV.ThanhTien.ToString("#,#"); 
+
+                            return;                                 
                         }
                     }
-                    CTDV cTDV1 = new CTDV();
+
+                    // Dịch vụ lần đầu thêm vào danh sách đã chọn
+                    CTDV cTDV1 = new CTDV();                          
                     cTDV1.DonGia = dichVu.DonGia;
                     cTDV1.DaXoa = false;
                     cTDV1.ThanhTien = dichVu.DonGia;
                     cTDV1.MaDV = dichVu.MaDV;
                     cTDV1.MaCTDP = ctdp.MaCTDP;
                     cTDV1.SL = 1;
+
                     dichVusDaDat.Add(cTDV1);
+
                     this.LoadGridDaChon();
                 }
                 catch (Exception ex)
@@ -367,7 +397,7 @@ namespace HotelManagement.GUI
         private void dgvDVDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
-            if (y >= 0 && x == 3) // cột Hủy
+            if (y >= 0 && x == 3) 
             {
                 #region Remove Service
                 try
@@ -419,7 +449,7 @@ namespace HotelManagement.GUI
                     }
                     else // currentSL == 1 -> xóa hẳn dịch vụ khỏi danh sách đã chọn
                     {
-                        // Đánh dấu CTDV này là đã xóa + set SL = 0 để InsertOrUpdateList xử lý
+                        // Đánh dấu CTDV này là đã xóa + set SL = 0 
                         cTDV.SL = 0;
                         cTDV.ThanhTien = 0;
                         cTDV.DaXoa = true;
@@ -446,7 +476,7 @@ namespace HotelManagement.GUI
             HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.gridDichVu);
             HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.dgvDVDaChon);
         }
-
+        // Thay đổi con trỏ chuột thành hình bàn tay khi di chuột vào cột 3 của gridDichVu
         private void gridDichVu_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -455,12 +485,13 @@ namespace HotelManagement.GUI
             else
                 gridDichVu.Cursor = Cursors.Default;
         }
-
+        // Khi chuột rời khỏi ô → trả con trỏ về mặc định
         private void gridDichVu_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             gridDichVu.Cursor = Cursors.Default;
         }
 
+        // Thay đổi con trỏ chuột thành hình bàn tay khi di chuột vào cột 3 của dgvDVDaChon
         private void dgvDVDaChon_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -469,33 +500,31 @@ namespace HotelManagement.GUI
             else
                 dgvDVDaChon.Cursor = Cursors.Default;
         }
-
+        // Khi chuột rời khỏi ô → trả con trỏ về mặc định
         private void dgvDVDaChon_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             dgvDVDaChon.Cursor = Cursors.Default;
         }
 
+        // Hàm tìm dịch vụ theo tên
         private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
         {
-            CTTextBox txt = sender as CTTextBox;   // <-- QUAN TRỌNG
-            if (txt == null) return;
-
-            string keyword = txt.Texts;
-
+            CTTextBox txt = sender as CTTextBox;   
+            if (txt == null)
+            {
+                LoadGridDichVu();
+                 return;
+            } 
+            string keyword = txt.Texts.Trim().ToLower();
             // Nếu textbox mất focus (người dùng xóa text bằng code), load lại toàn bộ
             if (!txt.Focused)
             {
                 LoadGridDichVu();
                 return;
             }
-
             // Lọc trên danh sách dịch vụ hiện tại
-                 var filtered = dichVus
-                .Where(x => x.TenDV.Contains(keyword))
-                .ToList();
-
+                 var filtered = dichVus .Where(x => x.TenDV.Contains(keyword)) .ToList();
             gridDichVu.Rows.Clear();
-
             foreach (DichVu v in filtered)
             {
                 if (v.SLConLai == -1)

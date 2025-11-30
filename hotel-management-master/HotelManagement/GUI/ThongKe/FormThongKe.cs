@@ -19,8 +19,6 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Drawing.Printing;
-using System.Runtime.InteropServices;
-
 
 namespace HotelManagement.GUI.ThongKe
 {

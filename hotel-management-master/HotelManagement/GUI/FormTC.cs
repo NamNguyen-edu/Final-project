@@ -1,5 +1,5 @@
 ﻿using HotelManagement.CTControls;
-using HotelManagement.DAO;   
+using HotelManagement.DAO;
 using HotelManagement.DTO;
 using System;
 using System.Drawing;
@@ -9,7 +9,6 @@ using System.Text;
 using System.Windows.Forms;
 
 namespace HotelManagement.GUI
-
 {
     public partial class FormTC : Form
     {
@@ -19,29 +18,23 @@ namespace HotelManagement.GUI
         private PhieuThue phieuThue;
         private Image _iconCheckin;
 
-
-
+        // Hàm khởi tạo mặc định, dùng khi không truyền FormMain
         public FormTC()
         {
             InitializeComponent();
         }
 
+        // Hàm khởi tạo nhận FormMain, dùng để liên kết với form chính và xử lý layout theo formMain
         public FormTC(FormMain formMain)
         {
             this.formMain = formMain;
             InitializeComponent();
-            panelUser.SizeChanged += panelUser_SizeChanged;
+        } 
 
-        }
-
-        private void panelUser_SizeChanged(object sender, EventArgs e)
-        {
-
-        }
+        // Sự kiện Load của FormTC, thiết lập giao diện ban đầu và tải dữ liệu tổng quan
         private void FormTC_Load(object sender, EventArgs e)
         {
-            var iconGoc = Properties.Resources.checkin; 
-
+            var iconGoc = Properties.Resources.checkin;
             _iconCheckin = new Bitmap(iconGoc, new Size(24, 24));
 
             SetupGridCheckin();
@@ -56,64 +49,66 @@ namespace HotelManagement.GUI
             SetupOverviewCardHover(ovItem2);
             SetupOverviewCardHover(ovItem3);
             SetupOverviewCardHover(ovItem4);
-            // Font header
+
             gridCheckin.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
 
-            // Font nội dung
             gridCheckin.DefaultCellStyle.Font =
                 new Font("Segoe UI", 11F, FontStyle.Regular);
             gridCheckin.DefaultCellStyle.Alignment =
-            DataGridViewContentAlignment.MiddleCenter;
+                DataGridViewContentAlignment.MiddleCenter;
+
             Color rowColor = Color.FromArgb(254, 241, 214);
             gridCheckin.DefaultCellStyle.BackColor = rowColor;
             gridCheckin.DefaultCellStyle.SelectionBackColor = rowColor;
             gridCheckin.DefaultCellStyle.SelectionForeColor =
                 gridCheckin.DefaultCellStyle.ForeColor;
 
-            // (option) căn giữa header
             gridCheckin.ColumnHeadersDefaultCellStyle.Alignment =
                 DataGridViewContentAlignment.MiddleCenter;
 
-            // (option) căn giữa cột giờ + check-in
             Colgio.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColCheckin.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
+        // Sự kiện Tick của timer thời gian, cập nhật giờ hệ thống và danh sách thông báo check-in
         private void timerDateTime_Tick(object sender, EventArgs e)
         {
             UpdateDateTimeLabel();
             LoadThongBaoCheckIn();
         }
+
+        // Sự kiện thay đổi kích thước panelTop, canh giữa label ngày giờ theo panel
         private void panelTop_SizeChanged(object sender, EventArgs e)
         {
-            // canh giữa lblDate theo panelTop
             int x = (panelTop.Width - lblDate.Width) / 2;
             int y = (panelTop.Height - lblDate.Height) / 2;
             lblDate.Location = new System.Drawing.Point(x, y);
         }
 
+        // Cập nhật nội dung label ngày giờ theo thời gian hiện tại, định dạng tiếng Việt
         private void UpdateDateTimeLabel()
         {
             DateTime now = DateTime.Now;
 
             string[] thuVN =
             {
-                "Chủ nhật",  // 0
-                "Thứ hai",   // 1
-                "Thứ ba",    // 2
-                "Thứ tư",    // 3
-                "Thứ năm",   // 4
-                "Thứ sáu",   // 5
-                "Thứ bảy"    // 6
+                "Chủ nhật",  
+                "Thứ hai",   
+                "Thứ ba",    
+                "Thứ tư",    
+                "Thứ năm",   
+                "Thứ sáu",   
+                "Thứ bảy"    
             };
 
             string thuText = thuVN[(int)now.DayOfWeek];
             lblDate.Text = $"{thuText}, {now:dd/MM/yyyy - HH:mm tt}";
-            // cập nhật lại vị trí cho đúng giữa
+
             panelTop_SizeChanged(null, EventArgs.Empty);
         }
 
+        // Sự kiện click nút Đặt phòng, mở form đặt phòng mới
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
             try
@@ -126,13 +121,12 @@ namespace HotelManagement.GUI
             catch (Exception ex)
             {
                 CTMessageBox.Show(ex.Message, "Thông báo",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-            }
+   
         }
+
+        // Tải số liệu thống kê phòng: đang thuê, đã đặt, chưa dọn, đang sửa chữa và hiển thị lên các thẻ tổng quan
         private void LoadThongKePhong()
         {
             DateTime today = DateTime.Today;
@@ -145,7 +139,7 @@ namespace HotelManagement.GUI
                                 .Where(p => p.DaXoa == false)
                                 .ToList();
 
-            // ==== 1. ĐANG THUÊ từ hôm nay trở đi ====
+            // Số phòng ĐANG THUÊ từ hôm nay trở đi
             int soDangThue = listCTDP
                 .Where(p =>
                        !string.IsNullOrWhiteSpace(p.TrangThai)
@@ -156,7 +150,7 @@ namespace HotelManagement.GUI
                 .Distinct()
                 .Count();
 
-            // ==== 2. ĐÃ ĐẶT trong hôm nay ====
+            // Số phòng ĐÃ ĐẶT trong hôm nay
             int soDaDat = listCTDP
                 .Where(p =>
                        !string.IsNullOrWhiteSpace(p.TrangThai)
@@ -167,7 +161,7 @@ namespace HotelManagement.GUI
                 .Distinct()
                 .Count();
 
-            // ==== 3 + 4. CHƯA DỌN + ĐANG SỬA CHỮA (lấy từ Phòng) ====
+            // Số phòng CHƯA DỌN + ĐANG SỬA CHỮA (lấy từ bảng Phòng)
             var phongs = PhongDAO.Instance.GetAllPhongs();
 
             int soChuaDon = phongs.Count(p => p.TTDD != null
@@ -181,10 +175,10 @@ namespace HotelManagement.GUI
             lblOv4Value.Text = $"{soDangSua} phòng";
         }
 
+        // Tải và hiển thị thông tin nhân viên đăng nhập trên panel người dùng
         private void LoadThongTinNhanVien()
         {
-  
-            // chỉ NV (CapDoQuyen = 1) mới có panel này
+            // Chỉ nhân viên (CapDoQuyen = 1) mới có panel này
             if (formMain == null || formMain.TaiKhoanDangNhap == null)
                 return;
 
@@ -193,26 +187,25 @@ namespace HotelManagement.GUI
             if (tk.CapDoQuyen != 1)   // 1 = Nhân viên
                 return;
 
-            // tk.NhanVien đã được EF map sẵn (bạn đã dùng ở FormMain)
             var nv = tk.NhanVien;
             if (nv == null) return;
 
-            lblUserName.Text = nv.TenNV;          
-            lblUserRole.Text = nv.ChucVu;         
+            lblUserName.Text = nv.TenNV;
+            lblUserRole.Text = nv.ChucVu;
             lblUserPhone.Text = "📞 " + nv.SDT;
             lblUserMail.Text = "✉️ " + nv.Email;
         }
 
+        // Tải danh sách thông báo chăm sóc khách hàng trong ngày và hiển thị trên FlowLayoutPanel
         private void LoadThongBaoCSKH()
         {
-            flowLayoutPanelCSKH.Controls.Clear();   // panel chứa các thông báo
+            flowLayoutPanelCSKH.Controls.Clear();   
 
             var list = CSKH_ThongBao_DAO.LayThongBaoHomNay();
             if (list == null || list.Count == 0) return;
 
             foreach (var tb in list)
             {
-                // ===== Panel chứa 1 thông báo =====
                 Panel p = new Panel
                 {
                     Width = 320,
@@ -221,18 +214,16 @@ namespace HotelManagement.GUI
                     Margin = new Padding(0, 0, 0, 8)
                 };
 
-                // ===== Dòng 1: Phòng + nội dung (IN ĐẬM, có xuống dòng) =====
                 Label lblNoiDung = new Label
                 {
                     AutoSize = true,
-                    MaximumSize = new Size(280, 0),   // giới hạn ngang, cao tự tăng
+                    MaximumSize = new Size(280, 0),   
                     Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold),
                     Location = new Point(15, 10),
                     Text = $"Phòng {tb.MaPH}: {tb.NoiDung}",
                     AutoEllipsis = false
                 };
 
-                // ===== Dòng 2: Thời gian gửi =====
                 Label lblTime = new Label
                 {
                     AutoSize = true,
@@ -249,9 +240,9 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Thiết lập các thuộc tính cơ bản cho grid danh sách thông báo check-in
         private void SetupGridCheckin()
         {
-
             if (gridCheckin == null) return;
 
             gridCheckin.ReadOnly = true;
@@ -259,10 +250,11 @@ namespace HotelManagement.GUI
             gridCheckin.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridCheckin.RowHeadersVisible = false;
 
-            // để click được nút check-in nhanh
+            // Gắn sự kiện CellClick để có thể click nút check-in nhanh
             gridCheckin.CellClick += gridCheckin_CellClick;
-
         }
+
+        // Tải danh sách thông báo check-in đến giờ và đổ dữ liệu vào grid
         private void LoadThongBaoCheckIn()
         {
             DateTime now = DateTime.Now;
@@ -273,15 +265,15 @@ namespace HotelManagement.GUI
             // Lấy tất cả phòng "Đã đặt" trong hôm nay, đã tới giờ check-in
             var list = CTDP_DAO.Instance.GetCTDPs()
                          .Where(p => p.DaXoa == false
-                                  && p.TrangThai.Trim() == "Đã cọc"   
-                                  && p.CheckIn.Date == now.Date      
-                                  && p.CheckIn >= now)                
+                                  && p.TrangThai.Trim() == "Đã cọc"
+                                  && p.CheckIn.Date == now.Date
+                                  && p.CheckIn >= now)
                          .OrderBy(p => p.CheckIn)
                          .ToList();
 
             lblNoti1Title.Text = "Thông báo giờ check - in";
 
-            // ===== Đổ vào grid =====
+            // Đổ dữ liệu vào grid
             gridCheckin.Rows.Clear();
 
             if (list.Any())
@@ -296,6 +288,8 @@ namespace HotelManagement.GUI
                 }
             }
         }
+
+        // Xử lý sự kiện click trên grid check-in, mở nhanh form sơ đồ phòng với filter phù hợp
         private void gridCheckin_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
@@ -311,40 +305,40 @@ namespace HotelManagement.GUI
 
             try
             {
-                // Mở sơ đồ phòng, filter "Phòng đã đặt" và tự mở đúng phòng
+                // Mở sơ đồ phòng, lọc "Phòng đã đặt" và tự mở đúng phòng
                 OpenSoDoPhongAndFilter(f =>
                 {
-                    // hiển thị tab phòng ĐÃ ĐẶT
+                    // Hiển thị tab phòng ĐÃ ĐẶT
                     f.ShowPhongDaDat();
 
-                    // tự động mở card phòng đã đặt tương ứng
+                    // Tự động mở card phòng đã đặt tương ứng
                     f.OpenPhongDaDatNhanh(maPhong);
                 });
-
             }
             catch (Exception ex)
             {
                 CTMessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Hàm mở Form Sơ đồ phòng trong FormMain và áp dụng filter tùy biến
         private void OpenSoDoPhongAndFilter(Action<FormSoDoPhong> applyFilter)
         {
             if (formMain == null || formMain.TaiKhoanDangNhap == null)
                 return;
 
-            // tạo form sơ đồ phòng
+            // Tạo form Sơ đồ phòng
             var f = new FormSoDoPhong(formMain, formMain.TaiKhoanDangNhap);
 
-            // mở trong FormMain
+            // Mở form trong FormMain
             formMain.openChildForm(f);
 
-            // áp filter tương ứng
+            // Áp dụng filter tương ứng
             applyFilter?.Invoke(f);
         }
 
         private void SetupOverviewCardHover(Panel card)
         {
-            // lưu màu gốc vào Tag để lát còn trả lại
             card.Tag = card.BackColor;
             card.Cursor = Cursors.Hand;
 
@@ -353,7 +347,6 @@ namespace HotelManagement.GUI
             card.MouseDown += OverviewCard_MouseDown;
             card.MouseUp += OverviewCard_MouseUp;
 
-            // đảm bảo khi rê vào label / picture bên trong vẫn đổi màu card
             foreach (Control c in card.Controls)
             {
                 c.Cursor = Cursors.Hand;
@@ -369,10 +362,8 @@ namespace HotelManagement.GUI
             var p = sender as Panel;
             if (p == null) return;
 
-            // màu hover sáng hơn xíu
             p.BackColor = Color.FromArgb(233, 117, 32);
             p.ForeColor = Color.White;
-            //p.BorderStyle = BorderStyle.FixedSingle;
         }
 
         private void OverviewCard_MouseLeave(object sender, EventArgs e)
@@ -380,7 +371,6 @@ namespace HotelManagement.GUI
             var p = sender as Panel;
             if (p == null) return;
 
-            // trả lại màu gốc
             if (p.Tag is Color origin)
                 p.BackColor = origin;
             p.ForeColor = Color.Black;
@@ -392,9 +382,6 @@ namespace HotelManagement.GUI
         {
             var p = sender as Panel;
             if (p == null) return;
-
-            //// nhấn xuống thì tối lại chút
-            //p.BackColor = Color.FromArgb(250, 230, 200);
         }
 
         private void OverviewCard_MouseUp(object sender, MouseEventArgs e)
@@ -402,37 +389,34 @@ namespace HotelManagement.GUI
             var p = sender as Panel;
             if (p == null) return;
 
-            // nhả ra thì về lại màu hover
             p.BackColor = Color.FromArgb(255, 244, 220);
         }
 
-
-        // Đang thuê
+        // Sự kiện click thẻ tổng quan 1: hiển thị phòng đang thuê trên sơ đồ phòng
         private void ovItem1_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDangThue());
         }
 
-        // Đã đặt
+        // Sự kiện click thẻ tổng quan 2: hiển thị phòng đã đặt trên sơ đồ phòng
         private void ovItem2_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDaDat());
         }
 
-        // Chưa dọn
+        // Sự kiện click thẻ tổng quan 3: hiển thị phòng chưa dọn trên sơ đồ phòng
         private void ovItem3_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongChuaDon());
         }
 
-        // Đang sửa chữa
+        // Sự kiện click thẻ tổng quan 4: hiển thị phòng đang sửa chữa trên sơ đồ phòng
         private void ovItem4_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDangSuaChua());
         }
 
-
-        // ====== nếu sau này muốn dùng âm thanh trên form này ======
+        // Phát nhạc nền cho form (nếu cần sử dụng âm thanh trên form này)
         private void PlayMusic()
         {
             if (Properties.Resources.audiotrangchu != null)
@@ -443,6 +427,7 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Dừng phát nhạc nền trên form
         private void StopMusic()
         {
             if (player != null)
@@ -451,7 +436,5 @@ namespace HotelManagement.GUI
                 isMusicPlaying = false;
             }
         }
-
-
     }
 }

@@ -44,14 +44,14 @@ namespace ApplicationSettings
                     System.Globalization.NumberFormatInfo nfi = new System.Globalization.NumberFormatInfo();
                     nfi.NumberGroupSeparator = ",";
                     double nValue = 0;
-                    bool bError = false;
+                    
                     try
                     {
                         nValue = double.Parse(textBox1.Text, System.Globalization.NumberStyles.AllowThousands, nfi);
                     }
                     catch (System.Exception se)
                     {
-                        bError = true;
+                       
                         System.Windows.Forms.MessageBox.Show("Error : " + se.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     finally

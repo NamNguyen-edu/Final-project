@@ -21,6 +21,7 @@ namespace HotelManagement.BUS
         {
             return TienNghiDAO.Instance.GetTienNghis();
         }
+        // Tìm tiện nghi theo mã
         public TienNghi FindTienNghi(string MaTN)
         {
             return TienNghiDAO.Instance.FindTienNghi(MaTN);
@@ -29,14 +30,17 @@ namespace HotelManagement.BUS
         {
             TienNghiDAO.Instance.RemoveTN(tienNghi);
         }
+        // Thêm hoặc cập nhật tiện nghi 
         public void InsertOrUpdate(TienNghi tienNghi)
         {
             TienNghiDAO.Instance.InsertOrUpdate(tienNghi);
         }
+        // Tìm dịch vụ theo tên 
         public List<TienNghi> FindTienNghiWithName(string name)
         {
             return TienNghiDAO.Instance.FindTienNghiWithName(name);
         }
+        // Lấy mã tiện nghi tiếp theo 
         public string GetMaTNNext()
         {
             return TienNghiDAO.Instance.GetMaTNNext();

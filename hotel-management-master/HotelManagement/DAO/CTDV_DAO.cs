@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagement.DAO
 {
+
     internal class CTDV_DAO
     {
         HotelDTO db = new HotelDTO();
@@ -18,7 +19,7 @@ namespace HotelManagement.DAO
             private set { instance = value; }
         }
         private CTDV_DAO() { }
-
+        // Tìm các dịch vụ đã được thêm vào lượt đặt phòng hiện tại
         public List<CTDV> FindCTDV(string MaCTDP)
         {
 

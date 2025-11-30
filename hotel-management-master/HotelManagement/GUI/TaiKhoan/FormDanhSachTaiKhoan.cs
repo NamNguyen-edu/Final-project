@@ -15,19 +15,20 @@ namespace HotelManagement.GUI
 {
     public partial class FormDanhSachTaiKhoan : Form
     {
+        // Hàm khởi tạo biến ban đầu
         private Image TK = Properties.Resources.TaiKhoan;
         private Image edit = Properties.Resources.edit;
         private Image delete = Properties.Resources.delete;
         private List<TaiKhoan> taiKhoans;
         private FormMain formMain;
-
+        // Hàm khởi tạo Form
         public FormDanhSachTaiKhoan(FormMain formMain)
         {
             InitializeComponent();
             this.formMain = formMain;
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
-
+        // Mở form thêm tài khoản 
         private void CTButtonThemTaiKhoan_Click(object sender, EventArgs e)
         {
             FormBackground formBackground = new FormBackground(formMain);
@@ -53,7 +54,7 @@ namespace HotelManagement.GUI
                 formBackground.Dispose(); 
             }
         }
-
+        // Hiển thị danh sách tài khoản
         private void FormDanhSachTaiKhoan_Load(object sender, EventArgs e)
         {
             LoadAllGrid();
@@ -62,7 +63,7 @@ namespace HotelManagement.GUI
             grid.Rows.Add(new object[] { TK, "xyz123", "Phan Tuấn Thành", "3", edit, delete });
             grid.Rows.Add(new object[] { TK, "abc123", "Phan Tuấn Thành", "3", edit, delete });*/
         }
-
+        // Lấy danh sách tất cả tài khoản
         public void LoadAllGrid()
         {
             try
@@ -75,7 +76,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }   
-
+        // Lấy danh sách tài khoản phù hợp 
         private void LoadGrid()
         {
             try
@@ -91,7 +92,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
-
+        // Xuất danh sách tài khoản ra Excel
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -104,14 +105,14 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Get Header text of Column
+                    // Lấy tiêu đề cột
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Get data of cells
+                    // Lấy dữ liệu từng ô 
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
@@ -135,13 +136,13 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // Xử lý việc nhấn chức năng
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // If click Update button 
+                // Khi nhấn cập nhật
                 if (x == 4)
                 {
                     FormBackground formBackground = new FormBackground(formMain);
@@ -167,7 +168,7 @@ namespace HotelManagement.GUI
                 }
                 if (x == 5)
                 {
-                    // If click Delete button 
+                    // Khi nhấn xóa 
                     DialogResult dialogresult = CTMessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo",
                                              MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (dialogresult == DialogResult.Yes)
@@ -203,7 +204,7 @@ namespace HotelManagement.GUI
             else
                 grid.Cursor = Cursors.Default;
         }
-
+        // Tìm tài khoản theo tên
         private void CTTextBoxTimTheoTenTaiKhoan__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxTaiKhoan = sender as TextBox;

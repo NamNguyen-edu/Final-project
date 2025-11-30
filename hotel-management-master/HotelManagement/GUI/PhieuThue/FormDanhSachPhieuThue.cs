@@ -2,15 +2,9 @@
 using HotelManagement.CTControls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.DTO;
-using HotelManagement.DAO;
 
 namespace HotelManagement.GUI
 {
@@ -21,7 +15,7 @@ namespace HotelManagement.GUI
         private List<PhieuThue> phieuThues;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
-
+        // Khởi tạo Form
         public FormDanhSachPhieuThue(FormMain formMain,TaiKhoan taiKhoan)
         {
             this.taiKhoan = taiKhoan;
@@ -30,6 +24,7 @@ namespace HotelManagement.GUI
             HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
+        // Xử lý việc đặt phòng
         private void CTButtonDatPhong_Click(object sender, EventArgs e)
         {
             FormBackground formBackground = new FormBackground(formMain);
@@ -60,7 +55,7 @@ namespace HotelManagement.GUI
             grid.Rows.Add(new object[] {PT, "PT004", "Phan Tuấn Thành", "10/11/2003 15:45:00", "Nguyễn Văn Anh", details });*/
             LoadFullDataGrid();
         }
-
+        // Lấy tất cả phiếu thuê
         public void LoadFullDataGrid()
         {
             try
@@ -73,6 +68,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }    
+        // Lấy phiếu thuê lấp đầy GridView
         public void LoadDataGrid()
         {
             try
@@ -88,7 +84,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }    
-
+        // Xuất tất cả phiếu thuê ra Excel
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -185,7 +181,6 @@ namespace HotelManagement.GUI
             this.phieuThues = PhieuThueBUS.Instance.GetPhieuThuesWithNameCus(textBoxPT.Text);
             LoadDataGrid();
         }
-
 
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {

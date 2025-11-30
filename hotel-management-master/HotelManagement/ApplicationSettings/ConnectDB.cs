@@ -7,6 +7,7 @@ using System.Configuration;
 
 namespace HotelManagement.ApplicationSettings
 {
+    // Kết nối CSDL
     internal class ConnectDB
     {
         Configuration config;
