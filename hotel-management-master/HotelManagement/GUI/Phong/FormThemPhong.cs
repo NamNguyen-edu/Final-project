@@ -213,5 +213,7 @@ namespace HotelManagement.GUI
                                   "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+      
     }
 }

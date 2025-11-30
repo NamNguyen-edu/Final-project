@@ -52,14 +52,16 @@
             // 
             // PanelBackground
             // 
+            this.PanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.PanelBackground.Controls.Add(this.LabelThemTaiKhoan);
             this.PanelBackground.Controls.Add(this.CTButtonThoat);
             this.PanelBackground.Controls.Add(this.CTButtonCapNhat);
             this.PanelBackground.Controls.Add(this.panel1);
             this.PanelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelBackground.Location = new System.Drawing.Point(0, 0);
+            this.PanelBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelBackground.Name = "PanelBackground";
-            this.PanelBackground.Size = new System.Drawing.Size(533, 498);
+            this.PanelBackground.Size = new System.Drawing.Size(711, 613);
             this.PanelBackground.TabIndex = 2;
             this.PanelBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelBackground_Paint);
             this.PanelBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelBackground_MouseDown);
@@ -70,9 +72,10 @@
             this.LabelThemTaiKhoan.BackColor = System.Drawing.Color.Transparent;
             this.LabelThemTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelThemTaiKhoan.ForeColor = System.Drawing.Color.Black;
-            this.LabelThemTaiKhoan.Location = new System.Drawing.Point(152, 9);
+            this.LabelThemTaiKhoan.Location = new System.Drawing.Point(232, 24);
+            this.LabelThemTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelThemTaiKhoan.Name = "LabelThemTaiKhoan";
-            this.LabelThemTaiKhoan.Size = new System.Drawing.Size(216, 37);
+            this.LabelThemTaiKhoan.Size = new System.Drawing.Size(267, 46);
             this.LabelThemTaiKhoan.TabIndex = 1;
             this.LabelThemTaiKhoan.Text = "Thêm tài khoản";
             // 
@@ -88,9 +91,10 @@
             this.CTButtonThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CTButtonThoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTButtonThoat.ForeColor = System.Drawing.Color.White;
-            this.CTButtonThoat.Location = new System.Drawing.Point(342, 445);
+            this.CTButtonThoat.Location = new System.Drawing.Point(456, 548);
+            this.CTButtonThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CTButtonThoat.Name = "CTButtonThoat";
-            this.CTButtonThoat.Size = new System.Drawing.Size(132, 40);
+            this.CTButtonThoat.Size = new System.Drawing.Size(176, 49);
             this.CTButtonThoat.TabIndex = 7;
             this.CTButtonThoat.Text = "Thoát";
             this.CTButtonThoat.TextColor = System.Drawing.Color.White;
@@ -109,9 +113,10 @@
             this.CTButtonCapNhat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CTButtonCapNhat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTButtonCapNhat.ForeColor = System.Drawing.Color.White;
-            this.CTButtonCapNhat.Location = new System.Drawing.Point(180, 445);
+            this.CTButtonCapNhat.Location = new System.Drawing.Point(240, 548);
+            this.CTButtonCapNhat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.CTButtonCapNhat.Name = "CTButtonCapNhat";
-            this.CTButtonCapNhat.Size = new System.Drawing.Size(140, 40);
+            this.CTButtonCapNhat.Size = new System.Drawing.Size(187, 49);
             this.CTButtonCapNhat.TabIndex = 6;
             this.CTButtonCapNhat.Text = "Thêm";
             this.CTButtonCapNhat.TextColor = System.Drawing.Color.White;
@@ -129,15 +134,16 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.CTTextBoxNhapMatKhau);
             this.panel1.Controls.Add(this.CTTextBoxNhapTenTaiKhoan);
-            this.panel1.Location = new System.Drawing.Point(56, 60);
+            this.panel1.Location = new System.Drawing.Point(75, 74);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(418, 370);
+            this.panel1.Size = new System.Drawing.Size(557, 455);
             this.panel1.TabIndex = 0;
             // 
             // comboBoxMaNV
             // 
             this.comboBoxMaNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.comboBoxMaNV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.comboBoxMaNV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.comboBoxMaNV.BorderSize = 2;
             this.comboBoxMaNV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMaNV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,19 +153,20 @@
             "  Admin",
             "  Quản lý",
             "  Lễ tân"});
-            this.comboBoxMaNV.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.comboBoxMaNV.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.comboBoxMaNV.ListTextColor = System.Drawing.Color.Black;
-            this.comboBoxMaNV.Location = new System.Drawing.Point(106, 44);
+            this.comboBoxMaNV.Location = new System.Drawing.Point(141, 54);
+            this.comboBoxMaNV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxMaNV.Name = "comboBoxMaNV";
-            this.comboBoxMaNV.Padding = new System.Windows.Forms.Padding(2);
-            this.comboBoxMaNV.Size = new System.Drawing.Size(159, 33);
+            this.comboBoxMaNV.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxMaNV.Size = new System.Drawing.Size(212, 41);
             this.comboBoxMaNV.TabIndex = 2;
             this.comboBoxMaNV.Texts = "  Mã nhân viên";
             // 
             // comboBoxCapDoQuyen
             // 
             this.comboBoxCapDoQuyen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.comboBoxCapDoQuyen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.comboBoxCapDoQuyen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.comboBoxCapDoQuyen.BorderSize = 2;
             this.comboBoxCapDoQuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCapDoQuyen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -169,71 +176,80 @@
             "  Admin",
             "  Quản lý",
             "  Lễ tân"});
-            this.comboBoxCapDoQuyen.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.comboBoxCapDoQuyen.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.comboBoxCapDoQuyen.ListTextColor = System.Drawing.Color.Black;
-            this.comboBoxCapDoQuyen.Location = new System.Drawing.Point(106, 290);
+            this.comboBoxCapDoQuyen.Location = new System.Drawing.Point(141, 357);
+            this.comboBoxCapDoQuyen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxCapDoQuyen.Name = "comboBoxCapDoQuyen";
-            this.comboBoxCapDoQuyen.Padding = new System.Windows.Forms.Padding(2);
-            this.comboBoxCapDoQuyen.Size = new System.Drawing.Size(159, 33);
+            this.comboBoxCapDoQuyen.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.comboBoxCapDoQuyen.Size = new System.Drawing.Size(212, 41);
             this.comboBoxCapDoQuyen.TabIndex = 5;
             this.comboBoxCapDoQuyen.Texts = "  Cấp độ quyền";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.admin;
-            this.pictureBox3.Location = new System.Drawing.Point(61, 291);
+            this.pictureBox3.Location = new System.Drawing.Point(91, 368);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 37);
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(61, 204);
+            this.pictureBox5.Location = new System.Drawing.Point(91, 265);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox5.TabIndex = 6;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::HotelManagement.Properties.Resources.CCCD;
-            this.pictureBox2.Location = new System.Drawing.Point(57, 45);
+            this.pictureBox2.Location = new System.Drawing.Point(79, 65);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(42, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.NameKH;
-            this.pictureBox1.Location = new System.Drawing.Point(61, 123);
+            this.pictureBox1.Location = new System.Drawing.Point(91, 159);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // CTTextBoxNhapMatKhau
             // 
             this.CTTextBoxNhapMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxNhapMatKhau.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxNhapMatKhau.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxNhapMatKhau.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapMatKhau.BorderRadius = 0;
             this.CTTextBoxNhapMatKhau.BorderSize = 2;
             this.CTTextBoxNhapMatKhau.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapMatKhau.ForeColor = System.Drawing.Color.Black;
             this.CTTextBoxNhapMatKhau.IsFocused = false;
-            this.CTTextBoxNhapMatKhau.Location = new System.Drawing.Point(106, 204);
-            this.CTTextBoxNhapMatKhau.Margin = new System.Windows.Forms.Padding(4);
+            this.CTTextBoxNhapMatKhau.Location = new System.Drawing.Point(141, 251);
+            this.CTTextBoxNhapMatKhau.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.CTTextBoxNhapMatKhau.Multiline = false;
             this.CTTextBoxNhapMatKhau.Name = "CTTextBoxNhapMatKhau";
-            this.CTTextBoxNhapMatKhau.Padding = new System.Windows.Forms.Padding(7);
+            this.CTTextBoxNhapMatKhau.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.CTTextBoxNhapMatKhau.PasswordChar = false;
             this.CTTextBoxNhapMatKhau.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapMatKhau.PlaceholderText = "Nhập mật khẩu";
             this.CTTextBoxNhapMatKhau.ReadOnly = false;
-            this.CTTextBoxNhapMatKhau.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxNhapMatKhau.Size = new System.Drawing.Size(333, 44);
             this.CTTextBoxNhapMatKhau.TabIndex = 4;
             this.CTTextBoxNhapMatKhau.Texts = "";
             this.CTTextBoxNhapMatKhau.UnderlineedStyle = true;
@@ -242,23 +258,23 @@
             // CTTextBoxNhapTenTaiKhoan
             // 
             this.CTTextBoxNhapTenTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxNhapTenTaiKhoan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxNhapTenTaiKhoan.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxNhapTenTaiKhoan.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapTenTaiKhoan.BorderRadius = 0;
             this.CTTextBoxNhapTenTaiKhoan.BorderSize = 2;
             this.CTTextBoxNhapTenTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapTenTaiKhoan.ForeColor = System.Drawing.Color.Black;
             this.CTTextBoxNhapTenTaiKhoan.IsFocused = false;
-            this.CTTextBoxNhapTenTaiKhoan.Location = new System.Drawing.Point(106, 118);
-            this.CTTextBoxNhapTenTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.CTTextBoxNhapTenTaiKhoan.Location = new System.Drawing.Point(141, 145);
+            this.CTTextBoxNhapTenTaiKhoan.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.CTTextBoxNhapTenTaiKhoan.Multiline = false;
             this.CTTextBoxNhapTenTaiKhoan.Name = "CTTextBoxNhapTenTaiKhoan";
-            this.CTTextBoxNhapTenTaiKhoan.Padding = new System.Windows.Forms.Padding(7);
+            this.CTTextBoxNhapTenTaiKhoan.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
             this.CTTextBoxNhapTenTaiKhoan.PasswordChar = false;
             this.CTTextBoxNhapTenTaiKhoan.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapTenTaiKhoan.PlaceholderText = "Nhập tên tài khoản";
             this.CTTextBoxNhapTenTaiKhoan.ReadOnly = false;
-            this.CTTextBoxNhapTenTaiKhoan.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxNhapTenTaiKhoan.Size = new System.Drawing.Size(333, 44);
             this.CTTextBoxNhapTenTaiKhoan.TabIndex = 3;
             this.CTTextBoxNhapTenTaiKhoan.Texts = "";
             this.CTTextBoxNhapTenTaiKhoan.UnderlineedStyle = true;
@@ -267,13 +283,14 @@
             // FormThemTaiKhoan
             // 
             this.AcceptButton = this.CTButtonCapNhat;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(533, 498);
+            this.ClientSize = new System.Drawing.Size(711, 613);
             this.Controls.Add(this.PanelBackground);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormThemTaiKhoan";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -287,6 +304,7 @@
             this.PanelBackground.ResumeLayout(false);
             this.PanelBackground.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -55,7 +55,7 @@ namespace HotelManagement.GUI
         }
 
 
-        #region Load Grid Checked
+        #region Kiểm tra tải grid đã chọn   
         private void LoadGridDaChonLanDau()
         {
             try
@@ -79,7 +79,7 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show(ex.Message); // Hiển thị lỗi nếu có
             }
         }
-
+        // Load lại grid đã chọn
         private void LoadGridDaChon()
         {
             try
@@ -89,9 +89,7 @@ namespace HotelManagement.GUI
                 {
                     if (v.SL != 0) // Chỉ hiển thị dịch vụ còn SL > 0
                     {
-
                         DichVu dichVu = DichVuBUS.Instance.FindDichVu(v.MaDV);
-
                         dgvDVDaChon.Rows.Add(dichVu.TenDV, v.SL, v.ThanhTien.ToString("#,#"), Del);
                     }
                 }
@@ -103,7 +101,7 @@ namespace HotelManagement.GUI
         }
         #endregion
 
-        #region LoadGridDV
+        #region Tải grid dịch vụ
         private void LoadGridDichVuLanDau()
         {
             try
@@ -442,7 +440,7 @@ namespace HotelManagement.GUI
                         dgvDVDaChon.Rows[y].Cells[1].Value = cTDV.SL;
                         dgvDVDaChon.Rows[y].Cells[2].Value = cTDV.ThanhTien.ToString("#,#");
                     }
-                    else // currentSL == 1 -> xóa hẳn dịch vụ khỏi danh sách đã chọn
+                    else // Số lượng hiện tại  == 1 sẽ xóa hẳn dịch vụ khỏi danh sách đã chọn
                     {
                         // Đánh dấu CTDV này là đã xóa + set SL = 0 
                         cTDV.SL = 0;
@@ -504,20 +502,6 @@ namespace HotelManagement.GUI
             {
                 LoadGridDichVu();
                 return;
-            }
-            string keyword = txt.Texts.Trim().ToLower();
-            // Lọc trên danh sách dịch vụ hiện tại (so sánh không phân biệt hoa thường)
-            var filtered = dichVus
-                .Where(x => x.TenDV != null && x.TenDV.ToLower().Contains(keyword))
-                .ToList();
-
-            gridDichVu.Rows.Clear();
-            foreach (DichVu v in filtered)
-            {
-                if (v.SLConLai == -1)
-                    gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), "", Add);
-                else
-                    gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), v.SLConLai, Add);
             }
         }
     }

@@ -53,7 +53,7 @@ namespace HotelManagement.DAO
             {
                 throw new Exception("CCCD phải đúng 12 chữ số.");
             }
-            if (!nhanVien.Email.Contains("@"))
+            if (!nhanVien.Email.Contains("@") || !nhanVien.Email.Contains((".")))
             {
                 throw new Exception("Email không hợp lệ.");
             }

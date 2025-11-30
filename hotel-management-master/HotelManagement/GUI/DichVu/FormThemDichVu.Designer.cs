@@ -58,7 +58,7 @@
             this.PanelBackground.Controls.Add(this.panel1);
             this.PanelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelBackground.Location = new System.Drawing.Point(0, 0);
-            this.PanelBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelBackground.Margin = new System.Windows.Forms.Padding(4);
             this.PanelBackground.Name = "PanelBackground";
             this.PanelBackground.Size = new System.Drawing.Size(711, 658);
             this.PanelBackground.TabIndex = 3;
@@ -78,7 +78,7 @@
             this.CTButtonThoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTButtonThoat.ForeColor = System.Drawing.Color.White;
             this.CTButtonThoat.Location = new System.Drawing.Point(460, 593);
-            this.CTButtonThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CTButtonThoat.Margin = new System.Windows.Forms.Padding(4);
             this.CTButtonThoat.Name = "CTButtonThoat";
             this.CTButtonThoat.Size = new System.Drawing.Size(176, 49);
             this.CTButtonThoat.TabIndex = 9;
@@ -100,7 +100,7 @@
             this.CTButtonCapNhat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTButtonCapNhat.ForeColor = System.Drawing.Color.White;
             this.CTButtonCapNhat.Location = new System.Drawing.Point(240, 593);
-            this.CTButtonCapNhat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CTButtonCapNhat.Margin = new System.Windows.Forms.Padding(4);
             this.CTButtonCapNhat.Name = "CTButtonCapNhat";
             this.CTButtonCapNhat.Size = new System.Drawing.Size(187, 49);
             this.CTButtonCapNhat.TabIndex = 8;
@@ -133,7 +133,7 @@
             this.panel1.Controls.Add(this.CTTextBoxSoLuong);
             this.panel1.Controls.Add(this.ctTextBoxMoTa);
             this.panel1.Location = new System.Drawing.Point(71, 74);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(565, 497);
             this.panel1.TabIndex = 0;
@@ -142,7 +142,7 @@
             // 
             this.pictureBox4.Image = global::HotelManagement.Properties.Resources.note;
             this.pictureBox4.Location = new System.Drawing.Point(102, 380);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -153,7 +153,7 @@
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.SoLuong;
             this.pictureBox3.Location = new System.Drawing.Point(102, 281);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -164,7 +164,7 @@
             // 
             this.pictureBox2.Image = global::HotelManagement.Properties.Resources.money;
             this.pictureBox2.Location = new System.Drawing.Point(102, 177);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -175,7 +175,7 @@
             // 
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.DichVu;
             this.pictureBox1.Location = new System.Drawing.Point(102, 64);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(30, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -185,7 +185,7 @@
             // ctTextBoxTenDV
             // 
             this.ctTextBoxTenDV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxTenDV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxTenDV.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxTenDV.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxTenDV.BorderRadius = 0;
             this.ctTextBoxTenDV.BorderSize = 2;
@@ -193,10 +193,10 @@
             this.ctTextBoxTenDV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             this.ctTextBoxTenDV.IsFocused = false;
             this.ctTextBoxTenDV.Location = new System.Drawing.Point(143, 50);
-            this.ctTextBoxTenDV.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ctTextBoxTenDV.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxTenDV.Multiline = false;
             this.ctTextBoxTenDV.Name = "ctTextBoxTenDV";
-            this.ctTextBoxTenDV.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.ctTextBoxTenDV.Padding = new System.Windows.Forms.Padding(9);
             this.ctTextBoxTenDV.PasswordChar = false;
             this.ctTextBoxTenDV.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxTenDV.PlaceholderText = "Tên dịch vụ";
@@ -210,7 +210,7 @@
             // CTTextBoxDonGia
             // 
             this.CTTextBoxDonGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxDonGia.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxDonGia.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxDonGia.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxDonGia.BorderRadius = 0;
             this.CTTextBoxDonGia.BorderSize = 2;
@@ -218,10 +218,10 @@
             this.CTTextBoxDonGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             this.CTTextBoxDonGia.IsFocused = false;
             this.CTTextBoxDonGia.Location = new System.Drawing.Point(143, 163);
-            this.CTTextBoxDonGia.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CTTextBoxDonGia.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxDonGia.Multiline = false;
             this.CTTextBoxDonGia.Name = "CTTextBoxDonGia";
-            this.CTTextBoxDonGia.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.CTTextBoxDonGia.Padding = new System.Windows.Forms.Padding(9);
             this.CTTextBoxDonGia.PasswordChar = false;
             this.CTTextBoxDonGia.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxDonGia.PlaceholderText = "Đơn giá";
@@ -235,7 +235,7 @@
             // CTTextBoxSoLuong
             // 
             this.CTTextBoxSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxSoLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxSoLuong.BorderRadius = 0;
             this.CTTextBoxSoLuong.BorderSize = 2;
@@ -243,10 +243,10 @@
             this.CTTextBoxSoLuong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             this.CTTextBoxSoLuong.IsFocused = false;
             this.CTTextBoxSoLuong.Location = new System.Drawing.Point(143, 267);
-            this.CTTextBoxSoLuong.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CTTextBoxSoLuong.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxSoLuong.Multiline = false;
             this.CTTextBoxSoLuong.Name = "CTTextBoxSoLuong";
-            this.CTTextBoxSoLuong.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.CTTextBoxSoLuong.Padding = new System.Windows.Forms.Padding(9);
             this.CTTextBoxSoLuong.PasswordChar = false;
             this.CTTextBoxSoLuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxSoLuong.PlaceholderText = "Số lượng còn lại";
@@ -260,7 +260,7 @@
             // ctTextBoxMoTa
             // 
             this.ctTextBoxMoTa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxMoTa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxMoTa.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxMoTa.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxMoTa.BorderRadius = 0;
             this.ctTextBoxMoTa.BorderSize = 2;
@@ -268,10 +268,10 @@
             this.ctTextBoxMoTa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             this.ctTextBoxMoTa.IsFocused = false;
             this.ctTextBoxMoTa.Location = new System.Drawing.Point(143, 366);
-            this.ctTextBoxMoTa.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ctTextBoxMoTa.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxMoTa.Multiline = false;
             this.ctTextBoxMoTa.Name = "ctTextBoxMoTa";
-            this.ctTextBoxMoTa.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.ctTextBoxMoTa.Padding = new System.Windows.Forms.Padding(9);
             this.ctTextBoxMoTa.PasswordChar = false;
             this.ctTextBoxMoTa.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxMoTa.PlaceholderText = "Mô tả";
@@ -291,7 +291,7 @@
             this.ClientSize = new System.Drawing.Size(711, 658);
             this.Controls.Add(this.PanelBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormThemDichVu";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
