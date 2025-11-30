@@ -1,5 +1,5 @@
 ﻿using HotelManagement.DTO;
-﻿using HotelManagement.CTControls;
+using HotelManagement.CTControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,12 +18,12 @@ namespace HotelManagement.GUI
 {
     public partial class FormSuaLoaiPhong : Form
     {
-        // Khai báo các biến ban đầu
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
+
         LoaiPhong loaiPhong;
-        // Hàm khởi tạo Form
+
         public FormSuaLoaiPhong(LoaiPhong loaiPhong)
         {
             this.DoubleBuffered = true;
@@ -33,11 +33,15 @@ namespace HotelManagement.GUI
             this.loaiPhong = loaiPhong;
             LoadForm();
         }
+
         #region Hiển thị Form 
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         protected override CreateParams CreateParams
         {
             get
@@ -48,7 +52,6 @@ namespace HotelManagement.GUI
             }
         }
 
-        // Hàm hiển thị s
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -61,6 +64,7 @@ namespace HotelManagement.GUI
             path.CloseFigure();
             return path;
         }
+
         private void ControlRegionAndBorder(Control control, float radius, Graphics graph, Color borderColor)
         {
             using (GraphicsPath roundPath = GetRoundedPath(control.ClientRectangle, radius))
@@ -71,6 +75,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
@@ -94,6 +99,7 @@ namespace HotelManagement.GUI
                 }
             }
         }
+
         private void DrawPath(Rectangle rect, Graphics graph, Color color)
         {
             using (GraphicsPath roundPath = GetRoundedPath(rect, borderRadius))
@@ -102,6 +108,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private struct FormBoundsColors
         {
             public Color TopLeftColor;
@@ -109,6 +116,7 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
+
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -118,7 +126,7 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        // Hàm xử lý sự kiện
+
         private void FormSuaLoaiPhong_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -126,6 +134,7 @@ namespace HotelManagement.GUI
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
@@ -133,20 +142,25 @@ namespace HotelManagement.GUI
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
+
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
+
         private void FormSuaLoaiPhong_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
         }
+
         private void FormSuaLoaiPhong_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
+
         private void FormSuaLoaiPhong_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
         }
+
         private void PanelBackground_Paint(object sender, PaintEventArgs e)
         {
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
@@ -157,6 +171,7 @@ namespace HotelManagement.GUI
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -166,9 +181,10 @@ namespace HotelManagement.GUI
         {
             this.ActiveControl = LabelSuaLoaiPhong;
         }
+
         #endregion
 
-        // Hiển thị tất cả thông tin trong loại phòng
+        // Nạp thông tin loại phòng hiện tại lên các ô nhập liệu (số giường, số người, giá, tên loại phòng)
         private void LoadForm()
         {
             CTTextBoxSoGiuong.RemovePlaceholder();
@@ -183,33 +199,42 @@ namespace HotelManagement.GUI
             ctTextBoxGiaGio.Texts = loaiPhong.GiaGio.ToString("#,#");
             CTTextBoxTenLoaiPhong.Texts = loaiPhong.TenLPH;
         }
-        // Xử lý việc cập nhật loại phòng
+
+        // Xử lý lưu cập nhật thông tin loại phòng sau khi người dùng chỉnh sửa
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-            // Gán giá trị các biến
+            // Lấy dữ liệu từ giao diện
             string TenLP = CTTextBoxTenLoaiPhong.Texts;
             string SoGiuong = CTTextBoxSoGiuong.Texts;
             string SoNguoi = ctTextBoxSoNguoi.Texts;
             string GiaNgay = ctTextBoxGiaNgay.Texts;
             string GiaGio = ctTextBoxGiaGio.Texts;
-            // Kiểm tra giá được nhập 
-            if (!LoaiPhongBUS.Instance.IsValidGia(decimal.Parse(GiaNgay), decimal.Parse(GiaGio), out string error)) 
+
+            // Kiểm tra đơn giá ngày/giờ hợp lệ theo nghiệp vụ
+            if (!LoaiPhongBUS.Instance.IsValidGia(decimal.Parse(GiaNgay), decimal.Parse(GiaGio), out string error))
             {
                 CTMessageBox.Show(error, "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            // Kiểm tra bắt buộc nhập đầy đủ thông tin
             if (TenLP == "" || SoGiuong == "" || SoNguoi == "" || GiaNgay == "" || GiaGio == "")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin loại phòng.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             try
             {
+                // Cập nhật lại các thuộc tính loại phòng từ dữ liệu giao diện
                 loaiPhong.GiaGio = decimal.Parse(GiaGio.Trim(','));
                 loaiPhong.GiaNgay = decimal.Parse(GiaNgay.Trim(','));
+
+                // Gửi yêu cầu cập nhật xuống tầng nghiệp vụ
                 LoaiPhongBUS.Instance.AddOrUpdate(loaiPhong);
+
                 CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

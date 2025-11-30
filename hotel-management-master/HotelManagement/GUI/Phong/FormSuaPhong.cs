@@ -177,12 +177,11 @@ namespace HotelManagement.GUI
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        // Thoát form sửa phòng
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        // Cập nhật thông tin phòng (lưu vào DB)
+        // Cập nhật thông tin phòng (lưu vào CSDL)
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             if (CTDP_BUS.Instance.HasFutureBookingForRoom(phong.MaPH, DateTime.Now))
@@ -232,7 +231,6 @@ namespace HotelManagement.GUI
                
             }
         }
-        // Set focus vào label khi load form
         private void FormSuaPhong_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelSuaPhong;

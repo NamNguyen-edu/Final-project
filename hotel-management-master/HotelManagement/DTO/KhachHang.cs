@@ -6,7 +6,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    // Lớp thực thể (Entity) đại diện bảng KhachHang trong cơ sở dữ liệu
+    // Lớp thực thể (Entity) đại diện bảng KhachHang trong CSDL
     [Table("KhachHang")]
     public partial class KhachHang
     {

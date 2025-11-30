@@ -15,62 +15,73 @@ namespace HotelManagement.GUI
 {
     public partial class FormDanhSachLoaiPhong : Form
     {
-        // Khai báo các biến ban đầu
         private Image LP = Properties.Resources.LoaiPhong;
+
         private Image edit = Properties.Resources.edit;
+
         private Image details = Properties.Resources.details;
+
         private List<LoaiPhong> loaiPhongs;
+
         private FormMain formMain;
+
         private TaiKhoan taiKhoan1;
-        // Hàm khởi tạo Form
-        public FormDanhSachLoaiPhong(FormMain formMain,TaiKhoan taiKhoan)
+
+        public FormDanhSachLoaiPhong(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
             this.formMain = formMain;
             this.taiKhoan1 = taiKhoan;
-            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this); // Áp dụng UI đẹp hơn 
+            HotelManagement.CTControls.ThemeManager.ApplyThemeToChild(this);
         }
 
-        // Hiển thị các loại phòng có sẵn
         private void FormDanhSachLoaiPhong_Load(object sender, EventArgs e)
         {
-            //grid.ColumnHeadersDefaultCellStyle.Font = new Font(grid.Font, FontStyle.Bold);
             LoadAllDataGrid();
-            /*grid.Rows.Add(new object[] { LP, "LP001", "Phòng đơn", "1", "2", "100,000", "50,000", edit, delete });
-            grid.Rows.Add(new object[] { LP, "LP002", "Phòng đôi", "2", "4", "200,000", "100,000", edit, delete });
-            grid.Rows.Add(new object[] { LP, "LP003", "Phòng VIP", "3", "8", "400,000", "200,000", edit, delete });*/
         }
-        
-        // Xử lý việc lấy và hiển thị tất cả loại phòng
+
+        // Tải toàn bộ danh sách loại phòng từ tầng nghiệp vụ và đổ dữ liệu lên lưới
         public void LoadAllDataGrid()
         {
             try
             {
-            this.loaiPhongs = LoaiPhongBUS.Instance.GetLoaiPhongs();
-            LoadDataGrid();
-            }    
-            catch(Exception ex)
+                this.loaiPhongs = LoaiPhongBUS.Instance.GetLoaiPhongs();
+                LoadDataGrid();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        // Xử lý việc lấy và hiển thị danh sách loại phòng
+
+        // Đổ danh sách loại phòng hiện tại (loaiPhongs) lên DataGridView
         private void LoadDataGrid()
         {
             try
             {
                 grid.Rows.Clear();
-                foreach(LoaiPhong loaiPhong in this.loaiPhongs)
+                foreach (LoaiPhong loaiPhong in this.loaiPhongs)
                 {
-                    grid.Rows.Add(LP, loaiPhong.MaLPH, loaiPhong.TenLPH, loaiPhong.SoGiuong, loaiPhong.SoNguoiToiDa, loaiPhong.GiaNgay.ToString("#,#"), loaiPhong.GiaGio.ToString("#,#"), details, edit);
-                }    
+                    grid.Rows.Add(
+                        LP,
+                        loaiPhong.MaLPH,
+                        loaiPhong.TenLPH,
+                        loaiPhong.SoGiuong,
+                        loaiPhong.SoNguoiToiDa,
+                        loaiPhong.GiaNgay.ToString("#,#"),
+                        loaiPhong.GiaGio.ToString("#,#"),
+                        details,
+                        edit
+                    );
+                }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }    
-        // Xuất danh sách các loại phòng sang Excel
+        }
+
+        // Xuất danh sách loại phòng trên lưới ra Excel sử dụng Interop
         private void buttonExport_Click(object sender, EventArgs e)
         {
             try
@@ -83,14 +94,14 @@ namespace HotelManagement.GUI
                     int row = grid.Rows.Count;
                     int col = grid.Columns.Count;
 
-                    // Lấy tiêu đề cột 
+                    // Lấy tiêu đề cột (bỏ cột icon đầu tiên và 2 cột cuối là nút)
                     for (int i = 1; i < col - 2 + 1; i++)
                     {
                         if (i == 1) continue;
                         XcelApp.Cells[1, i - 1] = grid.Columns[i - 1].HeaderText;
                     }
 
-                    // Lấy dữ liệu theo từng ô
+                    // Ghi dữ liệu từng ô xuống Excel
                     for (int i = 0; i < row; i++)
                     {
                         for (int j = 1; j < col - 2; j++)
@@ -115,12 +126,13 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Xử lý các thao tác click trên từng ô của DataGridView (xem chi tiết tiện nghi / sửa loại phòng)
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
             if (y >= 0)
             {
-                // IF click Details button
+                // Nếu click vào cột chi tiết tiện nghi (details)
                 if (x == 7)
                 {
                     FormBackground formBackground = new FormBackground(formMain);
@@ -128,7 +140,8 @@ namespace HotelManagement.GUI
                     {
                         string MaLP = grid.Rows[y].Cells[1].Value.ToString();
                         string TenLP = grid.Rows[y].Cells[2].Value.ToString();
-                        using (FormDanhSachChiTietTienNghi formDanhSachChiTietTienNghi = new FormDanhSachChiTietTienNghi(MaLP, TenLP, formMain,this.taiKhoan1))
+                        using (FormDanhSachChiTietTienNghi formDanhSachChiTietTienNghi =
+                               new FormDanhSachChiTietTienNghi(MaLP, TenLP, formMain, this.taiKhoan1))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -145,18 +158,22 @@ namespace HotelManagement.GUI
                     }
                     finally { formBackground.Dispose(); }
                 }
-                // If click Update button 
+
+                // Nếu click vào cột chỉnh sửa loại phòng (edit)
                 if (x == 8)
                 {
+                    // Kiểm tra quyền, nhân viên thường không được sửa loại phòng
                     if (taiKhoan1.CapDoQuyen == 1)
                     {
                         CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
                     FormBackground formBackground = new FormBackground(formMain);
                     try
                     {
-                        using (FormSuaLoaiPhong formSuaLoaiPhong = new FormSuaLoaiPhong(LoaiPhongBUS.Instance.getLoaiPhong(grid.Rows[y].Cells[1].Value.ToString())))
+                        using (FormSuaLoaiPhong formSuaLoaiPhong =
+                               new FormSuaLoaiPhong(LoaiPhongBUS.Instance.getLoaiPhong(grid.Rows[y].Cells[1].Value.ToString())))
                         {
                             formBackground.Owner = formMain;
                             formBackground.Show();
@@ -171,9 +188,9 @@ namespace HotelManagement.GUI
                         CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    finally 
+                    finally
                     {
-                        formBackground.Dispose(); 
+                        formBackground.Dispose();
                     }
                 }
             }
@@ -200,18 +217,24 @@ namespace HotelManagement.GUI
             textBoxFindNameLP.TextChanged += TextBoxFindNameLP_TextChanged;
         }
 
+        // Xử lý tìm kiếm loại phòng theo tên, cập nhật danh sách hiển thị trên lưới
         private void TextBoxFindNameLP_TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxFindNameLP = sender as TextBox;
 
+            // Nếu ô tìm kiếm không được focus (ví dụ đang hiển thị placeholder), tải lại toàn bộ dữ liệu
             if (textBoxFindNameLP.Focused == false)
             {
                 LoadAllDataGrid();
                 return;
             }
+
+            // Lọc loại phòng theo tên nhập vào và đổ lại dữ liệu lên lưới
             this.loaiPhongs = LoaiPhongBUS.Instance.getLoaiPhongWithName(textBoxFindNameLP.Text);
             LoadDataGrid();
         }
+
+        // Khi chuột rời khỏi ô, trả con trỏ về mặc định
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;

@@ -24,7 +24,6 @@ namespace HotelManagement.GUI
             InitializeComponent();
         }
 
-        // Hàm khởi tạo nhận FormMain, dùng để liên kết với form chính và xử lý layout theo formMain
         public FormTC(FormMain formMain)
         {
             this.formMain = formMain;
@@ -71,14 +70,12 @@ namespace HotelManagement.GUI
             ColCheckin.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
-        // Sự kiện Tick của timer thời gian, cập nhật giờ hệ thống và danh sách thông báo check-in
         private void timerDateTime_Tick(object sender, EventArgs e)
         {
             UpdateDateTimeLabel();
             LoadThongBaoCheckIn();
         }
 
-        // Sự kiện thay đổi kích thước panelTop, canh giữa label ngày giờ theo panel
         private void panelTop_SizeChanged(object sender, EventArgs e)
         {
             int x = (panelTop.Width - lblDate.Width) / 2;
@@ -86,7 +83,6 @@ namespace HotelManagement.GUI
             lblDate.Location = new System.Drawing.Point(x, y);
         }
 
-        // Cập nhật nội dung label ngày giờ theo thời gian hiện tại, định dạng tiếng Việt
         private void UpdateDateTimeLabel()
         {
             DateTime now = DateTime.Now;
@@ -327,13 +323,10 @@ namespace HotelManagement.GUI
             if (formMain == null || formMain.TaiKhoanDangNhap == null)
                 return;
 
-            // Tạo form Sơ đồ phòng
             var f = new FormSoDoPhong(formMain, formMain.TaiKhoanDangNhap);
 
-            // Mở form trong FormMain
             formMain.openChildForm(f);
 
-            // Áp dụng filter tương ứng
             applyFilter?.Invoke(f);
         }
 
@@ -392,31 +385,27 @@ namespace HotelManagement.GUI
             p.BackColor = Color.FromArgb(255, 244, 220);
         }
 
-        // Sự kiện click thẻ tổng quan 1: hiển thị phòng đang thuê trên sơ đồ phòng
         private void ovItem1_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDangThue());
         }
 
-        // Sự kiện click thẻ tổng quan 2: hiển thị phòng đã đặt trên sơ đồ phòng
         private void ovItem2_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDaDat());
         }
 
-        // Sự kiện click thẻ tổng quan 3: hiển thị phòng chưa dọn trên sơ đồ phòng
         private void ovItem3_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongChuaDon());
         }
 
-        // Sự kiện click thẻ tổng quan 4: hiển thị phòng đang sửa chữa trên sơ đồ phòng
         private void ovItem4_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDangSuaChua());
         }
 
-        // Phát nhạc nền cho form (nếu cần sử dụng âm thanh trên form này)
+
         private void PlayMusic()
         {
             if (Properties.Resources.audiotrangchu != null)

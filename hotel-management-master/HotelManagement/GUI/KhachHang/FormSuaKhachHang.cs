@@ -17,13 +17,10 @@ namespace HotelManagement.GUI
         private int borderSize = 2;
         private Color borderColor = Color.White;
 
-        // Đối tượng khách hàng cần chỉnh sửa
         KhachHang khachHang;
 
-        // Tham chiếu đến form danh sách khách hàng để reload dữ liệu sau khi cập nhật
         FormDanhSachKhachHang formDanhSachKhachHang;
 
-        // Hàm khởi tạo mặc định, dùng khi mở form độc lập
         public FormSuaKhachHang()
         {
             this.DoubleBuffered = true;
@@ -61,21 +58,18 @@ namespace HotelManagement.GUI
             this.ctTextBoxEmail.Texts = this.khachHang.Email;
         }
 
-        // Khai báo hàm WinAPI hỗ trợ kéo form không viền
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
-        // Khai báo hàm WinAPI gửi thông điệp để di chuyển form
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        // Ghi đè CreateParams để form không viền vẫn có thể thu nhỏ từ taskbar
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // Cho phép minimize form không viền từ taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
@@ -180,64 +174,54 @@ namespace HotelManagement.GUI
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
 
-        // Sự kiện Resize của form, yêu cầu vẽ lại giao diện
         private void FormSuaKhachHang_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
-        // Sự kiện thay đổi kích thước form, yêu cầu vẽ lại giao diện
         private void FormSuaKhachHang_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
-        // Sự kiện form được kích hoạt, yêu cầu vẽ lại giao diện
         private void FormSuaKhachHang_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
-        // Sự kiện Paint của panel nền, áp dụng bo góc và viền cho PanelBackground
         private void PanelBackground_Paint(object sender, PaintEventArgs e)
         {
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
         }
 
-        // Sự kiện nhấn chuột trên PanelBackground, cho phép kéo di chuyển form
         private void PanelBackground_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        // Sự kiện nhấn chuột trên PanelTop, cho phép kéo di chuyển form
         private void PanelTop_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        // Sự kiện click nút Thoát, đóng form sửa khách hàng
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        // Sự kiện text changed của ô tên (ctTextBox1), gắn KeyPress để chặn nhập số
         private void ctTextBox1__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxName = sender as TextBox;
             textBoxName.KeyPress += TextBoxName_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô tên khách hàng, chỉ cho phép nhập chữ, không cho nhập số
         private void TextBoxName_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
 
-        // Sự kiện text changed của ô CCCD/Passport (ctTextBox2), giới hạn độ dài và gắn KeyPress chỉ cho nhập số
         private void ctTextBox2__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxCCCD = sender as TextBox;
@@ -245,7 +229,6 @@ namespace HotelManagement.GUI
             textBoxCCCD.KeyPress += TextBoxCCCD_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô CCCD/Passport, chỉ cho phép nhập ký tự số
         private void TextBoxCCCD_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
@@ -348,7 +331,6 @@ namespace HotelManagement.GUI
             textBoxSDT.KeyPress += TextBoxSDT_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô số điện thoại, chỉ cho phép nhập ký tự số
         private void TextBoxSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
@@ -361,13 +343,11 @@ namespace HotelManagement.GUI
             textBoxQuocTich.KeyPress += TextBoxQuocTich_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô quốc tịch, chỉ cho phép nhập chữ, không cho phép nhập số
         private void TextBoxQuocTich_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
 
-        // Sự kiện Load của form, đặt focus ban đầu vào label tiêu đề sửa khách hàng
         private void FormSuaKhachHang_Load(object sender, EventArgs e)
         {
             this.ActiveControl = labelSuaKhachHang;

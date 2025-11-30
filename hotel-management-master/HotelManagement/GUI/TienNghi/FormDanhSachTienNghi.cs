@@ -16,14 +16,12 @@ namespace HotelManagement.GUI
 {
     public partial class FormDanhSachTienNghi : Form
     {
-        // Khai báo các biến ban đầu 
         List<TienNghi> tienNghis;
         private Image TN = Properties.Resources.TienNghi;
         private Image edit = Properties.Resources.edit;
         private Image delete = Properties.Resources.delete;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
-        // Khởi tạo cái Form
         public FormDanhSachTienNghi(FormMain formMain, TaiKhoan taiKhoan)
         {
             InitializeComponent();
@@ -62,9 +60,6 @@ namespace HotelManagement.GUI
 
         private void FormDanhSachTienNghi_Load(object sender, EventArgs e)
         {
-            /*grid.Rows.Add(new object[] { TN, "TN001", "Ti vi", edit, delete });
-            grid.Rows.Add(new object[] { TN, "TN002", "Máy lạnh", edit, delete });
-            grid.Rows.Add(new object[] {TN, "TN003", "Máy sấy", edit, delete });*/
             LoadAllData();
         }
         // Hiển thị tất cả tiện nghi 

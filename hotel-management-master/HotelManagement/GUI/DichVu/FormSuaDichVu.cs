@@ -18,13 +18,12 @@ namespace HotelManagement.GUI
 {
     public partial class FormSuaDichVu : Form
     {
-        // Các biến cho border và radius
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
         private DichVu dichVu;
         FormDanhSachDichVu formDanhSachDichVu;
-        // Khởi tạo form sửa dịch vụ
+
         public FormSuaDichVu()
         {
             this.DoubleBuffered = true;
@@ -32,7 +31,6 @@ namespace HotelManagement.GUI
             this.Padding = new Padding(borderSize);
             InitializeComponent();
         }
-        // Khởi tạo form sửa dịch vụ với dịch vụ cần sửa
         public FormSuaDichVu(DichVu dichVu,FormDanhSachDichVu formDanhSachDichVu)
         {
             this.DoubleBuffered = true;
@@ -130,36 +128,7 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+ 
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -176,18 +145,18 @@ namespace HotelManagement.GUI
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Căn Top Left
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Căn Top Right
+
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            // Căn Bottom Left
+
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Căn Bottom Right
+
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            // Cănh viền cho form
+
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormSuaDichVu_Resize(object sender, EventArgs e)

@@ -42,13 +42,12 @@ namespace HotelManagement
             this.Padding = new Padding(borderSize);
             InitializeComponent();
         }
-        // Kéo form khi giữ chuột trên icon
         private void pictureBoxIcon_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        // Kéo form khi giữ chuột trên panel login
+
         private void panelLogin_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -154,15 +153,7 @@ namespace HotelManagement
             }
             return fbColor;
         }
-        private FormBoundsColors GetSameDark()
-        {
-            FormBoundsColors colors = new FormBoundsColors();
-            colors.TopLeftColor = Color.FromArgb(67, 73, 73);
-            colors.TopRightColor = Color.FromArgb(67, 73, 73);
-            colors.BottomLeftColor = Color.FromArgb(67, 73, 73);
-            colors.BottomRightColor = Color.FromArgb(67, 73, 73);
-            return colors;
-        }
+
         private void FormLogin_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;

@@ -14,16 +14,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
 namespace HotelManagement.GUI
 {
     public partial class FormSuaNhanVien : Form
     {
-        //Fields
         private int borderRadius = 20;
+
         private int borderSize = 2;
+
         private Color borderColor = Color.White;
+
         NhanVien nhanVien;
-        //Constructor
+
         public FormSuaNhanVien()
         {
             this.DoubleBuffered = true;
@@ -31,6 +34,7 @@ namespace HotelManagement.GUI
             this.Padding = new Padding(borderSize);
             InitializeComponent();
         }
+
         public FormSuaNhanVien(NhanVien nhanVien)
         {
             this.DoubleBuffered = true;
@@ -40,24 +44,24 @@ namespace HotelManagement.GUI
             InitializeComponent();
             LoadForm();
         }
-        //Control Box
 
-        //Form Move
-
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000;
                 return cp;
             }
         }
+
+        // Nạp thông tin nhân viên lên các control nhập liệu trên form
         private void LoadForm()
         {
             this.CTTextBoxNhapCCCD.RemovePlaceholder();
@@ -74,7 +78,11 @@ namespace HotelManagement.GUI
             this.ctTextBoxSDT.Texts = this.nhanVien.SDT;
             this.CTTextBoxDiaChi.Texts = this.nhanVien.DiaChi;
             this.CTTextBoxNhapHoTen.Texts = this.nhanVien.TenNV;
-            this.CTTextBoxLuong.Texts = String.Format(System.Globalization.CultureInfo.CurrentCulture, "{0:C0}", this.nhanVien.Luong).Trim('$');
+            this.CTTextBoxLuong.Texts = String.Format(
+                System.Globalization.CultureInfo.CurrentCulture,
+                "{0:C0}",
+                this.nhanVien.Luong
+            ).Trim('$');
             this.cbChucVu.Texts = " " + this.nhanVien.ChucVu;
         }
 
@@ -90,6 +98,7 @@ namespace HotelManagement.GUI
             path.CloseFigure();
             return path;
         }
+
         private void ControlRegionAndBorder(Control control, float radius, Graphics graph, Color borderColor)
         {
             using (GraphicsPath roundPath = GetRoundedPath(control.ClientRectangle, radius))
@@ -100,6 +109,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
@@ -123,6 +133,7 @@ namespace HotelManagement.GUI
                 }
             }
         }
+
         private void DrawPath(Rectangle rect, Graphics graph, Color color)
         {
             using (GraphicsPath roundPath = GetRoundedPath(rect, borderRadius))
@@ -131,6 +142,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private struct FormBoundsColors
         {
             public Color TopLeftColor;
@@ -138,36 +150,8 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+
+      
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -177,26 +161,26 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-       // Phương thức sự kiện
+
         private void FormSuaNhanVien_Paint(object sender, PaintEventArgs e)
         {
-            
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            
-            DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);         
+
+            DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
-            DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);          
+            DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
-            DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);            
+            DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
 
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
+
         private void FormSuaNhanVien_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -222,6 +206,7 @@ namespace HotelManagement.GUI
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -232,11 +217,12 @@ namespace HotelManagement.GUI
             this.ActiveControl = LabelSuaNhanVien;
         }
 
+        // Xử lý lưu cập nhật thông tin nhân viên sau khi người dùng chỉnh sửa
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             try
             {
-                // Cập nhật lại giá trị từ form vào nhanVien hiện tại
+                // Gán lại giá trị từ control trên form vào đối tượng nhanVien
                 nhanVien.TenNV = CTTextBoxNhapHoTen.Texts;
                 nhanVien.ChucVu = cbChucVu.Texts;
                 nhanVien.CCCD = CTTextBoxNhapCCCD.Texts;
@@ -245,16 +231,27 @@ namespace HotelManagement.GUI
                 nhanVien.DiaChi = CTTextBoxDiaChi.Texts;
                 nhanVien.GioiTinh = ComboBoxGioiTinh.Texts.Trim();
                 nhanVien.NgaySinh = ctDatePicker1.Value;
-                nhanVien.Luong = CTTextBoxLuong.Texts == "" ? 0 : decimal.Parse(CTTextBoxLuong.Texts, System.Globalization.NumberStyles.Currency);
+                nhanVien.Luong = CTTextBoxLuong.Texts == ""
+                    ? 0
+                    : decimal.Parse(CTTextBoxLuong.Texts, System.Globalization.NumberStyles.Currency);
 
-                if (nhanVien.TenNV == "" || nhanVien.ChucVu == "" || nhanVien.CCCD == "" || nhanVien.SDT == "" || nhanVien.Email == "" || nhanVien.DiaChi == "" || nhanVien.GioiTinh == "" || nhanVien.NgaySinh.ToString() == "" || nhanVien.Luong.ToString() == "")
+                // Kiểm tra bắt buộc nhập đầy đủ các trường thông tin
+                if (nhanVien.TenNV == "" ||
+                    nhanVien.ChucVu == "" ||
+                    nhanVien.CCCD == "" ||
+                    nhanVien.SDT == "" ||
+                    nhanVien.Email == "" ||
+                    nhanVien.DiaChi == "" ||
+                    nhanVien.GioiTinh == "" ||
+                    nhanVien.NgaySinh.ToString() == "" ||
+                    nhanVien.Luong.ToString() == "")
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên.", "Thông báo",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Gọi BUSINESS LAYER
+                // Gọi tầng nghiệp vụ để cập nhật vào CSDL
                 NhanVienBUS.Instance.UpdateOrInsert(nhanVien);
                 CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -305,7 +302,6 @@ namespace HotelManagement.GUI
         private void TextBoxOnlyNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
-
         }
 
         private void CTTextBoxNhapCCCD_Load(object sender, EventArgs e)
