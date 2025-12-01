@@ -398,26 +398,5 @@ namespace HotelManagement.GUI
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDangSuaChua());
         }
-
-
-        private void PlayMusic()
-        {
-            if (Properties.Resources.audiotrangchu != null)
-            {
-                player = new SoundPlayer(Properties.Resources.audiotrangchu);
-                player.PlayLooping();
-                isMusicPlaying = true;
-            }
-        }
-
-        // Dừng phát nhạc nền trên form
-        private void StopMusic()
-        {
-            if (player != null)
-            {
-                player.Stop();
-                isMusicPlaying = false;
-            }
-        }
     }
 }
