@@ -497,14 +497,30 @@ namespace HotelManagement.GUI
         // Tìm dịch vụ theo tên 
         private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
         {
-            CTTextBox txt = sender as CTTextBox;
-            if (txt == null)
+            TextBox txt = sender as TextBox;
+            string keyword = txt.Text.Trim().ToLower();
+
+            // Khi ô tìm kiếm rỗng → hiển thị lại danh sách gốc (dichVus)
+            if (txt.Focused == false)
             {
                 LoadGridDichVu();
                 return;
             }
-            this.dichVus = DichVuBUS.Instance.FindDichVuWithName(txt.Texts);
-            LoadGridDichVu();
+
+            // Lọc dịch vụ theo tên (KHÔNG được thay đổi danh sách gốc)
+            var filtered = dichVus
+                .Where(d => d.TenDV.ToLower().Contains(keyword))
+                .ToList();
+
+            // Hiển thị kết quả lọc
+            gridDichVu.Rows.Clear();
+            foreach (DichVu dv in filtered)
+            {
+                if (dv.SLConLai == -1)
+                    gridDichVu.Rows.Add(dv.TenDV, dv.DonGia.ToString("#,#"), "", Add);
+                else
+                    gridDichVu.Rows.Add(dv.TenDV, dv.DonGia.ToString("#,#"), dv.SLConLai, Add);
+            }
         }
-    }
+        }
 }
