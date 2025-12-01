@@ -370,8 +370,8 @@ namespace HotelManagement.GUI
             // 
             // picAvatar
             // 
-            this.picAvatar.BackColor = System.Drawing.Color.LightPink;
-            this.picAvatar.Image = global::HotelManagement.Properties.Resources.avatar_nhanvien;
+            this.picAvatar.BackColor = System.Drawing.Color.Transparent;
+            this.picAvatar.Image = global::HotelManagement.Properties.Resources.avatar_nhanvien_removebg_preview;
             this.picAvatar.Location = new System.Drawing.Point(117, 37);
             this.picAvatar.Name = "picAvatar";
             this.picAvatar.Size = new System.Drawing.Size(130, 130);
