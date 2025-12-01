@@ -26,7 +26,7 @@ namespace HotelManagement.Utils
             try
             {
                 MailMessage mail = new MailMessage();
-                mail.From = new MailAddress(SmtpUser, "Hotel Management System");
+                mail.From = new MailAddress(SmtpUser, "Hotel Management System"); // Tên người dùng hiển thị khi gửi Email
                 mail.To.Add(toEmail);
                 mail.Subject = subject;
                 mail.Body = body;
@@ -34,7 +34,7 @@ namespace HotelManagement.Utils
                 mail.BodyEncoding = Encoding.UTF8;
 
                 SmtpClient smtp = new SmtpClient(SmtpHost, SmtpPort);
-                smtp.Credentials = new NetworkCredential(SmtpUser, SmtpPass);
+                smtp.Credentials = new NetworkCredential(SmtpUser, SmtpPass); // Truyền dữ liệu tài khoản sử dụng App Password
                 smtp.EnableSsl = true;
 
                 smtp.Send(mail);
