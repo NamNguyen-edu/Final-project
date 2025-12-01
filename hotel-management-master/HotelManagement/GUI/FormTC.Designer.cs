@@ -139,7 +139,7 @@ namespace HotelManagement.GUI
             this.lblDate.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblDate.Location = new System.Drawing.Point(20, 18);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(0, 23);
+            this.lblDate.Size = new System.Drawing.Size(0, 19);
             this.lblDate.TabIndex = 0;
             // 
             // btnDatPhong
@@ -179,7 +179,7 @@ namespace HotelManagement.GUI
             this.lblTongQuan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(90)))), ((int)(((byte)(40)))));
             this.lblTongQuan.Location = new System.Drawing.Point(28, 18);
             this.lblTongQuan.Name = "lblTongQuan";
-            this.lblTongQuan.Size = new System.Drawing.Size(167, 41);
+            this.lblTongQuan.Size = new System.Drawing.Size(131, 32);
             this.lblTongQuan.TabIndex = 0;
             this.lblTongQuan.Text = "Tổng quan";
             // 
@@ -210,7 +210,7 @@ namespace HotelManagement.GUI
             this.lblOv1Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblOv1Title.Location = new System.Drawing.Point(74, 14);
             this.lblOv1Title.Name = "lblOv1Title";
-            this.lblOv1Title.Size = new System.Drawing.Size(108, 28);
+            this.lblOv1Title.Size = new System.Drawing.Size(85, 21);
             this.lblOv1Title.TabIndex = 0;
             this.lblOv1Title.Text = "Đang thuê";
             this.lblOv1Title.Click += new System.EventHandler(this.ovItem1_Click);
@@ -221,7 +221,7 @@ namespace HotelManagement.GUI
             this.lblOv1Value.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblOv1Value.Location = new System.Drawing.Point(74, 44);
             this.lblOv1Value.Name = "lblOv1Value";
-            this.lblOv1Value.Size = new System.Drawing.Size(82, 25);
+            this.lblOv1Value.Size = new System.Drawing.Size(64, 20);
             this.lblOv1Value.TabIndex = 1;
             this.lblOv1Value.Text = "3 phòng";
             this.lblOv1Value.Click += new System.EventHandler(this.ovItem1_Click);
@@ -253,7 +253,7 @@ namespace HotelManagement.GUI
             this.lblOv2Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblOv2Title.Location = new System.Drawing.Point(74, 12);
             this.lblOv2Title.Name = "lblOv2Title";
-            this.lblOv2Title.Size = new System.Drawing.Size(71, 28);
+            this.lblOv2Title.Size = new System.Drawing.Size(57, 21);
             this.lblOv2Title.TabIndex = 0;
             this.lblOv2Title.Text = "Đã đặt";
             this.lblOv2Title.Click += new System.EventHandler(this.ovItem2_Click);
@@ -264,7 +264,7 @@ namespace HotelManagement.GUI
             this.lblOv2Value.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblOv2Value.Location = new System.Drawing.Point(74, 42);
             this.lblOv2Value.Name = "lblOv2Value";
-            this.lblOv2Value.Size = new System.Drawing.Size(82, 25);
+            this.lblOv2Value.Size = new System.Drawing.Size(64, 20);
             this.lblOv2Value.TabIndex = 1;
             this.lblOv2Value.Text = "5 phòng";
             this.lblOv2Value.Click += new System.EventHandler(this.ovItem2_Click);
@@ -296,7 +296,7 @@ namespace HotelManagement.GUI
             this.lblOv3Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblOv3Title.Location = new System.Drawing.Point(74, 14);
             this.lblOv3Title.Name = "lblOv3Title";
-            this.lblOv3Title.Size = new System.Drawing.Size(100, 28);
+            this.lblOv3Title.Size = new System.Drawing.Size(80, 21);
             this.lblOv3Title.TabIndex = 0;
             this.lblOv3Title.Text = "Chưa dọn";
             this.lblOv3Title.Click += new System.EventHandler(this.ovItem3_Click);
@@ -307,7 +307,7 @@ namespace HotelManagement.GUI
             this.lblOv3Value.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblOv3Value.Location = new System.Drawing.Point(75, 44);
             this.lblOv3Value.Name = "lblOv3Value";
-            this.lblOv3Value.Size = new System.Drawing.Size(82, 25);
+            this.lblOv3Value.Size = new System.Drawing.Size(64, 20);
             this.lblOv3Value.TabIndex = 1;
             this.lblOv3Value.Text = "5 phòng";
             this.lblOv3Value.Click += new System.EventHandler(this.ovItem3_Click);
@@ -339,7 +339,7 @@ namespace HotelManagement.GUI
             this.lblOv4Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblOv4Title.Location = new System.Drawing.Point(74, 10);
             this.lblOv4Title.Name = "lblOv4Title";
-            this.lblOv4Title.Size = new System.Drawing.Size(146, 28);
+            this.lblOv4Title.Size = new System.Drawing.Size(116, 21);
             this.lblOv4Title.TabIndex = 0;
             this.lblOv4Title.Text = "Đang sửa chữa";
             this.lblOv4Title.Click += new System.EventHandler(this.ovItem4_Click);
@@ -350,7 +350,7 @@ namespace HotelManagement.GUI
             this.lblOv4Value.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.lblOv4Value.Location = new System.Drawing.Point(74, 42);
             this.lblOv4Value.Name = "lblOv4Value";
-            this.lblOv4Value.Size = new System.Drawing.Size(82, 25);
+            this.lblOv4Value.Size = new System.Drawing.Size(64, 20);
             this.lblOv4Value.TabIndex = 1;
             this.lblOv4Value.Text = "1 phòng";
             this.lblOv4Value.Click += new System.EventHandler(this.ovItem4_Click);
@@ -371,7 +371,7 @@ namespace HotelManagement.GUI
             // picAvatar
             // 
             this.picAvatar.BackColor = System.Drawing.Color.LightPink;
-            this.picAvatar.Image = global::HotelManagement.Properties.Resources.TTB;
+            this.picAvatar.Image = global::HotelManagement.Properties.Resources.avatar_nhanvien;
             this.picAvatar.Location = new System.Drawing.Point(117, 37);
             this.picAvatar.Name = "picAvatar";
             this.picAvatar.Size = new System.Drawing.Size(130, 130);
@@ -385,7 +385,7 @@ namespace HotelManagement.GUI
             this.lblUserName.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
             this.lblUserName.Location = new System.Drawing.Point(40, 194);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(305, 46);
+            this.lblUserName.Size = new System.Drawing.Size(244, 37);
             this.lblUserName.TabIndex = 1;
             this.lblUserName.Text = "Nguyễn Phúc Bình";
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -396,7 +396,7 @@ namespace HotelManagement.GUI
             this.lblUserRole.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblUserRole.Location = new System.Drawing.Point(43, 259);
             this.lblUserRole.Name = "lblUserRole";
-            this.lblUserRole.Size = new System.Drawing.Size(100, 28);
+            this.lblUserRole.Size = new System.Drawing.Size(81, 21);
             this.lblUserRole.TabIndex = 2;
             this.lblUserRole.Text = "Nhân viên";
             // 
@@ -406,7 +406,7 @@ namespace HotelManagement.GUI
             this.lblUserPhone.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblUserPhone.Location = new System.Drawing.Point(43, 303);
             this.lblUserPhone.Name = "lblUserPhone";
-            this.lblUserPhone.Size = new System.Drawing.Size(163, 28);
+            this.lblUserPhone.Size = new System.Drawing.Size(134, 21);
             this.lblUserPhone.TabIndex = 3;
             this.lblUserPhone.Text = "📞 0123 4567 89";
             // 
@@ -416,7 +416,7 @@ namespace HotelManagement.GUI
             this.lblUserMail.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.lblUserMail.Location = new System.Drawing.Point(43, 348);
             this.lblUserMail.Name = "lblUserMail";
-            this.lblUserMail.Size = new System.Drawing.Size(216, 28);
+            this.lblUserMail.Size = new System.Drawing.Size(172, 21);
             this.lblUserMail.TabIndex = 4;
             this.lblUserMail.Text = "✉️ npbinh@gmail.com";
             // 
@@ -442,7 +442,7 @@ namespace HotelManagement.GUI
             this.lblNoti2Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblNoti2Title.Location = new System.Drawing.Point(490, 79);
             this.lblNoti2Title.Name = "lblNoti2Title";
-            this.lblNoti2Title.Size = new System.Drawing.Size(212, 28);
+            this.lblNoti2Title.Size = new System.Drawing.Size(166, 21);
             this.lblNoti2Title.TabIndex = 0;
             this.lblNoti2Title.Text = "Chăm sóc khách hàng";
             // 
@@ -461,7 +461,7 @@ namespace HotelManagement.GUI
             this.lblNoti1Title.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lblNoti1Title.Location = new System.Drawing.Point(111, 79);
             this.lblNoti1Title.Name = "lblNoti1Title";
-            this.lblNoti1Title.Size = new System.Drawing.Size(241, 28);
+            this.lblNoti1Title.Size = new System.Drawing.Size(190, 21);
             this.lblNoti1Title.TabIndex = 0;
             this.lblNoti1Title.Text = "Thông báo giờ check - in";
             // 
@@ -579,7 +579,7 @@ namespace HotelManagement.GUI
             this.lblThongBao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(90)))), ((int)(((byte)(40)))));
             this.lblThongBao.Location = new System.Drawing.Point(40, 20);
             this.lblThongBao.Name = "lblThongBao";
-            this.lblThongBao.Size = new System.Drawing.Size(166, 41);
+            this.lblThongBao.Size = new System.Drawing.Size(131, 32);
             this.lblThongBao.TabIndex = 0;
             this.lblThongBao.Text = "Thông báo";
             // 
