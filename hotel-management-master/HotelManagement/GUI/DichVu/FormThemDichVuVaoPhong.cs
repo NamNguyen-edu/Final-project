@@ -503,6 +503,8 @@ namespace HotelManagement.GUI
                 LoadGridDichVu();
                 return;
             }
+            this.dichVus = DichVuBUS.Instance.FindDichVuWithName(txt.Texts);
+            LoadGridDichVu();
         }
     }
 }

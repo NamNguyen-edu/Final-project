@@ -744,7 +744,7 @@ namespace HotelManagement.GUI
             "11:30",
             "12:00",
             "12:30"});
-            this.cbBoxGioBatDau.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.cbBoxGioBatDau.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.cbBoxGioBatDau.ListTextColor = System.Drawing.Color.Black;
             this.cbBoxGioBatDau.Location = new System.Drawing.Point(725, 69);
             this.cbBoxGioBatDau.Name = "cbBoxGioBatDau";
@@ -766,7 +766,7 @@ namespace HotelManagement.GUI
             this.cbBoxLetterBatDau.Items.AddRange(new object[] {
             "   AM",
             "   PM"});
-            this.cbBoxLetterBatDau.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.cbBoxLetterBatDau.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.cbBoxLetterBatDau.ListTextColor = System.Drawing.Color.Black;
             this.cbBoxLetterBatDau.Location = new System.Drawing.Point(803, 69);
             this.cbBoxLetterBatDau.Name = "cbBoxLetterBatDau";
@@ -831,7 +831,7 @@ namespace HotelManagement.GUI
             "11:30",
             "12:00",
             "12:30"});
-            this.cbBoxGioKetThuc.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.cbBoxGioKetThuc.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.cbBoxGioKetThuc.ListTextColor = System.Drawing.Color.Black;
             this.cbBoxGioKetThuc.Location = new System.Drawing.Point(725, 136);
             this.cbBoxGioKetThuc.Name = "cbBoxGioKetThuc";
@@ -853,7 +853,7 @@ namespace HotelManagement.GUI
             this.cbBoxLetterKetThuc.Items.AddRange(new object[] {
             "   AM",
             "   PM"});
-            this.cbBoxLetterKetThuc.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.cbBoxLetterKetThuc.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.cbBoxLetterKetThuc.ListTextColor = System.Drawing.Color.Black;
             this.cbBoxLetterKetThuc.Location = new System.Drawing.Point(803, 136);
             this.cbBoxLetterKetThuc.Name = "cbBoxLetterKetThuc";
