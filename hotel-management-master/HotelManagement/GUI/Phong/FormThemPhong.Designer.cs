@@ -54,7 +54,7 @@
             // 
             // PanelBackground
             // 
-            this.PanelBackground.BackColor = System.Drawing.Color.White;
+            this.PanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.PanelBackground.Controls.Add(this.CTButtonThoat);
             this.PanelBackground.Controls.Add(this.CTButtonCapNhat);
             this.PanelBackground.Controls.Add(this.LabelThemPhong);
@@ -113,9 +113,9 @@
             // 
             this.LabelThemPhong.AutoSize = true;
             this.LabelThemPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelThemPhong.Location = new System.Drawing.Point(173, 9);
+            this.LabelThemPhong.Location = new System.Drawing.Point(152, 11);
             this.LabelThemPhong.Name = "LabelThemPhong";
-            this.LabelThemPhong.Size = new System.Drawing.Size(179, 37);
+            this.LabelThemPhong.Size = new System.Drawing.Size(222, 46);
             this.LabelThemPhong.TabIndex = 0;
             this.LabelThemPhong.Text = "Thêm phòng";
             // 
@@ -140,7 +140,7 @@
             // comboBoxTang
             // 
             this.comboBoxTang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.comboBoxTang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.comboBoxTang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.comboBoxTang.BorderSize = 2;
             this.comboBoxTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTang.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,7 +149,7 @@
             this.comboBoxTang.Items.AddRange(new object[] {
             "Bình thường",
             "Đang sửa chữa"});
-            this.comboBoxTang.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.comboBoxTang.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.comboBoxTang.ListTextColor = System.Drawing.Color.Black;
             this.comboBoxTang.Location = new System.Drawing.Point(107, 33);
             this.comboBoxTang.Name = "comboBoxTang";
@@ -161,7 +161,7 @@
             // comboBoxLoaiPhong
             // 
             this.comboBoxLoaiPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.comboBoxLoaiPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.comboBoxLoaiPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.comboBoxLoaiPhong.BorderSize = 2;
             this.comboBoxLoaiPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,7 +172,7 @@
             "Thường đôi",
             "VIP đơn",
             "VIP đôi"});
-            this.comboBoxLoaiPhong.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.comboBoxLoaiPhong.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.comboBoxLoaiPhong.ListTextColor = System.Drawing.Color.Black;
             this.comboBoxLoaiPhong.Location = new System.Drawing.Point(107, 253);
             this.comboBoxLoaiPhong.Name = "comboBoxLoaiPhong";
@@ -184,7 +184,7 @@
             // comboBoxDonDep
             // 
             this.comboBoxDonDep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.comboBoxDonDep.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.comboBoxDonDep.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.comboBoxDonDep.BorderSize = 2;
             this.comboBoxDonDep.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDonDep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -193,7 +193,7 @@
             this.comboBoxDonDep.Items.AddRange(new object[] {
             "Đã dọn dẹp",
             "Đang dọn dẹp"});
-            this.comboBoxDonDep.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.comboBoxDonDep.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.comboBoxDonDep.ListTextColor = System.Drawing.Color.Black;
             this.comboBoxDonDep.Location = new System.Drawing.Point(107, 173);
             this.comboBoxDonDep.Name = "comboBoxDonDep";
@@ -205,7 +205,7 @@
             // comboBoxTinhTrangPhong
             // 
             this.comboBoxTinhTrangPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.comboBoxTinhTrangPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.comboBoxTinhTrangPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.comboBoxTinhTrangPhong.BorderSize = 2;
             this.comboBoxTinhTrangPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTinhTrangPhong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,7 +214,7 @@
             this.comboBoxTinhTrangPhong.Items.AddRange(new object[] {
             "Bình thường",
             "Đang sửa chữa"});
-            this.comboBoxTinhTrangPhong.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.comboBoxTinhTrangPhong.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.comboBoxTinhTrangPhong.ListTextColor = System.Drawing.Color.Black;
             this.comboBoxTinhTrangPhong.Location = new System.Drawing.Point(107, 98);
             this.comboBoxTinhTrangPhong.Name = "comboBoxTinhTrangPhong";
@@ -276,7 +276,7 @@
             // ctTextBoxGhiChu
             // 
             this.ctTextBoxGhiChu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxGhiChu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxGhiChu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxGhiChu.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxGhiChu.BorderRadius = 0;
             this.ctTextBoxGhiChu.BorderSize = 2;
@@ -291,7 +291,7 @@
             this.ctTextBoxGhiChu.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGhiChu.PlaceholderText = "Ghi chú";
             this.ctTextBoxGhiChu.ReadOnly = false;
-            this.ctTextBoxGhiChu.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxGhiChu.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxGhiChu.TabIndex = 6;
             this.ctTextBoxGhiChu.Texts = "";
             this.ctTextBoxGhiChu.UnderlineedStyle = true;

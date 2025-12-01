@@ -56,15 +56,15 @@
             // 
             this.LabelSuaLoaiPhong.AutoSize = true;
             this.LabelSuaLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelSuaLoaiPhong.Location = new System.Drawing.Point(173, 9);
+            this.LabelSuaLoaiPhong.Location = new System.Drawing.Point(131, 11);
             this.LabelSuaLoaiPhong.Name = "LabelSuaLoaiPhong";
-            this.LabelSuaLoaiPhong.Size = new System.Drawing.Size(210, 37);
+            this.LabelSuaLoaiPhong.Size = new System.Drawing.Size(261, 46);
             this.LabelSuaLoaiPhong.TabIndex = 0;
             this.LabelSuaLoaiPhong.Text = "Sửa loại phòng";
             // 
             // PanelBackground
             // 
-            this.PanelBackground.BackColor = System.Drawing.Color.White;
+            this.PanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.PanelBackground.Controls.Add(this.CTButtonThoat);
             this.PanelBackground.Controls.Add(this.CTButtonCapNhat);
             this.PanelBackground.Controls.Add(this.LabelSuaLoaiPhong);
@@ -140,20 +140,20 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::HotelManagement.Properties.Resources.note;
-            this.pictureBox4.Location = new System.Drawing.Point(69, 38);
+            this.pictureBox4.Location = new System.Drawing.Point(69, 43);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox4.TabIndex = 2;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::HotelManagement.Properties.Resources.money;
-            this.pictureBox5.Location = new System.Drawing.Point(69, 329);
+            this.pictureBox5.Location = new System.Drawing.Point(69, 339);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox5.TabIndex = 2;
             this.pictureBox5.TabStop = false;
             // 
@@ -170,7 +170,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources._3people;
-            this.pictureBox3.Location = new System.Drawing.Point(70, 181);
+            this.pictureBox3.Location = new System.Drawing.Point(69, 186);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -180,7 +180,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::HotelManagement.Properties.Resources.clean;
-            this.pictureBox2.Location = new System.Drawing.Point(69, 110);
+            this.pictureBox2.Location = new System.Drawing.Point(69, 115);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -190,7 +190,7 @@
             // ctTextBoxSoNguoi
             // 
             this.ctTextBoxSoNguoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxSoNguoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxSoNguoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxSoNguoi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxSoNguoi.BorderRadius = 0;
             this.ctTextBoxSoNguoi.BorderSize = 2;
@@ -205,7 +205,7 @@
             this.ctTextBoxSoNguoi.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxSoNguoi.PlaceholderText = "Số người tối đa";
             this.ctTextBoxSoNguoi.ReadOnly = true;
-            this.ctTextBoxSoNguoi.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxSoNguoi.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxSoNguoi.TabIndex = 6;
             this.ctTextBoxSoNguoi.Texts = "";
             this.ctTextBoxSoNguoi.UnderlineedStyle = true;
@@ -213,7 +213,7 @@
             // CTTextBoxSoGiuong
             // 
             this.CTTextBoxSoGiuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxSoGiuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxSoGiuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxSoGiuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxSoGiuong.BorderRadius = 0;
             this.CTTextBoxSoGiuong.BorderSize = 2;
@@ -228,7 +228,7 @@
             this.CTTextBoxSoGiuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxSoGiuong.PlaceholderText = "Số giường";
             this.CTTextBoxSoGiuong.ReadOnly = true;
-            this.CTTextBoxSoGiuong.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxSoGiuong.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxSoGiuong.TabIndex = 5;
             this.CTTextBoxSoGiuong.Texts = "";
             this.CTTextBoxSoGiuong.UnderlineedStyle = true;
@@ -236,7 +236,7 @@
             // CTTextBoxTenLoaiPhong
             // 
             this.CTTextBoxTenLoaiPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxTenLoaiPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxTenLoaiPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxTenLoaiPhong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxTenLoaiPhong.BorderRadius = 0;
             this.CTTextBoxTenLoaiPhong.BorderSize = 2;
@@ -251,7 +251,7 @@
             this.CTTextBoxTenLoaiPhong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxTenLoaiPhong.PlaceholderText = "Nhập tên loại phòng";
             this.CTTextBoxTenLoaiPhong.ReadOnly = true;
-            this.CTTextBoxTenLoaiPhong.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxTenLoaiPhong.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxTenLoaiPhong.TabIndex = 4;
             this.CTTextBoxTenLoaiPhong.Texts = "";
             this.CTTextBoxTenLoaiPhong.UnderlineedStyle = true;
@@ -259,7 +259,7 @@
             // ctTextBoxGiaGio
             // 
             this.ctTextBoxGiaGio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxGiaGio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxGiaGio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxGiaGio.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxGiaGio.BorderRadius = 0;
             this.ctTextBoxGiaGio.BorderSize = 2;
@@ -274,7 +274,7 @@
             this.ctTextBoxGiaGio.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGiaGio.PlaceholderText = "Giá giờ";
             this.ctTextBoxGiaGio.ReadOnly = false;
-            this.ctTextBoxGiaGio.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxGiaGio.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxGiaGio.TabIndex = 8;
             this.ctTextBoxGiaGio.Texts = "";
             this.ctTextBoxGiaGio.UnderlineedStyle = true;
@@ -284,7 +284,7 @@
             // ctTextBoxGiaNgay
             // 
             this.ctTextBoxGiaNgay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxGiaNgay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxGiaNgay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxGiaNgay.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxGiaNgay.BorderRadius = 0;
             this.ctTextBoxGiaNgay.BorderSize = 2;
@@ -299,7 +299,7 @@
             this.ctTextBoxGiaNgay.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGiaNgay.PlaceholderText = "Giá ngày";
             this.ctTextBoxGiaNgay.ReadOnly = false;
-            this.ctTextBoxGiaNgay.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxGiaNgay.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxGiaNgay.TabIndex = 7;
             this.ctTextBoxGiaNgay.Texts = "";
             this.ctTextBoxGiaNgay.UnderlineedStyle = true;
@@ -328,6 +328,7 @@
             this.PanelBackground.ResumeLayout(false);
             this.PanelBackground.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

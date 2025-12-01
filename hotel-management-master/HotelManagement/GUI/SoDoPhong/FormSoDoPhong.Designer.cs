@@ -477,7 +477,7 @@ namespace HotelManagement.GUI
             this.cbBoxLetter.Items.AddRange(new object[] {
             "AM",
             "PM"});
-            this.cbBoxLetter.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
+            this.cbBoxLetter.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.cbBoxLetter.ListTextColor = System.Drawing.Color.Black;
             this.cbBoxLetter.Location = new System.Drawing.Point(286, 15);
             this.cbBoxLetter.Name = "cbBoxLetter";
@@ -521,7 +521,7 @@ namespace HotelManagement.GUI
             "11:30",
             "12:00",
             "12:30"});
-            this.cbBoxGio.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.cbBoxGio.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.cbBoxGio.ListTextColor = System.Drawing.Color.Black;
             this.cbBoxGio.Location = new System.Drawing.Point(208, 15);
             this.cbBoxGio.Name = "cbBoxGio";
@@ -547,6 +547,7 @@ namespace HotelManagement.GUI
             this.ctDatePicker1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctDatePicker1.BorderSize = 2;
             this.ctDatePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctDatePicker1.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
             this.ctDatePicker1.CustomFormat = "dd/MM/yyyy";
             this.ctDatePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;

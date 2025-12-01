@@ -569,7 +569,7 @@ namespace HotelManagement.GUI
                 }
                 // Hỏi khách có muốn thanh toán cọc không
                 DialogResult ask = CTMessageBox.Show(
-                    "Bạn có muốn xác nhận đặt ph?",
+                    "Bạn có muốn xác nhận đặt phòng?",
                     "Xác nhận đặt cọc",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -745,9 +745,7 @@ namespace HotelManagement.GUI
             TextBox txt = sender as TextBox;
             txt.MaxLength = 12;
             txt.KeyPress += TextBoxOnlyNumber_KeyPress;
-            string cccd = txt.Text.Trim();
-            // Chỉ kiểm tra khi nhập đủ 9–12 số
-            if (cccd.Length < 9) return;
+            string cccd = txt.Text.Trim(); 
             KhachHang khInDb = KhachHangBUS.Instance.FindKHWithCCCD(cccd);
             // Trường hợp 1: Khách hàng đã tồn tại
             if (khInDb != null)

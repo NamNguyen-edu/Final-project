@@ -276,5 +276,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
+
+  
     }
 }
