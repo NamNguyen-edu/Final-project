@@ -77,7 +77,7 @@ namespace HotelManagement.GUI
                         tennv = hoadon.NhanVien.TenNV;
 
                     // Chỉ hiển thị hóa đơn đã thanh toán
-                    if (hoadon.TrangThai == "Đã thanh toán")
+                    if (hoadon.TrangThai == "Đã thanh toán" || hoadon.TrangThai == "Đã đặt cọc")
                     {
                         PhieuThue phieuThue = PhieuThueBUS.Instance.GetPhieuThue(ctdp.MaPT);
                         KhachHang khachHang = KhachHangBUS.Instance.GetKhachHangs()

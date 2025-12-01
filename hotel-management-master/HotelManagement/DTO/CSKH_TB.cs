@@ -12,13 +12,16 @@ namespace HotelManagement.DTO
         // Mã thông báo CSKH (khóa chính hoặc định danh duy nhất)
         public string MaTB { get; set; }
 
-        // Mã phòng liên quan đến thông báo
+        // Mã CTDP liên quan đến thông báo
+        public string MaCTDP { get; set; }
+
+        // Mã Phòng liên quan đến thông báo
         public string MaPH { get; set; }
 
         // Nội dung chi tiết của thông báo (yêu cầu, góp ý, phản ánh, ...)
         public string NoiDung { get; set; }
 
         // Thời điểm gửi thông báo từ phía khách hoặc hệ thống
-        public DateTime ThoiGianGui { get; set; }
+        public DateTime NgayLap { get; set; }
     }
 }
