@@ -710,7 +710,7 @@ namespace HotelManagement.GUI
                     hd.MaCTDP = ctdp.MaCTDP;                     
                     hd.MaNV = taiKhoan.MaNV;                     
                     hd.NgHD = DateTime.Now;                       
-                    hd.TrangThai = "Đã Đặt Cọc";
+                    hd.TrangThai = "Đã đặt cọc";
                     HoaDonBUS.Instance.ThanhToanHD(hd);                   
                 }
                 catch (Exception ex)
