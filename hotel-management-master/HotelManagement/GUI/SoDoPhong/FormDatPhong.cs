@@ -569,7 +569,7 @@ namespace HotelManagement.GUI
                 }
                 // Hỏi khách có muốn thanh toán cọc không
                 DialogResult ask = CTMessageBox.Show(
-                    "Bạn có muốn xác nhận đặt ph?",
+                    "Bạn có muốn xác nhận đặt phòng?",
                     "Xác nhận đặt cọc",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question

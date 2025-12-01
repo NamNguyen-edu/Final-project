@@ -58,13 +58,13 @@
             this.LabelThemLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelThemLoaiPhong.Location = new System.Drawing.Point(121, 11);
             this.LabelThemLoaiPhong.Name = "LabelThemLoaiPhong";
-            this.LabelThemLoaiPhong.Size = new System.Drawing.Size(234, 37);
+            this.LabelThemLoaiPhong.Size = new System.Drawing.Size(290, 46);
             this.LabelThemLoaiPhong.TabIndex = 0;
             this.LabelThemLoaiPhong.Text = "Thêm loại phòng";
             // 
             // PanelBackground
             // 
-            this.PanelBackground.BackColor = System.Drawing.Color.White;
+            this.PanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.PanelBackground.Controls.Add(this.CTButtonThoat);
             this.PanelBackground.Controls.Add(this.CTButtonCapNhat);
             this.PanelBackground.Controls.Add(this.LabelThemLoaiPhong);
@@ -190,7 +190,7 @@
             // ctTextBoxSoNguoi
             // 
             this.ctTextBoxSoNguoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxSoNguoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxSoNguoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxSoNguoi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxSoNguoi.BorderRadius = 0;
             this.ctTextBoxSoNguoi.BorderSize = 2;
@@ -205,7 +205,7 @@
             this.ctTextBoxSoNguoi.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxSoNguoi.PlaceholderText = "Số người tối đa";
             this.ctTextBoxSoNguoi.ReadOnly = false;
-            this.ctTextBoxSoNguoi.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxSoNguoi.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxSoNguoi.TabIndex = 6;
             this.ctTextBoxSoNguoi.Texts = "";
             this.ctTextBoxSoNguoi.UnderlineedStyle = true;
@@ -213,7 +213,7 @@
             // CTTextBoxSoGiuong
             // 
             this.CTTextBoxSoGiuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxSoGiuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxSoGiuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxSoGiuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxSoGiuong.BorderRadius = 0;
             this.CTTextBoxSoGiuong.BorderSize = 2;
@@ -228,7 +228,7 @@
             this.CTTextBoxSoGiuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxSoGiuong.PlaceholderText = "Số giường";
             this.CTTextBoxSoGiuong.ReadOnly = false;
-            this.CTTextBoxSoGiuong.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxSoGiuong.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxSoGiuong.TabIndex = 5;
             this.CTTextBoxSoGiuong.Texts = "";
             this.CTTextBoxSoGiuong.UnderlineedStyle = true;
@@ -236,7 +236,7 @@
             // CTTextBoxTenLoaiPhong
             // 
             this.CTTextBoxTenLoaiPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxTenLoaiPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxTenLoaiPhong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxTenLoaiPhong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxTenLoaiPhong.BorderRadius = 0;
             this.CTTextBoxTenLoaiPhong.BorderSize = 2;
@@ -251,7 +251,7 @@
             this.CTTextBoxTenLoaiPhong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxTenLoaiPhong.PlaceholderText = "Nhập tên loại phòng";
             this.CTTextBoxTenLoaiPhong.ReadOnly = false;
-            this.CTTextBoxTenLoaiPhong.Size = new System.Drawing.Size(250, 35);
+            this.CTTextBoxTenLoaiPhong.Size = new System.Drawing.Size(250, 40);
             this.CTTextBoxTenLoaiPhong.TabIndex = 4;
             this.CTTextBoxTenLoaiPhong.Texts = "";
             this.CTTextBoxTenLoaiPhong.UnderlineedStyle = true;
@@ -259,7 +259,7 @@
             // ctTextBoxGiaGio
             // 
             this.ctTextBoxGiaGio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxGiaGio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxGiaGio.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxGiaGio.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxGiaGio.BorderRadius = 0;
             this.ctTextBoxGiaGio.BorderSize = 2;
@@ -274,16 +274,15 @@
             this.ctTextBoxGiaGio.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGiaGio.PlaceholderText = "Giá giờ";
             this.ctTextBoxGiaGio.ReadOnly = false;
-            this.ctTextBoxGiaGio.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxGiaGio.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxGiaGio.TabIndex = 8;
             this.ctTextBoxGiaGio.Texts = "";
             this.ctTextBoxGiaGio.UnderlineedStyle = true;
-            
             // 
             // ctTextBoxGiaNgay
             // 
             this.ctTextBoxGiaNgay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxGiaNgay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxGiaNgay.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxGiaNgay.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxGiaNgay.BorderRadius = 0;
             this.ctTextBoxGiaNgay.BorderSize = 2;
@@ -298,11 +297,10 @@
             this.ctTextBoxGiaNgay.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGiaNgay.PlaceholderText = "Giá ngày";
             this.ctTextBoxGiaNgay.ReadOnly = false;
-            this.ctTextBoxGiaNgay.Size = new System.Drawing.Size(250, 35);
+            this.ctTextBoxGiaNgay.Size = new System.Drawing.Size(250, 40);
             this.ctTextBoxGiaNgay.TabIndex = 7;
             this.ctTextBoxGiaNgay.Texts = "";
             this.ctTextBoxGiaNgay.UnderlineedStyle = true;
-            
             // 
             // FormThemLoaiPhong
             // 

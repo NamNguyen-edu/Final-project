@@ -107,7 +107,7 @@
             // 
             this.LabelSuaChiTietTienNghi.AutoSize = true;
             this.LabelSuaChiTietTienNghi.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelSuaChiTietTienNghi.Location = new System.Drawing.Point(115, 20);
+            this.LabelSuaChiTietTienNghi.Location = new System.Drawing.Point(68, 21);
             this.LabelSuaChiTietTienNghi.Name = "LabelSuaChiTietTienNghi";
             this.LabelSuaChiTietTienNghi.Size = new System.Drawing.Size(350, 46);
             this.LabelSuaChiTietTienNghi.TabIndex = 0;
@@ -150,7 +150,7 @@
             // CTTextBoxSoLuong
             // 
             this.CTTextBoxSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxSoLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxSoLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxSoLuong.BorderRadius = 0;
             this.CTTextBoxSoLuong.BorderSize = 2;
@@ -174,7 +174,7 @@
             // ctTextBoxGhiChu
             // 
             this.ctTextBoxGhiChu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxGhiChu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxGhiChu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxGhiChu.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxGhiChu.BorderRadius = 0;
             this.ctTextBoxGhiChu.BorderSize = 2;
@@ -197,7 +197,7 @@
             // ctTextBoxTenTienNghi
             // 
             this.ctTextBoxTenTienNghi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxTenTienNghi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxTenTienNghi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxTenTienNghi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxTenTienNghi.BorderRadius = 0;
             this.ctTextBoxTenTienNghi.BorderSize = 2;

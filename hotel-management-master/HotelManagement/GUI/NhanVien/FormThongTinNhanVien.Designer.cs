@@ -65,12 +65,13 @@
             // 
             // PanelBackground
             // 
+            this.PanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
             this.PanelBackground.Controls.Add(this.LabelThongTinNhanVien);
             this.PanelBackground.Controls.Add(this.CTButtonThoat);
             this.PanelBackground.Controls.Add(this.panel4);
             this.PanelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelBackground.Location = new System.Drawing.Point(0, 0);
-            this.PanelBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelBackground.Margin = new System.Windows.Forms.Padding(4);
             this.PanelBackground.Name = "PanelBackground";
             this.PanelBackground.Size = new System.Drawing.Size(1279, 706);
             this.PanelBackground.TabIndex = 10;
@@ -81,7 +82,7 @@
             // 
             this.LabelThongTinNhanVien.AutoSize = true;
             this.LabelThongTinNhanVien.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelThongTinNhanVien.Location = new System.Drawing.Point(419, 12);
+            this.LabelThongTinNhanVien.Location = new System.Drawing.Point(476, 24);
             this.LabelThongTinNhanVien.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelThongTinNhanVien.Name = "LabelThongTinNhanVien";
             this.LabelThongTinNhanVien.Size = new System.Drawing.Size(341, 46);
@@ -101,7 +102,7 @@
             this.CTButtonThoat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTButtonThoat.ForeColor = System.Drawing.Color.White;
             this.CTButtonThoat.Location = new System.Drawing.Point(1024, 646);
-            this.CTButtonThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CTButtonThoat.Margin = new System.Windows.Forms.Padding(4);
             this.CTButtonThoat.Name = "CTButtonThoat";
             this.CTButtonThoat.Size = new System.Drawing.Size(176, 49);
             this.CTButtonThoat.TabIndex = 11;
@@ -132,7 +133,7 @@
             this.panel4.Controls.Add(this.ctTextBoxSDT);
             this.panel4.Controls.Add(this.CTTextBoxLuong);
             this.panel4.Location = new System.Drawing.Point(79, 74);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1121, 565);
             this.panel4.TabIndex = 13;
@@ -140,7 +141,7 @@
             // ctTextBoxGioiTinh
             // 
             this.ctTextBoxGioiTinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxGioiTinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxGioiTinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxGioiTinh.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxGioiTinh.BorderRadius = 0;
             this.ctTextBoxGioiTinh.BorderSize = 2;
@@ -148,10 +149,10 @@
             this.ctTextBoxGioiTinh.ForeColor = System.Drawing.Color.Black;
             this.ctTextBoxGioiTinh.IsFocused = false;
             this.ctTextBoxGioiTinh.Location = new System.Drawing.Point(444, 481);
-            this.ctTextBoxGioiTinh.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ctTextBoxGioiTinh.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxGioiTinh.Multiline = false;
             this.ctTextBoxGioiTinh.Name = "ctTextBoxGioiTinh";
-            this.ctTextBoxGioiTinh.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.ctTextBoxGioiTinh.Padding = new System.Windows.Forms.Padding(9);
             this.ctTextBoxGioiTinh.PasswordChar = false;
             this.ctTextBoxGioiTinh.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxGioiTinh.PlaceholderText = "Giới tính";
@@ -164,17 +165,17 @@
             // ctTextBoxNgaySinh
             // 
             this.ctTextBoxNgaySinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxNgaySinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxNgaySinh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxNgaySinh.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxNgaySinh.BorderRadius = 0;
             this.ctTextBoxNgaySinh.BorderSize = 2;
             this.ctTextBoxNgaySinh.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxNgaySinh.IsFocused = false;
             this.ctTextBoxNgaySinh.Location = new System.Drawing.Point(685, 58);
-            this.ctTextBoxNgaySinh.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ctTextBoxNgaySinh.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxNgaySinh.Multiline = false;
             this.ctTextBoxNgaySinh.Name = "ctTextBoxNgaySinh";
-            this.ctTextBoxNgaySinh.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.ctTextBoxNgaySinh.Padding = new System.Windows.Forms.Padding(9);
             this.ctTextBoxNgaySinh.PasswordChar = false;
             this.ctTextBoxNgaySinh.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxNgaySinh.PlaceholderText = "Ngày sinh";
@@ -188,7 +189,7 @@
             // 
             this.pictureBox3.Image = global::HotelManagement.Properties.Resources.admin;
             this.pictureBox3.Location = new System.Drawing.Point(93, 177);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(40, 37);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -199,7 +200,7 @@
             // 
             this.pictureBox6.Image = global::HotelManagement.Properties.Resources.CCCD;
             this.pictureBox6.Location = new System.Drawing.Point(609, 177);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(40, 37);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +211,7 @@
             // 
             this.pictureBox9.Image = global::HotelManagement.Properties.Resources.Gender;
             this.pictureBox9.Location = new System.Drawing.Point(395, 488);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(40, 37);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -221,7 +222,7 @@
             // 
             this.pictureBox8.Image = global::HotelManagement.Properties.Resources.email;
             this.pictureBox8.Location = new System.Drawing.Point(609, 388);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(40, 37);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -232,7 +233,7 @@
             // 
             this.pictureBox7.Image = global::HotelManagement.Properties.Resources.Address;
             this.pictureBox7.Location = new System.Drawing.Point(609, 284);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(40, 37);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -243,7 +244,7 @@
             // 
             this.pictureBox5.Image = global::HotelManagement.Properties.Resources.CalendarPick;
             this.pictureBox5.Location = new System.Drawing.Point(609, 65);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(40, 37);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -254,7 +255,7 @@
             // 
             this.pictureBox2.Image = global::HotelManagement.Properties.Resources.NameKH;
             this.pictureBox2.Location = new System.Drawing.Point(93, 65);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -264,17 +265,17 @@
             // ctTextBoxEmail
             // 
             this.ctTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxEmail.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxEmail.BorderRadius = 0;
             this.ctTextBoxEmail.BorderSize = 2;
             this.ctTextBoxEmail.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxEmail.IsFocused = false;
             this.ctTextBoxEmail.Location = new System.Drawing.Point(685, 381);
-            this.ctTextBoxEmail.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ctTextBoxEmail.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxEmail.Multiline = false;
             this.ctTextBoxEmail.Name = "ctTextBoxEmail";
-            this.ctTextBoxEmail.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.ctTextBoxEmail.Padding = new System.Windows.Forms.Padding(9);
             this.ctTextBoxEmail.PasswordChar = false;
             this.ctTextBoxEmail.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxEmail.PlaceholderText = "Email";
@@ -287,17 +288,17 @@
             // CTTextBoxDiaChi
             // 
             this.CTTextBoxDiaChi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxDiaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxDiaChi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxDiaChi.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxDiaChi.BorderRadius = 0;
             this.CTTextBoxDiaChi.BorderSize = 2;
             this.CTTextBoxDiaChi.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxDiaChi.IsFocused = false;
             this.CTTextBoxDiaChi.Location = new System.Drawing.Point(685, 278);
-            this.CTTextBoxDiaChi.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CTTextBoxDiaChi.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxDiaChi.Multiline = false;
             this.CTTextBoxDiaChi.Name = "CTTextBoxDiaChi";
-            this.CTTextBoxDiaChi.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.CTTextBoxDiaChi.Padding = new System.Windows.Forms.Padding(9);
             this.CTTextBoxDiaChi.PasswordChar = false;
             this.CTTextBoxDiaChi.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxDiaChi.PlaceholderText = "Địa chỉ";
@@ -310,17 +311,17 @@
             // CTTextBoxNhapCCCD
             // 
             this.CTTextBoxNhapCCCD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxNhapCCCD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxNhapCCCD.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxNhapCCCD.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapCCCD.BorderRadius = 0;
             this.CTTextBoxNhapCCCD.BorderSize = 2;
             this.CTTextBoxNhapCCCD.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapCCCD.IsFocused = false;
             this.CTTextBoxNhapCCCD.Location = new System.Drawing.Point(685, 171);
-            this.CTTextBoxNhapCCCD.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CTTextBoxNhapCCCD.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxNhapCCCD.Multiline = false;
             this.CTTextBoxNhapCCCD.Name = "CTTextBoxNhapCCCD";
-            this.CTTextBoxNhapCCCD.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.CTTextBoxNhapCCCD.Padding = new System.Windows.Forms.Padding(9);
             this.CTTextBoxNhapCCCD.PasswordChar = false;
             this.CTTextBoxNhapCCCD.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapCCCD.PlaceholderText = "CCCD";
@@ -333,17 +334,17 @@
             // CTTextBoxNhapChucVu
             // 
             this.CTTextBoxNhapChucVu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxNhapChucVu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxNhapChucVu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxNhapChucVu.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapChucVu.BorderRadius = 0;
             this.CTTextBoxNhapChucVu.BorderSize = 2;
             this.CTTextBoxNhapChucVu.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapChucVu.IsFocused = false;
             this.CTTextBoxNhapChucVu.Location = new System.Drawing.Point(143, 171);
-            this.CTTextBoxNhapChucVu.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CTTextBoxNhapChucVu.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxNhapChucVu.Multiline = false;
             this.CTTextBoxNhapChucVu.Name = "CTTextBoxNhapChucVu";
-            this.CTTextBoxNhapChucVu.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.CTTextBoxNhapChucVu.Padding = new System.Windows.Forms.Padding(9);
             this.CTTextBoxNhapChucVu.PasswordChar = false;
             this.CTTextBoxNhapChucVu.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapChucVu.PlaceholderText = "Chức vụ";
@@ -356,17 +357,17 @@
             // CTTextBoxNhapHoTen
             // 
             this.CTTextBoxNhapHoTen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxNhapHoTen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxNhapHoTen.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxNhapHoTen.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxNhapHoTen.BorderRadius = 0;
             this.CTTextBoxNhapHoTen.BorderSize = 2;
             this.CTTextBoxNhapHoTen.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxNhapHoTen.IsFocused = false;
             this.CTTextBoxNhapHoTen.Location = new System.Drawing.Point(143, 59);
-            this.CTTextBoxNhapHoTen.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CTTextBoxNhapHoTen.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxNhapHoTen.Multiline = false;
             this.CTTextBoxNhapHoTen.Name = "CTTextBoxNhapHoTen";
-            this.CTTextBoxNhapHoTen.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.CTTextBoxNhapHoTen.Padding = new System.Windows.Forms.Padding(9);
             this.CTTextBoxNhapHoTen.PasswordChar = false;
             this.CTTextBoxNhapHoTen.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxNhapHoTen.PlaceholderText = "Họ và tên";
@@ -380,7 +381,7 @@
             // 
             this.pictureBox4.Image = global::HotelManagement.Properties.Resources.Phone;
             this.pictureBox4.Location = new System.Drawing.Point(93, 388);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(40, 37);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -391,7 +392,7 @@
             // 
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.money;
             this.pictureBox1.Location = new System.Drawing.Point(93, 284);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 37);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -401,17 +402,17 @@
             // ctTextBoxSDT
             // 
             this.ctTextBoxSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctTextBoxSDT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.ctTextBoxSDT.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.ctTextBoxSDT.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.ctTextBoxSDT.BorderRadius = 0;
             this.ctTextBoxSDT.BorderSize = 2;
             this.ctTextBoxSDT.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctTextBoxSDT.IsFocused = false;
             this.ctTextBoxSDT.Location = new System.Drawing.Point(143, 381);
-            this.ctTextBoxSDT.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ctTextBoxSDT.Margin = new System.Windows.Forms.Padding(5);
             this.ctTextBoxSDT.Multiline = false;
             this.ctTextBoxSDT.Name = "ctTextBoxSDT";
-            this.ctTextBoxSDT.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.ctTextBoxSDT.Padding = new System.Windows.Forms.Padding(9);
             this.ctTextBoxSDT.PasswordChar = false;
             this.ctTextBoxSDT.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxSDT.PlaceholderText = "Số điện thoại";
@@ -424,17 +425,17 @@
             // CTTextBoxLuong
             // 
             this.CTTextBoxLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.CTTextBoxLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(145)))), ((int)(((byte)(175)))));
+            this.CTTextBoxLuong.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.CTTextBoxLuong.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
             this.CTTextBoxLuong.BorderRadius = 0;
             this.CTTextBoxLuong.BorderSize = 2;
             this.CTTextBoxLuong.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CTTextBoxLuong.IsFocused = false;
             this.CTTextBoxLuong.Location = new System.Drawing.Point(143, 284);
-            this.CTTextBoxLuong.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.CTTextBoxLuong.Margin = new System.Windows.Forms.Padding(5);
             this.CTTextBoxLuong.Multiline = false;
             this.CTTextBoxLuong.Name = "CTTextBoxLuong";
-            this.CTTextBoxLuong.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.CTTextBoxLuong.Padding = new System.Windows.Forms.Padding(9);
             this.CTTextBoxLuong.PasswordChar = false;
             this.CTTextBoxLuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxLuong.PlaceholderText = "Lương";
@@ -453,7 +454,7 @@
             this.ClientSize = new System.Drawing.Size(1279, 706);
             this.Controls.Add(this.PanelBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormThongTinNhanVien";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
