@@ -51,6 +51,14 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -63,14 +71,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title10 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.LabelThongKe = new System.Windows.Forms.Label();
             this.LabelNgayBD = new System.Windows.Forms.Label();
             this.LabelNgayKT = new System.Windows.Forms.Label();
@@ -91,14 +91,19 @@
             this.chartPhong_TyTrong = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartPhong_Horizontal = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartPhong_Line = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ctPanel11 = new CTPanel.CTPanel();
+            this.ctPanel12 = new CTPanel.CTPanel();
+            this.ctPanel13 = new CTPanel.CTPanel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblPhong_TopDat_Ten = new System.Windows.Forms.Label();
             this.lblPhong_TopDat_SoLan = new System.Windows.Forms.Label();
             this.lblPhong_TopDat_Title = new System.Windows.Forms.Label();
+            this.ctPanel9 = new CTPanel.CTPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblPhong_TopDoanhThu_Ten = new System.Windows.Forms.Label();
             this.lblPhong_TopDoanhThu_GiaTri = new System.Windows.Forms.Label();
             this.lblPhong_TopDoanhThu_Title = new System.Windows.Forms.Label();
+            this.ctPanel8 = new CTPanel.CTPanel();
             this.chartSoPhongDat = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlTongQuan = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -113,10 +118,38 @@
             this.DoanhThuThue = new System.Windows.Forms.Label();
             this.LabelDoanhThuThuePhong = new System.Windows.Forms.Label();
             this.chartDoanhThuTong = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ctPanel7 = new CTPanel.CTPanel();
             this.pnlTDT = new System.Windows.Forms.Panel();
             this.TongDoanhThuTong = new System.Windows.Forms.Label();
             this.lblTongDoanhThu = new System.Windows.Forms.Label();
+            this.ctPanel6 = new CTPanel.CTPanel();
+            this.ctPanel2 = new CTPanel.CTPanel();
+            this.ctPanel3 = new CTPanel.CTPanel();
+            this.ctPanel1 = new CTPanel.CTPanel();
+            this.ctPanel4 = new CTPanel.CTPanel();
+            this.ctPanel5 = new CTPanel.CTPanel();
             this.pnlKhach = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.lblKH_TongKhach_GiaTri = new System.Windows.Forms.Label();
+            this.lblKH_TongKhach_Title = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chartKH_SoKhach = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartKH_TopChiTieu = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ctPanel23 = new CTPanel.CTPanel();
+            this.ctPanel10 = new CTPanel.CTPanel();
+            this.ctPanel20 = new CTPanel.CTPanel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.lblKH_TopDat_Ten = new System.Windows.Forms.Label();
+            this.lblKH_TopDat_SoLan = new System.Windows.Forms.Label();
+            this.lblKH_TopDat_Title = new System.Windows.Forms.Label();
+            this.ctPanel21 = new CTPanel.CTPanel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.lblKH_TopChiTieu_Ten = new System.Windows.Forms.Label();
+            this.lblKH_TopChiTieu_GiaTri = new System.Windows.Forms.Label();
+            this.lblKH_TopChiTieu_Title = new System.Windows.Forms.Label();
+            this.ctPanel22 = new CTPanel.CTPanel();
             this.pnlDichVu = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -124,54 +157,22 @@
             this.chartDV_Pie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDV_Top5 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartDV_Line = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ctPanel14 = new CTPanel.CTPanel();
+            this.ctPanel15 = new CTPanel.CTPanel();
+            this.ctPanel16 = new CTPanel.CTPanel();
             this.panel10 = new System.Windows.Forms.Panel();
             this.lblDV_TopSL_Ten = new System.Windows.Forms.Label();
             this.lblDV_TopSL_SoLan = new System.Windows.Forms.Label();
             this.lblDV_TopSL_Title = new System.Windows.Forms.Label();
+            this.ctPanel17 = new CTPanel.CTPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.lblDV_TopDT_Ten = new System.Windows.Forms.Label();
             this.lblDV_TopDT_GiaTri = new System.Windows.Forms.Label();
             this.lblDV_TopDT_Title = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chartKH_SoKhach = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartKH_TopChiTieu = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.lblKH_TopDat_Ten = new System.Windows.Forms.Label();
-            this.lblKH_TopDat_SoLan = new System.Windows.Forms.Label();
-            this.lblKH_TopDat_Title = new System.Windows.Forms.Label();
-            this.lblKH_TopChiTieu_Title = new System.Windows.Forms.Label();
-            this.lblKH_TopChiTieu_GiaTri = new System.Windows.Forms.Label();
-            this.lblKH_TopChiTieu_Ten = new System.Windows.Forms.Label();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.lblKH_TongKhach_GiaTri = new System.Windows.Forms.Label();
-            this.lblKH_TongKhach_Title = new System.Windows.Forms.Label();
+            this.ctPanel18 = new CTPanel.CTPanel();
             this.dtpNgayKT = new HotelManagement.CTControls.CTDatePicker();
             this.dtpNgayBD = new HotelManagement.CTControls.CTDatePicker();
-            this.ctPanel23 = new CTPanel.CTPanel();
-            this.ctPanel10 = new CTPanel.CTPanel();
-            this.ctPanel20 = new CTPanel.CTPanel();
-            this.ctPanel21 = new CTPanel.CTPanel();
-            this.ctPanel22 = new CTPanel.CTPanel();
-            this.ctPanel14 = new CTPanel.CTPanel();
-            this.ctPanel15 = new CTPanel.CTPanel();
-            this.ctPanel16 = new CTPanel.CTPanel();
-            this.ctPanel17 = new CTPanel.CTPanel();
-            this.ctPanel18 = new CTPanel.CTPanel();
-            this.ctPanel11 = new CTPanel.CTPanel();
-            this.ctPanel12 = new CTPanel.CTPanel();
-            this.ctPanel13 = new CTPanel.CTPanel();
-            this.ctPanel9 = new CTPanel.CTPanel();
-            this.ctPanel8 = new CTPanel.CTPanel();
-            this.ctPanel7 = new CTPanel.CTPanel();
-            this.ctPanel6 = new CTPanel.CTPanel();
-            this.ctPanel2 = new CTPanel.CTPanel();
-            this.ctPanel3 = new CTPanel.CTPanel();
-            this.ctPanel1 = new CTPanel.CTPanel();
-            this.ctPanel4 = new CTPanel.CTPanel();
-            this.ctPanel5 = new CTPanel.CTPanel();
+            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             ((System.ComponentModel.ISupportInitialize)(this.Printer_ThongKe)).BeginInit();
             this.pnlPhong.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -189,6 +190,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThuTong)).BeginInit();
             this.pnlTDT.SuspendLayout();
             this.pnlKhach.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel16.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_SoKhach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_TopChiTieu)).BeginInit();
+            this.panel14.SuspendLayout();
+            this.panel15.SuspendLayout();
             this.pnlDichVu.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -197,13 +205,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDV_Line)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartKH_SoKhach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartKH_TopChiTieu)).BeginInit();
-            this.panel14.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.SuspendLayout();
             // 
             // LabelThongKe
@@ -607,6 +608,51 @@
             title3.Text = "Doanh thu theo thời gian";
             this.chartPhong_Line.Titles.Add(title3);
             // 
+            // ctPanel11
+            // 
+            this.ctPanel11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel11.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel11.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel11.BorderRadius = 30;
+            this.ctPanel11.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel11.GradientAngle = 90F;
+            this.ctPanel11.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel11.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel11.Location = new System.Drawing.Point(450, 409);
+            this.ctPanel11.Name = "ctPanel11";
+            this.ctPanel11.Size = new System.Drawing.Size(784, 262);
+            this.ctPanel11.TabIndex = 157;
+            // 
+            // ctPanel12
+            // 
+            this.ctPanel12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel12.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel12.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel12.BorderRadius = 30;
+            this.ctPanel12.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel12.GradientAngle = 90F;
+            this.ctPanel12.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel12.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel12.Location = new System.Drawing.Point(7, 286);
+            this.ctPanel12.Name = "ctPanel12";
+            this.ctPanel12.Size = new System.Drawing.Size(432, 385);
+            this.ctPanel12.TabIndex = 158;
+            // 
+            // ctPanel13
+            // 
+            this.ctPanel13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel13.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel13.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel13.BorderRadius = 30;
+            this.ctPanel13.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel13.GradientAngle = 90F;
+            this.ctPanel13.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel13.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel13.Location = new System.Drawing.Point(450, 163);
+            this.ctPanel13.Name = "ctPanel13";
+            this.ctPanel13.Size = new System.Drawing.Size(784, 240);
+            this.ctPanel13.TabIndex = 159;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
@@ -656,6 +702,21 @@
             this.lblPhong_TopDat_Title.TabIndex = 114;
             this.lblPhong_TopDat_Title.Text = "Loại phòng được đặt nhiều nhất";
             this.lblPhong_TopDat_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ctPanel9
+            // 
+            this.ctPanel9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel9.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel9.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel9.BorderRadius = 30;
+            this.ctPanel9.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel9.GradientAngle = 90F;
+            this.ctPanel9.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel9.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel9.Location = new System.Drawing.Point(855, 9);
+            this.ctPanel9.Name = "ctPanel9";
+            this.ctPanel9.Size = new System.Drawing.Size(377, 147);
+            this.ctPanel9.TabIndex = 153;
             // 
             // panel5
             // 
@@ -707,6 +768,21 @@
             this.lblPhong_TopDoanhThu_Title.Text = "Loại phòng doanh thu cao nhất";
             this.lblPhong_TopDoanhThu_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ctPanel8
+            // 
+            this.ctPanel8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel8.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel8.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel8.BorderRadius = 30;
+            this.ctPanel8.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel8.GradientAngle = 90F;
+            this.ctPanel8.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel8.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel8.Location = new System.Drawing.Point(450, 9);
+            this.ctPanel8.Name = "ctPanel8";
+            this.ctPanel8.Size = new System.Drawing.Size(383, 147);
+            this.ctPanel8.TabIndex = 151;
+            // 
             // chartSoPhongDat
             // 
             this.chartSoPhongDat.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -739,7 +815,6 @@
             title4.Name = "Title1";
             title4.Text = "Số phòng được đặt";
             this.chartSoPhongDat.Titles.Add(title4);
- 
             // 
             // pnlTongQuan
             // 
@@ -934,6 +1009,20 @@
             title5.Text = "Tổng doanh thu";
             this.chartDoanhThuTong.Titles.Add(title5);
             // 
+            // ctPanel7
+            // 
+            this.ctPanel7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel7.BackColor = System.Drawing.Color.White;
+            this.ctPanel7.BorderRadius = 15;
+            this.ctPanel7.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel7.GradientAngle = 90F;
+            this.ctPanel7.GradientBottomColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel7.GradientTopColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel7.Location = new System.Drawing.Point(1, -3);
+            this.ctPanel7.Name = "ctPanel7";
+            this.ctPanel7.Size = new System.Drawing.Size(1288, 82);
+            this.ctPanel7.TabIndex = 145;
+            // 
             // pnlTDT
             // 
             this.pnlTDT.BackColor = System.Drawing.Color.Transparent;
@@ -970,6 +1059,90 @@
             this.lblTongDoanhThu.Text = "Tổng doanh thu";
             this.lblTongDoanhThu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ctPanel6
+            // 
+            this.ctPanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel6.BorderRadius = 30;
+            this.ctPanel6.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel6.GradientAngle = 90F;
+            this.ctPanel6.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel6.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel6.Location = new System.Drawing.Point(12, 89);
+            this.ctPanel6.Name = "ctPanel6";
+            this.ctPanel6.Size = new System.Drawing.Size(350, 134);
+            this.ctPanel6.TabIndex = 141;
+            // 
+            // ctPanel2
+            // 
+            this.ctPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel2.BorderRadius = 30;
+            this.ctPanel2.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel2.GradientAngle = 90F;
+            this.ctPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel2.Location = new System.Drawing.Point(12, 388);
+            this.ctPanel2.Name = "ctPanel2";
+            this.ctPanel2.Size = new System.Drawing.Size(350, 134);
+            this.ctPanel2.TabIndex = 138;
+            // 
+            // ctPanel3
+            // 
+            this.ctPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel3.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel3.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel3.BorderRadius = 30;
+            this.ctPanel3.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel3.GradientAngle = 90F;
+            this.ctPanel3.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel3.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel3.Location = new System.Drawing.Point(12, 541);
+            this.ctPanel3.Name = "ctPanel3";
+            this.ctPanel3.Size = new System.Drawing.Size(348, 134);
+            this.ctPanel3.TabIndex = 111;
+            // 
+            // ctPanel1
+            // 
+            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel1.BorderRadius = 30;
+            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel1.GradientAngle = 90F;
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel1.Location = new System.Drawing.Point(12, 238);
+            this.ctPanel1.Name = "ctPanel1";
+            this.ctPanel1.Size = new System.Drawing.Size(350, 134);
+            this.ctPanel1.TabIndex = 110;
+            // 
+            // ctPanel4
+            // 
+            this.ctPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel4.BorderRadius = 30;
+            this.ctPanel4.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel4.GradientAngle = 90F;
+            this.ctPanel4.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel4.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel4.Location = new System.Drawing.Point(377, 88);
+            this.ctPanel4.Name = "ctPanel4";
+            this.ctPanel4.Size = new System.Drawing.Size(852, 323);
+            this.ctPanel4.TabIndex = 120;
+            // 
+            // ctPanel5
+            // 
+            this.ctPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel5.BorderRadius = 30;
+            this.ctPanel5.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel5.GradientAngle = 90F;
+            this.ctPanel5.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel5.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel5.Location = new System.Drawing.Point(373, 422);
+            this.ctPanel5.Name = "ctPanel5";
+            this.ctPanel5.Size = new System.Drawing.Size(853, 246);
+            this.ctPanel5.TabIndex = 121;
+            // 
             // pnlKhach
             // 
             this.pnlKhach.BackColor = System.Drawing.Color.Wheat;
@@ -978,6 +1151,342 @@
             this.pnlKhach.Name = "pnlKhach";
             this.pnlKhach.Size = new System.Drawing.Size(1241, 681);
             this.pnlKhach.TabIndex = 144;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
+            this.panel12.Controls.Add(this.panel16);
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Controls.Add(this.chartKH_SoKhach);
+            this.panel12.Controls.Add(this.chartKH_TopChiTieu);
+            this.panel12.Controls.Add(this.ctPanel23);
+            this.panel12.Controls.Add(this.ctPanel10);
+            this.panel12.Controls.Add(this.ctPanel20);
+            this.panel12.Controls.Add(this.panel14);
+            this.panel12.Controls.Add(this.ctPanel21);
+            this.panel12.Controls.Add(this.panel15);
+            this.panel12.Controls.Add(this.ctPanel22);
+            this.panel12.Location = new System.Drawing.Point(1, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1240, 681);
+            this.panel12.TabIndex = 148;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.Transparent;
+            this.panel16.Controls.Add(this.lblKH_TongKhach_GiaTri);
+            this.panel16.Controls.Add(this.lblKH_TongKhach_Title);
+            this.panel16.Location = new System.Drawing.Point(27, 148);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(363, 132);
+            this.panel16.TabIndex = 150;
+            // 
+            // lblKH_TongKhach_GiaTri
+            // 
+            this.lblKH_TongKhach_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TongKhach_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblKH_TongKhach_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TongKhach_GiaTri.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TongKhach_GiaTri.Location = new System.Drawing.Point(0, 58);
+            this.lblKH_TongKhach_GiaTri.Name = "lblKH_TongKhach_GiaTri";
+            this.lblKH_TongKhach_GiaTri.Size = new System.Drawing.Size(363, 74);
+            this.lblKH_TongKhach_GiaTri.TabIndex = 115;
+            this.lblKH_TongKhach_GiaTri.Text = "1,000,000,000";
+            this.lblKH_TongKhach_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TongKhach_Title
+            // 
+            this.lblKH_TongKhach_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TongKhach_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TongKhach_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TongKhach_Title.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TongKhach_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblKH_TongKhach_Title.Name = "lblKH_TongKhach_Title";
+            this.lblKH_TongKhach_Title.Size = new System.Drawing.Size(363, 75);
+            this.lblKH_TongKhach_Title.TabIndex = 114;
+            this.lblKH_TongKhach_Title.Text = "Tổng số khách hàng";
+            this.lblKH_TongKhach_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.Transparent;
+            this.panel13.Controls.Add(this.label2);
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1251, 83);
+            this.panel13.TabIndex = 160;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1251, 83);
+            this.label2.TabIndex = 147;
+            this.label2.Text = "BÁO CÁO KHÁCH HÀNG";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chartKH_SoKhach
+            // 
+            this.chartKH_SoKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea6.AxisX.IsLabelAutoFit = false;
+            chartArea6.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea6.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea6.Name = "ChartArea1";
+            this.chartKH_SoKhach.ChartAreas.Add(chartArea6);
+            legend6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend6.Enabled = false;
+            legend6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend6.ForeColor = System.Drawing.Color.White;
+            legend6.IsTextAutoFit = false;
+            legend6.Name = "Legend1";
+            this.chartKH_SoKhach.Legends.Add(legend6);
+            this.chartKH_SoKhach.Location = new System.Drawing.Point(427, 96);
+            this.chartKH_SoKhach.Name = "chartKH_SoKhach";
+            this.chartKH_SoKhach.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartKH_SoKhach.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.Olive,
+        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.Yellow,
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))))};
+            series9.BorderWidth = 3;
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "KhachHang";
+            this.chartKH_SoKhach.Series.Add(series9);
+            this.chartKH_SoKhach.Size = new System.Drawing.Size(800, 276);
+            this.chartKH_SoKhach.TabIndex = 155;
+            this.chartKH_SoKhach.Text = "chart10";
+            title6.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title6.ForeColor = System.Drawing.SystemColors.Window;
+            title6.Name = "Số khách theo thời gian";
+            title6.Text = "Số khách theo thời gian";
+            this.chartKH_SoKhach.Titles.Add(title6);
+            // 
+            // chartKH_TopChiTieu
+            // 
+            this.chartKH_TopChiTieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
+            chartArea7.BackColor = System.Drawing.Color.Cornsilk;
+            chartArea7.Name = "ChartArea1";
+            this.chartKH_TopChiTieu.ChartAreas.Add(chartArea7);
+            legend7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend7.ForeColor = System.Drawing.Color.White;
+            legend7.IsTextAutoFit = false;
+            legend7.Name = "Legend1";
+            this.chartKH_TopChiTieu.Legends.Add(legend7);
+            this.chartKH_TopChiTieu.Location = new System.Drawing.Point(413, 388);
+            this.chartKH_TopChiTieu.Name = "chartKH_TopChiTieu";
+            this.chartKH_TopChiTieu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartKH_TopChiTieu.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
+        System.Drawing.Color.DarkGoldenrod,
+        System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
+            series10.ChartArea = "ChartArea1";
+            series10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series10.LabelForeColor = System.Drawing.Color.White;
+            series10.Legend = "Legend1";
+            series10.LegendText = "Đồng";
+            series10.MarkerColor = System.Drawing.Color.White;
+            series10.Name = "Dong";
+            this.chartKH_TopChiTieu.Series.Add(series10);
+            this.chartKH_TopChiTieu.Size = new System.Drawing.Size(806, 270);
+            this.chartKH_TopChiTieu.TabIndex = 154;
+            this.chartKH_TopChiTieu.Text = "chart10";
+            title7.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title7.ForeColor = System.Drawing.SystemColors.Window;
+            title7.Name = "Top 5 khách hàng chi tiêu nhiều nhất";
+            title7.Text = "Top 5 khách hàng chi tiêu nhiều nhất";
+            this.chartKH_TopChiTieu.Titles.Add(title7);
+            // 
+            // ctPanel23
+            // 
+            this.ctPanel23.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel23.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel23.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel23.BorderRadius = 30;
+            this.ctPanel23.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel23.GradientAngle = 90F;
+            this.ctPanel23.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel23.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel23.Location = new System.Drawing.Point(16, 136);
+            this.ctPanel23.Name = "ctPanel23";
+            this.ctPanel23.Size = new System.Drawing.Size(383, 147);
+            this.ctPanel23.TabIndex = 161;
+            // 
+            // ctPanel10
+            // 
+            this.ctPanel10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel10.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel10.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel10.BorderRadius = 30;
+            this.ctPanel10.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel10.GradientAngle = 90F;
+            this.ctPanel10.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel10.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel10.Location = new System.Drawing.Point(409, 381);
+            this.ctPanel10.Name = "ctPanel10";
+            this.ctPanel10.Size = new System.Drawing.Size(825, 290);
+            this.ctPanel10.TabIndex = 157;
+            // 
+            // ctPanel20
+            // 
+            this.ctPanel20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel20.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel20.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel20.BorderRadius = 30;
+            this.ctPanel20.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel20.GradientAngle = 90F;
+            this.ctPanel20.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel20.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel20.Location = new System.Drawing.Point(413, 87);
+            this.ctPanel20.Name = "ctPanel20";
+            this.ctPanel20.Size = new System.Drawing.Size(819, 289);
+            this.ctPanel20.TabIndex = 159;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Transparent;
+            this.panel14.Controls.Add(this.lblKH_TopDat_Ten);
+            this.panel14.Controls.Add(this.lblKH_TopDat_SoLan);
+            this.panel14.Controls.Add(this.lblKH_TopDat_Title);
+            this.panel14.Location = new System.Drawing.Point(19, 467);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(363, 132);
+            this.panel14.TabIndex = 152;
+            // 
+            // lblKH_TopDat_Ten
+            // 
+            this.lblKH_TopDat_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopDat_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopDat_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopDat_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopDat_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblKH_TopDat_Ten.Name = "lblKH_TopDat_Ten";
+            this.lblKH_TopDat_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblKH_TopDat_Ten.TabIndex = 116;
+            this.lblKH_TopDat_Ten.Text = "Tên khách";
+            this.lblKH_TopDat_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopDat_SoLan
+            // 
+            this.lblKH_TopDat_SoLan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopDat_SoLan.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblKH_TopDat_SoLan.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopDat_SoLan.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopDat_SoLan.Location = new System.Drawing.Point(0, 75);
+            this.lblKH_TopDat_SoLan.Name = "lblKH_TopDat_SoLan";
+            this.lblKH_TopDat_SoLan.Size = new System.Drawing.Size(363, 57);
+            this.lblKH_TopDat_SoLan.TabIndex = 115;
+            this.lblKH_TopDat_SoLan.Text = "1,000,000,000";
+            this.lblKH_TopDat_SoLan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopDat_Title
+            // 
+            this.lblKH_TopDat_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopDat_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopDat_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopDat_Title.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopDat_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblKH_TopDat_Title.Name = "lblKH_TopDat_Title";
+            this.lblKH_TopDat_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblKH_TopDat_Title.TabIndex = 114;
+            this.lblKH_TopDat_Title.Text = "Khách đặt phòng nhiều nhất";
+            this.lblKH_TopDat_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ctPanel21
+            // 
+            this.ctPanel21.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel21.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel21.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel21.BorderRadius = 30;
+            this.ctPanel21.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel21.GradientAngle = 90F;
+            this.ctPanel21.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel21.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel21.Location = new System.Drawing.Point(15, 461);
+            this.ctPanel21.Name = "ctPanel21";
+            this.ctPanel21.Size = new System.Drawing.Size(377, 147);
+            this.ctPanel21.TabIndex = 153;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.Transparent;
+            this.panel15.Controls.Add(this.lblKH_TopChiTieu_Ten);
+            this.panel15.Controls.Add(this.lblKH_TopChiTieu_GiaTri);
+            this.panel15.Controls.Add(this.lblKH_TopChiTieu_Title);
+            this.panel15.Location = new System.Drawing.Point(19, 304);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(363, 132);
+            this.panel15.TabIndex = 149;
+            // 
+            // lblKH_TopChiTieu_Ten
+            // 
+            this.lblKH_TopChiTieu_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopChiTieu_Ten.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopChiTieu_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopChiTieu_Ten.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopChiTieu_Ten.Location = new System.Drawing.Point(0, 32);
+            this.lblKH_TopChiTieu_Ten.Name = "lblKH_TopChiTieu_Ten";
+            this.lblKH_TopChiTieu_Ten.Size = new System.Drawing.Size(363, 46);
+            this.lblKH_TopChiTieu_Ten.TabIndex = 116;
+            this.lblKH_TopChiTieu_Ten.Text = "Tên phòng";
+            this.lblKH_TopChiTieu_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopChiTieu_GiaTri
+            // 
+            this.lblKH_TopChiTieu_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopChiTieu_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblKH_TopChiTieu_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopChiTieu_GiaTri.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopChiTieu_GiaTri.Location = new System.Drawing.Point(0, 75);
+            this.lblKH_TopChiTieu_GiaTri.Name = "lblKH_TopChiTieu_GiaTri";
+            this.lblKH_TopChiTieu_GiaTri.Size = new System.Drawing.Size(363, 57);
+            this.lblKH_TopChiTieu_GiaTri.TabIndex = 115;
+            this.lblKH_TopChiTieu_GiaTri.Text = "1,000,000,000";
+            this.lblKH_TopChiTieu_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblKH_TopChiTieu_Title
+            // 
+            this.lblKH_TopChiTieu_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.lblKH_TopChiTieu_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblKH_TopChiTieu_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKH_TopChiTieu_Title.ForeColor = System.Drawing.Color.White;
+            this.lblKH_TopChiTieu_Title.Location = new System.Drawing.Point(0, 0);
+            this.lblKH_TopChiTieu_Title.Name = "lblKH_TopChiTieu_Title";
+            this.lblKH_TopChiTieu_Title.Size = new System.Drawing.Size(363, 32);
+            this.lblKH_TopChiTieu_Title.TabIndex = 114;
+            this.lblKH_TopChiTieu_Title.Text = "Khách chi tiêu nhiều nhất";
+            this.lblKH_TopChiTieu_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ctPanel22
+            // 
+            this.ctPanel22.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel22.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel22.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel22.BorderRadius = 30;
+            this.ctPanel22.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel22.GradientAngle = 90F;
+            this.ctPanel22.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel22.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel22.Location = new System.Drawing.Point(15, 298);
+            this.ctPanel22.Name = "ctPanel22";
+            this.ctPanel22.Size = new System.Drawing.Size(383, 147);
+            this.ctPanel22.TabIndex = 151;
             // 
             // pnlDichVu
             // 
@@ -1158,6 +1667,51 @@
             title10.Text = "Doanh thu dịch vụ theo thời gian";
             this.chartDV_Line.Titles.Add(title10);
             // 
+            // ctPanel14
+            // 
+            this.ctPanel14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel14.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel14.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel14.BorderRadius = 30;
+            this.ctPanel14.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel14.GradientAngle = 90F;
+            this.ctPanel14.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel14.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel14.Location = new System.Drawing.Point(450, 409);
+            this.ctPanel14.Name = "ctPanel14";
+            this.ctPanel14.Size = new System.Drawing.Size(784, 262);
+            this.ctPanel14.TabIndex = 157;
+            // 
+            // ctPanel15
+            // 
+            this.ctPanel15.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel15.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel15.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel15.BorderRadius = 30;
+            this.ctPanel15.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel15.GradientAngle = 90F;
+            this.ctPanel15.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel15.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel15.Location = new System.Drawing.Point(7, 286);
+            this.ctPanel15.Name = "ctPanel15";
+            this.ctPanel15.Size = new System.Drawing.Size(432, 385);
+            this.ctPanel15.TabIndex = 158;
+            // 
+            // ctPanel16
+            // 
+            this.ctPanel16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel16.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel16.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel16.BorderRadius = 30;
+            this.ctPanel16.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel16.GradientAngle = 90F;
+            this.ctPanel16.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel16.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel16.Location = new System.Drawing.Point(450, 163);
+            this.ctPanel16.Name = "ctPanel16";
+            this.ctPanel16.Size = new System.Drawing.Size(784, 240);
+            this.ctPanel16.TabIndex = 159;
+            // 
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Transparent;
@@ -1207,6 +1761,21 @@
             this.lblDV_TopSL_Title.TabIndex = 114;
             this.lblDV_TopSL_Title.Text = "Dịch vụ sử dụng nhiều nhất";
             this.lblDV_TopSL_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ctPanel17
+            // 
+            this.ctPanel17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel17.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel17.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel17.BorderRadius = 30;
+            this.ctPanel17.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel17.GradientAngle = 90F;
+            this.ctPanel17.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel17.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel17.Location = new System.Drawing.Point(855, 9);
+            this.ctPanel17.Name = "ctPanel17";
+            this.ctPanel17.Size = new System.Drawing.Size(377, 147);
+            this.ctPanel17.TabIndex = 153;
             // 
             // panel11
             // 
@@ -1258,266 +1827,20 @@
             this.lblDV_TopDT_Title.Text = "Dịch vụ doanh thu cao nhất";
             this.lblDV_TopDT_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel12
+            // ctPanel18
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(241)))));
-            this.panel12.Controls.Add(this.panel16);
-            this.panel12.Controls.Add(this.panel13);
-            this.panel12.Controls.Add(this.chartKH_SoKhach);
-            this.panel12.Controls.Add(this.chartKH_TopChiTieu);
-            this.panel12.Controls.Add(this.ctPanel23);
-            this.panel12.Controls.Add(this.ctPanel10);
-            this.panel12.Controls.Add(this.ctPanel20);
-            this.panel12.Controls.Add(this.panel14);
-            this.panel12.Controls.Add(this.ctPanel21);
-            this.panel12.Controls.Add(this.panel15);
-            this.panel12.Controls.Add(this.ctPanel22);
-            this.panel12.Location = new System.Drawing.Point(1, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1240, 681);
-            this.panel12.TabIndex = 148;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.Transparent;
-            this.panel13.Controls.Add(this.label2);
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1251, 83);
-            this.panel13.TabIndex = 160;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1251, 83);
-            this.label2.TabIndex = 147;
-            this.label2.Text = "BÁO CÁO KHÁCH HÀNG";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chartKH_SoKhach
-            // 
-            this.chartKH_SoKhach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            chartArea6.AxisX.IsLabelAutoFit = false;
-            chartArea6.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea6.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea6.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea6.BackColor = System.Drawing.Color.Cornsilk;
-            chartArea6.Name = "ChartArea1";
-            this.chartKH_SoKhach.ChartAreas.Add(chartArea6);
-            legend6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend6.Enabled = false;
-            legend6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend6.ForeColor = System.Drawing.Color.White;
-            legend6.IsTextAutoFit = false;
-            legend6.Name = "Legend1";
-            this.chartKH_SoKhach.Legends.Add(legend6);
-            this.chartKH_SoKhach.Location = new System.Drawing.Point(427, 96);
-            this.chartKH_SoKhach.Name = "chartKH_SoKhach";
-            this.chartKH_SoKhach.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartKH_SoKhach.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
-        System.Drawing.Color.Olive,
-        System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.Yellow,
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))))};
-            series9.BorderWidth = 3;
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "KhachHang";
-            this.chartKH_SoKhach.Series.Add(series9);
-            this.chartKH_SoKhach.Size = new System.Drawing.Size(800, 276);
-            this.chartKH_SoKhach.TabIndex = 155;
-            this.chartKH_SoKhach.Text = "chart10";
-            title6.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title6.ForeColor = System.Drawing.SystemColors.Window;
-            title6.Name = "Số khách theo thời gian";
-            title6.Text = "Số khách theo thời gian";
-            this.chartKH_SoKhach.Titles.Add(title6);
-            // 
-            // chartKH_TopChiTieu
-            // 
-            this.chartKH_TopChiTieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            chartArea7.AxisX.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea7.AxisY.LabelStyle.ForeColor = System.Drawing.Color.White;
-            chartArea7.BackColor = System.Drawing.Color.Cornsilk;
-            chartArea7.Name = "ChartArea1";
-            this.chartKH_TopChiTieu.ChartAreas.Add(chartArea7);
-            legend7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend7.ForeColor = System.Drawing.Color.White;
-            legend7.IsTextAutoFit = false;
-            legend7.Name = "Legend1";
-            this.chartKH_TopChiTieu.Legends.Add(legend7);
-            this.chartKH_TopChiTieu.Location = new System.Drawing.Point(413, 388);
-            this.chartKH_TopChiTieu.Name = "chartKH_TopChiTieu";
-            this.chartKH_TopChiTieu.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartKH_TopChiTieu.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36))))),
-        System.Drawing.Color.DarkGoldenrod,
-        System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(180)))), ((int)(((byte)(100))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(148)))), ((int)(((byte)(110)))))};
-            series10.ChartArea = "ChartArea1";
-            series10.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series10.LabelForeColor = System.Drawing.Color.White;
-            series10.Legend = "Legend1";
-            series10.LegendText = "Đồng";
-            series10.MarkerColor = System.Drawing.Color.White;
-            series10.Name = "Dong";
-            this.chartKH_TopChiTieu.Series.Add(series10);
-            this.chartKH_TopChiTieu.Size = new System.Drawing.Size(806, 270);
-            this.chartKH_TopChiTieu.TabIndex = 154;
-            this.chartKH_TopChiTieu.Text = "chart10";
-            title7.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title7.ForeColor = System.Drawing.SystemColors.Window;
-            title7.Name = "Top 5 khách hàng chi tiêu nhiều nhất";
-            title7.Text = "Top 5 khách hàng chi tiêu nhiều nhất";
-            this.chartKH_TopChiTieu.Titles.Add(title7);
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.Transparent;
-            this.panel14.Controls.Add(this.lblKH_TopDat_Ten);
-            this.panel14.Controls.Add(this.lblKH_TopDat_SoLan);
-            this.panel14.Controls.Add(this.lblKH_TopDat_Title);
-            this.panel14.Location = new System.Drawing.Point(19, 467);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(363, 132);
-            this.panel14.TabIndex = 152;
-            // 
-            // lblKH_TopDat_Ten
-            // 
-            this.lblKH_TopDat_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TopDat_Ten.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblKH_TopDat_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TopDat_Ten.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TopDat_Ten.Location = new System.Drawing.Point(0, 32);
-            this.lblKH_TopDat_Ten.Name = "lblKH_TopDat_Ten";
-            this.lblKH_TopDat_Ten.Size = new System.Drawing.Size(363, 46);
-            this.lblKH_TopDat_Ten.TabIndex = 116;
-            this.lblKH_TopDat_Ten.Text = "Tên khách";
-            this.lblKH_TopDat_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblKH_TopDat_SoLan
-            // 
-            this.lblKH_TopDat_SoLan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TopDat_SoLan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblKH_TopDat_SoLan.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TopDat_SoLan.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TopDat_SoLan.Location = new System.Drawing.Point(0, 75);
-            this.lblKH_TopDat_SoLan.Name = "lblKH_TopDat_SoLan";
-            this.lblKH_TopDat_SoLan.Size = new System.Drawing.Size(363, 57);
-            this.lblKH_TopDat_SoLan.TabIndex = 115;
-            this.lblKH_TopDat_SoLan.Text = "1,000,000,000";
-            this.lblKH_TopDat_SoLan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblKH_TopDat_Title
-            // 
-            this.lblKH_TopDat_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TopDat_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblKH_TopDat_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TopDat_Title.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TopDat_Title.Location = new System.Drawing.Point(0, 0);
-            this.lblKH_TopDat_Title.Name = "lblKH_TopDat_Title";
-            this.lblKH_TopDat_Title.Size = new System.Drawing.Size(363, 32);
-            this.lblKH_TopDat_Title.TabIndex = 114;
-            this.lblKH_TopDat_Title.Text = "Khách đặt phòng nhiều nhất";
-            this.lblKH_TopDat_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblKH_TopChiTieu_Title
-            // 
-            this.lblKH_TopChiTieu_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TopChiTieu_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblKH_TopChiTieu_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TopChiTieu_Title.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TopChiTieu_Title.Location = new System.Drawing.Point(0, 0);
-            this.lblKH_TopChiTieu_Title.Name = "lblKH_TopChiTieu_Title";
-            this.lblKH_TopChiTieu_Title.Size = new System.Drawing.Size(363, 32);
-            this.lblKH_TopChiTieu_Title.TabIndex = 114;
-            this.lblKH_TopChiTieu_Title.Text = "Khách chi tiêu nhiều nhất";
-            this.lblKH_TopChiTieu_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblKH_TopChiTieu_GiaTri
-            // 
-            this.lblKH_TopChiTieu_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TopChiTieu_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblKH_TopChiTieu_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TopChiTieu_GiaTri.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TopChiTieu_GiaTri.Location = new System.Drawing.Point(0, 75);
-            this.lblKH_TopChiTieu_GiaTri.Name = "lblKH_TopChiTieu_GiaTri";
-            this.lblKH_TopChiTieu_GiaTri.Size = new System.Drawing.Size(363, 57);
-            this.lblKH_TopChiTieu_GiaTri.TabIndex = 115;
-            this.lblKH_TopChiTieu_GiaTri.Text = "1,000,000,000";
-            this.lblKH_TopChiTieu_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblKH_TopChiTieu_Ten
-            // 
-            this.lblKH_TopChiTieu_Ten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TopChiTieu_Ten.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblKH_TopChiTieu_Ten.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TopChiTieu_Ten.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TopChiTieu_Ten.Location = new System.Drawing.Point(0, 32);
-            this.lblKH_TopChiTieu_Ten.Name = "lblKH_TopChiTieu_Ten";
-            this.lblKH_TopChiTieu_Ten.Size = new System.Drawing.Size(363, 46);
-            this.lblKH_TopChiTieu_Ten.TabIndex = 116;
-            this.lblKH_TopChiTieu_Ten.Text = "Tên phòng";
-            this.lblKH_TopChiTieu_Ten.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.Transparent;
-            this.panel15.Controls.Add(this.lblKH_TopChiTieu_Ten);
-            this.panel15.Controls.Add(this.lblKH_TopChiTieu_GiaTri);
-            this.panel15.Controls.Add(this.lblKH_TopChiTieu_Title);
-            this.panel15.Location = new System.Drawing.Point(19, 304);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(363, 132);
-            this.panel15.TabIndex = 149;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.Transparent;
-            this.panel16.Controls.Add(this.lblKH_TongKhach_GiaTri);
-            this.panel16.Controls.Add(this.lblKH_TongKhach_Title);
-            this.panel16.Location = new System.Drawing.Point(27, 148);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(363, 132);
-            this.panel16.TabIndex = 150;
-            // 
-            // lblKH_TongKhach_GiaTri
-            // 
-            this.lblKH_TongKhach_GiaTri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TongKhach_GiaTri.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblKH_TongKhach_GiaTri.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TongKhach_GiaTri.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TongKhach_GiaTri.Location = new System.Drawing.Point(0, 58);
-            this.lblKH_TongKhach_GiaTri.Name = "lblKH_TongKhach_GiaTri";
-            this.lblKH_TongKhach_GiaTri.Size = new System.Drawing.Size(363, 74);
-            this.lblKH_TongKhach_GiaTri.TabIndex = 115;
-            this.lblKH_TongKhach_GiaTri.Text = "1,000,000,000";
-            this.lblKH_TongKhach_GiaTri.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblKH_TongKhach_Title
-            // 
-            this.lblKH_TongKhach_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.lblKH_TongKhach_Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblKH_TongKhach_Title.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKH_TongKhach_Title.ForeColor = System.Drawing.Color.White;
-            this.lblKH_TongKhach_Title.Location = new System.Drawing.Point(0, 0);
-            this.lblKH_TongKhach_Title.Name = "lblKH_TongKhach_Title";
-            this.lblKH_TongKhach_Title.Size = new System.Drawing.Size(363, 75);
-            this.lblKH_TongKhach_Title.TabIndex = 114;
-            this.lblKH_TongKhach_Title.Text = "Tổng số khách hàng";
-            this.lblKH_TongKhach_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ctPanel18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel18.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ctPanel18.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.ctPanel18.BorderRadius = 30;
+            this.ctPanel18.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel18.GradientAngle = 90F;
+            this.ctPanel18.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel18.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
+            this.ctPanel18.Location = new System.Drawing.Point(450, 9);
+            this.ctPanel18.Name = "ctPanel18";
+            this.ctPanel18.Size = new System.Drawing.Size(383, 147);
+            this.ctPanel18.TabIndex = 151;
             // 
             // dtpNgayKT
             // 
@@ -1551,328 +1874,13 @@
             this.dtpNgayBD.TabIndex = 3;
             this.dtpNgayBD.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
             // 
-            // ctPanel23
+            // entityCommand1
             // 
-            this.ctPanel23.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel23.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel23.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel23.BorderRadius = 30;
-            this.ctPanel23.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel23.GradientAngle = 90F;
-            this.ctPanel23.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel23.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel23.Location = new System.Drawing.Point(16, 136);
-            this.ctPanel23.Name = "ctPanel23";
-            this.ctPanel23.Size = new System.Drawing.Size(383, 147);
-            this.ctPanel23.TabIndex = 161;
-            // 
-            // ctPanel10
-            // 
-            this.ctPanel10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel10.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel10.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel10.BorderRadius = 30;
-            this.ctPanel10.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel10.GradientAngle = 90F;
-            this.ctPanel10.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel10.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel10.Location = new System.Drawing.Point(409, 381);
-            this.ctPanel10.Name = "ctPanel10";
-            this.ctPanel10.Size = new System.Drawing.Size(825, 290);
-            this.ctPanel10.TabIndex = 157;
-            // 
-            // ctPanel20
-            // 
-            this.ctPanel20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel20.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel20.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel20.BorderRadius = 30;
-            this.ctPanel20.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel20.GradientAngle = 90F;
-            this.ctPanel20.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel20.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel20.Location = new System.Drawing.Point(413, 87);
-            this.ctPanel20.Name = "ctPanel20";
-            this.ctPanel20.Size = new System.Drawing.Size(819, 289);
-            this.ctPanel20.TabIndex = 159;
-            // 
-            // ctPanel21
-            // 
-            this.ctPanel21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel21.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel21.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel21.BorderRadius = 30;
-            this.ctPanel21.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel21.GradientAngle = 90F;
-            this.ctPanel21.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel21.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel21.Location = new System.Drawing.Point(15, 461);
-            this.ctPanel21.Name = "ctPanel21";
-            this.ctPanel21.Size = new System.Drawing.Size(377, 147);
-            this.ctPanel21.TabIndex = 153;
-            // 
-            // ctPanel22
-            // 
-            this.ctPanel22.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel22.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel22.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel22.BorderRadius = 30;
-            this.ctPanel22.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel22.GradientAngle = 90F;
-            this.ctPanel22.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel22.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel22.Location = new System.Drawing.Point(15, 298);
-            this.ctPanel22.Name = "ctPanel22";
-            this.ctPanel22.Size = new System.Drawing.Size(383, 147);
-            this.ctPanel22.TabIndex = 151;
-            // 
-            // ctPanel14
-            // 
-            this.ctPanel14.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel14.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel14.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel14.BorderRadius = 30;
-            this.ctPanel14.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel14.GradientAngle = 90F;
-            this.ctPanel14.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel14.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel14.Location = new System.Drawing.Point(450, 409);
-            this.ctPanel14.Name = "ctPanel14";
-            this.ctPanel14.Size = new System.Drawing.Size(784, 262);
-            this.ctPanel14.TabIndex = 157;
-            // 
-            // ctPanel15
-            // 
-            this.ctPanel15.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel15.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel15.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel15.BorderRadius = 30;
-            this.ctPanel15.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel15.GradientAngle = 90F;
-            this.ctPanel15.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel15.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel15.Location = new System.Drawing.Point(7, 286);
-            this.ctPanel15.Name = "ctPanel15";
-            this.ctPanel15.Size = new System.Drawing.Size(432, 385);
-            this.ctPanel15.TabIndex = 158;
-            // 
-            // ctPanel16
-            // 
-            this.ctPanel16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel16.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel16.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel16.BorderRadius = 30;
-            this.ctPanel16.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel16.GradientAngle = 90F;
-            this.ctPanel16.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel16.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel16.Location = new System.Drawing.Point(450, 163);
-            this.ctPanel16.Name = "ctPanel16";
-            this.ctPanel16.Size = new System.Drawing.Size(784, 240);
-            this.ctPanel16.TabIndex = 159;
-            // 
-            // ctPanel17
-            // 
-            this.ctPanel17.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel17.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel17.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel17.BorderRadius = 30;
-            this.ctPanel17.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel17.GradientAngle = 90F;
-            this.ctPanel17.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel17.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel17.Location = new System.Drawing.Point(855, 9);
-            this.ctPanel17.Name = "ctPanel17";
-            this.ctPanel17.Size = new System.Drawing.Size(377, 147);
-            this.ctPanel17.TabIndex = 153;
-            // 
-            // ctPanel18
-            // 
-            this.ctPanel18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel18.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel18.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel18.BorderRadius = 30;
-            this.ctPanel18.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel18.GradientAngle = 90F;
-            this.ctPanel18.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel18.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel18.Location = new System.Drawing.Point(450, 9);
-            this.ctPanel18.Name = "ctPanel18";
-            this.ctPanel18.Size = new System.Drawing.Size(383, 147);
-            this.ctPanel18.TabIndex = 151;
-            // 
-            // ctPanel11
-            // 
-            this.ctPanel11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel11.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel11.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel11.BorderRadius = 30;
-            this.ctPanel11.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel11.GradientAngle = 90F;
-            this.ctPanel11.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel11.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel11.Location = new System.Drawing.Point(450, 409);
-            this.ctPanel11.Name = "ctPanel11";
-            this.ctPanel11.Size = new System.Drawing.Size(784, 262);
-            this.ctPanel11.TabIndex = 157;
-            // 
-            // ctPanel12
-            // 
-            this.ctPanel12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel12.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel12.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel12.BorderRadius = 30;
-            this.ctPanel12.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel12.GradientAngle = 90F;
-            this.ctPanel12.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel12.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel12.Location = new System.Drawing.Point(7, 286);
-            this.ctPanel12.Name = "ctPanel12";
-            this.ctPanel12.Size = new System.Drawing.Size(432, 385);
-            this.ctPanel12.TabIndex = 158;
-            // 
-            // ctPanel13
-            // 
-            this.ctPanel13.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel13.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel13.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel13.BorderRadius = 30;
-            this.ctPanel13.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel13.GradientAngle = 90F;
-            this.ctPanel13.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel13.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel13.Location = new System.Drawing.Point(450, 163);
-            this.ctPanel13.Name = "ctPanel13";
-            this.ctPanel13.Size = new System.Drawing.Size(784, 240);
-            this.ctPanel13.TabIndex = 159;
-            // 
-            // ctPanel9
-            // 
-            this.ctPanel9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel9.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel9.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel9.BorderRadius = 30;
-            this.ctPanel9.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel9.GradientAngle = 90F;
-            this.ctPanel9.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel9.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel9.Location = new System.Drawing.Point(855, 9);
-            this.ctPanel9.Name = "ctPanel9";
-            this.ctPanel9.Size = new System.Drawing.Size(377, 147);
-            this.ctPanel9.TabIndex = 153;
-            // 
-            // ctPanel8
-            // 
-            this.ctPanel8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel8.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel8.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel8.BorderRadius = 30;
-            this.ctPanel8.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel8.GradientAngle = 90F;
-            this.ctPanel8.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel8.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel8.Location = new System.Drawing.Point(450, 9);
-            this.ctPanel8.Name = "ctPanel8";
-            this.ctPanel8.Size = new System.Drawing.Size(383, 147);
-            this.ctPanel8.TabIndex = 151;
-            // 
-            // ctPanel7
-            // 
-            this.ctPanel7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel7.BackColor = System.Drawing.Color.White;
-            this.ctPanel7.BorderRadius = 15;
-            this.ctPanel7.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel7.GradientAngle = 90F;
-            this.ctPanel7.GradientBottomColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel7.GradientTopColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel7.Location = new System.Drawing.Point(1, -3);
-            this.ctPanel7.Name = "ctPanel7";
-            this.ctPanel7.Size = new System.Drawing.Size(1288, 82);
-            this.ctPanel7.TabIndex = 145;
-            // 
-            // ctPanel6
-            // 
-            this.ctPanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel6.BorderRadius = 30;
-            this.ctPanel6.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel6.GradientAngle = 90F;
-            this.ctPanel6.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel6.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel6.Location = new System.Drawing.Point(12, 89);
-            this.ctPanel6.Name = "ctPanel6";
-            this.ctPanel6.Size = new System.Drawing.Size(350, 134);
-            this.ctPanel6.TabIndex = 141;
-            // 
-            // ctPanel2
-            // 
-            this.ctPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel2.BorderRadius = 30;
-            this.ctPanel2.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel2.GradientAngle = 90F;
-            this.ctPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel2.Location = new System.Drawing.Point(12, 388);
-            this.ctPanel2.Name = "ctPanel2";
-            this.ctPanel2.Size = new System.Drawing.Size(350, 134);
-            this.ctPanel2.TabIndex = 138;
-            // 
-            // ctPanel3
-            // 
-            this.ctPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel3.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.ctPanel3.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.ctPanel3.BorderRadius = 30;
-            this.ctPanel3.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel3.GradientAngle = 90F;
-            this.ctPanel3.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel3.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel3.Location = new System.Drawing.Point(12, 541);
-            this.ctPanel3.Name = "ctPanel3";
-            this.ctPanel3.Size = new System.Drawing.Size(348, 134);
-            this.ctPanel3.TabIndex = 111;
-            // 
-            // ctPanel1
-            // 
-            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel1.BorderRadius = 30;
-            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel1.GradientAngle = 90F;
-            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel1.Location = new System.Drawing.Point(12, 238);
-            this.ctPanel1.Name = "ctPanel1";
-            this.ctPanel1.Size = new System.Drawing.Size(350, 134);
-            this.ctPanel1.TabIndex = 110;
-            // 
-            // ctPanel4
-            // 
-            this.ctPanel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel4.BorderRadius = 30;
-            this.ctPanel4.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel4.GradientAngle = 90F;
-            this.ctPanel4.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel4.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel4.Location = new System.Drawing.Point(377, 88);
-            this.ctPanel4.Name = "ctPanel4";
-            this.ctPanel4.Size = new System.Drawing.Size(852, 323);
-            this.ctPanel4.TabIndex = 120;
-            // 
-            // ctPanel5
-            // 
-            this.ctPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel5.BorderRadius = 30;
-            this.ctPanel5.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel5.GradientAngle = 90F;
-            this.ctPanel5.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel5.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(61)))), ((int)(((byte)(8)))));
-            this.ctPanel5.Location = new System.Drawing.Point(373, 422);
-            this.ctPanel5.Name = "ctPanel5";
-            this.ctPanel5.Size = new System.Drawing.Size(853, 246);
-            this.ctPanel5.TabIndex = 121;
+            this.entityCommand1.CommandTimeout = 0;
+            this.entityCommand1.CommandTree = null;
+            this.entityCommand1.Connection = null;
+            this.entityCommand1.EnablePlanCaching = true;
+            this.entityCommand1.Transaction = null;
             // 
             // FormThongKe
             // 
@@ -1920,6 +1928,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDoanhThuTong)).EndInit();
             this.pnlTDT.ResumeLayout(false);
             this.pnlKhach.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel16.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_SoKhach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartKH_TopChiTieu)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
             this.pnlDichVu.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -1928,13 +1943,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartDV_Line)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartKH_SoKhach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartKH_TopChiTieu)).EndInit();
-            this.panel14.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2042,5 +2050,6 @@
         private System.Windows.Forms.Label lblKH_TopChiTieu_Title;
         private CTPanel.CTPanel ctPanel22;
         private CTPanel.CTPanel ctPanel10;
+        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
     }
 }
