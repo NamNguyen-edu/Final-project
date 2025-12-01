@@ -58,10 +58,7 @@ namespace HotelManagement.GUI
         private void FormDanhSachTaiKhoan_Load(object sender, EventArgs e)
         {
             LoadAllGrid();
-           /* grid.Rows.Add(new object[] { TK, "admin", "Phan Tuấn Thành", "1", edit, delete });
-            grid.Rows.Add(new object[] { TK, "admin2", "Phan Tuấn Thành", "2", edit, delete });
-            grid.Rows.Add(new object[] { TK, "xyz123", "Phan Tuấn Thành", "3", edit, delete });
-            grid.Rows.Add(new object[] { TK, "abc123", "Phan Tuấn Thành", "3", edit, delete });*/
+         
         }
         // Lấy danh sách tất cả tài khoản
         public void LoadAllGrid()

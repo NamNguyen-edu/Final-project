@@ -14,14 +14,14 @@ namespace HotelManagement.GUI
 {
     public partial class FormThemDichVuVaoPhong : Form
     {
-        private Image Del = Properties.Resources.delete1; // Image for Button Hủy
-        private Image Add = Properties.Resources.Add; // Image for Button Thêm
+        private Image Del = Properties.Resources.delete1; 
+        private Image Add = Properties.Resources.Add;     
         private List<DichVu> dichVus = new List<DichVu>();
         private List<CTDV> dichVusDaDat = new List<CTDV>();
         private List<int?> SLDVConLai = new List<int?>();
         private List<int> SLDVDaDat = new List<int>();
 
-        //Fields
+        
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = AppTheme.PopupMainBackground;
@@ -29,7 +29,18 @@ namespace HotelManagement.GUI
         FormDanhSachDichVu formDanhSachDichVu;
         private CTDP ctdp;
 
-        //Constructor
+        private decimal ParseMoney(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return 0;
+
+            // Lấy hết ký tự số, bỏ hết dấu . , khoảng trắng
+            string digits = new string(value.Where(char.IsDigit).ToArray());
+            if (string.IsNullOrEmpty(digits))
+                return 0;
+
+            return decimal.Parse(digits);
+        }
 
         public FormThemDichVuVaoPhong(CTDP cTDP)
         {
@@ -41,13 +52,10 @@ namespace HotelManagement.GUI
             InitializeComponent();
             LoadGridDaChonLanDau();
             LoadGridDichVuLanDau();
-            
         }
-        private void LoadLanDau()
-        {
 
-        }
-        #region Load Grid Checked
+
+        #region Kiểm tra tải grid đã chọn   
         private void LoadGridDaChonLanDau()
         {
             try
@@ -60,9 +68,8 @@ namespace HotelManagement.GUI
                     {
                         // Tạo bản sao (copy) để không ảnh hưởng dữ liệu gốc trong DB khi thao tác tạm
                         CTDV cTDV1 = new CTDV(cTDV);
-                        //cTDV1 = cTDV;
-                        this.dichVusDaDat.Add(cTDV1); // Thêm vào danh sách hiển thị tạm    
-                        this.SLDVDaDat.Add(cTDV.SL); 
+                        this.dichVusDaDat.Add(cTDV1);     
+                        this.SLDVDaDat.Add(cTDV.SL);
                     }
                 }
                 LoadGridDaChon();
@@ -72,7 +79,7 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show(ex.Message); // Hiển thị lỗi nếu có
             }
         }
-
+        // Load lại grid đã chọn
         private void LoadGridDaChon()
         {
             try
@@ -82,11 +89,8 @@ namespace HotelManagement.GUI
                 {
                     if (v.SL != 0) // Chỉ hiển thị dịch vụ còn SL > 0
                     {
-                        // Lấy thông tin dịch vụ từ DB theo mã dịch vụ
                         DichVu dichVu = DichVuBUS.Instance.FindDichVu(v.MaDV);
-                        // Thêm dòng vào grid: Tên – SL – Thành tiền – Icon Xóa
                         dgvDVDaChon.Rows.Add(dichVu.TenDV, v.SL, v.ThanhTien.ToString("#,#"), Del);
-
                     }
                 }
             }
@@ -97,20 +101,18 @@ namespace HotelManagement.GUI
         }
         #endregion
 
-        #region LoadGridDV
+        #region Tải grid dịch vụ
         private void LoadGridDichVuLanDau()
         {
             try
             {
-                List<DichVu> dichVus;
-                dichVus = DichVuBUS.Instance.GetDichVus();
-                foreach (DichVu dichVu in dichVus)
+                List<DichVu> dichVusDb = DichVuBUS.Instance.GetDichVus();
+                foreach (DichVu dv in dichVusDb)
                 {
                     // Tạo bản copy để hiển thị và thao tác tạm trên form
-                    this.dichVus.Add(new DichVu(dichVu));
-
+                    this.dichVus.Add(new DichVu(dv));
                     // Lưu tồn kho ban đầu cho mỗi dịch vụ
-                    this.SLDVConLai.Add(dichVu.SLConLai);
+                    this.SLDVConLai.Add(dv.SLConLai);
                 }
                 LoadGridDichVu();
             }
@@ -119,6 +121,7 @@ namespace HotelManagement.GUI
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void LoadGridDichVu()
         {
             gridDichVu.Rows.Clear();
@@ -133,24 +136,24 @@ namespace HotelManagement.GUI
             }
         }
         #endregion
-        //Control Box
 
-        //Form Move
-        #region Draw Form
-        //Drag Form
+        #region Draw Form + Border
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
+
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -163,6 +166,7 @@ namespace HotelManagement.GUI
             path.CloseFigure();
             return path;
         }
+
         private void ControlRegionAndBorder(Control control, float radius, Graphics graph, Color borderColor)
         {
             using (GraphicsPath roundPath = GetRoundedPath(control.ClientRectangle, radius))
@@ -173,6 +177,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
@@ -205,6 +210,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private struct FormBoundsColors
         {
             public Color TopLeftColor;
@@ -212,36 +218,9 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+
+     
+
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -251,29 +230,29 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
+
         private void FormThemDichVuVaoPhong_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
+           
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
+
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
+
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
+
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
+
         private void FormThemDichVuVaoPhong_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -288,88 +267,102 @@ namespace HotelManagement.GUI
         {
             this.Invalidate();
         }
+
         private void PanelBackground_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
         private void PanelBackground_Paint(object sender, PaintEventArgs e)
         {
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
         }
         #endregion
+
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
-
             this.Close();
         }
 
+        // Chọn thêm dịch vụ từ Grid Dịch vụ
         private void gridDichVu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int x = e.ColumnIndex, y = e.RowIndex;                   
+            int x = e.ColumnIndex, y = e.RowIndex;
 
-            if (y >= 0 && x == 3)                                   
+            if (y >= 0 && x == 3)
             {
-                #region Add Service
+                #region Thêm dịch vụ
                 try
                 {
-                    // Lấy đơn giá từ ô cột 1 của dòng (dạng chuỗi có dấu phẩy → Trim để bỏ dấu phẩy)
-                    decimal dongia = decimal.Parse(
-                        gridDichVu.Rows[y].Cells[1].Value.ToString().Trim(',')
-                    );
+                    // Lấy đơn giá từ ô cột 1 của dòng (dạng chuỗi có dấu . ,)
+                    decimal dongia = ParseMoney(gridDichVu.Rows[y].Cells[1].Value.ToString());
 
                     // Tìm đúng dịch vụ trong danh sách "dichVus" theo Tên DV + Đơn Giá
+                    string tenDV = gridDichVu.Rows[y].Cells[0].Value.ToString();
                     DichVu dichVu = dichVus
-                        .Where(p => p.TenDV == gridDichVu.Rows[y].Cells[0].Value.ToString()
-                                 && p.DonGia == dongia)
+                        .Where(p => p.TenDV == tenDV && p.DonGia == dongia)
                         .SingleOrDefault();
 
-                    // Xử lý tồn kho dịch vụ (nếu có giới hạn)
-                    if (dichVu.SLConLai >= 1)                           
+                    if (dichVu == null)
                     {
-                        dichVu.SLConLai--;                             
+                        MessageBox.Show("Không tìm thấy dịch vụ tương ứng.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    // Xử lý tồn kho dịch vụ (nếu có giới hạn)
+                    if (dichVu.SLConLai >= 1)
+                    {
+                        dichVu.SLConLai--; // Giảm tồn kho khi thêm
                         gridDichVu.Rows[y].Cells[2].Value = dichVu.SLConLai;
                     }
-                    else if (dichVu.SLConLai == 0)                       
+                    else if (dichVu.SLConLai == 0)
                     {
                         CTMessageBox.Show("Số lượng hàng trong kho đã hết!!",
                             "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-                
-                   
+
+                    // Kiểm tra dịch vụ đã có trong danh sách đã chọn hay chưa
                     foreach (DataGridViewRow dataRow in dgvDVDaChon.Rows)
                     {
-                        // Kiểm tra: Tên giống + Đơn giá giống
-                        if (dataRow.Cells[0].Value.ToString() == dichVu.TenDV &&
-                            (decimal.Parse(dataRow.Cells[2].Value.ToString().Trim(','))
-                                / int.Parse(dataRow.Cells[1].Value.ToString())) == dichVu.DonGia)
+                        if (dataRow.Cells[0].Value == null) continue;
+
+                        // Tên + đơn giá phải trùng
+                        string tenDaChon = dataRow.Cells[0].Value.ToString();
+                        int slDaChon = int.Parse(dataRow.Cells[1].Value.ToString());
+                        decimal thanhTienRow = ParseMoney(dataRow.Cells[2].Value.ToString());
+                        decimal donGiaRow = (slDaChon == 0) ? 0 : thanhTienRow / slDaChon;
+
+                        if (tenDaChon == dichVu.TenDV && donGiaRow == dichVu.DonGia)
                         {
                             // Lấy đúng CTDV đã lưu trong danh sách tạm
                             CTDV cTDV = dichVusDaDat
                                 .Where(p => p.MaDV == dichVu.MaDV)
                                 .FirstOrDefault();
 
-                            // Cập nhật các giá trị lên lưới và trong danh sách tạm
-                            dataRow.Cells[1].Value = ++cTDV.SL;       
-                            cTDV.ThanhTien = cTDV.DonGia * cTDV.SL;     
-                            dataRow.Cells[2].Value = cTDV.ThanhTien.ToString("#,#"); 
+                            if (cTDV != null)
+                            {
+                                cTDV.SL++;
+                                cTDV.ThanhTien = cTDV.DonGia * cTDV.SL;
 
-                            return;                                 
+                                dataRow.Cells[1].Value = cTDV.SL;
+                                dataRow.Cells[2].Value = cTDV.ThanhTien.ToString("#,#");
+                            }
+
+                            return; // Đã xử lý xong, không thêm dòng mới
                         }
                     }
-
                     // Dịch vụ lần đầu thêm vào danh sách đã chọn
-                    CTDV cTDV1 = new CTDV();                          
+                    CTDV cTDV1 = new CTDV();
                     cTDV1.DonGia = dichVu.DonGia;
                     cTDV1.DaXoa = false;
                     cTDV1.ThanhTien = dichVu.DonGia;
                     cTDV1.MaDV = dichVu.MaDV;
                     cTDV1.MaCTDP = ctdp.MaCTDP;
                     cTDV1.SL = 1;
-
                     dichVusDaDat.Add(cTDV1);
-
                     this.LoadGridDaChon();
                 }
                 catch (Exception ex)
@@ -380,6 +373,7 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Lưu dịch vụ vào CSDL
         private void CTButtonLuu_Click(object sender, EventArgs e)
         {
             try
@@ -394,18 +388,19 @@ namespace HotelManagement.GUI
             }
         }
 
+        // Chọn xóa dịch vụ ở Grid đã chọn 
         private void dgvDVDaChon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int x = e.ColumnIndex, y = e.RowIndex;
-            if (y >= 0 && x == 3) 
+            if (y >= 0 && x == 3)
             {
-                #region Remove Service
+                #region Xóa dịch vụ
                 try
                 {
                     // Đọc dữ liệu hiện tại trên lưới
                     int currentSL = int.Parse(dgvDVDaChon.Rows[y].Cells[1].Value.ToString());
-                    decimal thanhTien = decimal.Parse(dgvDVDaChon.Rows[y].Cells[2].Value.ToString().Trim(','));
-                    decimal donGia = thanhTien / currentSL;
+                    decimal thanhTien = ParseMoney(dgvDVDaChon.Rows[y].Cells[2].Value.ToString());
+                    decimal donGia = (currentSL == 0) ? 0 : thanhTien / currentSL;
                     string tenDV = dgvDVDaChon.Rows[y].Cells[0].Value.ToString();
 
                     // Tìm DichVu tương ứng trong list dichVus để cộng lại tồn kho
@@ -429,13 +424,11 @@ namespace HotelManagement.GUI
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-
                     // 1. CỘNG LẠI TỒN KHO (nếu không phải dịch vụ không giới hạn)
                     if (dv.SLConLai != -1)
                     {
                         dv.SLConLai++; // hoàn trả 1 đơn vị về kho
                     }
-
                     // 2. XỬ LÝ GIẢM HOẶC XÓA HẲN DỊCH VỤ ĐÃ ĐẶT
                     if (currentSL > 1)
                     {
@@ -447,17 +440,15 @@ namespace HotelManagement.GUI
                         dgvDVDaChon.Rows[y].Cells[1].Value = cTDV.SL;
                         dgvDVDaChon.Rows[y].Cells[2].Value = cTDV.ThanhTien.ToString("#,#");
                     }
-                    else // currentSL == 1 -> xóa hẳn dịch vụ khỏi danh sách đã chọn
+                    else // Số lượng hiện tại  == 1 sẽ xóa hẳn dịch vụ khỏi danh sách đã chọn
                     {
                         // Đánh dấu CTDV này là đã xóa + set SL = 0 
                         cTDV.SL = 0;
                         cTDV.ThanhTien = 0;
                         cTDV.DaXoa = true;
-
                         // Xóa dòng trên DataGridView
                         dgvDVDaChon.Rows.RemoveAt(y);
                     }
-
                     // 3. Cập nhật lại lưới dịch vụ để hiển thị tồn kho mới
                     LoadGridDichVu();
                 }
@@ -468,15 +459,13 @@ namespace HotelManagement.GUI
                 #endregion
             }
         }
-
+        // Form thêm dịch vụ vào phòng
         private void FormThemDichVuVaoPhong_Load(object sender, EventArgs e)
         {
-            //gridDichVu.ColumnHeadersDefaultCellStyle.Font = new Font(gridDichVu.Font, FontStyle.Bold);
-            //dgvDVDaChon.ColumnHeadersDefaultCellStyle.Font = new Font(dgvDVDaChon.Font, FontStyle.Bold);
             HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.gridDichVu);
             HotelManagement.CTControls.ThemeManager.StyleDataGridView(this.dgvDVDaChon);
         }
-        // Thay đổi con trỏ chuột thành hình bàn tay khi di chuột vào cột 3 của gridDichVu
+
         private void gridDichVu_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -485,13 +474,12 @@ namespace HotelManagement.GUI
             else
                 gridDichVu.Cursor = Cursors.Default;
         }
-        // Khi chuột rời khỏi ô → trả con trỏ về mặc định
+
         private void gridDichVu_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             gridDichVu.Cursor = Cursors.Default;
         }
 
-        // Thay đổi con trỏ chuột thành hình bàn tay khi di chuột vào cột 3 của dgvDVDaChon
         private void dgvDVDaChon_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             int y = e.RowIndex, x = e.ColumnIndex;
@@ -500,38 +488,39 @@ namespace HotelManagement.GUI
             else
                 dgvDVDaChon.Cursor = Cursors.Default;
         }
-        // Khi chuột rời khỏi ô → trả con trỏ về mặc định
+
         private void dgvDVDaChon_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             dgvDVDaChon.Cursor = Cursors.Default;
         }
 
-        // Hàm tìm dịch vụ theo tên
+        // Tìm dịch vụ theo tên 
         private void CTTextBoxTimTheoTenDV__TextChanged(object sender, EventArgs e)
         {
-            CTTextBox txt = sender as CTTextBox;   
-            if (txt == null)
-            {
-                LoadGridDichVu();
-                 return;
-            } 
-            string keyword = txt.Texts.Trim().ToLower();
-            // Nếu textbox mất focus (người dùng xóa text bằng code), load lại toàn bộ
-            if (!txt.Focused)
+            TextBox txt = sender as TextBox;
+            string keyword = txt.Text.Trim().ToLower();
+
+            // Khi ô tìm kiếm rỗng → hiển thị lại danh sách gốc (dichVus)
+            if (txt.Focused == false)
             {
                 LoadGridDichVu();
                 return;
             }
-            // Lọc trên danh sách dịch vụ hiện tại
-                 var filtered = dichVus .Where(x => x.TenDV.Contains(keyword)) .ToList();
+
+            // Lọc dịch vụ theo tên (KHÔNG được thay đổi danh sách gốc)
+            var filtered = dichVus
+                .Where(d => d.TenDV.ToLower().Contains(keyword))
+                .ToList();
+
+            // Hiển thị kết quả lọc
             gridDichVu.Rows.Clear();
-            foreach (DichVu v in filtered)
+            foreach (DichVu dv in filtered)
             {
-                if (v.SLConLai == -1)
-                    gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), "", Add);
+                if (dv.SLConLai == -1)
+                    gridDichVu.Rows.Add(dv.TenDV, dv.DonGia.ToString("#,#"), "", Add);
                 else
-                    gridDichVu.Rows.Add(v.TenDV, v.DonGia.ToString("#,#"), v.SLConLai, Add);
+                    gridDichVu.Rows.Add(dv.TenDV, dv.DonGia.ToString("#,#"), dv.SLConLai, Add);
             }
         }
-    }
+        }
 }

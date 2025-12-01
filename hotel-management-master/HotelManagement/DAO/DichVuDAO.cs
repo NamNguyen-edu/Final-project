@@ -24,7 +24,6 @@ namespace HotelManagement.DAO
         {
             instance = null;
             return db.DichVus.Where(p => p.DaXoa == false).ToList();
-
         }
         // Tìm dịch vụ theo mã 
         public DichVu FindDichVu(string MaDV)
@@ -33,7 +32,6 @@ namespace HotelManagement.DAO
             {
                 return hotelDTO.DichVus.Find(MaDV);
             }
-
         }
         // Thêm hoặc cập nhật 
         public void UpdateORAdd(DichVu dv)
@@ -54,7 +52,6 @@ namespace HotelManagement.DAO
             {
                 throw new Exception(ex.Message);
             }
-
         }
         // Xử lý việc xóa dịch vụ
         public void RemoveDV(DichVu dv)
@@ -70,12 +67,10 @@ namespace HotelManagement.DAO
             {
                 db.DichVus.Remove(dv);
             }
-
         }
         // Gán mã dịch vụ tiếp theo
         public string GetMaDVNext()
         {
-
             List<DichVu> DV = db.DichVus.ToList();
             string MaMax = DV[DV.Count - 1].MaDV.ToString();
             MaMax = MaMax.Substring(MaMax.Length - 2, 2); // Tìm mã dịch vụ lớn nhất
@@ -86,14 +81,11 @@ namespace HotelManagement.DAO
                 return "DV0" + max.ToString();
             }
             return "DV" + max.ToString();
-
         }
         // Tìm dịch vụ theo tên
         public List<DichVu> FindDichVuWithName(string TenDV)
         {
-
             return db.DichVus.Where(p => p.TenDV.Contains(TenDV) && p.DaXoa == false).ToList();
-
         }
         // Lấy số lượng các dịch vụ còn lại
         public List<DichVu> GetDichVusConLai()
@@ -130,13 +122,11 @@ namespace HotelManagement.DAO
         public bool ValidateDonGia(DichVu dv, out string error)
         {
             error = ""; // Khai báo chuỗi giá trị để đưa lỗi về
-
             if (dv.DonGia < 1000) // Nếu giá dịch vụ dưới 1.000 đồng
             {
                 error = "Đơn giá phải từ 1.000 đồng trở lên.";
                 return false;
             }
-
             return true;
         }
         // Kiểm tra số lượng dịch vụ nhập vào khi thêm hoặc sửa chi tiết dịch vụ
@@ -149,13 +139,11 @@ namespace HotelManagement.DAO
                 error = "Số lượng không hợp lệ.";
                 return false;
             }
-
             if (dv.SLConLai < 0) // Nếu số lượng được sửa nhỏ hơn 0
             {
                 error = "Số lượng dịch vụ không được nhỏ hơn 0.";
                 return false;
             }
-
             return true;
         }
     }

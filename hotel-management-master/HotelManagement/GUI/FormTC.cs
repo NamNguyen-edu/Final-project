@@ -7,6 +7,7 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace HotelManagement.GUI
 {
@@ -24,7 +25,6 @@ namespace HotelManagement.GUI
             InitializeComponent();
         }
 
-        // Hàm khởi tạo nhận FormMain, dùng để liên kết với form chính và xử lý layout theo formMain
         public FormTC(FormMain formMain)
         {
             this.formMain = formMain;
@@ -69,16 +69,18 @@ namespace HotelManagement.GUI
 
             Colgio.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColCheckin.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            System.Drawing.Drawing2D.GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(picAvatar.ClientRectangle);   
+            picAvatar.Region = new Region(gp);
         }
 
-        // Sự kiện Tick của timer thời gian, cập nhật giờ hệ thống và danh sách thông báo check-in
         private void timerDateTime_Tick(object sender, EventArgs e)
         {
             UpdateDateTimeLabel();
             LoadThongBaoCheckIn();
         }
 
-        // Sự kiện thay đổi kích thước panelTop, canh giữa label ngày giờ theo panel
         private void panelTop_SizeChanged(object sender, EventArgs e)
         {
             int x = (panelTop.Width - lblDate.Width) / 2;
@@ -86,7 +88,6 @@ namespace HotelManagement.GUI
             lblDate.Location = new System.Drawing.Point(x, y);
         }
 
-        // Cập nhật nội dung label ngày giờ theo thời gian hiện tại, định dạng tiếng Việt
         private void UpdateDateTimeLabel()
         {
             DateTime now = DateTime.Now;
@@ -131,7 +132,6 @@ namespace HotelManagement.GUI
         {
             DateTime today = DateTime.Today;
 
-            // Cập nhật lại các CTDP quá hạn "Đã đặt" → "Đã xong"
             CTDP_DAO.Instance.UpdateTrangThaiQuaHan(today);
 
             // Lấy toàn bộ CTDP còn hiệu lực
@@ -224,17 +224,8 @@ namespace HotelManagement.GUI
                     AutoEllipsis = false
                 };
 
-                Label lblTime = new Label
-                {
-                    AutoSize = true,
-                    Font = new Font("Segoe UI", 9F, FontStyle.Italic),
-                    ForeColor = Color.Gray,
-                    Location = new Point(15, lblNoiDung.Bottom + 4),
-                    Text = tb.ThoiGianGui.ToString("HH:mm dd/MM/yyyy")
-                };
-
+              
                 p.Controls.Add(lblNoiDung);
-                p.Controls.Add(lblTime);
 
                 flowLayoutPanelCSKH.Controls.Add(p);
             }
@@ -259,7 +250,6 @@ namespace HotelManagement.GUI
         {
             DateTime now = DateTime.Now;
 
-            // Cập nhật lại các CTDP quá hạn "Đã đặt"
             CTDP_DAO.Instance.UpdateTrangThaiQuaHan(now);
 
             // Lấy tất cả phòng "Đã đặt" trong hôm nay, đã tới giờ check-in
@@ -327,13 +317,10 @@ namespace HotelManagement.GUI
             if (formMain == null || formMain.TaiKhoanDangNhap == null)
                 return;
 
-            // Tạo form Sơ đồ phòng
             var f = new FormSoDoPhong(formMain, formMain.TaiKhoanDangNhap);
 
-            // Mở form trong FormMain
             formMain.openChildForm(f);
 
-            // Áp dụng filter tương ứng
             applyFilter?.Invoke(f);
         }
 
@@ -392,49 +379,24 @@ namespace HotelManagement.GUI
             p.BackColor = Color.FromArgb(255, 244, 220);
         }
 
-        // Sự kiện click thẻ tổng quan 1: hiển thị phòng đang thuê trên sơ đồ phòng
         private void ovItem1_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDangThue());
         }
 
-        // Sự kiện click thẻ tổng quan 2: hiển thị phòng đã đặt trên sơ đồ phòng
         private void ovItem2_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDaDat());
         }
 
-        // Sự kiện click thẻ tổng quan 3: hiển thị phòng chưa dọn trên sơ đồ phòng
         private void ovItem3_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongChuaDon());
         }
 
-        // Sự kiện click thẻ tổng quan 4: hiển thị phòng đang sửa chữa trên sơ đồ phòng
         private void ovItem4_Click(object sender, EventArgs e)
         {
             OpenSoDoPhongAndFilter(f => f.ShowPhongDangSuaChua());
-        }
-
-        // Phát nhạc nền cho form (nếu cần sử dụng âm thanh trên form này)
-        private void PlayMusic()
-        {
-            if (Properties.Resources.audiotrangchu != null)
-            {
-                player = new SoundPlayer(Properties.Resources.audiotrangchu);
-                player.PlayLooping();
-                isMusicPlaying = true;
-            }
-        }
-
-        // Dừng phát nhạc nền trên form
-        private void StopMusic()
-        {
-            if (player != null)
-            {
-                player.Stop();
-                isMusicPlaying = false;
-            }
         }
     }
 }

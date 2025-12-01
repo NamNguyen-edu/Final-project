@@ -59,16 +59,16 @@
             this.grid.AllowUserToResizeRows = false;
             this.grid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.grid.BackgroundColor = System.Drawing.Color.White;
             this.grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.InactiveBorder;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grid.ColumnHeadersHeight = 50;
@@ -83,11 +83,11 @@
             this.Column7});
             this.grid.Cursor = System.Windows.Forms.Cursors.Default;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.grid.DefaultCellStyle = dataGridViewCellStyle4;
             this.grid.EnableHeadersVisualStyles = false;
@@ -185,9 +185,10 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = global::HotelManagement.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(50, 34);
+            this.pictureBox1.Location = new System.Drawing.Point(74, 34);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 30);
+            this.pictureBox1.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
@@ -198,8 +199,8 @@
             this.ctPanel1.BorderRadius = 50;
             this.ctPanel1.ForeColor = System.Drawing.Color.Black;
             this.ctPanel1.GradientAngle = 90F;
-            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(241)))), ((int)(((byte)(214)))));
-            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(215)))), ((int)(((byte)(215)))));
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             this.ctPanel1.Location = new System.Drawing.Point(45, 95);
             this.ctPanel1.Name = "ctPanel1";
             this.ctPanel1.Size = new System.Drawing.Size(1142, 704);
@@ -257,10 +258,10 @@
             this.CTTextBoxTimPhongTheoMa.BorderFocusColor = System.Drawing.Color.Black;
             this.CTTextBoxTimPhongTheoMa.BorderRadius = 5;
             this.CTTextBoxTimPhongTheoMa.BorderSize = 1;
-            this.CTTextBoxTimPhongTheoMa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CTTextBoxTimPhongTheoMa.ForeColor = System.Drawing.Color.DimGray;
+            this.CTTextBoxTimPhongTheoMa.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CTTextBoxTimPhongTheoMa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(63)))), ((int)(((byte)(23)))));
             this.CTTextBoxTimPhongTheoMa.IsFocused = false;
-            this.CTTextBoxTimPhongTheoMa.Location = new System.Drawing.Point(45, 30);
+            this.CTTextBoxTimPhongTheoMa.Location = new System.Drawing.Point(70, 30);
             this.CTTextBoxTimPhongTheoMa.Margin = new System.Windows.Forms.Padding(4);
             this.CTTextBoxTimPhongTheoMa.Multiline = false;
             this.CTTextBoxTimPhongTheoMa.Name = "CTTextBoxTimPhongTheoMa";
@@ -269,7 +270,7 @@
             this.CTTextBoxTimPhongTheoMa.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimPhongTheoMa.PlaceholderText = "Nhập tên dịch vụ cần tìm";
             this.CTTextBoxTimPhongTheoMa.ReadOnly = false;
-            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 43);
+            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(297, 39);
             this.CTTextBoxTimPhongTheoMa.TabIndex = 19;
             this.CTTextBoxTimPhongTheoMa.TabStop = false;
             this.CTTextBoxTimPhongTheoMa.Texts = "";
@@ -297,6 +298,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

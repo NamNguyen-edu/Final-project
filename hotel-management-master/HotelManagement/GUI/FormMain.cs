@@ -25,16 +25,15 @@ namespace HotelManagement
     {
         private bool _isKhachMode = false;
 
-        // Biến dùng cho cấu hình form và phân quyền
         int LoaiTK;
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.FromArgb(72, 145, 153);
         private TaiKhoan taiKhoan;
-        private bool isMusicPlaying = false; // Biến để theo dõi trạng thái nhạc
-        private SoundPlayer player;          // Đối tượng phát âm thanh
+        private bool isMusicPlaying = false; 
+        private SoundPlayer player;          
 
-        // Hàm khởi tạo FormMain, thiết lập style form và phân quyền theo tài khoản đăng nhập
+       
         public FormMain(TaiKhoan taiKhoan)
         {
             this.DoubleBuffered = true;
@@ -43,6 +42,8 @@ namespace HotelManagement
             this.taiKhoan = taiKhoan;
             this.LoaiTK = taiKhoan.CapDoQuyen;
             InitializeComponent();
+
+
             if (this.LoaiTK == 1)
                 LoadFormForNhanVien();
             else if (this.LoaiTK == 2)
@@ -51,13 +52,11 @@ namespace HotelManagement
                 LoadFormForAdmin();
         }
 
-        // Thuộc tính trả về tài khoản đang đăng nhập
         public TaiKhoan TaiKhoanDangNhap
         {
             get { return taiKhoan; }
         }
 
-        // Cấu hình giao diện và menu dành cho tài khoản Admin
         private void LoadFormForAdmin()
         {
             _isKhachMode = false;
@@ -75,28 +74,24 @@ namespace HotelManagement
             this.ButtonLoaiPhong.Hide();
         }
 
-        // Cấu hình giao diện và menu dành cho tài khoản Quản lý
         private void LoadFormQuanLy()
         {
             _isKhachMode = false;
             this.ButtonDanhSachTaiKhoan.Hide();
         }
 
-        // Khai báo hàm WinAPI hỗ trợ kéo form không viền
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
-        // Khai báo hàm WinAPI gửi thông điệp đến Windows (dùng để di chuyển form)
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        // Ghi đè CreateParams để cho phép form không viền vẫn có thể thu nhỏ từ taskbar
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // Cho phép thu nhỏ form không viền từ thanh taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
@@ -190,17 +185,6 @@ namespace HotelManagement
         }
 
 
-        private FormBoundsColors SameColor()
-        {
-            var fbColor = new FormBoundsColors();
-            fbColor.TopLeftColor = Color.FromArgb(72, 145, 153);
-            fbColor.TopRightColor = Color.FromArgb(72, 145, 153);
-            fbColor.BottomLeftColor = Color.FromArgb(72, 145, 153);
-            fbColor.BottomRightColor = Color.FromArgb(72, 145, 153);
-            return fbColor;
-        }
-
-
         private void FormMain_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -228,7 +212,6 @@ namespace HotelManagement
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
 
-        // Sự kiện Resize của form, điều chỉnh Padding khi phóng to/ thu nhỏ
         private void FormMain_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
@@ -239,19 +222,16 @@ namespace HotelManagement
             this.Invalidate();
         }
 
-        // Sự kiện thay đổi kích thước form, yêu cầu vẽ lại giao diện
         private void FormMain_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
-        // Sự kiện form được kích hoạt, yêu cầu vẽ lại giao diện
         private void FormMain_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
-        // Sự kiện vẽ panel nền, áp dụng bo góc và viền cho PanelBackground
         private void PanelBackground_Paint(object sender, PaintEventArgs e)
         {
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
@@ -285,10 +265,10 @@ namespace HotelManagement
                 }
             }
 
-            //PlayMusic();
+            PlayMusic();
+            SetMusicButtonIcon();
         }
 
-        // Phát nhạc nền dạng lặp lại nếu tồn tại file âm thanh trong Resources
         private void PlayMusic()
         {
             if (Properties.Resources.audiotrangchu != null)
@@ -301,6 +281,56 @@ namespace HotelManagement
             {
                 MessageBox.Show("Không tìm thấy file âm thanh trong Resources!");
             }
+        }
+        private void BtnSound_Click(object sender, EventArgs e)
+        {
+            ToggleMusic();
+        }
+
+        private void ToggleMusic()
+        {
+            // Nếu chưa khởi tạo player mà bấm nút thì cho chạy nhạc luôn
+            if (player == null)
+            {
+                PlayMusic();
+                SetMusicButtonIcon();
+                return;
+            }
+
+            if (isMusicPlaying)
+            {
+                // Đang phát -> thì dừng
+                player.Stop();
+                isMusicPlaying = false;
+            }
+            else
+            {
+                // Đang tắt -> bật lại, phát lặp
+                player.PlayLooping();
+                isMusicPlaying = true;
+            }
+
+            SetMusicButtonIcon();
+        }
+        private void SetMusicButtonIcon()
+        {
+            if (isMusicPlaying)
+            {
+                // Hình khi đang bật nhạc
+                BtnSound.Image = Properties.Resources.Soundbtn;
+            }
+            else
+            {
+                // Hình khi đang tắt nhạc
+                BtnSound.Image = Properties.Resources.Mutebtn;
+            }
+            BtnSound.FlatStyle = FlatStyle.Flat;
+            BtnSound.FlatAppearance.BorderSize = 0;
+            BtnSound.TabStop = false;
+            BtnSound.UseVisualStyleBackColor = false;
+            BtnSound.FlatAppearance.MouseOverBackColor = BtnSound.BackColor;
+            BtnSound.FlatAppearance.MouseDownBackColor = BtnSound.BackColor;
+            BtnSound.FlatAppearance.CheckedBackColor = BtnSound.BackColor;
         }
 
         private Form activeForm = null;
@@ -320,17 +350,14 @@ namespace HotelManagement
             childForm.Show();
         }
 
-        // Sự kiện click nút thu nhỏ form
         private void ctMinimize1_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        // Sự kiện click nút phóng to / khôi phục kích thước form
         private void ctMaximize1_Click(object sender, EventArgs e) =>
             this.WindowState = (this.WindowState == FormWindowState.Normal) ? FormWindowState.Maximized : FormWindowState.Normal;
 
-        // Sự kiện rê chuột vào khu vực control box, bật hiệu ứng cho các nút
         private void panelControlBox_MouseHover(object sender, EventArgs e)
         {
             ctClose1.turnOn();
@@ -338,7 +365,6 @@ namespace HotelManagement
             ctMaximize1.turnOn();
         }
 
-        // Sự kiện rời chuột khỏi khu vực control box, tắt hiệu ứng cho các nút
         private void panelControlBox_MouseLeave(object sender, EventArgs e)
         {
             ctClose1.turnOff();
@@ -346,7 +372,6 @@ namespace HotelManagement
             ctMaximize1.turnOff();
         }
 
-        // Sự kiện di chuyển chuột trong khu vực control box, bật hiệu ứng cho các nút
         private void panelControlBox_MouseMove(object sender, MouseEventArgs e)
         {
             ctClose1.turnOn();
@@ -354,7 +379,6 @@ namespace HotelManagement
             ctMaximize1.turnOn();
         }
 
-        // Sự kiện giữ chuột trên panel tiêu đề, cho phép kéo di chuyển form
         private void panelName_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -611,5 +635,7 @@ namespace HotelManagement
         {
             PictureBoxMenu.BackColor = Color.Transparent;
         }
+
+
     }
 }

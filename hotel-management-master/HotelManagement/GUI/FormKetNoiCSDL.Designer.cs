@@ -187,7 +187,7 @@
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(278, 37);
             this.labelTitle.TabIndex = 9;
-            this.labelTitle.Text = "Kết nối cơ sở dữ liệu";
+            this.labelTitle.Text = "Kết nối CSDL";
             // 
             // buttonKetNoi
             // 

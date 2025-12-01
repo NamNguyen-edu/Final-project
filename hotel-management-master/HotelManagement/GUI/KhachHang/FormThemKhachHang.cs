@@ -23,10 +23,8 @@ namespace HotelManagement.GUI
         private int borderSize = 2;
         private Color borderColor = Color.White;
 
-        // Tham chiếu đến form danh sách khách hàng để reload dữ liệu sau khi thêm
         FormDanhSachKhachHang formDanhSachKhachHang;
 
-        // Hàm khởi tạo mặc định, dùng khi mở form độc lập
         public FormThemKhachHang()
         {
             this.DoubleBuffered = true;
@@ -45,21 +43,18 @@ namespace HotelManagement.GUI
             InitializeComponent();
         }
 
-        // Khai báo hàm WinAPI hỗ trợ kéo form không viền
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
-        // Khai báo hàm WinAPI gửi thông điệp đến Windows (dùng để di chuyển form)
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        // Ghi đè CreateParams để form không viền vẫn thu nhỏ được từ taskbar
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // Cho phép minimize form không viền từ taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
@@ -164,19 +159,16 @@ namespace HotelManagement.GUI
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
 
-        // Sự kiện Resize của form, yêu cầu vẽ lại giao diện
         private void FormThemKhachHang_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
-        // Sự kiện thay đổi kích thước form, yêu cầu vẽ lại giao diện
         private void FormThemKhachHang_SizeChanged(object sender, EventArgs e)
         {
             this.Invalidate();
         }
 
-        // Sự kiện form được kích hoạt, yêu cầu vẽ lại giao diện
         private void FormThemKhachHang_Activated(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -188,14 +180,12 @@ namespace HotelManagement.GUI
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
         }
 
-        // Sự kiện nhấn chuột trên PanelBackground, cho phép kéo di chuyển form
         private void PanelBackground_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        // Sự kiện click nút Thoát, đóng form thêm khách hàng
         private void CTButtonThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -289,26 +279,22 @@ namespace HotelManagement.GUI
             }
         }
 
-        // Sự kiện text changed của ô tên khách hàng, gắn sự kiện KeyPress để chặn ký tự số
         private void ctTextBoxName__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxName = sender as TextBox;
             textBoxName.KeyPress += TextBoxName_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô tên khách hàng, chỉ cho phép nhập chữ, không cho nhập số
         private void TextBoxName_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
 
-        // Sự kiện Load của form, đặt focus ban đầu vào label tiêu đề
         private void FormThemKhachHang_Load(object sender, EventArgs e)
         {
             this.ActiveControl = labelThemKhachHang;
         }
 
-        // Sự kiện text changed của ô CCCD/Passport, giới hạn độ dài và gắn KeyPress chỉ cho nhập số
         private void ctTextBoxCMND__TextChanged(object sender, EventArgs e)
         {
             TextBox textBoxCCCD = sender as TextBox;
@@ -316,7 +302,6 @@ namespace HotelManagement.GUI
             textBoxCCCD.KeyPress += TextBoxCCCD_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô CCCD/Passport, chỉ cho phép nhập ký tự số
         private void TextBoxCCCD_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
@@ -330,7 +315,6 @@ namespace HotelManagement.GUI
             textBoxSDT.KeyPress += TextBoxSDT_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô số điện thoại, chỉ cho phép nhập ký tự số
         private void TextBoxSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
@@ -343,7 +327,6 @@ namespace HotelManagement.GUI
             textBoxQuocTich.KeyPress += TextBoxQuocTich_KeyPress;
         }
 
-        // Xử lý KeyPress cho ô quốc tịch, chỉ cho phép nhập chữ, không cho phép nhập số
         private void TextBoxQuocTich_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);

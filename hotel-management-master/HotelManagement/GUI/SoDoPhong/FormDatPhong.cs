@@ -125,36 +125,7 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+ 
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -164,28 +135,27 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(67, 73, 73);
             return colors;
         }
-        //Event Methods
+
         private void FormDatPhong_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
+
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //fbColors = GetSame();
-            //Top Left
+
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
+
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
+
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
+
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
         private void FormDatPhong_Resize(object sender, EventArgs e)
@@ -220,7 +190,7 @@ namespace HotelManagement.GUI
         }
         #endregion
         // Hàm load thời gian mặc định cho 4 combo box (giờ + AM/PM)
-        // Lấy giờ hệ thống, chuyển 24h → 12h, format HH:mm và gán vào UI
+        // Lấy giờ hệ thống, chuyển 24h sang 12h, format HH:mm và gán vào UI
         private void setLoadComboBox()
         {
             DateTime datetime = DateTime.Now;
@@ -340,10 +310,10 @@ namespace HotelManagement.GUI
             {
                 try
                 {
-                    //Set Date and Time for check in
+
                     setDate(CTDatePickerNgayBD.Value, 1);
                     setTime(cbBoxGioBatDau.Texts, cbBoxLetterBatDau.Texts, 1);
-                    //Set Date and Time for check out
+
                     setDate(CTDatePickerNgayKT.Value, 2);
                     setTime(cbBoxGioKetThuc.Texts, cbBoxLetterKetThuc.Texts, 2);
                     if (this.CheckIn < DateTime.Now)
@@ -380,7 +350,7 @@ namespace HotelManagement.GUI
             }
         }
 
-        #region Remove Room
+        #region Xóa phòng
         // Gán lại mã CTDP theo thứ tự mới sau khi thêm/xóa
         private void SetMaCTDP(List<CTDP> list)
         {
@@ -445,7 +415,7 @@ namespace HotelManagement.GUI
         }
         #endregion
 
-        #region UI Form
+        #region Form giao diện
         private void gridPhongTrong_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridView grid = gridPhongTrong;
@@ -491,7 +461,7 @@ namespace HotelManagement.GUI
         }
         #endregion
 
-        #region Date and Time value changed
+        #region Thiết lập thời gian
         private void setDate(DateTime dateTime, int flag)
         {
             if (flag == 1)
@@ -599,7 +569,7 @@ namespace HotelManagement.GUI
                 }
                 // Hỏi khách có muốn thanh toán cọc không
                 DialogResult ask = CTMessageBox.Show(
-                    "Bạn có muốn xác nhận đặt ph?",
+                    "Bạn có muốn xác nhận đặt phòng?",
                     "Xác nhận đặt cọc",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question
@@ -675,7 +645,7 @@ namespace HotelManagement.GUI
                 khachHang.QuocTich = CTTextBoxNhapDiaChi.Texts;
                 khachHang.GioiTinh = ComboBoxGioiTinh.Texts.Trim();
                 khachHang.Email = CTTextBoxNhapEmail.Texts;
-                // Lưu vào DB (tự nhận biết → thêm mới hoặc update)
+                // Lưu vào CSDL (thêm mới hoặc cập nhật)
                 KhachHangBUS.Instance.UpdateOrAdd(khachHang);
             }
             catch (Exception ex)
@@ -718,7 +688,7 @@ namespace HotelManagement.GUI
                     // Ghi số tiền đặt cọc (30% giá phòng)
                     ctdp.TienDatCoc =
                         (decimal)PhongBUS.Instance.FindePhong(ctdp.MaPH).LoaiPhong.GiaNgay * 0.3m;
-                    // Lưu vào DB
+                    // Lưu vào CSDL
                     CTDP_BUS.Instance.UpdateOrAddCTDP(ctdp);
                 }
             }
@@ -753,7 +723,7 @@ namespace HotelManagement.GUI
                     );
                 }
             }
-            // TB sau khi tạo xong tất cả hóa đơn
+            // THông báo sau khi tạo xong tất cả hóa đơn
             CTMessageBox.Show(
                 "Tạo hóa đơn đặt cọc thành công!",
                 "Thông báo",
@@ -775,11 +745,9 @@ namespace HotelManagement.GUI
             TextBox txt = sender as TextBox;
             txt.MaxLength = 12;
             txt.KeyPress += TextBoxOnlyNumber_KeyPress;
-            string cccd = txt.Text.Trim();
-            // Chỉ kiểm tra khi nhập đủ 9–12 số
-            if (cccd.Length < 9) return;
+            string cccd = txt.Text.Trim(); 
             KhachHang khInDb = KhachHangBUS.Instance.FindKHWithCCCD(cccd);
-            // TRƯỜNG HỢP 1: KHÁCH HÀNG ĐÃ TỒN TẠI
+            // Trường hợp 1: Khách hàng đã tồn tại
             if (khInDb != null)
             {
                 // Gán vào biến toàn cục
@@ -788,7 +756,7 @@ namespace HotelManagement.GUI
                 CTTextBoxNhapSDT.RemovePlaceholder();
                 CTTextBoxNhapDiaChi.RemovePlaceholder();
                 CTTextBoxNhapEmail.RemovePlaceholder();
-                // Tự động fill
+                // Tự động điền
                 CTTextBoxNhapHoTen.Texts = khachHang.TenKH;
                 CTTextBoxNhapSDT.Texts = khachHang.SDT;
                 CTTextBoxNhapDiaChi.Texts = khachHang.QuocTich;
@@ -804,14 +772,14 @@ namespace HotelManagement.GUI
             }
             else
             {
-                // ➤ TRƯỜNG HỢP 2: KH MỚI
+                //  TRƯỜNG HỢP 2: KH MỚI
                 // Mở khóa các trường
                 CTTextBoxNhapHoTen.Enabled = true;
                 CTTextBoxNhapSDT.Enabled = true;
                 CTTextBoxNhapDiaChi.Enabled = true;
                 ComboBoxGioiTinh.Enabled = true;
                 CTTextBoxNhapEmail.Enabled = true;
-                // Reset thông tin (nếu trước đó là KH cũ)
+                // Làm mới thông tin (nếu trước đó là KH cũ)
                 if (flagHoTen == 1)
                 {
                     CTTextBoxNhapHoTen.Texts = "";

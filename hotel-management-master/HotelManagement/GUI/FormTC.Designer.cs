@@ -99,10 +99,10 @@ namespace HotelManagement.GUI
             this.ColPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Colgio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCheckin = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ctPanel1 = new CTPanel.CTPanel();
             this.lblThongBao = new System.Windows.Forms.Label();
             this.flowLayoutPanelCSKH = new System.Windows.Forms.FlowLayoutPanel();
             this.timerDateTime = new System.Windows.Forms.Timer(this.components);
-            this.ctPanel1 = new CTPanel.CTPanel();
             this.panelTop.SuspendLayout();
             this.panelOverview.SuspendLayout();
             this.ovItem1.SuspendLayout();
@@ -370,7 +370,8 @@ namespace HotelManagement.GUI
             // 
             // picAvatar
             // 
-            this.picAvatar.BackColor = System.Drawing.Color.LightGray;
+            this.picAvatar.BackColor = System.Drawing.Color.LightPink;
+            this.picAvatar.Image = global::HotelManagement.Properties.Resources.TTB;
             this.picAvatar.Location = new System.Drawing.Point(117, 37);
             this.picAvatar.Name = "picAvatar";
             this.picAvatar.Size = new System.Drawing.Size(130, 130);
@@ -557,6 +558,20 @@ namespace HotelManagement.GUI
             this.ColCheckin.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColCheckin.Width = 93;
             // 
+            // ctPanel1
+            // 
+            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ctPanel1.BackColor = System.Drawing.Color.White;
+            this.ctPanel1.BorderRadius = 50;
+            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
+            this.ctPanel1.GradientAngle = 90F;
+            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
+            this.ctPanel1.Location = new System.Drawing.Point(40, 131);
+            this.ctPanel1.Name = "ctPanel1";
+            this.ctPanel1.Size = new System.Drawing.Size(334, 283);
+            this.ctPanel1.TabIndex = 30;
+            // 
             // lblThongBao
             // 
             this.lblThongBao.AutoSize = true;
@@ -579,20 +594,6 @@ namespace HotelManagement.GUI
             // 
             this.timerDateTime.Interval = 60000;
             this.timerDateTime.Tick += new System.EventHandler(this.timerDateTime_Tick);
-            // 
-            // ctPanel1
-            // 
-            this.ctPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctPanel1.BackColor = System.Drawing.Color.White;
-            this.ctPanel1.BorderRadius = 50;
-            this.ctPanel1.ForeColor = System.Drawing.Color.Black;
-            this.ctPanel1.GradientAngle = 90F;
-            this.ctPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.ctPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(103)))), ((int)(((byte)(36)))));
-            this.ctPanel1.Location = new System.Drawing.Point(40, 131);
-            this.ctPanel1.Name = "ctPanel1";
-            this.ctPanel1.Size = new System.Drawing.Size(334, 283);
-            this.ctPanel1.TabIndex = 30;
             // 
             // FormTC
             // 

@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 public static class CSKH_ThongBao_DAO
 {
-    // Chuỗi kết nối tới cơ sở dữ liệu, lấy từ file cấu hình với tên connection string "HotelDTO"
+    // Chuỗi kết nối tới CSDL, lấy từ file cấu hình với tên connection string "HotelDTO"
     private static string connectionString =
         ConfigurationManager.ConnectionStrings["HotelDTO"].ConnectionString;
 
@@ -23,10 +23,11 @@ public static class CSKH_ThongBao_DAO
 
             // Câu lệnh SQL lấy các thông báo có ngày gửi bằng ngày hiện tại (so sánh theo phần Date)
             string sql = @"
-                SELECT MaTB, MaPH, NoiDung, ThoiGianGui
-                FROM CSKH_ThongBao
-                WHERE CONVERT(date, ThoiGianGui) = CONVERT(date, GETDATE())
-                ORDER BY ThoiGianGui DESC";
+                SELECT TB.MaTB, TB.MaCTDP, TB.NoiDung, TB.NgayLap, CTDP.MaPH
+                FROM CSKH_ThongBao TB
+                INNER JOIN CTDP CTDP ON TB.MaCTDP = CTDP.MaCTDP
+                WHERE CONVERT(date, TB.NgayLap) = CONVERT(date, GETDATE())
+                ORDER BY TB.NgayLap DESC";
 
             // Thực thi câu lệnh SQL và đọc dữ liệu bằng SqlDataReader
             using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -38,9 +39,10 @@ public static class CSKH_ThongBao_DAO
                     list.Add(new ThongBaoCSKH
                     {
                         MaTB = rd["MaTB"].ToString(),
-                        MaPH = rd["MaPH"].ToString(),
+                        MaCTDP = rd["MaCTDP"].ToString(),
+                        MaPH = rd["MaPH"] != DBNull.Value ? rd["MaPH"].ToString() : string.Empty, // Kiểm tra giá trị null
                         NoiDung = rd["NoiDung"].ToString(),
-                        ThoiGianGui = (DateTime)rd["ThoiGianGui"]
+                        NgayLap = (DateTime)rd["NgayLap"]
                     });
                 }
             }

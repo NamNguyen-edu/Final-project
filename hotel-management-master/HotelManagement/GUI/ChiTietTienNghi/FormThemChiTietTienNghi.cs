@@ -19,12 +19,12 @@ namespace HotelManagement.GUI
 {
     public partial class FormThemChiTietTienNghi : Form
     {
-        //Fields
         private int borderRadius = 20;
         private int borderSize = 2;
         private Color borderColor = Color.White;
+
         LoaiPhong loaiPhong;
-        //Constructor
+
         public FormThemChiTietTienNghi()
         {
             this.DoubleBuffered = true;
@@ -32,6 +32,8 @@ namespace HotelManagement.GUI
             this.Padding = new Padding(borderSize);
             InitializeComponent();
         }
+
+        // Hàm khởi tạo nhận mã loại phòng, dùng để tải thông tin loại phòng và danh sách tiện nghi phù hợp
         public FormThemChiTietTienNghi(string MaLPH)
         {
             this.DoubleBuffered = true;
@@ -41,28 +43,25 @@ namespace HotelManagement.GUI
             InitializeComponent();
             LoadForm();
         }
-        //Control Box
 
-        //Form Move
-
-        //Drag Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
+
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.Style |= 0x20000; // <--- Minimize borderless form from taskbar
+                cp.Style |= 0x20000; 
                 return cp;
             }
         }
 
-        //Private Methods
-        //Private Methods
         #region Draw Form
+
         private GraphicsPath GetRoundedPath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -75,6 +74,7 @@ namespace HotelManagement.GUI
             path.CloseFigure();
             return path;
         }
+
         private void ControlRegionAndBorder(Control control, float radius, Graphics graph, Color borderColor)
         {
             using (GraphicsPath roundPath = GetRoundedPath(control.ClientRectangle, radius))
@@ -85,6 +85,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private void FormRegionAndBorder(Form form, float radius, Graphics graph, Color borderColor, float borderSize)
         {
             if (this.WindowState != FormWindowState.Minimized)
@@ -108,6 +109,7 @@ namespace HotelManagement.GUI
                 }
             }
         }
+
         private void DrawPath(Rectangle rect, Graphics graph, Color color)
         {
             using (GraphicsPath roundPath = GetRoundedPath(rect, borderRadius))
@@ -116,6 +118,7 @@ namespace HotelManagement.GUI
                 graph.DrawPath(penBorder, roundPath);
             }
         }
+
         private struct FormBoundsColors
         {
             public Color TopLeftColor;
@@ -123,36 +126,8 @@ namespace HotelManagement.GUI
             public Color BottomLeftColor;
             public Color BottomRightColor;
         }
-        private FormBoundsColors GetFormBoundsColors()
-        {
-            var fbColor = new FormBoundsColors();
-            using (var bmp = new Bitmap(1, 1))
-            using (Graphics graph = Graphics.FromImage(bmp))
-            {
-                Rectangle rectBmp = new Rectangle(0, 0, 1, 1);
-                //Top Left
-                rectBmp.X = this.Bounds.X - 1;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopLeftColor = bmp.GetPixel(0, 0);
-                //Top Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Y;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.TopRightColor = bmp.GetPixel(0, 0);
-                //Bottom Left
-                rectBmp.X = this.Bounds.X;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomLeftColor = bmp.GetPixel(0, 0);
-                //Bottom Right
-                rectBmp.X = this.Bounds.Right;
-                rectBmp.Y = this.Bounds.Bottom;
-                graph.CopyFromScreen(rectBmp.Location, Point.Empty, rectBmp.Size);
-                fbColor.BottomRightColor = bmp.GetPixel(0, 0);
-            }
-            return fbColor;
-        }
+
+     
         private FormBoundsColors GetSameDark()
         {
             FormBoundsColors colors = new FormBoundsColors();
@@ -162,29 +137,29 @@ namespace HotelManagement.GUI
             colors.BottomRightColor = Color.FromArgb(128, 128, 128);
             return colors;
         }
-        //Event Methods
+
         private void FormThemChiTietTienNghi_Paint(object sender, PaintEventArgs e)
         {
-            //-> SMOOTH OUTER BORDER
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rectForm = this.ClientRectangle;
             int mWidht = rectForm.Width / 2;
             int mHeight = rectForm.Height / 2;
             var fbColors = GetSameDark();
-            //Top Left
+
             DrawPath(rectForm, e.Graphics, fbColors.TopLeftColor);
-            //Top Right
+
             Rectangle rectTopRight = new Rectangle(mWidht, rectForm.Y, mWidht, mHeight);
             DrawPath(rectTopRight, e.Graphics, fbColors.TopRightColor);
-            //Bottom Left
+
             Rectangle rectBottomLeft = new Rectangle(rectForm.X, rectForm.X + mHeight, mWidht, mHeight);
             DrawPath(rectBottomLeft, e.Graphics, fbColors.BottomLeftColor);
-            //Bottom Right
+
             Rectangle rectBottomRight = new Rectangle(mWidht, rectForm.Y + mHeight, mWidht, mHeight);
             DrawPath(rectBottomRight, e.Graphics, fbColors.BottomRightColor);
-            //-> SET ROUNDED REGION AND BORDER
+
             FormRegionAndBorder(this, borderRadius, e.Graphics, borderColor, borderSize);
         }
+
         private void FormThemChiTietTienNghi_Resize(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -199,10 +174,12 @@ namespace HotelManagement.GUI
         {
             this.Invalidate();
         }
+
         private void PanelBackground_Paint(object sender, PaintEventArgs e)
         {
             ControlRegionAndBorder(PanelBackground, borderRadius - (borderSize / 2), e.Graphics, borderColor);
         }
+
         private void PanelBackground_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -218,56 +195,74 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
+
         #endregion
 
+        // Nạp danh sách tiện nghi có thể thêm cho loại phòng (lọc bỏ các tiện nghi đã tồn tại)
         private void LoadForm()
         {
             try
             {
                 this.ComboBoxTenTienNghi.Items.Clear();
+
                 List<TienNghi> tienNghis = TienNghiBUS.Instance.GetTienNghis();
-                List<CTTN> cTTNs = CTTN_BUS.Instance.GetCTTNs().Where(p=>p.MaLPH==loaiPhong.MaLPH).ToList();
+
+                List<CTTN> cTTNs = CTTN_BUS.Instance.GetCTTNs()
+                    .Where(p => p.MaLPH == loaiPhong.MaLPH)
+                    .ToList();
+
+                // Chỉ thêm vào combobox các tiện nghi chưa tồn tại trong loại phòng
                 foreach (TienNghi tienNghi in tienNghis)
                 {
-                    if(cTTNs.Where(p=>p.MaTN==tienNghi.MaTN).Any())
+                    if (cTTNs.Where(p => p.MaTN == tienNghi.MaTN).Any())
                     {
                         continue;
                     }
                     this.ComboBoxTenTienNghi.Items.Add(tienNghi.TenTN);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }    
+        }
+
+        // Sự kiện click nút Thêm, kiểm tra dữ liệu và lưu chi tiết tiện nghi mới cho loại phòng
         private void ButtonThem_Click(object sender, EventArgs e)
         {
             string TenTN = ComboBoxTenTienNghi.Texts;
-            string SL = CTTextBoxSoLuong.Texts; 
+            string SL = CTTextBoxSoLuong.Texts;
             string GhiChu = ctTextBoxGhiChu.Texts;
+
+            // Kiểm tra nhập đầy đủ thông tin bắt buộc
             if (TenTN == "  Tên tiện nghi" || SL == "" || GhiChu == "")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin tiện nghi.", "Thông báo",
-                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             try
             {
+                // Khởi tạo chi tiết tiện nghi mới cho loại phòng
                 CTTN cTTN = new CTTN();
-                cTTN.MaTN = TienNghiBUS.Instance.GetTienNghis().Where(p => p.TenTN == this.ComboBoxTenTienNghi.Texts).Single().MaTN;
+                cTTN.MaTN = TienNghiBUS.Instance.GetTienNghis()
+                                .Where(p => p.TenTN == this.ComboBoxTenTienNghi.Texts)
+                                .Single()
+                                .MaTN;
                 cTTN.MaLPH = loaiPhong.MaLPH;
                 cTTN.SL = int.Parse(CTTextBoxSoLuong.Texts);
+
                 CTTN_BUS.Instance.UpdateOrInsert(cTTN);
 
                 CTMessageBox.Show("Thêm thông tin thành công.", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             catch (Exception)
             {
                 CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -281,5 +276,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxOnlyNumber(e);
         }
+
+  
     }
 }
