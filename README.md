@@ -1,8 +1,10 @@
 MÔN PHÁT TRIỂN ỨNG DỤNG DESKTOP
-Tên đề tài : Phát triển ứng dụng quản lý khách sạn
+
+**Tên đề tài : Phát triển ứng dụng quản lý khách sạn**
 Trong bối cảnh phát triển mạnh mẽ của khoa học – công nghệ, công nghệ thông tin đã trở thành nền tảng quan trọng thúc đẩy quá trình hiện đại hóa và tối ưu hóa hoạt động quản trị trong nhiều lĩnh vực. Việc ứng dụng hệ thống thông tin vào quản lý không chỉ góp phần tự động hóa quy trình nghiệp vụ, mà còn đảm bảo tính chính xác, toàn vẹn và khả năng truy xuất dữ liệu một cách hiệu quả. Bên cạnh đó, các giải pháp công nghệ cho phép rút ngắn thời gian xử lý, hỗ trợ phân tích và đưa ra báo cáo thống kê nhanh chóng, tạo cơ sở cho việc ra quyết định kịp thời. Do vậy, phát triển phần mềm quản lý chuyên biệt được xem là hướng tiếp cận tất yếu nhằm nâng cao hiệu quả tổ chức, giảm thiểu sai sót thủ công và tăng cường khả năng đáp ứng trước yêu cầu thực tiễn.
 Mô tả và mục tiêu dự án
-Mô Tả:
+
+**MÔ TẢ:**
 Hệ thống quản lý khách sạn mà nhóm sử dụng được tham khảo từ nguồn mã trên Github, xây dựng bằng C# WinForms và tổ chức theo mô hình phân tầng gồm GUI, BUS, DAO và DTO. Phần mềm cung cấp đầy đủ các chức năng quản lý cốt lõi như phòng, loại phòng, đặt phòng, khách hàng, nhân viên, dịch vụ, tiện nghi, tài khoản và hóa đơn, đồng thời hỗ trợ thống kê và xuất dữ liệu. Giao diện tương đối trực quan, dễ thao tác, là nền tảng thích hợp để nhóm kế thừa, mở rộng và hoàn thiện trong quá trình thực hiện đề tài.
 
 
