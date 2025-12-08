@@ -31,11 +31,11 @@ namespace HotelManagement.GUI
         {
             try
             {
-                if (webView21.CoreWebView2 == null)
+                if (webView21.CoreWebView2 == null) //nếu chưa có link nào được mở
                 {
                     await webView21.EnsureCoreWebView2Async(null);
                 }
-
+                //Khi đã có link được mở sẵn trên webview
                 webView21.CoreWebView2.NavigationStarting -= CoreWebView2_NavigationStarting;
                 webView21.CoreWebView2.NavigationStarting += CoreWebView2_NavigationStarting;
 
@@ -52,7 +52,7 @@ namespace HotelManagement.GUI
         private string BuildVnPayUrl(double amount, string description)
         {
             VnPayLibrary vnpay = new VnPayLibrary();
-
+            // Thông tin cấu hình truyền tài liệu của VNPay quy định
             vnpay.AddRequestData("vnp_Version", "2.1.0");
             vnpay.AddRequestData("vnp_Command", "pay");
             vnpay.AddRequestData("vnp_TmnCode", VNPayConfig.Vnp_TmnCode); 
@@ -67,6 +67,7 @@ namespace HotelManagement.GUI
             vnpay.AddRequestData("vnp_OrderInfo", description);
             vnpay.AddRequestData("vnp_OrderType", "other");
             vnpay.AddRequestData("vnp_ReturnUrl", VNPayConfig.Vnp_ReturnUrl);
+            // Mã tham chiếu giao dịch duy nhất, tạo theo thời gian đảm bảo tính hợp lệ
             vnpay.AddRequestData("vnp_TxnRef", DateTime.Now.Ticks.ToString());
             return vnpay.CreateRequestUrl(VNPayConfig.Vnp_Url, VNPayConfig.Vnp_HashSecret);
         }
@@ -79,20 +80,16 @@ namespace HotelManagement.GUI
                 e.Cancel = true; 
 
                 try
-                {
+                { 
                     Uri myUri = new Uri(e.Uri);
 
-                    string queryString = myUri.Query;
-
+                    string queryString = myUri.Query; //Đọc link webview đang mở
                     if (!string.IsNullOrEmpty(queryString))
                     {
                         queryString = queryString.TrimStart('?');
-
                         string[] listParams = queryString.Split('&');
-
                         string vnp_ResponseCode = "";
                         string vnp_TransactionNo = "";
-
                         foreach (string param in listParams)
                         {
                             string[] parts = param.Split('=');
@@ -105,8 +102,7 @@ namespace HotelManagement.GUI
                                 if (key == "vnp_TransactionNo") vnp_TransactionNo = value;
                             }
                         }
-
-                        if (vnp_ResponseCode == "00")
+                        if (vnp_ResponseCode == "00") //Nếu mã thanh toán trả về thành công
                         {
                             CTMessageBox.Show($"Thanh toán thành công!\nMã GD: {vnp_TransactionNo}",
                                             "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -122,7 +118,7 @@ namespace HotelManagement.GUI
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception ex) //Trả lỗi xử lý
                 {
                     CTMessageBox.Show("Lỗi xử lý: " + ex.Message);
                 }

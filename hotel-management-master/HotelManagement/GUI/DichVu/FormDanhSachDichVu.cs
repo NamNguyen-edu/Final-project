@@ -22,6 +22,7 @@ namespace HotelManagement.GUI
         private List<DichVu> dichVus;
         private FormMain formMain;
         private TaiKhoan taiKhoan;
+
         // Khởi tạo form danh sách dịch vụ
         public FormDanhSachDichVu(FormMain formMain, TaiKhoan taiKhoan)
         {

@@ -57,12 +57,12 @@ namespace HotelManagement.Utils
                 string tenLoaiPhong = phong?.LoaiPhong?.TenLPH ?? "(Không có)";
 
                 sbRows.Append($@"
-        <tr>
-            <td>{ctdp.MaPH}</td>
-            <td>{tenLoaiPhong}</td>
-            <td>{ctdp.CheckIn:dd/MM/yyyy HH:mm}</td>
-            <td>{ctdp.CheckOut:dd/MM/yyyy HH:mm}</td>
-        </tr>");
+                <tr>
+                    <td>{ctdp.MaPH}</td>
+                    <td>{tenLoaiPhong}</td>
+                    <td>{ctdp.CheckIn:dd/MM/yyyy HH:mm}</td>
+                    <td>{ctdp.CheckOut:dd/MM/yyyy HH:mm}</td>
+                </tr>");
             }
 
             string template = Properties.Resources.EmailTemplate;

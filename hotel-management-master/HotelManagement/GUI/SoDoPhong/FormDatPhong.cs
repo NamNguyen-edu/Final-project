@@ -284,6 +284,7 @@ namespace HotelManagement.GUI
                 CTMessageBox.Show(ex.Message);
             }
         }
+        // Tải các phòng đã chọn
         private void LoadGridPhongDat()
         {
             try
@@ -316,7 +317,7 @@ namespace HotelManagement.GUI
 
                     setDate(CTDatePickerNgayKT.Value, 2);
                     setTime(cbBoxGioKetThuc.Texts, cbBoxLetterKetThuc.Texts, 2);
-                    if (this.CheckIn < DateTime.Now)
+                    if (this.CheckIn < DateTime.Now)    
                     {
                         CTMessageBox.Show("Thời gian bắt đầu không hợp lệ.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -704,7 +705,7 @@ namespace HotelManagement.GUI
             {
                 try
                 {
-                    Phong phong = PhongBUS.Instance.FindePhong(ctdp.MaPH);
+                    Phong phong = PhongBUS.Instance.FindePhong(ctdp.MaPH); //Truy vấn theo mã phòng
                     HoaDon hd = new HoaDon();
                     hd.MaHD = HoaDonBUS.Instance.getMaHDNext();   
                     hd.MaCTDP = ctdp.MaCTDP;                     
@@ -736,7 +737,7 @@ namespace HotelManagement.GUI
             TextBox textBoxNotNumber = sender as TextBox;
             textBoxNotNumber.KeyPress += TextBoxNotNumber_KeyPress;
         }
-        private void TextBoxNotNumber_KeyPress(object sender, KeyPressEventArgs e)
+        private void TextBoxNotNumber_KeyPress(object sender, KeyPressEventArgs e)S
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }

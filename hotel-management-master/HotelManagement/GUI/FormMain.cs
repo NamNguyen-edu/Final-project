@@ -502,10 +502,8 @@ namespace HotelManagement
             openChildForm(new FormDanhSachDichVu(this, this.taiKhoan));
         }
 
-
         private void ButtonDanhSachTienNghi_Click(object sender, EventArgs e)
         {
-
             SetAllButtonNormalColor();
             SetColorButtonTrangChu();
             ButtonDanhSachTienNghi.BackColor = Color.FromArgb(233, 117, 32);
@@ -513,7 +511,6 @@ namespace HotelManagement
 
             openChildForm(new FormDanhSachTienNghi(this, this.taiKhoan));
         }
-
 
         private void ButtonDanhSachTaiKhoan_Click(object sender, EventArgs e)
         {
