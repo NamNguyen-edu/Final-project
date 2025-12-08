@@ -64,7 +64,7 @@ namespace HotelManagement.Utils
                     <td>{ctdp.CheckOut:dd/MM/yyyy HH:mm}</td>
                 </tr>");
             }
-
+            // Xử lý truyền dữ liệu
             string template = Properties.Resources.EmailTemplate;
 
             template = template.Replace("{{TEN_KHACH}}", kh.TenKH);
