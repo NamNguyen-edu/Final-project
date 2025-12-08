@@ -67,7 +67,7 @@ Hệ thống được tham khảo và phát triển dựa trên nguồn mã từ
 
 ## Tài liệu thiết kế
 
- [Vui lòng xem tại:](https://www.figma.com/design/Bu9eMyV22omL6QS5m668gA/-Desktop--Hotel-Management?node-id=0-1&t=xDi6yZJ5HBtgXV2B-1)
+- [Tài liệu thiết kế](https://www.figma.com/design/Bu9eMyV22omL6QS5m668gA/-Desktop--Hotel-Management?node-id=0-1&t=xDi6yZJ5HBtgXV2B-1)
 
 ## Tài liệu hướng dẫn người dùng
 
