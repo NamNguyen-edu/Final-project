@@ -737,7 +737,7 @@ namespace HotelManagement.GUI
             TextBox textBoxNotNumber = sender as TextBox;
             textBoxNotNumber.KeyPress += TextBoxNotNumber_KeyPress;
         }
-        private void TextBoxNotNumber_KeyPress(object sender, KeyPressEventArgs e)S
+        private void TextBoxNotNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
