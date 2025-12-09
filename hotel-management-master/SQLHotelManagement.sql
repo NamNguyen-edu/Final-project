@@ -676,6 +676,66 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
+/****** Object:  Trigger [dbo].[CapNhatGiaCTDP]    Script Date: 27/11/2025 2:09:55 CH ******/
+
+-- Trigger Update Giá phòng
+CREATE TRIGGER [dbo].[CapNhatGiaCTDP] ON [dbo].[CTDP] FOR INSERT,UPDATE
+AS
+BEGIN
+	DECLARE @MaPhong NVARCHAR(5)
+	SET @MaPhong = (SELECT MaPH FROM inserted)
+	DECLARE @MaCTDP NVARCHAR(7)
+	SET @MaCTDP = (SELECT MaCTDP FROM inserted)
+	DECLARE @GiaNgay MONEY
+	SET @GiaNgay = (SELECT  LoaiPhong.GiaNgay
+					FROM Phong JOIN LoaiPhong ON Phong.MaLPH=LoaiPhong.MaLPH
+					WHERE Phong.MaPH=@MaPhong
+					)
+	DECLARE @GiaGio MONEY
+	SET @GiaGio = (SELECT  LoaiPhong.GiaGio
+					FROM Phong JOIN LoaiPhong ON Phong.MaLPH=LoaiPhong.MaLPH
+					WHERE Phong.MaPH=@MaPhong
+					)
+	DECLARE @CheckIn SMALLDATETIME, @CheckOut SMALLDATETIME,@KhoangTGNgay INT, @KhoangTGGio INT, @TienDatCoc money
+	SET @CheckIn = (SELECT CheckIn FROM inserted)
+	SET @CheckOut = (SELECT CheckOut FROM inserted)
+	SET @KhoangTGNgay=  (SELECT DATEDIFF(DAY, @CheckIn, @CheckOut))
+	SET @TienDatCoc = (SELECT TienDatCoc FROM inserted where MaCTDP = @MaCTDP)
+	IF @KhoangTGNgay < 1
+	BEGIN
+	SET @KhoangTGGio=  (SELECT DATEDIFF(HOUR, @CheckIn, @CheckOut))		
+		IF @KhoangTGGio < 4
+			BEGIN
+				DECLARE @DonGia MONEY
+				SET @DonGia = (SELECT GiaGio FROM LoaiPhong JOIN Phong ON LoaiPhong.MaLPH = Phong.MaLPH JOIN CTDP ON CTDP.MaPH=Phong.MaPH WHERE CTDP.MaCTDP=@MaCTDP) 
+				UPDATE CTDP
+				SET "ThanhTien"= (@KhoangTGGio * @GiaGio) - @TienDatCoc
+				WHERE @MaCTDP = MaCTDP
+				UPDATE CTDP
+				SET "TheoGio"= 1
+				WHERE @MaCTDP = MaCTDP
+				UPDATE CTDP
+				SET "DonGia"= @DonGia
+				WHERE @MaCTDP = MaCTDP
+			END
+		ELSE
+			BEGIN
+				UPDATE CTDP
+				SET "ThanhTien"= @GiaNgay - @TienDatCoc
+				WHERE @MaCTDP = MaCTDP
+			END
+	END
+	ELSE
+	BEGIN
+		UPDATE CTDP
+		SET "DonGia"= @GiaNgay
+		WHERE @MaCTDP = MaCTDP
+		UPDATE CTDP
+		SET "ThanhTien"= @KhoangTGNgay * @GiaNgay -@TienDatCoc
+		WHERE @MaCTDP = MaCTDP
+	END
+END
+
 CREATE TRIGGER [dbo].[CapNhatGiaDV] ON [dbo].[CTDV] FOR INSERT,UPDATE
 AS
 BEGIN
