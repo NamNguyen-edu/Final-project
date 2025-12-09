@@ -87,7 +87,7 @@ CREATE TABLE [dbo].[CSKH_ThongBao](
 	[MaTB] [nvarchar](5) NOT NULL,
 	[MaPH] [nvarchar](5) NOT NULL,
 	[NoiDung] [nvarchar](255) NOT NULL,
-	[ThoiGianGui] [smalldatetime] NOT NULL,
+	[NgayLap] [smalldatetime] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[MaTB] ASC
@@ -322,8 +322,8 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-INSERT [dbo].[CSKH_ThongBao] ([MaTB], [MaPH], [NoiDung], [ThoiGianGui]) VALUES (N'TB001', N'P101', N'Khách phòng yêu cầu thêm 2 chai nước suối.', CAST(N'2025-11-29T09:15:00' AS SmallDateTime))
-INSERT [dbo].[CSKH_ThongBao] ([MaTB], [MaPH], [NoiDung], [ThoiGianGui]) VALUES (N'TB002', N'P102', N'Khách phòng cần thêm khăn tắm.', CAST(N'2025-11-29T09:30:00' AS SmallDateTime))
+INSERT [dbo].[CSKH_ThongBao] ([MaTB], [MaPH], [NoiDung], [NgayLap]) VALUES (N'TB001', N'P101', N'Khách phòng yêu cầu thêm 2 chai nước suối.', CAST(N'2025-11-29T09:15:00' AS SmallDateTime))
+INSERT [dbo].[CSKH_ThongBao] ([MaTB], [MaPH], [NoiDung], [NgayLap]) VALUES (N'TB002', N'P102', N'Khách phòng cần thêm khăn tắm.', CAST(N'2025-11-29T09:30:00' AS SmallDateTime))
 GO
 INSERT [dbo].[CTDP] ([MaCTDP], [SoNguoi], [MaPT], [MaPH], [CheckIn], [CheckOut], [TrangThai], [DonGia], [ThanhTien], [DaXoa], [TheoGio], [TienDatCoc]) VALUES (N'CTDP001', 2, N'PT001', N'P101', CAST(N'2022-05-11T00:00:00' AS SmallDateTime), CAST(N'2022-05-15T00:00:00' AS SmallDateTime), N'Đã xong', 300000.0000, 1200000.0000, 0, 0, 0.0000)
 INSERT [dbo].[CTDP] ([MaCTDP], [SoNguoi], [MaPT], [MaPH], [CheckIn], [CheckOut], [TrangThai], [DonGia], [ThanhTien], [DaXoa], [TheoGio], [TienDatCoc]) VALUES (N'CTDP002', 2, N'PT001', N'P103', CAST(N'2022-06-11T00:00:00' AS SmallDateTime), CAST(N'2022-06-15T00:00:00' AS SmallDateTime), N'Đã xong', 400000.0000, 1600000.0000, 0, 0, 0.0000)
