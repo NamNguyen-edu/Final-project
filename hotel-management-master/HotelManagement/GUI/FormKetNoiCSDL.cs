@@ -179,20 +179,6 @@ namespace HotelManagement.GUI
         #endregion
 
         #region Hiệu ứng nút
-        private void buttonDefault_MouseMove(object sender, MouseEventArgs e)
-        {
-            buttonDefault.BackColor = Color.FromArgb(255, 205, 0);
-            buttonDefault.BackgroundColor = Color.FromArgb(255, 205, 0);
-            buttonDefault.BorderColor = Color.FromArgb(229, 184, 0);
-        }
-
-        private void buttonDefault_MouseLeave(object sender, EventArgs e)
-        {
-            buttonDefault.BackColor = Color.FromArgb(255, 222, 85);
-            buttonDefault.BackgroundColor = Color.FromArgb(255, 222, 85);
-            buttonDefault.BorderColor = Color.FromArgb(255, 222, 85);
-        }
-
         private void buttonKetNoi_MouseMove(object sender, MouseEventArgs e)
         {
             buttonKetNoi.BorderColor = Color.FromArgb(32, 122, 229);
@@ -311,35 +297,6 @@ namespace HotelManagement.GUI
         private void ctMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void buttonDefault_Click(object sender, EventArgs e)
-        {
-            #region Kiểm tra kết nối CSDL 
-            string connectionString = @"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\Database\HotelManagement.mdf;integrated security=True;connect timeout=30;MultipleActiveResultSets=True;App=EntityFramework";
-            try
-            {
-                SqlHelper sqlHelper = new SqlHelper(connectionString);
-                if (sqlHelper.isConnected)
-                {
-                    ConnectDB connectDB = new ConnectDB();
-                    connectDB.ReloadFileConfig("HotelDTO", connectionString);
-                    CTMessageBox.Show("Kết nối CSDL thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    using (FormLogin formLogin = new FormLogin())
-                    {
-                        this.Hide();
-                        formLogin.ShowDialog();
-                        this.Close();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng khởi động lại chương trình.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            #endregion
-
-            this.Close();
         }
 
         #endregion

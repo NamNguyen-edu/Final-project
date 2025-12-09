@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKetNoiCSDL));
             this.panelBackground = new System.Windows.Forms.Panel();
-            this.buttonDefault = new HotelManagement.CTControls.CTButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxDB = new HotelManagement.CTControls.CTTextBox();
             this.panelControlBox = new System.Windows.Forms.Panel();
@@ -48,7 +47,6 @@
             // 
             // panelBackground
             // 
-            this.panelBackground.Controls.Add(this.buttonDefault);
             this.panelBackground.Controls.Add(this.pictureBox1);
             this.panelBackground.Controls.Add(this.textBoxDB);
             this.panelBackground.Controls.Add(this.panelControlBox);
@@ -63,29 +61,6 @@
             this.panelBackground.TabIndex = 0;
             this.panelBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBackground_Paint);
             this.panelBackground.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBackground_MouseDown);
-            // 
-            // buttonDefault
-            // 
-            this.buttonDefault.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(85)))));
-            this.buttonDefault.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(85)))));
-            this.buttonDefault.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(85)))));
-            this.buttonDefault.BorderRadius = 15;
-            this.buttonDefault.BorderSize = 2;
-            this.buttonDefault.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDefault.FlatAppearance.BorderSize = 0;
-            this.buttonDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDefault.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDefault.ForeColor = System.Drawing.Color.Black;
-            this.buttonDefault.Location = new System.Drawing.Point(87, 258);
-            this.buttonDefault.Name = "buttonDefault";
-            this.buttonDefault.Size = new System.Drawing.Size(207, 40);
-            this.buttonDefault.TabIndex = 16;
-            this.buttonDefault.Text = "Sử dụng CSDL mặc định";
-            this.buttonDefault.TextColor = System.Drawing.Color.Black;
-            this.buttonDefault.UseVisualStyleBackColor = false;
-            this.buttonDefault.Click += new System.EventHandler(this.buttonDefault_Click);
-            this.buttonDefault.MouseLeave += new System.EventHandler(this.buttonDefault_MouseLeave);
-            this.buttonDefault.MouseMove += new System.Windows.Forms.MouseEventHandler(this.buttonDefault_MouseMove);
             // 
             // pictureBox1
             // 
@@ -115,7 +90,7 @@
             this.textBoxDB.PlaceholderColor = System.Drawing.Color.Silver;
             this.textBoxDB.PlaceholderText = "Nhập tên database";
             this.textBoxDB.ReadOnly = false;
-            this.textBoxDB.Size = new System.Drawing.Size(271, 28);
+            this.textBoxDB.Size = new System.Drawing.Size(271, 31);
             this.textBoxDB.TabIndex = 11;
             this.textBoxDB.Texts = "";
             this.textBoxDB.UnderlineedStyle = false;
@@ -141,6 +116,7 @@
             this.ctMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMaximize.Enabled = false;
             this.ctMaximize.Location = new System.Drawing.Point(10, 7);
+            this.ctMaximize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMaximize.Name = "ctMaximize";
             this.ctMaximize.Size = new System.Drawing.Size(15, 15);
             this.ctMaximize.TabIndex = 2;
@@ -151,6 +127,7 @@
             this.ctMinimize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMinimize.BackgroundImage")));
             this.ctMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMinimize.Location = new System.Drawing.Point(40, 6);
+            this.ctMinimize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMinimize.Name = "ctMinimize";
             this.ctMinimize.Size = new System.Drawing.Size(15, 15);
             this.ctMinimize.TabIndex = 1;
@@ -162,6 +139,7 @@
             this.ctClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctClose.BackgroundImage")));
             this.ctClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctClose.Location = new System.Drawing.Point(71, 6);
+            this.ctClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctClose.Name = "ctClose";
             this.ctClose.Size = new System.Drawing.Size(15, 15);
             this.ctClose.TabIndex = 0;
@@ -174,7 +152,7 @@
             this.checkBoxLuu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxLuu.Location = new System.Drawing.Point(402, 210);
             this.checkBoxLuu.Name = "checkBoxLuu";
-            this.checkBoxLuu.Size = new System.Drawing.Size(173, 25);
+            this.checkBoxLuu.Size = new System.Drawing.Size(217, 32);
             this.checkBoxLuu.TabIndex = 13;
             this.checkBoxLuu.Text = "Lưu thông tin kết nối";
             this.checkBoxLuu.UseVisualStyleBackColor = true;
@@ -185,7 +163,7 @@
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(293, 45);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(278, 37);
+            this.labelTitle.Size = new System.Drawing.Size(225, 46);
             this.labelTitle.TabIndex = 9;
             this.labelTitle.Text = "Kết nối CSDL";
             // 
@@ -201,7 +179,7 @@
             this.buttonKetNoi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonKetNoi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKetNoi.ForeColor = System.Drawing.Color.White;
-            this.buttonKetNoi.Location = new System.Drawing.Point(352, 258);
+            this.buttonKetNoi.Location = new System.Drawing.Point(213, 260);
             this.buttonKetNoi.Name = "buttonKetNoi";
             this.buttonKetNoi.Size = new System.Drawing.Size(150, 40);
             this.buttonKetNoi.TabIndex = 12;
@@ -230,7 +208,7 @@
             this.textBoxServer.PlaceholderColor = System.Drawing.Color.Silver;
             this.textBoxServer.PlaceholderText = "Nhập tên server";
             this.textBoxServer.ReadOnly = false;
-            this.textBoxServer.Size = new System.Drawing.Size(271, 28);
+            this.textBoxServer.Size = new System.Drawing.Size(271, 31);
             this.textBoxServer.TabIndex = 10;
             this.textBoxServer.Texts = "";
             this.textBoxServer.UnderlineedStyle = false;
@@ -238,7 +216,7 @@
             // FormKetNoiCSDL
             // 
             this.AcceptButton = this.buttonKetNoi;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(599, 330);
@@ -276,6 +254,5 @@
         private CTControls.CTButton buttonKetNoi;
         private CTControls.CTTextBox textBoxServer;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private CTControls.CTButton buttonDefault;
     }
 }
