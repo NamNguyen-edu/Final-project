@@ -103,20 +103,35 @@ namespace HotelManagement.DAO
         public string GenerateNextRoomCode(int tang)
         {
             var codes = db.Phongs
-                          .Where(p => p.Tang == tang && p.DaXoa == false)
-                          .Select(p => p.MaPH)
-                          .ToList();
+                  .Where(p => p.Tang == tang && p.DaXoa == false)
+                  .Select(p => p.MaPH)
+                  .ToList();
             int maxNum = tang * 100;
+            HashSet<int> orders = new HashSet<int>();
             foreach (var c in codes)
             {
                 if (c != null && c.Length >= 4 && int.TryParse(c.Substring(1), out var n))
                 {
-                    if (n / 100 == tang && n > maxNum) maxNum = n;
+                    if (n / 100 == tang)
+                    {
+                        orders.Add(n % 100);
+
+                        if (n > maxNum)
+                            maxNum = n;
+                    }
                 }
             }
-            int next = (maxNum % 100) + 1;   // số thứ tự kế tiếp trong tầng
-            int num = tang * 100 + next;    // VD: tầng 2 → 200 + 1 = 201
-            return "P" + num.ToString("000"); // "P201"
+            for (int i = 1; i <= (maxNum % 100); i++)
+            {
+                if (!orders.Contains(i))
+                {
+                    int fillNum = tang * 100 + i;
+                    return "P" + fillNum.ToString("000");
+                }
+            }
+            int next = (maxNum % 100) + 1;
+            int num = tang * 100 + next;
+            return "P" + num.ToString("000");
         }
     }
 }

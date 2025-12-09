@@ -142,13 +142,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\HotelManagement.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database\HotelManagement_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>HotelManagement.mdf</DependentUpon>
-    </Content>
     <None Include="Resources\audiotrangchu.wav" />
     <None Include="Resources\audiotrangchu %281%29.wav" />
     <None Include="Resources\android-chrome-192x192.png" />
