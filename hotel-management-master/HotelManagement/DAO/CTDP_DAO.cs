@@ -194,7 +194,7 @@ namespace HotelManagement.DAO
                 foreach (var c in list)
                 {
                     // Nếu đã qua 3 giờ kể từ CheckIn mà vẫn chỉ là "Đã đặt"
-                    if (c.CheckIn.AddMinutes(1) <= now)
+                    if (c.CheckIn.AddHours(3) <= now)
                     {
                         c.TrangThai = "Đã xong";
                     }

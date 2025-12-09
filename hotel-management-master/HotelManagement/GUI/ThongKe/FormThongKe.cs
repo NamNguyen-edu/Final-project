@@ -290,15 +290,18 @@ namespace HotelManagement.GUI.ThongKe
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // Hàm in
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(_dashboardBitmap, e.MarginBounds);
             e.HasMorePages = false;
         }
+        // Chọn nút tổng quan
         private void btnTongQuan_Click(object sender, EventArgs e)
         {
             ChonTab(btnTongQuan, pnlTongQuan);
         }
+
         private void btnPhong_Click(object sender, EventArgs e)
         {
             ChonTab(btnPhong, pnlPhong);

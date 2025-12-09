@@ -152,6 +152,7 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
+        //Hiển thị lựa chọn Tầng
         private void FormThemPhong_Load(object sender, EventArgs e)
         {
             this.ActiveControl = LabelThemPhong;
