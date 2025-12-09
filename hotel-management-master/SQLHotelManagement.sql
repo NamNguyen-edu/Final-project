@@ -31,7 +31,7 @@ CREATE TABLE KhachHang(
      [CCCD/Passport]  NVARCHAR(12) NOT NULL UNIQUE,
      QuocTich  NVARCHAR(30) NOT NULL,
      GioiTinh  NVARCHAR(3) NOT NULL,
-	Email VARCHAR(100) NULL,
+	 Email VARCHAR(100) NULL,
 	 DaXoa  BIT
 );
 CREATE TABLE  Phong (
@@ -273,18 +273,18 @@ INSERT INTO NhanVien (MaNV,TenNV,NgaySinh,DiaChi, GioiTinh,Luong,ChucVu,CCCD,SDT
 	INSERT INTO TaiKhoan (TenTK,Password,MaNV, CapDoQuyen ) VALUES ('NhanVien','1234','NV001',1) 
 
 -- Khach Hang
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [[CCCD/Passport]] , SDT,  DaXoa ) VALUES ('KH001',N'Nguyễn Văn A', N'Nam', N'Việt Nam', '072001056912', '092391233',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [[CCCD/Passport]]t , SDT,  DaXoa ) VALUES ('KH002',N'Nguyễn Văn B', N'Nam', N'Việt Nam', '072001056913', '092391234',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [[CCCD/Passport]] , SDT,  DaXoa ) VALUES ('KH003',N'Nguyễn Văn C', N'Nam', N'Việt Nam', '072001056914', '092391235',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH004',N'Phạm Thi P', N'Nữ', N'Việt Nam', '072001546231', '092361213',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH005',N'Phạm Thi G', N'Nữ', N'Việt Nam', '072001012231', '082361233',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH006',N'Nguyễn Văn D', N'Nam', N'Việt Nam', '072001056952', '092391236',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH007',N'Nguyễn Văn E', N'Nam', N'Việt Nam', '072001056911', '092391237',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH008',N'Phạm Thi H', N'Nữ', N'Việt Nam', '072001078231', '096361233',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH009',N'Nguyễn Văn F', N'Nam', N'Việt Nam', '072001056976', '092391238',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH010',N'Nguyễn Văn G', N'Nam', N'Việt Nam', '072001056919', '092391229',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH011',N'Phạm Thi U', N'Nữ', N'Việt Nam', '072071756231', '071236123',0)
-	INSERT INTO KhachHang (MaKH,TenKH, GioiTinh, QuocTich,  [CCCD/Passport] , SDT,  DaXoa ) VALUES ('KH012',N'Phạm Thi T', N'Nữ', N'Việt Nam', '072041056231', '022361233',0)
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH001', N'Nguyễn Văn A', N'Nam', N'Việt Nam', '072001056912', '092391233', 'vana001@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH002', N'Nguyễn Văn B', N'Nam', N'Việt Nam', '072001056913', '092391234', 'vanb002@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH003', N'Nguyễn Văn C', N'Nam', N'Việt Nam', '072001056914', '092391235', 'vanc003@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH004', N'Phạm Thị P', N'Nữ', N'Việt Nam', '072001546231', '092361213', 'thip004@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH005', N'Phạm Thị G', N'Nữ', N'Việt Nam', '072001012231', '082361233', 'thig005@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH006', N'Nguyễn Văn D', N'Nam', N'Việt Nam', '072001056952', '092391236', 'vand006@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH007', N'Nguyễn Văn E', N'Nam', N'Việt Nam', '072001056911', '092391237', 'vane007@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH008', N'Phạm Thị H', N'Nữ', N'Việt Nam', '072001078231', '096361233', 'thih008@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH009', N'Nguyễn Văn F', N'Nam', N'Việt Nam', '072001056976', '092391238', 'vanf009@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH010', N'Nguyễn Văn G', N'Nam', N'Việt Nam', '072001056919', '092391229', 'vang010@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH011', N'Phạm Thị U', N'Nữ', N'Việt Nam', '072071756231', '071236123', 'thiu011@gmail.com', 0);
+	INSERT INTO KhachHang (MaKH, TenKH, GioiTinh, QuocTich, [CCCD/Passport], SDT, Email, DaXoa) VALUES ('KH012', N'Phạm Thị T', N'Nữ', N'Việt Nam', '072041056231', '022361233', 'thit012@gmail.com', 0);
 -- Dich Vu
 	INSERT INTO DiCHVU (MaDV, TenDV ,LoaiDV, SLConLai ,DonGia, DaXoa ) VALUES ('DV01', N'Nước suối', N'Thức uống', '100','10000',0)
 	INSERT INTO DiCHVU (MaDV, TenDV ,LoaiDV, SLConLai ,DonGia, DaXoa ) VALUES ('DV02', N'Coca cola', N'Thức uống', '100','15000',0)
