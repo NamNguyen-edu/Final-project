@@ -153,6 +153,8 @@
     <None Include="Resources\audiotrangchu %281%29.wav" />
     <None Include="Resources\android-chrome-192x192.png" />
     <None Include="Resources\apple-touch-icon.png" />
+    <None Include="Resources\avatar nhanvien.png" />
+    <None Include="Resources\avatar_nhanvien-removebg-preview.png" />
     <Content Include="Resources\calendardark.png" />
     <Content Include="Resources\calendarwhite.png" />
     <None Include="Resources\ChuaDon.png" />

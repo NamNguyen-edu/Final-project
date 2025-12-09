@@ -75,8 +75,8 @@ namespace HotelManagement.GUI
                 {
                     CTDP ctdp = CTDP_DAO.Instance.FindCTDP(phong.MaPH, this.dateTime);
                     if (phong.TTPH == "Bình thường" && ctdp != null)
-                    {
-                        if (ctdp.TrangThai == "Đang thuê" && (this.CTRadioButtonPhongDangThue.Checked || this.CTRadioButtonTatCaPhong.Checked))
+                    { 
+                        if (ctdp.TrangThai == "Đang thuê" && (this.CTRadioButtonPhongDangThue.Checked || this.CTRadioButtonTatCaPhong.Checked)) //Lọc phòng đang thuê
                         {
                             CTRoomDangThue room = new CTRoomDangThue(ctdp, this, this.formMain, this.taiKhoan);
                             room.Name = "PhongDangThue";
@@ -84,16 +84,16 @@ namespace HotelManagement.GUI
                                 room.setThoiGian(CTDP_BUS.Instance.getKhoangTGTheoNgay(ctdp.MaCTDP).ToString() + " Ngày");
                             else
                                 room.setThoiGian(CTDP_BUS.Instance.getKhoangTGTheoGio(ctdp.MaCTDP).ToString() + " Giờ");
-                            if (phong.TTDD == "Đã dọn dẹp")
+                            if (phong.TTDD == "Đã dọn dẹp") // Lấy trạng thái dọn dẹp
                                 room.setDaDonDep();
                             else
                                 room.setChuaDonDep();
                             room.setMaPhong(phong.MaPH);
                             room.setLoaiPhong(phong.LoaiPhong.TenLPH);
-                            DSPhong.Add(room);
+                            DSPhong.Add(room); //Thêm lên giao diện
                         }
                     }
-                    else if (phong.TTPH == "Đang sửa chữa" && (this.CTRadioButtonPhongDangSuaChua.Checked || this.CTRadioButtonTatCaPhong.Checked))
+                    else if (phong.TTPH == "Đang sửa chữa" && (this.CTRadioButtonPhongDangSuaChua.Checked || this.CTRadioButtonTatCaPhong.Checked)) // Lọc phòng đang sửa chữa
                     {
                         CTRoomDangSuaChua room = new CTRoomDangSuaChua(phong, this, this.formMain);
                         room.Name = "PhongSuaChua";
@@ -108,7 +108,7 @@ namespace HotelManagement.GUI
 
                     }
 
-                    if (phong.TTPH == "Bình thường" && ctdp != null)
+                    if (phong.TTPH == "Bình thường" && ctdp != null) //Lọc phòng bình thường
                     {
                         if (ctdp.TrangThai == "Đã cọc" && (this.CTRadioButtonPhongDaDat.Checked || this.CTRadioButtonTatCaPhong.Checked))
                         {
@@ -128,7 +128,7 @@ namespace HotelManagement.GUI
                         }
 
                     }
-                    if (phong.TTPH == "Bình thường" && (ctdp == null || ctdp.TrangThai == "Đã xong") && (this.CTRadioButtonPhongTrong.Checked || this.CTRadioButtonTatCaPhong.Checked))
+                    if (phong.TTPH == "Bình thường" && (ctdp == null || ctdp.TrangThai == "Đã xong") && (this.CTRadioButtonPhongTrong.Checked || this.CTRadioButtonTatCaPhong.Checked)) //Lọc phòng trống
                     {
                         CTRoomTrong room = new CTRoomTrong(phong, this, this.formMain, taiKhoan);
                         room.Name = "PhongTrong";
@@ -141,12 +141,12 @@ namespace HotelManagement.GUI
                         DSPhong.Add(room);
                     }
                 }
-                this.flowLayoutPanel1.Controls.Clear();
+                this.flowLayoutPanel1.Controls.Clear(); //Chia giao diện theo tầng
                 this.flowLayoutPanel2.Controls.Clear();
                 this.flowLayoutPanel3.Controls.Clear();
                 this.flowLayoutPanel4.Controls.Clear();
                 this.flowLayoutPanel5.Controls.Clear();
-                foreach (CTRoom cTRoom in DSPhong)
+                foreach (CTRoom cTRoom in DSPhong) //Hiển thị theo số tầng
                 {
 
                     if (cTRoom.MaPhong.StartsWith("P1"))

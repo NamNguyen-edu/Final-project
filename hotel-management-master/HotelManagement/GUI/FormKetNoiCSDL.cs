@@ -228,7 +228,7 @@ namespace HotelManagement.GUI
                 }
                 else
                 {
-                    // Set default
+                    // Cài đặt mặc định
                 }
             }
             catch (Exception ex)
