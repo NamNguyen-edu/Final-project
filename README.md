@@ -65,13 +65,14 @@ Hệ thống được tham khảo và phát triển dựa trên nguồn mã từ
 
 ---
 
-## Tài liệu thiết kế
-
+## Tài liệu thiết kế và cải tiến
+- [Tài liệu các cải tiến thực hiện](https://drive.google.com/file/d/1EBcFqUqf2RnMR37D_agDlWiMISDpG-uA/view?usp=sharing)
 - [Tài liệu thiết kế](https://www.figma.com/design/Bu9eMyV22omL6QS5m668gA/-Desktop--Hotel-Management?node-id=0-1&t=xDi6yZJ5HBtgXV2B-1)
 
 ## Tài liệu hướng dẫn người dùng
 
 - [Tài liệu cho người dùng cuối](https://docs.google.com/document/d/1-CXPADXYelVAHcclm1upGS8X6H1JOe6d/edit?usp=drive_link&ouid=106608410238280657212&rtpof=true&sd=true)
+
 
 ---
 
